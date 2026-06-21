@@ -1,60 +1,187 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QUESTION BANK CSWIP 3.1</title>
+
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
 body{
-font-family:Arial,sans-serif;
-max-width:900px;
-margin:auto;
+background:#f4f6f9;
 padding:20px;
-background:#f4f4f4;
 }
-h1{
+
+.container{
+max-width:1000px;
+margin:auto;
+}
+
+.header{
+background:linear-gradient(135deg,#0057b8,#1e88e5);
+color:white;
+padding:25px;
+border-radius:12px;
 text-align:center;
-color:#0066cc;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+margin-bottom:20px;
 }
-a{
-display:block;
-padding:12px;
-margin:6px 0;
+
+.header h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.header p{
+font-size:18px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-bottom:20px;
+}
+
+.card{
 background:white;
-border:1px solid #ccc;
-border-radius:5px;
-text-decoration:none;
-color:black;
-font-weight:bold;
+padding:15px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
-a:hover{
-background:#e6f0ff;
+
+.card h2{
+color:#0057b8;
+font-size:28px;
+}
+
+.search-box{
+margin-bottom:20px;
+}
+
+.search-box input{
+width:100%;
+padding:14px;
+font-size:16px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.menu{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:12px;
+}
+
+.menu a{
+background:white;
+padding:16px;
+text-decoration:none;
+color:#222;
+font-weight:bold;
+border-radius:10px;
+border-left:6px solid #0057b8;
+transition:0.2s;
+box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+.menu a:hover{
+transform:translateY(-3px);
+background:#eef6ff;
+}
+
+.footer{
+margin-top:25px;
+text-align:center;
+color:#666;
+font-size:14px;
 }
 </style>
 </head>
+
 <body>
 
-<h1>QUESTION BANK CSWIP 3.1</h1>
+<div class="container">
 
-<a href="CSWIP_Soal_1-100.html">Part 1 (1-100)</a>
-<a href="CSWIP_Soal_101-200.html">Part 2 (101-200)</a>
-<a href="CSWIP_Soal_201-300.html">Part 3 (201-300)</a>
-<a href="CSWIP_Soal_301-400.html">Part 4 (301-400)</a>
-<a href="CSWIP_Soal_401-500.html">Part 5 (401-500)</a>
-<a href="CSWIP_Soal_501-600.html">Part 6 (501-600)</a>
-<a href="CSWIP_Soal_601-700.html">Part 7 (601-700)</a>
-<a href="CSWIP_Soal_701-800.html">Part 8 (701-800)</a>
-<a href="CSWIP_Soal_801-900.html">Part 9 (801-900)</a>
-<a href="CSWIP_Soal_901-1000.html">Part 10 (901-1000)</a>
-<a href="CSWIP_Soal_1001-1100.html">Part 11 (1001-1100)</a>
-<a href="CSWIP_Soal_1101-1200.html">Part 12 (1101-1200)</a>
-<a href="CSWIP_Soal_1201-1300.html">Part 13 (1201-1300)</a>
-<a href="CSWIP_Soal_1301-1400.html">Part 14 (1301-1400)</a>
-<a href="CSWIP_Soal_1401-1500.html">Part 15 (1401-1500)</a>
-<a href="CSWIP_Soal_1501-1600.html">Part 16 (1501-1600)</a>
-<a href="CSWIP_Soal_1601-1700.html">Part 17 (1601-1700)</a>
-<a href="CSWIP_Soal_1701-1800.html">Part 18 (1701-1800)</a>
-<a href="CSWIP_Soal_1801-1900.html">Part 19 (1801-1900)</a>
-<a href="CSWIP_Soal_1901-2000.html">Part 20 (1901-2000)</a>
+<div class="header">
+<h1>QUESTION BANK CSWIP 3.1</h1>
+<p>2000 Questions Interactive Quiz</p>
+</div>
+
+<div class="stats">
+<div class="card">
+<h2>20</h2>
+<div>Quiz Parts</div>
+</div>
+
+<div class="card">
+<h2>2000</h2>
+<div>Total Questions</div>
+</div>
+
+<div class="card">
+<h2>CSWIP</h2>
+<div>3.1 Welding Inspector</div>
+</div>
+</div>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Search Part..." onkeyup="filterMenu()">
+</div>
+
+<div class="menu" id="menu">
+
+<a href="CSWIP_Soal_1-100.html">📘 Part 1 (1-100)</a>
+<a href="CSWIP_Soal_101-200.html">📘 Part 2 (101-200)</a>
+<a href="CSWIP_Soal_201-300.html">📘 Part 3 (201-300)</a>
+<a href="CSWIP_Soal_301-400.html">📘 Part 4 (301-400)</a>
+<a href="CSWIP_Soal_401-500.html">📘 Part 5 (401-500)</a>
+<a href="CSWIP_Soal_501-600.html">📘 Part 6 (501-600)</a>
+<a href="CSWIP_Soal_601-700.html">📘 Part 7 (601-700)</a>
+<a href="CSWIP_Soal_701-800.html">📘 Part 8 (701-800)</a>
+<a href="CSWIP_Soal_801-900.html">📘 Part 9 (801-900)</a>
+<a href="CSWIP_Soal_901-1000.html">📘 Part 10 (901-1000)</a>
+
+<a href="CSWIP_Soal_1001-1100.html">📙 Part 11 (1001-1100)</a>
+<a href="CSWIP_Soal_1101-1200.html">📙 Part 12 (1101-1200)</a>
+<a href="CSWIP_Soal_1201-1300.html">📙 Part 13 (1201-1300)</a>
+<a href="CSWIP_Soal_1301-1400.html">📙 Part 14 (1301-1400)</a>
+<a href="CSWIP_Soal_1401-1500.html">📙 Part 15 (1401-1500)</a>
+<a href="CSWIP_Soal_1501-1600.html">📙 Part 16 (1501-1600)</a>
+<a href="CSWIP_Soal_1601-1700.html">📙 Part 17 (1601-1700)</a>
+<a href="CSWIP_Soal_1701-1800.html">📙 Part 18 (1701-1800)</a>
+<a href="CSWIP_Soal_1801-1900.html">📙 Part 19 (1801-1900)</a>
+<a href="CSWIP_Soal_1901-2000.html">📙 Part 20 (1901-2000)</a>
+
+</div>
+
+<div class="footer">
+© 2026 CSWIP 3.1 Question Bank
+</div>
+
+</div>
+
+<script>
+function filterMenu() {
+let input = document.getElementById("search");
+let filter = input.value.toUpperCase();
+let menu = document.getElementById("menu");
+let links = menu.getElementsByTagName("a");
+
+for (let i = 0; i < links.length; i++) {
+let txt = links[i].textContent || links[i].innerText;
+links[i].style.display =
+txt.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+}
+}
+</script>
 
 </body>
 </html>
