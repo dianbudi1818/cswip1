@@ -1,0 +1,2081 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>QUESTION BANK CSWIP 3.1 - Part 6 (Soal 501-600)</title>
+<style>
+body{font-family:Arial;max-width:1100px;margin:auto;background:#f4f4f4;padding:20px}
+.box{background:#fff;padding:20px;border-radius:10px}
+h1{text-align:center;margin:5px}
+h2{text-align:center;margin:5px;color:green}
+.navrow{display:flex;justify-content:center;gap:6px;margin:10px 0}
+.num{width:38px;height:38px;border-radius:50%;border:none;font-weight:bold;cursor:pointer}
+.current{outline:3px solid blue}
+.unanswered{background:#ddd}
+.correct{background:#28a745;color:#fff}
+.wrong{background:#dc3545;color:#fff}
+.option{display:block;width:100%;padding:10px;margin:8px 0;text-align:left;cursor:pointer;border:1px solid #ccc;border-radius:4px;background:#fff;font-size:14px}
+.option:hover{background:#f0f0f0}
+.progress{height:10px;background:#ddd;border-radius:10px}
+.fill{height:100%;background:#28a745;border-radius:10px;transition:width 0.3s}
+.review-box{background:#eef;padding:20px;margin-top:20px;border-radius:8px}
+.q-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.q-num-badge{background:#1a73e8;color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:14px}
+.nav-prev-next{display:flex;justify-content:space-between;align-items:center;margin-top:15px}
+.btn-nav{padding:8px 18px;font-size:14px;cursor:pointer;border:1px solid #ccc;border-radius:4px;background:#fff}
+.btn-nav:hover{background:#e8e8e8}
+.counter-bar{text-align:center;font-weight:bold;color:#555;margin:6px 0 12px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>QUESTION BANK CSWIP 3.1</h1>
+<h3 style="text-align:center;color:#1a73e8;margin:2px">Part 6 &mdash; Soal 501 s/d 600</h3>
+<h2>INSYA ALLAH LULUS</h2>
+
+
+<div id="topExamBar" style="margin-bottom:12px">
+  <div style="display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap">
+    <button class="btn-nav" onclick="prevQ()">◀ Previous</button>
+    <div id="navTop"></div>
+    <button class="btn-nav" onclick="nextQ()">Next ▶</button>
+  </div>
+  <div style="margin-top:6px;font-size:14px;font-weight:bold;text-align:center">
+    <span style="color:green">✔ Correct: <span id="correctCnt">0</span></span> |
+    <span style="color:red">✘ False: <span id="falseCnt">0</span></span> |
+    <span>☐ Blank: <span id="blankCnt">0</span></span> |
+    <span>%: <span id="pctTop">0</span></span>
+  </div>
+</div>
+
+<div id="question"></div>
+<div id="options"></div>
+<div id="result"></div>
+
+<div class="nav-prev-next">
+  <button class="btn-nav" onclick="prevQ()">⬅ Previous</button>
+  <button class="btn-nav" onclick="nextQ()">Next ➡</button>
+</div>
+
+
+<div id="review"></div>
+</div>
+
+<script>
+const qs=[
+  {
+    "q": "A maximum inter-pass temperature is generally given to control:",
+    "t": "Soal ini menguji pemahaman mengenai alasan penetapan batas maksimum suhu inter-pass (interpass temperature) pada proses pengelasan multi-pass, khususnya pengaruhnya terhadap sifat mekanik HAZ (Heat Affected Zone).",
+    "o": [
+      "A. High HAZ hardness",
+      "B. Low HAZ toughness",
+      "C. Lack of inter-run fusion",
+      "D. Excess levels of penetration"
+    ],
+    "a": 1,
+    "exp": "Suhu inter-pass yang terlalu tinggi akan memperlambat laju pendinginan (cooling rate) pada setiap lapisan las. Pendinginan yang terlalu lambat menyebabkan pertumbuhan butir (grain growth) yang berlebihan pada HAZ, sehingga menurunkan ketangguhan (toughness) daerah tersebut. Oleh karena itu, batas maksimum interpass temperature ditetapkan untuk mencegah penurunan toughness HAZ akibat efek panas berulang dari pass-pass berikutnya.",
+    "w": {
+      "0": "Kekerasan HAZ yang tinggi justru dikontrol dengan menetapkan suhu minimum preheat/interpass, bukan suhu maksimum. Suhu minimum memperlambat pendinginan secukupnya untuk mencegah terbentuknya struktur martensit yang keras dan getas.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Kurangnya fusi antar-run (lack of inter-run fusion) umumnya disebabkan oleh teknik pengelasan yang kurang tepat (sudut elektroda, arus rendah, kecepatan las tidak sesuai), bukan oleh suhu inter-pass yang terlalu tinggi.",
+      "3": "Penetrasi berlebih lebih dipengaruhi oleh parameter arus las, kecepatan pengelasan, dan desain sambungan (joint design), bukan oleh kontrol suhu inter-pass."
+    }
+  },
+  {
+    "q": "Lamellar tears in steel weldment may only be formed when:",
+    "t": "Soal ini menguji pemahaman mengenai mekanisme terjadinya lamellar tearing pada baja, yaitu kondisi tegangan yang harus terjadi agar cacat ini dapat terbentuk.",
+    "o": [
+      "A. Using deep penetration welding processes (high current density)",
+      "B. High levels of stresses act in the short transverse direction in the steel",
+      "C. Martensite has formed in the weld HAZ",
+      "D. Low melting point iron sulphide (FeS) has formed in the fusion zone"
+    ],
+    "a": 1,
+    "exp": "Lamellar tearing terjadi pada base metal (bukan pada weld metal) akibat tegangan susut (shrinkage stress) yang bekerja pada arah short transverse (tegak lurus arah rolling pelat). Tegangan ini bekerja pada inklusi non-logam pipih (seperti MnS stringer) yang tersusun sejajar permukaan pelat hasil rolling, sehingga retak berbentuk bertingkat (terrace-like) terbentuk sejajar permukaan pelat di daerah HAZ base metal.",
+    "w": {
+      "0": "Proses penetrasi dalam dapat meningkatkan risiko, tetapi bukan syarat mutlak terjadinya lamellar tearing. Faktor utamanya adalah arah tegangan dan adanya inklusi non-logam, bukan jenis proses pengelasan.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Pembentukan martensit pada HAZ berkaitan dengan hydrogen cracking, bukan lamellar tearing. Lamellar tearing adalah cacat mekanis akibat tegangan dan inklusi, bukan akibat perubahan struktur mikro.",
+      "3": "FeS bertitik leleh rendah berkaitan dengan solidification cracking pada weld metal, bukan lamellar tearing yang terjadi pada base metal."
+    }
+  },
+  {
+    "q": "The temperature gradient of steels subjected to post heat-treatment stress relief cycle must be carefully controlled at all temperatures above 300°C in order to:",
+    "t": "Soal ini menguji pemahaman mengenai tujuan pengendalian laju pemanasan/pendinginan (temperature gradient) selama siklus stress relief (PWHT), khususnya di atas suhu 300°C.",
+    "o": [
+      "A. Ensure that a minimum of expensive heat energy is used",
+      "B. Reduce the formation of hard martensitic structures",
+      "C. Allow the weld to diffuse any hydrogen into the HAZ",
+      "D. Heated to a full transformation to austenite then rapidly cooled"
+    ],
+    "a": 2,
+    "exp": "Pengendalian laju kenaikan suhu secara hati-hati (tidak terlalu cepat) di atas 300°C memberi waktu yang cukup bagi hidrogen terlarut untuk berdifusi keluar dari logam las dan HAZ (catatan: konsep yang benar adalah hidrogen berdifusi *keluar*, mengurangi risiko hydrogen cracking) sebelum suhu terus naik menuju suhu stress relief penuh. Jika laju pemanasan terlalu cepat, hidrogen dapat terjebak dan menimbulkan risiko retak.",
+    "w": {
+      "0": "Efisiensi biaya energi bukan pertimbangan metalurgi dalam pengendalian gradien suhu PWHT; tujuan utamanya bersifat metalurgi dan struktural, bukan ekonomi.",
+      "1": "Martensit terbentuk akibat pendinginan cepat setelah pengelasan (dikontrol dengan preheat/interpass), bukan selama siklus stress relief yang dilakukan setelah weld sudah dingin dan dipanaskan ulang secara terkendali.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Stress relief dilakukan pada suhu di bawah titik transformasi (Ac1), bukan sampai full austenisasi, dan pendinginannya dilakukan secara lambat dan terkendali, bukan didinginkan cepat (quench)."
+    }
+  },
+  {
+    "q": "Which of the following could be used to minimize the occurrence of solidification cracks in steel welds?",
+    "t": "Soal ini menguji pemahaman mengenai faktor-faktor yang memengaruhi solidification cracking (hot cracking) dan cara-cara untuk meminimalkannya.",
+    "o": [
+      "A. Increase sulphur levels",
+      "B. Reduce the dilution into the base metal",
+      "C. Increase carbon content in the weld metal",
+      "D. Reduce the manganese content in the weld metal"
+    ],
+    "a": 1,
+    "exp": "Mengurangi dilusi (pencampuran base metal ke dalam weld metal) membantu menjaga komposisi logam las tetap mendekati komposisi consumable yang terkontrol, sehingga mengurangi masuknya unsur-unsur pemicu solidification cracking (seperti S, P, C) yang mungkin terdapat pada base metal.",
+    "w": {
+      "0": "Peningkatan kadar sulfur justru meningkatkan risiko solidification cracking karena membentuk FeS bertitik leleh rendah pada batas butir saat solidifikasi.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Kadar karbon yang tinggi memperbesar rentang solidifikasi dan meningkatkan segregasi unsur pemicu retak, sehingga meningkatkan risiko solidification cracking, bukan menguranginya.",
+      "3": "Mangan justru berfungsi mengikat sulfur menjadi MnS (titik leleh lebih tinggi dari FeS), sehingga mengurangi kadar Mn justru meningkatkan risiko solidification cracking."
+    }
+  },
+  {
+    "q": "Silicon is added to steel and covering of MMA electrode to:",
+    "t": "Soal ini menguji pemahaman mengenai fungsi unsur silikon (Si) dalam baja dan dalam coating elektroda MMA.",
+    "o": [
+      "A. Provide oxidation",
+      "B. Improve strength",
+      "C. Improve toughness",
+      "D. Provide more resistance to hydrogen cracking"
+    ],
+    "a": 0,
+    "exp": "Silikon berfungsi sebagai unsur deoksidasi (deoxidizer) pada logam las dan flux/coating elektroda MMA. Silikon mengikat oksigen dalam kolam las sehingga mengurangi risiko porositas akibat oksigen terlarut.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Silikon dapat memberikan sedikit efek solid solution strengthening, tetapi ini bukan fungsi utamanya dalam coating elektroda.",
+      "2": "Kadar silikon yang berlebihan justru cenderung menurunkan toughness logam las, bukan meningkatkannya.",
+      "3": "Ketahanan terhadap hydrogen cracking lebih dipengaruhi oleh kadar hidrogen difusibel, jenis elektroda (low hydrogen), dan preheat, bukan oleh kandungan silikon."
+    }
+  },
+  {
+    "q": "Hydrogen cracking in HAZ is most likely to occur when welding:",
+    "t": "Soal ini menguji pemahaman mengenai jenis baja yang paling rentan terhadap hydrogen cracking pada HAZ.",
+    "o": [
+      "A. Carbon manganese steels",
+      "B. Austenitic stainless steel",
+      "C. Micro-alloyed steel (HSLA)",
+      "D. All the above"
+    ],
+    "a": 2,
+    "exp": "Baja micro-alloyed (HSLA) memiliki kekuatan tinggi dan hardenability yang lebih besar akibat unsur paduan mikro (Nb, V, Ti) serta struktur butir halus, sehingga lebih rentan membentuk struktur HAZ yang keras dan getas (rentan terhadap hydrogen cracking) dibandingkan baja karbon-mangan biasa.",
+    "w": {
+      "0": "Baja C-Mn juga dapat mengalami hydrogen cracking, namun tingkat kerentanannya umumnya lebih rendah dibandingkan baja HSLA karena hardenability yang lebih rendah.",
+      "1": "Baja stainless austenitic memiliki struktur FCC dengan kelarutan hidrogen yang tinggi dan tidak membentuk martensit, sehingga sangat tidak rentan terhadap hydrogen cracking pada HAZ.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Pilihan ini salah karena opsi B (austenitic stainless steel) tidak rentan terhadap hydrogen cracking, sehingga tidak semua pilihan di atas benar."
+    }
+  },
+  {
+    "q": "Crater cracks are caused mainly by:",
+    "t": "Soal ini menguji pemahaman mengenai penyebab utama terjadinya crater crack pada akhir jalur las.",
+    "o": [
+      "A. Excessively fast welding speeds",
+      "B. Improper electrode angle",
+      "C. Hot shrinkage",
+      "D. Improper joint design"
+    ],
+    "a": 2,
+    "exp": "Crater crack terjadi pada saat busur las dihentikan secara tiba-tiba, meninggalkan crater yang merupakan bagian terakhir yang membeku. Bagian ini mengalami tegangan susut (shrinkage stress) yang tinggi selama proses solidifikasi akhir, sehingga membentuk retak berbentuk bintang (star crack) akibat hot shrinkage.",
+    "w": {
+      "0": "Kecepatan las yang berlebihan dapat menyebabkan cacat lain seperti undercut atau lack of fusion, namun bukan penyebab utama crater crack.",
+      "1": "Sudut elektroda yang tidak tepat berkaitan dengan cacat seperti undercut atau profil las yang tidak baik, bukan penyebab utama crater crack.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Desain sambungan yang kurang tepat lebih berkaitan dengan cacat seperti lack of penetration atau lack of fusion, bukan crater crack."
+    }
+  },
+  {
+    "q": "What is meant by the term crater pipe?",
+    "t": "Soal ini menguji pemahaman mengenai istilah \"crater pipe\" dalam terminologi cacat las.",
+    "o": [
+      "A. Another term for concave root",
+      "B. Another term for burn through",
+      "C. A type of gas pore in weld crater",
+      "D. A shrinkage defect in weld crater"
+    ],
+    "a": 3,
+    "exp": "Crater pipe adalah cacat berupa rongga penyusutan (shrinkage cavity) berbentuk pipa yang terbentuk pada crater akibat penyusutan logam las saat solidifikasi akhir, mirip dengan shrinkage cavity pada proses pengecoran logam.",
+    "w": {
+      "0": "Concave root adalah cacat profil pada akar las akibat root yang cekung, bukan rongga penyusutan pada crater.",
+      "1": "Burn through adalah cacat akibat logam las jatuh menembus material dasar, berbeda dengan crater pipe yang merupakan rongga penyusutan.",
+      "2": "Crater pipe bukan disebabkan oleh gas terperangkap, melainkan oleh penyusutan logam saat solidifikasi, sehingga ini bukan jenis porositas gas.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Stress hydrogen release temperature range:",
+    "t": "Soal ini menguji pemahaman mengenai rentang suhu yang digunakan untuk proses post-heat (hydrogen release treatment) guna membantu difusi hidrogen keluar dari logam las.",
+    "o": [
+      "A. 250°C – 300°C",
+      "B. 550°C – 700°C",
+      "C. 720°C – 900°C",
+      "D. None"
+    ],
+    "a": 0,
+    "exp": "Post-heat treatment untuk pelepasan hidrogen (hydrogen release/dehydrogenation) umumnya dilakukan pada rentang suhu sekitar 250°C–300°C dengan waktu tahan tertentu, segera setelah pengelasan selesai dan sebelum sambungan mendingin hingga suhu ruang. Tujuannya adalah memberi waktu bagi hidrogen difusibel untuk keluar dari logam las dan HAZ sebelum risiko hydrogen cracking meningkat.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Rentang suhu ini adalah rentang suhu untuk stress relief heat treatment (PWHT) pada baja karbon-mangan, bukan untuk proses pelepasan hidrogen.",
+      "2": "Rentang suhu ini mendekati atau melebihi suhu transformasi (Ac1/Ac3) baja, jauh lebih tinggi dari yang dibutuhkan untuk proses hydrogen release dan dapat mengubah struktur mikro material.",
+      "3": "Pilihan ini tidak tepat karena memang terdapat rentang suhu standar (sekitar 250°C–300°C) yang digunakan untuk proses hydrogen release."
+    }
+  },
+  {
+    "q": "Centreline cracking observed, first action:",
+    "t": "Soal ini menguji pemahaman mengenai tindakan pertama yang harus diambil ketika seorang welding inspector menemukan centreline cracking pada hasil las.",
+    "o": [
+      "A. Impound all welding consumables",
+      "B. Report occurrence",
+      "C. Stop all welding",
+      "D. Call full NDT"
+    ],
+    "a": 2,
+    "exp": "Centreline cracking merupakan indikasi cacat serius yang dapat menunjukkan adanya masalah sistemik (misalnya pada konsumabel, parameter las, atau material). Tindakan pertama yang tepat adalah menghentikan seluruh aktivitas pengelasan terkait untuk mencegah terus diproduksinya sambungan las yang cacat, sebelum dilakukan investigasi, pelaporan, dan NDT lebih lanjut.",
+    "w": {
+      "0": "Penyitaan consumable dapat menjadi bagian dari investigasi lanjutan, namun bukan tindakan pertama yang paling mendesak dibandingkan menghentikan pengelasan.",
+      "1": "Pelaporan tetap penting dan harus dilakukan, namun secara prioritas tindakan menghentikan pengelasan harus didahulukan untuk mencegah kerusakan lebih lanjut.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "NDT menyeluruh adalah langkah investigasi lanjutan setelah pengelasan dihentikan dan kejadian dilaporkan, bukan tindakan pertama."
+    }
+  },
+  {
+    "q": "Lamellar tearing buffering layer will:",
+    "t": "Soal ini menguji pemahaman mengenai fungsi buttering/buffer layer dalam mencegah lamellar tearing.",
+    "o": [
+      "A. Improve ductility",
+      "B. Disperse heat",
+      "C. Improve toughness",
+      "D. Improve hardness"
+    ],
+    "a": 0,
+    "exp": "Buffer/buttering layer adalah lapisan las dengan kekuatan lebih rendah dan keuletan (ductility) lebih tinggi yang diaplikasikan pada permukaan base metal yang rentan sebelum pengelasan utama dilakukan. Lapisan ini berfungsi menyerap dan mendistribusikan regangan arah short transverse, sehingga mengurangi tegangan yang diteruskan ke base metal yang rentan terhadap lamellar tearing.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Buffer layer tidak berfungsi untuk mendispersikan panas; fungsinya terkait pengurangan tegangan/regangan, bukan manajemen panas.",
+      "2": "Buffer layer tidak secara khusus dirancang untuk meningkatkan toughness, melainkan untuk menyerap regangan melalui peningkatan ductility lokal.",
+      "3": "Justru sebaliknya, buffer layer dirancang dengan kekuatan dan kekerasan yang lebih rendah agar lebih ulet dan mampu menyerap regangan."
+    }
+  },
+  {
+    "q": "Austenitic stainless steel may suffer:",
+    "t": "Soal ini menguji pemahaman mengenai berbagai jenis permasalahan metalurgi yang dapat terjadi pada pengelasan baja stainless austenitic.",
+    "o": [
+      "A. Weld decay",
+      "B. Sensitization",
+      "C. Solidification cracking",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Baja stainless austenitic dapat mengalami sensitization (presipitasi karbida krom pada batas butir akibat pemanasan pada rentang suhu kritis), yang menyebabkan weld decay (korosi intergranular di sekitar HAZ). Selain itu, struktur fully austenitic yang rentan terhadap segregasi unsur pengotor juga membuatnya rentan terhadap solidification cracking. Ketiga permasalahan ini benar-benar dapat terjadi pada baja stainless austenitic.",
+    "w": {
+      "0": "Pilihan ini benar namun tidak lengkap, karena baja stainless austenitic juga rentan terhadap sensitization dan solidification cracking.",
+      "1": "Pilihan ini benar namun tidak lengkap, karena weld decay dan solidification cracking juga merupakan permasalahan nyata pada baja ini.",
+      "2": "Pilihan ini benar namun tidak lengkap, karena sensitization dan weld decay juga merupakan permasalahan yang dapat terjadi.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Repair welding is more difficult due to:",
+    "t": "Soal ini menguji pemahaman mengenai faktor-faktor yang menyebabkan repair welding lebih sulit dibandingkan pengelasan awal (original welding).",
+    "o": [
+      "A. In-service contamination",
+      "B. Restricted access",
+      "C. Weld position",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Repair welding sering kali lebih sulit karena kombinasi beberapa faktor: kontaminasi akibat pemakaian di lapangan (in-service contamination seperti minyak, korosi, atau produk proses), akses yang terbatas karena struktur di sekitarnya sudah terpasang, serta posisi pengelasan yang tidak ideal karena keterbatasan akses tersebut. Ketiga faktor ini umumnya muncul bersamaan pada pekerjaan repair welding.",
+    "w": {
+      "0": "Pilihan ini benar namun tidak lengkap, karena restricted access dan weld position juga menjadi faktor penyulit dalam repair welding.",
+      "1": "Pilihan ini benar namun tidak lengkap, karena in-service contamination dan weld position juga turut menyulitkan pekerjaan repair.",
+      "2": "Pilihan ini benar namun tidak lengkap, karena in-service contamination dan restricted access juga merupakan faktor penyulit yang signifikan.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Longitudinal shrinkage occurs:",
+    "t": "Soal ini menguji pemahaman mengenai arah terjadinya longitudinal shrinkage pada sambungan las.",
+    "o": [
+      "A. Along the weld length",
+      "B. Across the weld",
+      "C. Through thickness of the weld",
+      "D. Both a and b"
+    ],
+    "a": 0,
+    "exp": "Longitudinal shrinkage adalah penyusutan yang terjadi searah dengan panjang las (sejajar sumbu las), menyebabkan pemendekan pada arah memanjang sambungan akibat kontraksi logam las saat mendingin.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Penyusutan yang terjadi melintang (tegak lurus sumbu las) disebut transverse shrinkage, bukan longitudinal shrinkage.",
+      "2": "Penyusutan pada arah ketebalan berkaitan dengan angular distortion, bukan longitudinal shrinkage.",
+      "3": "Pilihan ini salah karena longitudinal shrinkage hanya terjadi pada arah memanjang (A), bukan juga arah melintang (B)."
+    }
+  },
+  {
+    "q": "Back step welding is used to reduce:",
+    "t": "Soal ini menguji pemahaman mengenai tujuan utama penggunaan teknik back step welding.",
+    "o": [
+      "A. Distortion",
+      "B. Residual stress",
+      "C. Fatigue failure",
+      "D. Both a and b",
+      "E. All of the above"
+    ],
+    "a": 0,
+    "exp": "Back step welding adalah teknik pengelasan dengan arah pengelasan mundur secara bertahap (segmen pendek), yang bertujuan menyeimbangkan tegangan susut pada arah memanjang sehingga distorsi dapat dikurangi.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Back step welding tidak secara signifikan menghilangkan residual stress; tegangan sisa tetap ada meskipun distribusinya lebih seimbang.",
+      "2": "Kegagalan fatigue lebih dipengaruhi oleh desain sambungan, cacat las, dan beban siklik, bukan oleh teknik back step welding.",
+      "3": "Pilihan ini salah karena tujuan utama back step welding adalah mengurangi distorsi, bukan residual stress.",
+      "4": "Pilihan ini salah karena B dan C bukan tujuan utama dari teknik back step welding."
+    }
+  },
+  {
+    "q": "Single V butt weld, 50 mm thickness, welded from one side, highly restrained?",
+    "t": "Soal ini menguji pemahaman mengenai hubungan antara restraint (penahanan) terhadap distorsi dan residual stress pada sambungan las tebal yang sangat dibatasi pergerakannya.",
+    "o": [
+      "A. Low distortion, low residual stress",
+      "B. High distortion, high residual stress",
+      "C. Low distortion, high residual stress",
+      "D. High distortion, low residual stress"
+    ],
+    "a": 2,
+    "exp": "Pada sambungan yang sangat restrained (dibatasi pergerakannya), logam tidak dapat bergerak bebas untuk mengakomodasi penyusutan, sehingga distorsi yang terlihat secara fisik menjadi rendah. Namun, karena pergerakan dicegah, tegangan akibat penyusutan tidak dapat terlepas dan terakumulasi di dalam material sebagai residual stress yang tinggi.",
+    "w": {
+      "0": "Restraint yang tinggi justru meningkatkan residual stress karena tegangan penyusutan tidak dapat terlepas melalui pergerakan material.",
+      "1": "Distorsi seharusnya rendah pada kondisi sangat restrained karena material tidak dapat bergerak bebas, bukan tinggi.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Pilihan ini terbalik; restraint tinggi menyebabkan distorsi rendah namun residual stress tinggi, bukan sebaliknya."
+    }
+  },
+  {
+    "q": "Which material shows greatest distortion (same heat input/thickness)?",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh sifat material terhadap tingkat distorsi pada heat input dan ketebalan yang sama.",
+    "o": [
+      "A. High tensile strength C/Mn steel",
+      "B. Mild steel",
+      "C. 316L Steel",
+      "D. QT steel"
+    ],
+    "a": 2,
+    "exp": "Baja stainless austenitic seperti 316L memiliki koefisien muai panas (thermal expansion) yang tinggi dan konduktivitas termal yang rendah dibandingkan baja karbon, sehingga panas terkonsentrasi pada area sempit dan menyebabkan ekspansi/kontraksi lebih besar, menghasilkan distorsi yang lebih tinggi dibandingkan baja karbon biasa.",
+    "w": {
+      "0": "Baja C/Mn kekuatan tinggi memiliki konduktivitas termal lebih baik dan muai panas lebih rendah dibandingkan 316L, sehingga distorsinya lebih rendah.",
+      "1": "Mild steel memiliki konduktivitas termal yang relatif baik dan muai panas lebih rendah dibandingkan stainless steel, sehingga distorsinya lebih kecil dibandingkan 316L.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Baja quenched & tempered umumnya memiliki sifat termal mirip baja karbon biasa, jauh lebih rendah potensi distorsinya dibandingkan stainless steel austenitic."
+    }
+  },
+  {
+    "q": "Which properties affect distortion?",
+    "t": "Soal ini menguji pemahaman mengenai sifat-sifat material yang memengaruhi tingkat distorsi pada pengelasan.",
+    "o": [
+      "A. Elasticity",
+      "B. Yield strength",
+      "C. Thermal conductivity",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Elastisitas, yield strength, dan konduktivitas termal semuanya memengaruhi seberapa besar material akan terdistorsi akibat siklus pemanasan dan pendinginan selama pengelasan, karena ketiganya menentukan bagaimana material merespons tegangan termal yang timbul.",
+    "w": {
+      "0": "Pilihan ini benar namun tidak lengkap, karena yield strength dan konduktivitas termal juga berpengaruh terhadap distorsi.",
+      "1": "Pilihan ini benar namun tidak lengkap, karena elastisitas dan konduktivitas termal juga merupakan faktor yang berpengaruh.",
+      "2": "Pilihan ini benar namun tidak lengkap, karena elastisitas dan yield strength juga turut memengaruhi distorsi.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Welding process producing least angular distortion?",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh proses pengelasan terhadap tingkat angular distortion, dikaitkan dengan besarnya heat input masing-masing proses.",
+    "o": [
+      "A. MMA",
+      "B. SAW",
+      "C. MIG/MAG",
+      "D. ESW"
+    ],
+    "a": 0,
+    "exp": "Di antara proses yang tercantum, MMA umumnya memiliki heat input yang lebih rendah dan terkonsentrasi dibandingkan SAW dan ESW, sehingga menghasilkan angular distortion yang relatif lebih kecil.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "SAW menggunakan heat input yang besar dengan kolam las yang dalam dan lebar, sehingga cenderung menghasilkan angular distortion yang lebih besar.",
+      "2": "MIG/MAG dapat memiliki heat input yang bervariasi tergantung mode transfer, namun umumnya lebih tinggi dibandingkan MMA pada kondisi tertentu, sehingga berpotensi distorsi lebih besar.",
+      "3": "ESW (Electroslag Welding) memiliki heat input yang sangat besar karena digunakan untuk material tebal dalam satu pass, sehingga menghasilkan distorsi dan HAZ yang signifikan."
+    }
+  },
+  {
+    "q": "Butt weld preparation that distorts least?",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh sudut bevel/desain joint preparation terhadap volume logam las dan tingkat distorsi.",
+    "o": [
+      "A. Single V 70°",
+      "B. Single V 60°",
+      "C. Single U 15°",
+      "D. Single J 70°"
+    ],
+    "a": 2,
+    "exp": "Preparasi Single U dengan sudut 15° memiliki sudut bukaan paling kecil di antara pilihan yang ada, sehingga membutuhkan volume logam las paling sedikit. Semakin sedikit volume logam las yang diendapkan, semakin kecil penyusutan dan distorsi yang dihasilkan.",
+    "w": {
+      "0": "Sudut bukaan yang besar (70°) membutuhkan volume logam las yang jauh lebih banyak, sehingga meningkatkan potensi distorsi.",
+      "1": "Meskipun lebih kecil dari 70°, sudut ini masih jauh lebih besar dibandingkan Single U 15°, sehingga volume logam las dan distorsi tetap lebih besar.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Sudut bevel 70° pada preparasi J tetap menghasilkan volume logam las yang lebih besar dibandingkan Single U 15°, sehingga distorsinya lebih tinggi."
+    }
+  },
+  {
+    "q": "Angular distortion is caused mainly by:",
+    "t": "Soal ini menguji pemahaman mengenai penyebab utama terjadinya angular distortion pada sambungan las.",
+    "o": [
+      "A. Through thickness shrinkage",
+      "B. Transverse shrinkage",
+      "C. Longitudinal shrinkage",
+      "D. None"
+    ],
+    "a": 1,
+    "exp": "Angular distortion terjadi akibat perbedaan besarnya transverse shrinkage pada berbagai posisi ketebalan logam las (lebih besar di bagian atas yang memiliki lebih banyak logam las dibandingkan di bagian akar), sehingga menyebabkan pelat berputar/melengkung membentuk sudut.",
+    "w": {
+      "0": "Penyusutan arah ketebalan bukan istilah standar yang menjadi penyebab utama angular distortion; perbedaan transverse shrinkage antar lapisan adalah penyebab utamanya.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Longitudinal shrinkage menyebabkan pemendekan arah memanjang las (bowing/camber), bukan distorsi sudut (angular distortion).",
+      "3": "Pilihan ini salah karena angular distortion memang memiliki penyebab utama yang jelas, yaitu transverse shrinkage yang tidak merata."
+    }
+  },
+  {
+    "q": "Least distortion butt welded joint?",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh teknik pengelasan (jumlah pass dan ukuran elektroda) terhadap tingkat distorsi.",
+    "o": [
+      "A. Single V butt single pass 6 mm electrode",
+      "B. Single V butt multipass 3.25 mm electrode",
+      "C. Single V butt multipass 4 mm electrode",
+      "D. All same"
+    ],
+    "a": 1,
+    "exp": "Pengelasan multipass dengan elektroda berdiameter kecil (3.25 mm) menghasilkan heat input per pass yang lebih rendah dan jumlah pass yang lebih banyak, sehingga penyusutan terdistribusi lebih merata dan seimbang antar pass, menghasilkan distorsi yang lebih kecil dibandingkan single pass dengan elektroda besar.",
+    "w": {
+      "0": "Single pass dengan elektroda besar menghasilkan heat input tinggi dalam satu kali pengelasan, sehingga penyusutan terjadi sekaligus dan distorsi cenderung lebih besar.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Meskipun multipass, elektroda 4 mm menghasilkan heat input per pass yang lebih besar dibandingkan 3.25 mm, sehingga distorsinya tetap lebih besar dibandingkan opsi B.",
+      "3": "Pilihan ini salah karena ukuran elektroda dan jumlah pass terbukti memengaruhi besarnya distorsi yang dihasilkan."
+    }
+  },
+  {
+    "q": "Spot heating temperature limited to 650°C because:",
+    "t": "Soal ini menguji pemahaman mengenai alasan teknis pembatasan suhu pada teknik spot/line heating untuk perbaikan distorsi.",
+    "o": [
+      "A. Higher temperature won't remove distortion",
+      "B. Steel melts",
+      "C. Difficult to achieve",
+      "D. Prevent metallurgical damage",
+      "E. Both a and d"
+    ],
+    "a": 3,
+    "exp": "Suhu pemanasan dibatasi hingga sekitar 650°C agar tidak mendekati suhu transformasi fasa baja (Ac1, sekitar 723°C), sehingga mencegah perubahan struktur mikro, pertumbuhan butir, atau penurunan sifat mekanik akibat panas berlebih (metallurgical damage).",
+    "w": {
+      "0": "Pernyataan ini tidak tepat secara teknis; suhu yang lebih tinggi sebenarnya dapat menghasilkan deformasi plastis yang lebih besar, namun dibatasi bukan karena tidak efektif, melainkan karena risiko kerusakan metalurgi.",
+      "1": "Baja tidak meleleh pada suhu 650°C; titik leleh baja jauh lebih tinggi (sekitar 1400-1500°C), sehingga alasan ini tidak relevan.",
+      "2": "Suhu di atas 650°C tetap dapat dicapai dengan mudah menggunakan torch pemanas biasa, sehingga ini bukan alasan pembatasan.",
+      "3": "Jawaban ini benar sesuai pembahasan.",
+      "4": "Pilihan ini salah karena alasan A secara teknis tidak akurat, sehingga jawaban yang tepat hanya D."
+    }
+  },
+  {
+    "q": "What could reduce distortion?",
+    "t": "Soal ini menguji pemahaman mengenai teknik-teknik yang efektif digunakan untuk mengurangi distorsi pada konstruksi las.",
+    "o": [
+      "A. Offsetting",
+      "B. Strong backs",
+      "C. Preheat",
+      "D. Both a and b",
+      "E. All of the above"
+    ],
+    "a": 3,
+    "exp": "Offsetting (pre-setting) mengkompensasi penyusutan yang diperkirakan terjadi, sedangkan strong backs (penjepit/penguat sementara) menahan material agar tidak bergerak bebas selama pengelasan. Keduanya adalah teknik standar untuk mengendalikan distorsi.",
+    "w": {
+      "0": "Pilihan ini benar namun tidak lengkap, karena strong backs juga merupakan metode efektif untuk mengurangi distorsi.",
+      "1": "Pilihan ini benar namun tidak lengkap, karena offsetting juga merupakan metode efektif untuk mengurangi distorsi.",
+      "2": "Preheat utamanya digunakan untuk mengontrol laju pendinginan guna mencegah hydrogen cracking dan kekerasan HAZ berlebih, bukan sebagai metode utama pengendalian distorsi.",
+      "3": "Jawaban ini benar sesuai pembahasan.",
+      "4": "Pilihan ini salah karena preheat (C) bukan metode utama untuk mengendalikan distorsi."
+    }
+  },
+  {
+    "q": "Why stainless steel has high distortion factor?",
+    "t": "Soal ini menguji pemahaman mengenai sifat termal baja stainless yang menyebabkan tingginya faktor distorsi dibandingkan baja karbon.",
+    "o": [
+      "A. High thermal expansion, low conductivity",
+      "B. High expansion, high conductivity",
+      "C. Low expansion, high conductivity",
+      "D. Low expansion, low conductivity"
+    ],
+    "a": 0,
+    "exp": "Baja stainless austenitic memiliki koefisien muai panas yang tinggi serta konduktivitas termal yang rendah. Akibatnya, panas terkonsentrasi pada area sempit di sekitar las dan menyebabkan ekspansi serta kontraksi lokal yang besar, sehingga distorsi menjadi lebih signifikan.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Jika konduktivitas tinggi, panas akan tersebar lebih merata sehingga distorsi berkurang; namun pada kenyataannya stainless steel memiliki konduktivitas termal yang rendah, bukan tinggi.",
+      "2": "Kombinasi ini justru akan menghasilkan distorsi rendah, bertentangan dengan sifat sebenarnya dari stainless steel.",
+      "3": "Stainless steel sebenarnya memiliki muai panas yang tinggi, bukan rendah, sehingga pilihan ini tidak sesuai dengan sifat aktualnya."
+    }
+  },
+  {
+    "q": "Which may cause distortion?",
+    "t": "Soal ini menguji pemahaman mengenai faktor-faktor dasar yang dapat menyebabkan terjadinya distorsi pada pengelasan.",
+    "o": [
+      "A. Heating",
+      "B. Contraction",
+      "C. Stress",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Pemanasan menyebabkan ekspansi tidak merata, kontraksi saat pendinginan menyebabkan penyusutan, dan tegangan yang timbul dari kedua proses tersebut bersama-sama menghasilkan distorsi pada struktur las.",
+    "w": {
+      "0": "Pilihan ini benar namun tidak lengkap, karena kontraksi dan tegangan juga turut menyebabkan distorsi.",
+      "1": "Pilihan ini benar namun tidak lengkap, karena pemanasan dan tegangan juga merupakan faktor penyebab distorsi.",
+      "2": "Pilihan ini benar namun tidak lengkap, karena pemanasan dan kontraksi juga merupakan bagian dari mekanisme terjadinya distorsi.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Direct consequence of residual stress?",
+    "t": "Soal ini menguji pemahaman mengenai akibat langsung dari adanya residual stress pada hasil pengelasan.",
+    "o": [
+      "A. Corrosion",
+      "B. Work hardening",
+      "C. Distortion",
+      "D. Porosity"
+    ],
+    "a": 2,
+    "exp": "Residual stress yang terbentuk akibat penyusutan tidak merata selama pengelasan dapat menyebabkan material bergerak/berubah bentuk untuk menyeimbangkan tegangan internal tersebut, yang secara langsung termanifestasi sebagai distorsi.",
+    "w": {
+      "0": "Korosi disebabkan oleh faktor lingkungan dan elektrokimia, bukan akibat langsung dari residual stress (meskipun residual stress dapat berkontribusi pada stress corrosion cracking dalam kondisi tertentu).",
+      "1": "Work hardening terjadi akibat deformasi plastis mekanis (seperti pengerolan atau penekukan), bukan akibat langsung dari residual stress hasil pengelasan.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Porositas disebabkan oleh gas terperangkap selama solidifikasi logam las, tidak berkaitan langsung dengan residual stress."
+    }
+  },
+  {
+    "q": "Distortion may be affected by:",
+    "t": "Soal ini menguji pemahaman mengenai berbagai faktor yang secara kolektif memengaruhi tingkat distorsi pada pengelasan.",
+    "o": [
+      "A. Restraint",
+      "B. Heat input",
+      "C. Material properties",
+      "D. Material thickness",
+      "E. All of the above"
+    ],
+    "a": 4,
+    "exp": "Tingkat restraint, besarnya heat input, sifat material (seperti muai panas dan konduktivitas), serta ketebalan material semuanya berperan dalam menentukan seberapa besar distorsi yang akan terjadi pada suatu konstruksi las.",
+    "w": {
+      "0": "Pilihan ini benar namun tidak lengkap, karena heat input, sifat material, dan ketebalan juga berpengaruh terhadap distorsi.",
+      "1": "Pilihan ini benar namun tidak lengkap, karena restraint, sifat material, dan ketebalan juga merupakan faktor yang relevan.",
+      "2": "Pilihan ini benar namun tidak lengkap, karena restraint, heat input, dan ketebalan material juga turut memengaruhi distorsi.",
+      "3": "Pilihan ini benar namun tidak lengkap, karena restraint, heat input, dan sifat material juga merupakan faktor penting lainnya.",
+      "4": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Stresses that remain after welding are called:",
+    "t": "Soal ini menguji pemahaman mengenai istilah yang tepat untuk tegangan yang tertinggal dalam material setelah proses pengelasan selesai.",
+    "o": [
+      "A. Post stresses",
+      "B. Relieving stresses",
+      "C. After welding stresses",
+      "D. Residual stress"
+    ],
+    "a": 3,
+    "exp": "Residual stress adalah istilah standar dalam teknik pengelasan untuk menyebut tegangan internal yang tetap ada dalam material setelah proses pengelasan dan pendinginan selesai, akibat penyusutan tidak merata dan restraint selama proses berlangsung.",
+    "w": {
+      "0": "Istilah ini bukan istilah teknis standar yang digunakan dalam terminologi pengelasan.",
+      "1": "Istilah ini justru merujuk pada proses menghilangkan tegangan (stress relieving), bukan tegangan yang tertinggal.",
+      "2": "Istilah ini bukan terminologi standar dalam kode dan standar pengelasan; istilah yang baku adalah residual stress.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Correct joint preparation is important because:",
+    "t": "Soal ini menguji pemahaman mengenai kaitan antara joint preparation yang tepat dengan volume logam las yang dibutuhkan, yang pada akhirnya memengaruhi residual stress dan distorsi.",
+    "o": [
+      "A. Increase volume of weld metal deposited",
+      "B. Better strength",
+      "C. Longer service life",
+      "D. Better corrosion resistance"
+    ],
+    "a": 0,
+    "exp": "Joint preparation yang tidak tepat (misalnya sudut bevel terlalu besar atau gap berlebih) menyebabkan peningkatan volume logam las yang harus diendapkan untuk mengisi sambungan. Peningkatan volume logam las ini berdampak langsung pada peningkatan penyusutan dan residual stress, sehingga joint preparation yang benar penting untuk mengendalikan hal tersebut.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Kekuatan sambungan lebih ditentukan oleh kualitas pengelasan (fusi, cacat, parameter las) secara keseluruhan, bukan semata-mata oleh joint preparation.",
+      "2": "Umur layan dipengaruhi oleh banyak faktor seperti kualitas las, lingkungan layanan, dan desain, bukan hanya joint preparation.",
+      "3": "Ketahanan korosi ditentukan oleh komposisi material dan lingkungan layanan, bukan oleh bentuk joint preparation."
+    }
+  },
+  {
+    "q": "Which helps reduce distortion?",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh jumlah pass (runs) pengelasan terhadap tingkat distorsi yang dihasilkan.",
+    "o": [
+      "A. Maximum number of runs",
+      "B. Minimum number of runs",
+      "C. Manual welding",
+      "D. Very high heat input"
+    ],
+    "a": 0,
+    "exp": "Menggunakan jumlah pass yang lebih banyak dengan ukuran bead yang lebih kecil menghasilkan heat input per pass yang lebih rendah dan penyusutan yang terdistribusi lebih merata serta seimbang antar pass, sehingga distorsi keseluruhan dapat dikurangi.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Jumlah pass yang sedikit umumnya berarti heat input per pass yang lebih besar, sehingga penyusutan terjadi lebih signifikan sekaligus dan meningkatkan distorsi.",
+      "2": "Metode manual tidak secara otomatis mengurangi distorsi; tingkat distorsi lebih ditentukan oleh heat input dan jumlah pass, bukan oleh jenis metode (manual/otomatis) semata.",
+      "3": "Heat input yang sangat tinggi justru meningkatkan volume logam las dan zona terpengaruh panas, sehingga meningkatkan distorsi, bukan menguranginya."
+    }
+  },
+  {
+    "q": "Pre-setting of a joint predominantly helps to:",
+    "t": "Soal ini menguji pemahaman mengenai tujuan utama dari teknik pre-setting pada sambungan las.",
+    "o": [
+      "A. Control distortion",
+      "B. Achieve properties",
+      "C. Increase deposition rate",
+      "D. Achieve penetration"
+    ],
+    "a": 0,
+    "exp": "Pre-setting adalah teknik mengatur posisi awal komponen dengan sudut/offset tertentu sebelum pengelasan, untuk mengkompensasi penyusutan yang diperkirakan akan terjadi, sehingga hasil akhir komponen berada pada posisi/dimensi yang diinginkan. Teknik ini secara khusus digunakan untuk mengendalikan distorsi.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Pre-setting tidak memengaruhi sifat mekanik atau metalurgi logam las; fungsinya murni terkait geometri dan distorsi.",
+      "2": "Pre-setting tidak berkaitan dengan laju deposisi logam las; laju deposisi ditentukan oleh parameter proses pengelasan seperti arus dan kecepatan kawat.",
+      "3": "Penetrasi ditentukan oleh parameter pengelasan seperti arus, jenis proses, dan desain sambungan, bukan oleh teknik pre-setting."
+    }
+  },
+  {
+    "q": "Back step welding is most often used for:",
+    "t": "Soal ini menguji pemahaman mengenai tujuan utama penerapan teknik back step welding pada konstruksi las.",
+    "o": [
+      "A. Controlling lamellar tearing",
+      "B. Increasing toughness",
+      "C. Reducing hardness",
+      "D. Reducing distortion"
+    ],
+    "a": 3,
+    "exp": "Back step welding diterapkan dengan mengelas dalam segmen-segmen pendek secara mundur untuk menyeimbangkan distribusi tegangan susut sepanjang jalur las, sehingga secara efektif mengurangi distorsi keseluruhan pada konstruksi.",
+    "w": {
+      "0": "Lamellar tearing dikendalikan dengan metode lain seperti buttering layer atau pemilihan material dengan ketahanan through-thickness yang baik, bukan dengan back step welding.",
+      "1": "Toughness logam las ditentukan oleh komposisi consumable, heat input, dan kontrol proses, bukan oleh urutan/teknik back step welding.",
+      "2": "Kekerasan HAZ dikendalikan melalui preheat dan interpass temperature, bukan melalui teknik back step welding.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Problem with restraint during welding?",
+    "t": "Soal ini menguji pemahaman mengenai dampak negatif dari restraint (penahanan) yang berlebihan selama proses pengelasan.",
+    "o": [
+      "A. No problem",
+      "B. May lead to cracking",
+      "C. Causes distortion",
+      "D. Not a welding term"
+    ],
+    "a": 1,
+    "exp": "Restraint yang tinggi mencegah material bergerak bebas untuk mengakomodasi penyusutan, sehingga tegangan terakumulasi sebagai residual stress yang tinggi. Pada sambungan las kecil yang menghubungkan komponen besar dan kaku, akumulasi tegangan ini dapat melebihi kekuatan material dan menyebabkan retak.",
+    "w": {
+      "0": "Pernyataan ini tidak tepat karena restraint yang berlebihan justru dapat menimbulkan masalah serius berupa retak akibat akumulasi residual stress.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Justru sebaliknya, restraint yang tinggi cenderung menurunkan distorsi karena material tertahan, namun meningkatkan residual stress dan risiko retak.",
+      "3": "Restraint adalah istilah teknis yang umum digunakan dalam terminologi pengelasan untuk menggambarkan tingkat penahanan/pembatasan pergerakan komponen."
+    }
+  },
+  {
+    "q": "Which of the following conditions could apply to a single V butt weld, 50 mm thickness welded from one side, highly restrained?",
+    "t": "Soal ini menguji pemahaman mengenai hubungan antara restraint terhadap distorsi dan residual stress pada sambungan las tebal yang sangat dibatasi pergerakannya.",
+    "o": [
+      "A. Low distortion, low residual stress",
+      "B. High distortion, high residual stress",
+      "C. Low distortion, high residual stress",
+      "D. High distortion, low residual stress"
+    ],
+    "a": 2,
+    "exp": "Pada sambungan yang sangat restrained, material tidak dapat bergerak bebas untuk mengakomodasi penyusutan, sehingga distorsi yang terlihat secara fisik rendah, namun tegangan akibat penyusutan terakumulasi di dalam material sebagai residual stress yang tinggi.",
+    "w": {
+      "0": "Restraint tinggi justru meningkatkan residual stress, bukan menurunkannya, karena tegangan tidak dapat terlepas melalui pergerakan material.",
+      "1": "Distorsi seharusnya rendah pada kondisi sangat restrained, bukan tinggi, karena pergerakan material dibatasi.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Pilihan ini terbalik dari kondisi sebenarnya; restraint tinggi menghasilkan distorsi rendah namun residual stress tinggi."
+    }
+  },
+  {
+    "q": "Which of the following materials will show the greatest amount of distortion, assuming heat inputs and thickness are the same?",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh sifat material terhadap tingkat distorsi pada heat input dan ketebalan yang sama.",
+    "o": [
+      "A. High tensile strength C/Mn steel",
+      "B. Mild steel",
+      "C. 316L Steel",
+      "D. QT steel"
+    ],
+    "a": 2,
+    "exp": "Baja stainless austenitic seperti 316L memiliki koefisien muai panas yang tinggi dan konduktivitas termal yang rendah dibandingkan baja karbon, sehingga menghasilkan ekspansi dan kontraksi yang lebih besar dan distorsi yang lebih signifikan.",
+    "w": {
+      "0": "Baja C/Mn memiliki konduktivitas termal lebih baik dan muai panas lebih rendah dibandingkan 316L, sehingga distorsinya lebih kecil.",
+      "1": "Mild steel memiliki sifat termal yang lebih menguntungkan (konduktivitas lebih tinggi, muai panas lebih rendah) dibandingkan stainless steel, sehingga distorsinya lebih kecil.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Baja quenched & tempered memiliki sifat termal serupa baja karbon biasa, jauh lebih rendah potensi distorsinya dibandingkan 316L."
+    }
+  },
+  {
+    "q": "Which of the following properties has an effect on distortion?",
+    "t": "Soal ini menguji pemahaman mengenai sifat-sifat material yang berpengaruh terhadap tingkat distorsi pada pengelasan.",
+    "o": [
+      "A. Elasticity",
+      "B. Yield strength",
+      "C. Thermal conductivity",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Elastisitas, yield strength, dan konduktivitas termal semuanya berperan dalam menentukan respons material terhadap tegangan termal selama pengelasan, sehingga ketiganya berpengaruh terhadap besarnya distorsi yang dihasilkan.",
+    "w": {
+      "0": "Pilihan ini benar namun tidak lengkap, karena yield strength dan konduktivitas termal juga berpengaruh terhadap distorsi.",
+      "1": "Pilihan ini benar namun tidak lengkap, karena elastisitas dan konduktivitas termal juga merupakan faktor yang relevan.",
+      "2": "Pilihan ini benar namun tidak lengkap, karena elastisitas dan yield strength juga turut memengaruhi distorsi.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which of the following welding processes would produce the least angular distortion for given material thickness?",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh besarnya heat input dari berbagai proses pengelasan terhadap tingkat angular distortion.",
+    "o": [
+      "A. MMA",
+      "B. SAW",
+      "C. MIG/MAG",
+      "D. TIG"
+    ],
+    "a": 3,
+    "exp": "Proses TIG (GTAW) menggunakan busur yang sangat terkonsentrasi dengan heat input yang relatif rendah dan terkontrol dibandingkan proses lain seperti SAW, MMA, atau MIG/MAG, sehingga menghasilkan zona terpengaruh panas yang lebih kecil dan angular distortion yang paling minimal.",
+    "w": {
+      "0": "MMA memiliki heat input yang lebih besar dibandingkan TIG, sehingga distorsinya cenderung lebih tinggi dibandingkan TIG.",
+      "1": "SAW menggunakan heat input yang sangat besar dengan penetrasi dalam, sehingga menghasilkan angular distortion yang lebih besar dibandingkan TIG.",
+      "2": "MIG/MAG umumnya memiliki heat input yang lebih tinggi dibandingkan TIG tergantung mode transfer logam yang digunakan, sehingga distorsinya relatif lebih besar.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which of the following butt weld preparations will distort the least?",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh sudut bevel joint preparation terhadap volume logam las dan tingkat distorsi.",
+    "o": [
+      "A. Single V butt weld 70° included bevel angle",
+      "B. Single V butt weld 60° included bevel angle",
+      "C. Single V butt weld 15° included angle",
+      "D. Single J butt weld 7° bevel angle"
+    ],
+    "a": 3,
+    "exp": "Preparasi Single J dengan sudut bevel 7° memiliki sudut bukaan paling kecil di antara semua pilihan, sehingga membutuhkan volume logam las paling sedikit untuk mengisi sambungan. Semakin kecil volume logam las, semakin kecil pula penyusutan dan distorsi yang dihasilkan.",
+    "w": {
+      "0": "Sudut bukaan yang besar membutuhkan volume logam las yang jauh lebih banyak, sehingga distorsinya paling besar di antara pilihan yang ada.",
+      "1": "Meskipun lebih kecil dari 70°, sudut ini tetap jauh lebih besar dibandingkan Single J 7°, sehingga distorsinya tetap lebih tinggi.",
+      "2": "Sudut ini lebih kecil dari opsi A dan B, namun preparasi J dengan 7° tetap menghasilkan volume logam las yang lebih sedikit, sehingga distorsinya lebih rendah dibandingkan opsi C.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which of the following butt welded joints would show the least amount of distortion?",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh teknik pengelasan (jumlah pass dan ukuran elektroda) terhadap tingkat distorsi.",
+    "o": [
+      "A. Single V butt single pass welded using a 6 mm electrode",
+      "B. Single V butt multipass welded using a 3.25 mm electrode",
+      "C. Single V butt multipass welded using a 4 mm electrode",
+      "D. All of the above will be the same"
+    ],
+    "a": 1,
+    "exp": "Pengelasan multipass dengan elektroda berdiameter kecil menghasilkan heat input per pass yang lebih rendah, sehingga penyusutan terdistribusi lebih merata dan seimbang antar pass, menghasilkan distorsi yang lebih kecil dibandingkan opsi lainnya.",
+    "w": {
+      "0": "Single pass dengan elektroda besar menghasilkan heat input tinggi sekaligus, sehingga penyusutan terjadi besar dalam satu waktu dan distorsi cenderung lebih tinggi.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Meskipun multipass, elektroda 4 mm menghasilkan heat input per pass yang lebih besar dibandingkan 3.25 mm, sehingga distorsinya tetap lebih besar dibandingkan opsi B.",
+      "3": "Pilihan ini salah karena ukuran elektroda dan jumlah pass terbukti memengaruhi besarnya distorsi yang dihasilkan."
+    }
+  },
+  {
+    "q": "When rectifying distortion by spot heating, the heating temperature is generally limited to a maximum of 650°C?",
+    "t": "Soal ini menguji pemahaman mengenai alasan teknis pembatasan suhu pada teknik spot heating untuk perbaikan distorsi.",
+    "o": [
+      "A. Temperatures above this range will not remove distortion",
+      "B. The steel will start to melt above this temperature",
+      "C. It is difficult to achieve temperatures above this temperature",
+      "D. To prevent metallurgical damage",
+      "E. Both a and d"
+    ],
+    "a": 3,
+    "exp": "Suhu dibatasi hingga sekitar 650°C agar tidak mendekati suhu transformasi fasa baja (Ac1, sekitar 723°C), sehingga mencegah perubahan struktur mikro, pertumbuhan butir, atau penurunan sifat mekanik akibat panas berlebih.",
+    "w": {
+      "0": "Pernyataan ini tidak akurat secara teknis; suhu yang lebih tinggi justru dapat menghasilkan deformasi plastis lebih besar, namun dibatasi karena risiko kerusakan metalurgi, bukan karena tidak efektif.",
+      "1": "Baja tidak meleleh pada suhu 650°C karena titik lelehnya jauh lebih tinggi (sekitar 1400-1500°C).",
+      "2": "Suhu di atas 650°C tetap mudah dicapai menggunakan torch pemanas biasa, sehingga ini bukan alasan pembatasan.",
+      "3": "Jawaban ini benar sesuai pembahasan.",
+      "4": "Pilihan ini salah karena alasan A secara teknis tidak akurat, sehingga jawaban yang tepat hanya D."
+    }
+  },
+  {
+    "q": "Which of the following could be used to reduce distortion in a welded fabrication?",
+    "t": "Soal ini menguji pemahaman mengenai teknik-teknik yang efektif untuk mengurangi distorsi pada konstruksi las.",
+    "o": [
+      "A. Offsetting",
+      "B. Strong backs",
+      "C. Preheat",
+      "D. Both a and b",
+      "E. All of the above"
+    ],
+    "a": 3,
+    "exp": "Offsetting mengkompensasi penyusutan yang diperkirakan, sedangkan strong backs menahan material agar tidak bergerak bebas selama pengelasan. Keduanya adalah teknik standar yang efektif untuk mengendalikan distorsi.",
+    "w": {
+      "0": "Pilihan ini benar namun tidak lengkap, karena strong backs juga merupakan metode efektif untuk mengurangi distorsi.",
+      "1": "Pilihan ini benar namun tidak lengkap, karena offsetting juga merupakan metode efektif untuk mengurangi distorsi.",
+      "2": "Preheat utamanya berfungsi mengontrol laju pendinginan untuk mencegah hydrogen cracking, bukan sebagai metode utama pengendalian distorsi.",
+      "3": "Jawaban ini benar sesuai pembahasan.",
+      "4": "Pilihan ini salah karena preheat bukan metode utama untuk mengendalikan distorsi."
+    }
+  },
+  {
+    "q": "Why do stainless steels tend to have a high distortion factor?",
+    "t": "Soal ini menguji pemahaman mengenai sifat termal baja stainless yang menyebabkan tingginya faktor distorsi dibandingkan baja karbon.",
+    "o": [
+      "A. High coefficient of thermal expansion, low thermal conductivity",
+      "B. High coefficient of thermal expansion, high thermal conductivity",
+      "C. Low coefficient of thermal expansion, high thermal conductivity",
+      "D. Low coefficient of thermal expansion, low thermal conductivity"
+    ],
+    "a": 0,
+    "exp": "Baja stainless austenitic memiliki koefisien muai panas yang tinggi serta konduktivitas termal yang rendah, sehingga panas terkonsentrasi pada area sempit di sekitar las dan menyebabkan ekspansi serta kontraksi lokal yang besar, menghasilkan distorsi yang lebih signifikan.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Jika konduktivitas tinggi, panas akan tersebar lebih merata sehingga distorsi berkurang; namun stainless steel sebenarnya memiliki konduktivitas termal yang rendah.",
+      "2": "Kombinasi ini akan menghasilkan distorsi rendah, bertentangan dengan sifat aktual stainless steel.",
+      "3": "Stainless steel sebenarnya memiliki muai panas yang tinggi, bukan rendah, sehingga pilihan ini tidak sesuai dengan sifat sebenarnya."
+    }
+  },
+  {
+    "q": "Which of the following may cause distortion?",
+    "t": "Soal ini menguji pemahaman mengenai faktor-faktor dasar penyebab terjadinya distorsi pada pengelasan.",
+    "o": [
+      "A. Heating",
+      "B. Contraction",
+      "C. Stress",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Pemanasan menyebabkan ekspansi tidak merata, kontraksi saat pendinginan menyebabkan penyusutan, dan tegangan yang timbul dari kedua proses tersebut bersama-sama menghasilkan distorsi pada struktur las.",
+    "w": {
+      "0": "Pilihan ini benar namun tidak lengkap, karena kontraksi dan tegangan juga turut menyebabkan distorsi.",
+      "1": "Pilihan ini benar namun tidak lengkap, karena pemanasan dan tegangan juga merupakan faktor penyebab distorsi.",
+      "2": "Pilihan ini benar namun tidak lengkap, karena pemanasan dan kontraksi juga merupakan bagian dari mekanisme terjadinya distorsi.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which of the following is a direct consequence of residual stress?",
+    "t": "Soal ini menguji pemahaman mengenai akibat langsung dari adanya residual stress pada hasil pengelasan.",
+    "o": [
+      "A. Corrosion",
+      "B. Work hardening",
+      "C. Distortion",
+      "D. Porosity"
+    ],
+    "a": 2,
+    "exp": "Residual stress akibat penyusutan tidak merata selama pengelasan dapat menyebabkan material bergerak/berubah bentuk untuk menyeimbangkan tegangan internal, yang secara langsung termanifestasi sebagai distorsi.",
+    "w": {
+      "0": "Korosi disebabkan oleh faktor lingkungan dan elektrokimia, bukan akibat langsung dari residual stress.",
+      "1": "Work hardening terjadi akibat deformasi plastis mekanis, bukan akibat langsung dari residual stress hasil pengelasan.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Porositas disebabkan oleh gas terperangkap selama solidifikasi logam las, tidak berkaitan langsung dengan residual stress."
+    }
+  },
+  {
+    "q": "The stresses that remain after welding are called:",
+    "t": "Soal ini menguji pemahaman mengenai istilah yang tepat untuk tegangan yang tertinggal dalam material setelah proses pengelasan selesai.",
+    "o": [
+      "A. Post stresses",
+      "B. Relieving stresses",
+      "C. After welding stresses",
+      "D. Residual stress"
+    ],
+    "a": 3,
+    "exp": "Residual stress adalah istilah standar dalam teknik pengelasan untuk menyebut tegangan internal yang tetap ada dalam material setelah pengelasan dan pendinginan selesai.",
+    "w": {
+      "0": "Istilah ini bukan istilah teknis standar dalam terminologi pengelasan.",
+      "1": "Istilah ini justru merujuk pada proses menghilangkan tegangan, bukan tegangan yang tertinggal.",
+      "2": "Istilah ini bukan terminologi baku dalam kode dan standar pengelasan.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "The correct joint preparation is very important since high volume of weld deposited can:",
+    "t": "Soal ini menguji pemahaman mengenai dampak volume logam las yang berlebih (akibat joint preparation yang tidak tepat) terhadap residual stress.",
+    "o": [
+      "A. Increase the residual stress",
+      "B. Be useful since the joint will have better strength",
+      "C. Give a longer service life",
+      "D. Give superior corrosion resistance"
+    ],
+    "a": 0,
+    "exp": "Volume logam las yang lebih besar berarti penyusutan yang lebih besar pula selama proses pendinginan, sehingga meningkatkan akumulasi residual stress pada sambungan. Oleh karena itu, joint preparation yang tepat penting untuk meminimalkan volume logam las yang tidak perlu.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Volume logam las yang berlebih tidak otomatis meningkatkan kekuatan sambungan; kekuatan ditentukan oleh kualitas fusi dan desain sambungan, bukan oleh banyaknya logam las.",
+      "2": "Umur layan ditentukan oleh banyak faktor seperti kualitas las dan lingkungan operasi, bukan oleh volume logam las yang berlebih.",
+      "3": "Ketahanan korosi ditentukan oleh komposisi material dan lingkungan layanan, bukan oleh volume logam las yang diendapkan."
+    }
+  },
+  {
+    "q": "Which of the following will help to reduce distortion?",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh jumlah pass (runs) pengelasan terhadap tingkat distorsi yang dihasilkan.",
+    "o": [
+      "A. Using the maximum number of runs",
+      "B. Using the minimum number of runs",
+      "C. Welding by a manual welding method",
+      "D. Using very high heat input"
+    ],
+    "a": 0,
+    "exp": "Menggunakan jumlah pass yang lebih banyak dengan ukuran bead lebih kecil menghasilkan heat input per pass yang lebih rendah, sehingga penyusutan terdistribusi lebih merata dan seimbang antar pass, mengurangi distorsi keseluruhan.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Jumlah pass yang sedikit berarti heat input per pass yang lebih besar, sehingga penyusutan terjadi lebih signifikan sekaligus dan meningkatkan distorsi.",
+      "2": "Metode manual tidak secara otomatis mengurangi distorsi; tingkat distorsi lebih ditentukan oleh heat input dan jumlah pass.",
+      "3": "Heat input yang sangat tinggi justru meningkatkan volume logam las dan zona terpengaruh panas, sehingga meningkatkan distorsi."
+    }
+  },
+  {
+    "q": "Balance welding technique, for example back step welding, is most often used for:",
+    "t": "Soal ini menguji pemahaman mengenai tujuan utama penerapan teknik balance welding seperti back step welding.",
+    "o": [
+      "A. Controlling lamellar tearing",
+      "B. Increasing weld toughness",
+      "C. Reducing weld zone hardness",
+      "D. Reducing distortion"
+    ],
+    "a": 3,
+    "exp": "Teknik balance welding seperti back step welding diterapkan untuk menyeimbangkan distribusi tegangan susut sepanjang jalur las, sehingga secara efektif mengurangi distorsi keseluruhan pada konstruksi.",
+    "w": {
+      "0": "Lamellar tearing dikendalikan dengan metode lain seperti buttering layer, bukan dengan teknik balance welding.",
+      "1": "Toughness logam las ditentukan oleh komposisi consumable dan kontrol heat input, bukan oleh urutan/teknik pengelasan.",
+      "2": "Kekerasan zona las dikendalikan melalui preheat dan interpass temperature, bukan melalui teknik balance welding.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "What is the problem with restraint during welding?",
+    "t": "Soal ini menguji pemahaman mengenai dampak negatif dari restraint yang berlebihan selama proses pengelasan.",
+    "o": [
+      "A. It does not cause a problem",
+      "B. It may lead to cracking, especially with small welds between large components",
+      "C. It causes distortion",
+      "D. Restraint is a term not used in relation to welding"
+    ],
+    "a": 1,
+    "exp": "Restraint yang tinggi mencegah material bergerak bebas untuk mengakomodasi penyusutan, sehingga tegangan terakumulasi sebagai residual stress yang tinggi. Pada sambungan las kecil yang menghubungkan komponen besar dan kaku, akumulasi tegangan ini dapat melebihi kekuatan material dan menyebabkan retak.",
+    "w": {
+      "0": "Pernyataan ini tidak tepat karena restraint berlebihan justru dapat menimbulkan masalah serius berupa retak.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Justru sebaliknya, restraint yang tinggi cenderung menurunkan distorsi karena material tertahan, namun meningkatkan residual stress dan risiko retak.",
+      "3": "Restraint adalah istilah teknis yang umum digunakan dalam terminologi pengelasan untuk menggambarkan tingkat penahanan/pembatasan pergerakan komponen."
+    }
+  },
+  {
+    "q": "What is the purpose of strong back?",
+    "t": "Apa tujuan penggunaan strong back pada proses fabrikasi dan pengelasan?",
+    "o": [
+      "A. To increase angular distortion and residual stress",
+      "B. To reduce the residual stress",
+      "C. To increase angular distortion",
+      "D. To prevent angular distortion"
+    ],
+    "a": 3,
+    "exp": "Strong back adalah alat penahan sementara yang dipasang pada sambungan sebelum atau selama pengelasan untuk menahan pergerakan material akibat penyusutan las. Tujuan utamanya adalah mengendalikan dan mencegah angular distortion sehingga alignment sambungan tetap sesuai selama proses pengelasan. Ketika weld metal mendingin, terjadi penyusutan yang menghasilkan gaya tarik. Tanpa strong back, gaya ini dapat menyebabkan pelat berputar atau membengkok sehingga terjadi angular distortion. Strong back memberikan kekakuan tambahan yang membantu mempertahankan geometri sambungan.",
+    "w": {
+      "0": "Berlawanan dengan fungsi sebenarnya. Strong back dipasang untuk mengurangi deformasi, bukan menambahnya.",
+      "1": "Strong back tidak secara langsung mengurangi residual stress. Bahkan dalam beberapa kasus, dengan menahan distorsi, residual stress dapat tetap tersimpan di dalam sambungan. Fungsi utamanya adalah kontrol distorsi, bukan stress relief.",
+      "2": "Tidak benar. Strong back digunakan justru untuk mencegah atau meminimalkan angular distortion yang terjadi akibat penyusutan las.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "How to prevent distortion?",
+    "t": "Soal ini menguji pemahaman mengenai berbagai teknik yang dapat digunakan untuk mencegah/mengurangi distorsi pada konstruksi las.",
+    "o": [
+      "A. Balance welding",
+      "B. Step back welding or skip welding technique",
+      "C. By use of strong back",
+      "D. Avoid welding by use of bending or extruded section",
+      "E. Back-to-back welding assembly",
+      "F. All of the above"
+    ],
+    "a": 5,
+    "exp": "Seluruh teknik pada pilihan A sampai E merupakan metode yang valid dan saling melengkapi untuk mencegah/mengurangi distorsi pada konstruksi las: Balance welding menyeimbangkan urutan pengelasan terhadap sumbu netral penampang; step back/skip welding mendistribusikan penyusutan secara merata; strong back menahan komponen agar tidak bergerak bebas; mengganti sambungan las dengan bending/extruded section menghilangkan sumber distorsi sejak tahap desain; serta susunan back-to-back menyeimbangkan tegangan susut dari dua sisi yang berlawanan. Karena semuanya benar, jawaban yang tepat adalah \"All of the above\".",
+    "w": {
+      "0": "Balance welding memang merupakan salah satu teknik yang valid untuk mencegah distorsi, namun bukan satu-satunya — pilihan ini tidak lengkap karena teknik lain (B-E) juga benar.",
+      "1": "Step back/skip welding memang merupakan teknik yang valid untuk mendistribusikan penyusutan secara merata, namun bukan satu-satunya teknik yang benar — pilihan ini tidak lengkap.",
+      "2": "Penggunaan strong back memang merupakan teknik yang valid untuk menahan komponen agar tidak bergerak bebas, namun bukan satu-satunya teknik yang benar — pilihan ini tidak lengkap.",
+      "3": "Mengganti sambungan las dengan bending/extruded section memang merupakan teknik yang valid untuk menghilangkan sumber distorsi, namun bukan satu-satunya teknik yang benar — pilihan ini tidak lengkap.",
+      "4": "Susunan back-to-back memang merupakan teknik yang valid untuk menyeimbangkan tegangan susut, namun bukan satu-satunya teknik yang benar — pilihan ini tidak lengkap.",
+      "5": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "In which of following material distortion will take place?",
+    "t": "Soal ini menguji pemahaman mengenai material mana yang paling rentan/menonjol mengalami distorsi akibat sifat termalnya.",
+    "o": [
+      "A. Carbon steel",
+      "B. Austenitic stainless steel",
+      "C. C-Mn steel",
+      "D. Alloy steel"
+    ],
+    "a": 1,
+    "exp": "Meskipun secara prinsip distorsi dapat terjadi pada semua jenis baja yang dilas, baja stainless austenitic paling menonjol mengalami distorsi karena memiliki koefisien muai panas yang tinggi dan konduktivitas termal yang rendah, sehingga ekspansi dan kontraksi yang terjadi jauh lebih besar dibandingkan baja karbon atau baja paduan lainnya.",
+    "w": {
+      "0": "Baja karbon memiliki konduktivitas termal yang relatif baik dan muai panas lebih rendah dibandingkan stainless steel, sehingga distorsinya lebih kecil.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Baja C-Mn memiliki sifat termal yang serupa dengan baja karbon biasa, dengan distorsi yang jauh lebih kecil dibandingkan stainless steel austenitic.",
+      "3": "Baja paduan pada umumnya memiliki sifat termal yang lebih mendekati baja karbon dibandingkan stainless steel austenitic, sehingga distorsinya relatif lebih kecil."
+    }
+  },
+  {
+    "q": "Distortion avoided in which joint with degree?",
+    "t": "Soal ini menguji pemahaman mengenai hubungan antara volume logam las pada sambungan dengan tingkat distorsi yang dihasilkan.",
+    "o": [
+      "A. Joint which has less weld metal volume",
+      "B. Joint which uses manual welding instead of automatic welding",
+      "C. Joint which has more weld metal volume",
+      "D. Joint with slower travel speed"
+    ],
+    "a": 0,
+    "exp": "Semakin sedikit volume logam las yang diendapkan pada suatu sambungan, semakin kecil pula penyusutan yang terjadi selama proses pendinginan, sehingga distorsi yang dihasilkan menjadi lebih kecil.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Metode manual atau otomatis tidak secara langsung menentukan tingkat distorsi; faktor utamanya adalah volume logam las dan heat input, bukan jenis metode pengelasan.",
+      "2": "Volume logam las yang lebih banyak justru meningkatkan penyusutan dan distorsi, bukan menguranginya.",
+      "3": "Kecepatan las yang lebih lambat umumnya menghasilkan heat input yang lebih besar dan volume logam las yang lebih banyak per satuan panjang, sehingga cenderung meningkatkan distorsi, bukan menguranginya."
+    }
+  },
+  {
+    "q": "In which material will distortion be greatest?",
+    "t": "Soal ini menguji pemahaman mengenai material yang menunjukkan tingkat distorsi paling besar berdasarkan sifat termalnya.",
+    "o": [
+      "A. Martensite",
+      "B. Low alloy steel",
+      "C. HSLA steel",
+      "D. Austenitic stainless steel"
+    ],
+    "a": 3,
+    "exp": "Baja stainless austenitic memiliki koefisien muai panas tinggi dan konduktivitas termal rendah, menghasilkan distorsi yang jauh lebih besar dibandingkan baja karbon, baja paduan rendah, maupun baja HSLA.",
+    "w": {
+      "0": "Martensit adalah fasa/struktur mikro, bukan jenis material yang berdiri sendiri, dan tidak secara khusus dikaitkan dengan tingkat distorsi yang tinggi; martensit lebih berkaitan dengan kekerasan dan risiko retak.",
+      "1": "Baja paduan rendah memiliki sifat termal yang relatif mendekati baja karbon, dengan distorsi yang jauh lebih kecil dibandingkan stainless steel austenitic.",
+      "2": "Baja HSLA juga memiliki sifat termal mendekati baja karbon biasa, sehingga distorsinya jauh lebih rendah dibandingkan stainless steel austenitic.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "The PWHT process of solution annealing is applied mainly to which material?",
+    "t": "Soal ini menguji pemahaman mengenai jenis material yang menjadi target utama dari proses solution annealing.",
+    "o": [
+      "A. Low carbon steel",
+      "B. Low alloy steels",
+      "C. Austenitic Stainless steels",
+      "D. Medium carbon steels"
+    ],
+    "a": 2,
+    "exp": "Solution annealing (solution heat treatment) dilakukan dengan memanaskan baja stainless austenitic hingga suhu tinggi (sekitar 1000–1100°C) untuk melarutkan kembali karbida krom yang telah terbentuk, kemudian didinginkan cepat (quench) untuk mencegah presipitasi ulang, sehingga mengembalikan ketahanan korosi material.",
+    "w": {
+      "0": "Baja karbon rendah tidak memerlukan solution annealing karena tidak mengalami sensitisasi akibat presipitasi karbida krom seperti pada stainless steel.",
+      "1": "Baja paduan rendah umumnya menggunakan PWHT berupa stress relief, bukan solution annealing yang spesifik untuk mengatasi sensitisasi pada stainless steel.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Baja karbon menengah tidak memiliki unsur krom dalam jumlah signifikan sehingga tidak mengalami sensitisasi dan tidak memerlukan solution annealing."
+    }
+  },
+  {
+    "q": "Post Weld Heat Treatments carried out on weldments are generally carried out at temperatures:",
+    "t": "Soal ini menguji pemahaman mengenai rentang suhu umum yang digunakan pada proses PWHT (stress relief) untuk baja struktural.",
+    "o": [
+      "A. Well below phase change temperatures",
+      "B. Above phase change temperatures",
+      "C. At a fully Austenitic temperature",
+      "D. None of the above"
+    ],
+    "a": 0,
+    "exp": "PWHT berupa stress relief umumnya dilakukan pada suhu yang jauh di bawah suhu transformasi fasa (di bawah Ac1), sehingga tidak mengubah struktur mikro dasar material, melainkan hanya memberikan relaksasi tegangan sisa melalui mekanisme creep pada suhu tinggi.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Memanaskan di atas suhu transformasi fasa akan mengubah struktur mikro material (misalnya menjadi austenit), yang bukan tujuan dari stress relief PWHT standar.",
+      "2": "Suhu fully austenitic digunakan untuk proses seperti normalizing atau hardening, bukan untuk PWHT stress relief standar.",
+      "3": "Pilihan ini salah karena terdapat jawaban yang tepat, yaitu opsi A."
+    }
+  },
+  {
+    "q": "When conducting a PWHT on C/Mn steel weldment, which of the following needs to be fully controlled?",
+    "t": "Soal ini menguji pemahaman mengenai tahapan mana dari siklus PWHT yang memerlukan kontrol ketat pada baja C/Mn.",
+    "o": [
+      "A. Heating rate, soaking time and cooling rate",
+      "B. Heating rate from 300°C, soaking time and cooling rate to 300°C",
+      "C. Heating rate from 300°C, soaking time and cooling rate",
+      "D. Heating rate and cooling rate"
+    ],
+    "a": 1,
+    "exp": "Pada praktik standar PWHT, laju pemanasan dan pendinginan hanya perlu dikendalikan secara ketat pada rentang suhu di atas 300°C (di mana risiko tegangan termal dan hidrogen lebih signifikan), sementara di bawah 300°C pemanasan dan pendinginan dapat dilakukan secara bebas (unrestricted). Soaking time tetap harus dikendalikan penuh sesuai ketebalan material.",
+    "w": {
+      "0": "Pilihan ini tidak menyebutkan batas suhu 300°C, padahal kontrol ketat hanya diperlukan di atas suhu tersebut, bukan pada seluruh rentang suhu dari awal hingga akhir.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Pilihan ini tidak lengkap karena tidak menyebutkan bahwa kontrol cooling rate juga dibatasi hingga suhu 300°C, bukan hingga suhu ruang.",
+      "3": "Pilihan ini tidak menyertakan soaking time, padahal waktu penahanan suhu (soaking time) juga merupakan parameter yang harus dikendalikan penuh selama PWHT."
+    }
+  },
+  {
+    "q": "Which of the following would be a typical method of temperature measurement during PWHT?",
+    "t": "Soal ini menguji pemahaman mengenai metode pengukuran suhu yang tepat digunakan selama proses PWHT.",
+    "o": [
+      "A. Temperature indicating crayons",
+      "B. Thermocouples",
+      "C. Touch pyrometers",
+      "D. None of the above"
+    ],
+    "a": 1,
+    "exp": "Thermocouple digunakan secara standar pada PWHT karena mampu memberikan pemantauan suhu secara kontinu dan akurat sepanjang siklus pemanasan, penahanan, dan pendinginan, serta dapat dihubungkan ke chart recorder untuk dokumentasi.",
+    "w": {
+      "0": "Crayon hanya memberikan indikasi suhu sesaat (apakah suhu tertentu telah tercapai atau belum) dan tidak dapat memberikan pemantauan kontinu sepanjang siklus PWHT.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Touch pyrometer hanya memberikan pembacaan sesaat pada satu titik dan tidak praktis untuk pemantauan kontinu selama siklus PWHT yang berlangsung lama.",
+      "3": "Pilihan ini salah karena thermocouple memang merupakan metode standar yang tepat untuk pengukuran suhu selama PWHT."
+    }
+  },
+  {
+    "q": "The process of tempering is conducted to:",
+    "t": "Soal ini menguji pemahaman mengenai tujuan utama dari proses tempering setelah quenching.",
+    "o": [
+      "A. Improve ductility and toughness",
+      "B. Increase hardness",
+      "C. Improve softness",
+      "D. All of the above"
+    ],
+    "a": 0,
+    "exp": "Tempering dilakukan dengan memanaskan kembali struktur martensit hasil quenching pada suhu di bawah titik kritis, untuk mengurangi kegetasan dan meningkatkan keuletan (ductility) serta ketangguhan (toughness), meskipun disertai sedikit penurunan kekerasan.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Tempering justru menurunkan kekerasan dibandingkan kondisi as-quenched, bukan meningkatkannya; kekerasan tinggi dicapai melalui proses quenching, bukan tempering.",
+      "2": "Tujuan tempering bukan untuk membuat material menjadi sangat lunak, melainkan untuk mencapai keseimbangan antara kekuatan dan ketangguhan.",
+      "3": "Pilihan ini salah karena tempering tidak meningkatkan kekerasan maupun bertujuan membuat material sangat lunak; tujuan utamanya adalah meningkatkan ductility dan toughness."
+    }
+  },
+  {
+    "q": "Soaking times are generally based on:",
+    "t": "Soal ini menguji pemahaman mengenai dasar penentuan waktu penahanan suhu (soaking time) pada proses PWHT.",
+    "o": [
+      "A. It's the decision of the welding inspector",
+      "B. Any time over one hour",
+      "C. Any time less than one hour",
+      "D. One hour for every 25mm of material thickness"
+    ],
+    "a": 3,
+    "exp": "Standar umum yang digunakan dalam PWHT adalah soaking time selama satu jam untuk setiap 25 mm ketebalan material, guna memastikan suhu merata ke seluruh penampang material sebelum proses pendinginan dimulai.",
+    "w": {
+      "0": "Soaking time ditentukan berdasarkan standar/kode dan ketebalan material, bukan keputusan subjektif welding inspector.",
+      "1": "Pernyataan ini tidak tepat karena soaking time harus disesuaikan dengan ketebalan material, bukan sekadar lebih dari satu jam secara umum.",
+      "2": "Untuk material dengan ketebalan signifikan, waktu kurang dari satu jam umumnya tidak cukup untuk mencapai pemerataan suhu yang diperlukan.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which of the following would normally be shown on a PWHT chart?",
+    "t": "Soal ini menguji pemahaman mengenai tahapan-tahapan yang umumnya tergambar pada chart rekaman siklus PWHT.",
+    "o": [
+      "A. Unrestricted heating rate, restricted cooling rate, unrestricted cooling rate",
+      "B. Unrestricted cooling rate, restricted heating rate, soak time, restricted heating rate",
+      "C. Unrestricted heating rate, restricted heating rate, soak time, unrestricted cooling rate",
+      "D. Restricted heating rate, soaking time, unrestricted cooling rate"
+    ],
+    "a": 2,
+    "exp": "Chart PWHT pada umumnya menunjukkan tahapan: pemanasan bebas (unrestricted) hingga sekitar 300°C, dilanjutkan pemanasan terkendali (restricted) hingga suhu soak, periode penahanan suhu (soak time), kemudian pendinginan yang pada akhirnya menjadi bebas (unrestricted) setelah melewati rentang suhu kritis. Opsi ini mencakup urutan tahapan yang paling mendekati siklus standar tersebut dibandingkan pilihan lainnya.",
+    "w": {
+      "0": "Pilihan ini tidak menyertakan tahap restricted heating rate dan soak time, yang merupakan bagian penting dari siklus PWHT.",
+      "1": "Urutan pada pilihan ini tidak logis dan menyebutkan restricted heating rate dua kali, tidak mencerminkan urutan siklus PWHT yang sebenarnya.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Pilihan ini tidak menyertakan tahap awal unrestricted heating rate sebelum mencapai suhu kontrol (sekitar 300°C)."
+    }
+  },
+  {
+    "q": "What is the term given to heat treatments where the temperature exceeds that of the upper critical limit?",
+    "t": "Soal ini menguji pemahaman mengenai istilah yang digunakan untuk heat treatment yang melampaui suhu kritis atas (upper critical limit).",
+    "o": [
+      "A. Sub critical heat treatments",
+      "B. Critical heat treatments",
+      "C. Uncontrolled heat treatments",
+      "D. Both a and c"
+    ],
+    "a": 1,
+    "exp": "Heat treatment yang dilakukan pada atau di atas suhu kritis atas (seperti normalizing, full annealing, dan hardening) dikategorikan sebagai heat treatment pada rentang suhu kritis, berbeda dengan proses subkritis (seperti stress relief dan tempering) yang dilakukan di bawah suhu kritis bawah.",
+    "w": {
+      "0": "Istilah ini justru merujuk pada heat treatment yang dilakukan di bawah suhu kritis bawah (seperti stress relief dan tempering), bukan di atas suhu kritis atas.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Istilah ini tidak relevan secara teknis; heat treatment di atas suhu kritis tetap merupakan proses yang terkendali, bukan \"uncontrolled\".",
+      "3": "Pilihan ini salah karena opsi A justru merupakan kebalikan dari yang dimaksud, dan opsi C bukan istilah teknis yang tepat."
+    }
+  },
+  {
+    "q": "Which grain structure may form in medium carbon steels after quenching from the Austenite region?",
+    "t": "Soal ini menguji pemahaman mengenai struktur mikro yang terbentuk pada baja karbon menengah setelah quenching dari daerah austenit.",
+    "o": [
+      "A. Pearlite",
+      "B. Ferrite",
+      "C. Martensite",
+      "D. Gamma iron"
+    ],
+    "a": 2,
+    "exp": "Pendinginan cepat (quenching) dari daerah austenit menyebabkan karbon terperangkap dalam struktur kisi yang terdistorsi, membentuk martensit yang keras dan getas, karena transformasi difusi normal menjadi ferit dan perlit tidak sempat terjadi.",
+    "w": {
+      "0": "Perlit terbentuk pada pendinginan yang relatif lambat (seperti pendinginan udara atau furnace), bukan pada quenching cepat.",
+      "1": "Ferit terbentuk pada pendinginan lambat dengan waktu transformasi difusi yang cukup, bukan pada kondisi quenching cepat.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Gamma iron adalah istilah lain untuk fasa austenit itu sendiri (sebelum quenching), bukan struktur yang terbentuk setelah pendinginan cepat."
+    }
+  },
+  {
+    "q": "Repair welding should always be carried out unless otherwise specified:",
+    "t": "Soal ini menguji pemahaman mengenai urutan yang tepat antara repair welding dan PWHT pada konstruksi yang memerlukan heat treatment.",
+    "o": [
+      "A. Before PWHT",
+      "B. After PWHT",
+      "C. Weld repairs can't be carried out on weldments that require PWHT",
+      "D. None of the above"
+    ],
+    "a": 0,
+    "exp": "Repair welding sebaiknya dilakukan sebelum PWHT, sehingga hasil perbaikan tersebut turut mendapatkan manfaat dari siklus stress relief yang sama dengan bagian las lainnya, dan tidak memerlukan siklus PWHT tambahan yang dapat menambah risiko distorsi atau degradasi material akibat pemanasan berulang.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Melakukan repair setelah PWHT berarti area perbaikan tidak mendapatkan manfaat stress relief, kecuali dilakukan PWHT ulang yang menambah risiko dan biaya.",
+      "2": "Pernyataan ini tidak tepat karena repair welding tetap dapat dilakukan pada weldment yang memerlukan PWHT, selama dilakukan sebelum proses PWHT (atau diikuti PWHT ulang bila diperlukan).",
+      "3": "Pilihan ini salah karena terdapat jawaban yang tepat, yaitu opsi A."
+    }
+  },
+  {
+    "q": "A typical temperature for stress relieving would be?",
+    "t": "Soal ini menguji pemahaman mengenai rentang suhu tipikal yang digunakan pada proses stress relief untuk baja struktural.",
+    "o": [
+      "A. Above 800°C",
+      "B. Between 750°C to 980°C",
+      "C. Less than 300°C",
+      "D. 400°C to 680°C"
+    ],
+    "a": 3,
+    "exp": "Stress relief pada baja karbon-mangan umumnya dilakukan pada rentang suhu sekitar 550–620°C, yang berada dalam rentang 400°C–680°C, yaitu di bawah suhu transformasi fasa (Ac1) namun cukup tinggi untuk memungkinkan relaksasi tegangan sisa melalui mekanisme creep.",
+    "w": {
+      "0": "Suhu ini sudah berada di atas suhu transformasi fasa dan akan mengubah struktur mikro material, bukan rentang yang digunakan untuk stress relief.",
+      "1": "Rentang suhu ini mendekati atau berada pada daerah austenisasi, yang digunakan untuk proses seperti normalizing atau solution annealing, bukan stress relief.",
+      "2": "Suhu di bawah 300°C tidak cukup tinggi untuk memberikan relaksasi tegangan sisa yang signifikan melalui mekanisme creep.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which of the following would be a typical heating rate for C/Mn steels approximately 25mm in thickness?",
+    "t": "Soal ini menguji pemahaman mengenai laju pemanasan tipikal pada proses PWHT untuk baja C/Mn dengan ketebalan sekitar 25 mm.",
+    "o": [
+      "A. 60 to 200°C/h",
+      "B. Over 200°C/h",
+      "C. Under 60°C/h",
+      "D. Always 70°C to 180°C/min"
+    ],
+    "a": 0,
+    "exp": "Laju pemanasan pada proses PWHT umumnya dihitung berdasarkan ketebalan material mengikuti standar/kode yang berlaku, dan untuk baja C/Mn dengan ketebalan sekitar 25 mm, laju pemanasan tipikal berada pada rentang sekitar 60–200°C per jam.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Laju pemanasan yang lebih dari 200°C/jam terlalu cepat untuk ketebalan tersebut dan berisiko menimbulkan tegangan termal berlebih.",
+      "2": "Laju pemanasan di bawah 60°C/jam terlalu lambat dan tidak efisien untuk ketebalan material sekitar 25 mm.",
+      "3": "Satuan menit pada pilihan ini tidak sesuai; laju pemanasan PWHT dinyatakan dalam satuan per jam, bukan per menit."
+    }
+  },
+  {
+    "q": "During PWHT it is important to control heating and cooling rates to:",
+    "t": "Soal ini menguji pemahaman mengenai alasan utama perlunya pengendalian laju pemanasan dan pendinginan selama PWHT.",
+    "o": [
+      "A. Ensure surface doesn't oxidize",
+      "B. Solution the grain structure",
+      "C. Minimize distortion",
+      "D. Reduce surface pressure"
+    ],
+    "a": 2,
+    "exp": "Laju pemanasan dan pendinginan yang dikendalikan secara hati-hati mencegah terjadinya gradien suhu yang berlebihan antar bagian komponen, sehingga mengurangi tegangan termal tambahan yang dapat menyebabkan distorsi atau bahkan retak selama siklus PWHT.",
+    "w": {
+      "0": "Oksidasi permukaan lebih dikendalikan melalui atmosfer tungku atau gas pelindung, bukan melalui laju pemanasan/pendinginan.",
+      "1": "PWHT stress relief tidak bertujuan melarutkan struktur butir; tujuan tersebut lebih sesuai dengan proses solution annealing pada suhu yang jauh lebih tinggi.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Istilah \"surface pressure\" tidak relevan dengan tujuan pengendalian laju pemanasan/pendinginan pada PWHT."
+    }
+  },
+  {
+    "q": "Sensitization may be minimized by adding elements called stabilizers, these may be:",
+    "t": "Soal ini menguji pemahaman mengenai unsur penstabil (stabilizer) yang ditambahkan pada stainless steel untuk mencegah sensitisasi.",
+    "o": [
+      "A. Vanadium / Titanium",
+      "B. Titanium / Niobium",
+      "C. Niobium / Vanadium",
+      "D. Vanadium / Titanium / Niobium"
+    ],
+    "a": 1,
+    "exp": "Titanium (seperti pada grade 321) dan Niobium (seperti pada grade 347) ditambahkan sebagai unsur penstabil karena keduanya memiliki afinitas lebih besar terhadap karbon dibandingkan krom, sehingga membentuk karbida titanium/niobium yang stabil dan mencegah pembentukan karbida krom penyebab sensitisasi.",
+    "w": {
+      "0": "Vanadium bukan unsur penstabil yang umum digunakan pada stainless steel untuk mencegah sensitisasi; unsur yang tepat adalah niobium, bukan vanadium.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Vanadium bukan unsur penstabil standar pada stainless steel; kombinasi yang tepat adalah titanium dan niobium.",
+      "3": "Pilihan ini menyertakan vanadium yang bukan unsur penstabil standar untuk mencegah sensitisasi pada stainless steel."
+    }
+  },
+  {
+    "q": "A post weld heat treatment may also be of benefit in minimizing the risk of weld decay. This heat treatment would be called:",
+    "t": "Soal ini menguji pemahaman mengenai jenis PWHT yang bermanfaat untuk mengurangi risiko weld decay pada stainless steel.",
+    "o": [
+      "A. Stress relief",
+      "B. Normalizing",
+      "C. Quench and tempering",
+      "D. Solution treatment over 1000°C"
+    ],
+    "a": 3,
+    "exp": "Solution treatment yang dilakukan pada suhu di atas 1000°C melarutkan kembali karbida krom yang telah terbentuk di batas butir, kemudian didinginkan cepat untuk mencegah presipitasi ulang, sehingga mengembalikan ketahanan terhadap weld decay.",
+    "w": {
+      "0": "Stress relief dilakukan pada suhu yang jauh lebih rendah dan tidak melarutkan karbida krom yang menyebabkan sensitisasi.",
+      "1": "Normalizing umumnya diterapkan pada baja karbon/paduan untuk memperhalus struktur butir, bukan untuk mengatasi sensitisasi pada stainless steel.",
+      "2": "Quench and tempering bertujuan menghasilkan kombinasi kekuatan dan ketangguhan tertentu, bukan untuk mengatasi sensitisasi/weld decay pada stainless steel.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "The main problem with such a heat treatment on stainless steel pipe spools and the reason why it is not regularly employed is:",
+    "t": "Soal ini menguji pemahaman mengenai kendala utama penerapan solution treatment pada pipe spool stainless steel di lapangan.",
+    "o": [
+      "A. Controlling the rate of temperature rise",
+      "B. Controlling the cooling rate",
+      "C. The length of the soak period",
+      "D. High risk of distortion"
+    ],
+    "a": 1,
+    "exp": "Solution treatment memerlukan pendinginan cepat (quenching) setelah pemanasan tinggi agar karbida krom tidak terpresipitasi kembali saat melewati rentang suhu sensitisasi. Pada pipe spool berukuran besar, mencapai laju pendinginan yang cepat dan merata di lapangan sangat sulit dilakukan, sehingga proses ini jarang diterapkan secara rutin.",
+    "w": {
+      "0": "Laju kenaikan suhu relatif lebih mudah dikendalikan dibandingkan laju pendinginan cepat yang dibutuhkan setelah solution treatment.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Waktu penahanan suhu bukan kendala utama; kendala utama justru terletak pada kebutuhan pendinginan cepat setelahnya.",
+      "3": "Meskipun distorsi dapat menjadi pertimbangan, kendala utama yang menyebabkan proses ini jarang diterapkan adalah kesulitan mencapai laju pendinginan cepat yang diperlukan, bukan distorsi semata."
+    }
+  },
+  {
+    "q": "Sensitization is a term applied to the formation of which inter-metallic compound at grain boundaries in the HAZ of austenitic stainless steels?",
+    "t": "Soal ini menguji pemahaman mengenai senyawa yang terbentuk pada batas butir HAZ stainless steel austenitic akibat sensitisasi.",
+    "o": [
+      "A. Chromium carbide",
+      "B. Titanium carbide",
+      "C. Niobium carbide",
+      "D. Molybdenum carbide"
+    ],
+    "a": 0,
+    "exp": "Sensitisasi terjadi akibat presipitasi karbida krom (Cr23C6) pada batas butir ketika material berada pada rentang suhu sensitisasi (sekitar 450–850°C), yang menyebabkan area di sekitar batas butir kehilangan krom dan menjadi rentan terhadap korosi intergranular.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Karbida titanium justru terbentuk pada stainless steel grade stabilized (seperti grade 321) untuk mencegah sensitisasi, bukan penyebab sensitisasi itu sendiri.",
+      "2": "Karbida niobium juga berfungsi sebagai penstabil pada grade seperti 347 untuk mencegah sensitisasi, bukan penyebab sensitisasi.",
+      "3": "Molibdenum bukan unsur yang berkaitan langsung dengan mekanisme sensitisasi pada stainless steel; penyebab utamanya adalah karbida krom."
+    }
+  },
+  {
+    "q": "For the structure termed martensite to form in a C-Mn steel it must be first heated to:",
+    "t": "Soal ini menguji pemahaman mengenai kondisi pemanasan dan pendinginan yang diperlukan agar martensit dapat terbentuk pada baja C-Mn.",
+    "o": [
+      "A. Just below its lower critical temperature and rapidly cooled",
+      "B. A maximum temperature of 550°C then rapidly cooled",
+      "C. Above its upper critical temperature and slowly furnace cooled",
+      "D. A full transformation to austenite then rapidly cooled"
+    ],
+    "a": 3,
+    "exp": "Martensit hanya dapat terbentuk apabila baja dipanaskan hingga bertransformasi penuh menjadi austenit (di atas suhu kritis atas), kemudian didinginkan secara cepat (quenching), sehingga karbon terperangkap dalam struktur kisi yang terdistorsi tanpa sempat membentuk ferit/perlit melalui proses difusi normal.",
+    "w": {
+      "0": "Pemanasan di bawah suhu kritis bawah tidak menghasilkan transformasi menjadi austenit, sehingga martensit tidak dapat terbentuk meskipun didinginkan cepat.",
+      "1": "Suhu 550°C berada jauh di bawah rentang transformasi austenit pada baja C-Mn, sehingga tidak akan menghasilkan martensit.",
+      "2": "Pendinginan lambat (furnace cooling) dari daerah austenit akan menghasilkan struktur perlit/ferit, bukan martensit yang memerlukan pendinginan cepat.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "What is the purpose of PWHT?",
+    "t": "Soal ini menguji pemahaman mengenai definisi dan tujuan utama dari proses PWHT (stress relief).",
+    "o": [
+      "A. Stress relieve (re-arrange atomic structure)",
+      "B. Avoid residual stress",
+      "C. Release hydrogen",
+      "D. Soften material"
+    ],
+    "a": 0,
+    "exp": "Tujuan utama PWHT adalah memberikan energi termal yang cukup agar terjadi penyusunan ulang (relaksasi) struktur atom melalui mekanisme creep pada suhu tinggi, sehingga tegangan sisa yang terkunci dalam material dapat berkurang/terdistribusi ulang. Inilah mekanisme dasar dari istilah \"stress relief\".",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "PWHT tidak sepenuhnya menghilangkan/menghindari residual stress, melainkan mengurangi dan mendistribusikan ulang tegangan sisa yang sudah ada melalui relaksasi atomik.",
+      "2": "Pelepasan hidrogen merupakan salah satu manfaat tambahan dari PWHT, namun bukan tujuan utama/definisi dasar dari proses stress relief itu sendiri.",
+      "3": "Pelunakan material dapat menjadi efek samping pada beberapa kasus, namun bukan tujuan utama PWHT yang secara spesifik dirancang untuk relaksasi tegangan sisa."
+    }
+  },
+  {
+    "q": "What is the effect of full annealing compared to normalizing?",
+    "t": "Soal ini menguji pemahaman mengenai perbedaan efek struktur butir antara full annealing dan normalizing.",
+    "o": [
+      "A. Reduction in grain size",
+      "B. Increase in grain size",
+      "C. Increase in toughness",
+      "D. Grain size unaffected"
+    ],
+    "a": 1,
+    "exp": "Full annealing melibatkan pendinginan yang sangat lambat (furnace cooling) setelah pemanasan ke daerah austenit, yang memberikan waktu lebih lama bagi butir untuk tumbuh, sehingga menghasilkan ukuran butir yang lebih besar dibandingkan normalizing yang menggunakan pendinginan udara (lebih cepat) dan menghasilkan butir yang lebih halus.",
+    "w": {
+      "0": "Pendinginan lambat pada full annealing justru memberikan waktu lebih lama bagi pertumbuhan butir, sehingga ukuran butir membesar, bukan mengecil, dibandingkan normalizing.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Ukuran butir yang lebih besar pada full annealing umumnya menurunkan toughness dibandingkan struktur butir halus hasil normalizing, bukan meningkatkannya.",
+      "3": "Pernyataan ini tidak tepat karena perbedaan laju pendinginan antara full annealing dan normalizing secara nyata memengaruhi ukuran butir yang terbentuk."
+    }
+  },
+  {
+    "q": "Weld sensitization will cause which of the following problems?",
+    "t": "Soal ini menguji pemahaman mengenai dampak utama dari sensitisasi pada stainless steel.",
+    "o": [
+      "A. Reduced resistance to corrosion",
+      "B. Lower tensile strength",
+      "C. Reduced toughness",
+      "D. Increased hardness"
+    ],
+    "a": 0,
+    "exp": "Sensitisasi menyebabkan presipitasi karbida krom di batas butir, sehingga area di sekitarnya kehilangan kandungan krom (chromium depletion) dan menjadi rentan terhadap korosi intergranular (weld decay), sehingga dampak utamanya adalah penurunan ketahanan korosi.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Sensitisasi tidak secara signifikan menurunkan kekuatan tarik material; dampak utamanya bersifat korosif, bukan mekanis.",
+      "2": "Sensitisasi tidak secara langsung memengaruhi toughness material secara signifikan; dampak utamanya adalah pada ketahanan korosi.",
+      "3": "Sensitisasi tidak menyebabkan peningkatan kekerasan; fenomena ini murni terkait presipitasi karbida dan korosi, bukan perubahan kekerasan."
+    }
+  },
+  {
+    "q": "What is the main purpose of quenching and tempering?",
+    "t": "Soal ini menguji pemahaman mengenai tujuan utama dari kombinasi proses quenching dan tempering.",
+    "o": [
+      "A. Toughness and ductility are increased",
+      "B. Toughness and strength are reduced",
+      "C. Toughness reduced and strength increased",
+      "D. Toughness increased and strength reduced"
+    ],
+    "a": 0,
+    "exp": "Setelah quenching menghasilkan martensit yang keras namun getas, tempering dilakukan untuk mengurangi kegetasan tersebut dengan meningkatkan ductility dan toughness material, sambil tetap mempertahankan kekuatan yang relatif tinggi dibandingkan kondisi annealed.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Tempering meningkatkan toughness, bukan menurunkannya; meskipun kekuatan sedikit menurun dibandingkan kondisi as-quenched, ini bukan tujuan utama prosesnya.",
+      "2": "Pernyataan ini terbalik; tempering justru meningkatkan toughness dengan sedikit mengorbankan kekuatan/kekerasan dibandingkan kondisi as-quenched.",
+      "3": "Meskipun toughness meningkat, penekanan utama tujuan proses ini bukan semata-mata mengorbankan strength; melainkan mencapai keseimbangan optimal antara keduanya."
+    }
+  },
+  {
+    "q": "Weld decay can be minimized by specifying a stainless steel with:",
+    "t": "Soal ini menguji pemahaman mengenai cara mengurangi risiko weld decay melalui pemilihan komposisi stainless steel.",
+    "o": [
+      "A. Higher carbon level",
+      "B. Lower carbon level",
+      "C. Higher chromium level",
+      "D. Lower chromium level"
+    ],
+    "a": 1,
+    "exp": "Kadar karbon yang lebih rendah (seperti pada grade \"L\" misalnya 304L, 316L) mengurangi ketersediaan karbon untuk membentuk karbida krom di batas butir, sehingga risiko sensitisasi dan weld decay dapat diminimalkan.",
+    "w": {
+      "0": "Kadar karbon yang lebih tinggi justru meningkatkan risiko pembentukan karbida krom dan sensitisasi, sehingga meningkatkan risiko weld decay.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Peningkatan kadar krom secara umum dapat membantu ketahanan korosi, namun tidak secara langsung mengatasi mekanisme sensitisasi yang disebabkan oleh presipitasi karbida krom akibat karbon.",
+      "3": "Penurunan kadar krom justru dapat menurunkan ketahanan korosi material secara keseluruhan, bukan solusi untuk mengatasi weld decay."
+    }
+  },
+  {
+    "q": "Which statement below is NOT true concerning weld decay?",
+    "t": "Soal ini menguji pemahaman mengenai karakteristik weld decay dan membedakannya dari pernyataan yang tidak akurat.",
+    "o": [
+      "A. It is also known as intergranular corrosion",
+      "B. It causes transverse cracking in the weld HAZ",
+      "C. It may occur in austenitic stainless steel",
+      "D. It is also known as knife-line attack"
+    ],
+    "a": 1,
+    "exp": "Weld decay pada dasarnya adalah fenomena korosi intergranular (kehilangan material akibat serangan korosi pada batas butir), bukan mekanisme retak (cracking). Oleh karena itu, pernyataan bahwa weld decay menyebabkan retak melintang (transverse cracking) pada HAZ tidak tepat secara teknis.",
+    "w": {
+      "0": "Pernyataan ini benar karena weld decay memang merupakan bentuk korosi intergranular akibat sensitisasi.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Pernyataan ini benar karena weld decay merupakan permasalahan yang umum terjadi pada baja stainless austenitic yang tidak distabilkan atau memiliki kadar karbon tinggi.",
+      "3": "Pernyataan ini umum dianggap benar dalam konteks umum (meskipun secara teknis berbeda lokasi), karena keduanya merupakan bentuk korosi intergranular terkait sensitisasi pada stainless steel."
+    }
+  },
+  {
+    "q": "Why is support provided during PWHT?",
+    "t": "Soal ini menguji pemahaman mengenai alasan perlunya penyangga (support) tambahan pada komponen selama proses PWHT.",
+    "o": [
+      "A. To prevent falling due to increase YS",
+      "B. To prevent falling due to decrease YS",
+      "C. To prevent falling due to decrease UTS",
+      "D. To prevent falling due to decrease UTS"
+    ],
+    "a": 1,
+    "exp": "Pada suhu tinggi selama PWHT, yield strength (YS) material menurun secara signifikan, sehingga kemampuan material menahan beratnya sendiri berkurang. Oleh karena itu, penyangga tambahan diperlukan untuk mencegah deformasi atau keruntuhan akibat penurunan kekuatan luluh pada suhu tinggi tersebut.",
+    "w": {
+      "0": "Yield strength material justru menurun, bukan meningkat, pada suhu tinggi selama PWHT, sehingga pilihan ini tidak tepat.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Meskipun UTS juga menurun pada suhu tinggi, parameter yang lebih relevan terhadap risiko deformasi/sagging pada suhu PWHT adalah yield strength (YS), bukan UTS.",
+      "3": "Sama seperti pilihan C, penurunan UTS bukan parameter utama yang menjadi dasar kebutuhan penyangga selama PWHT."
+    }
+  },
+  {
+    "q": "What is the soaking time required?",
+    "t": "Soal ini menguji pemahaman mengenai standar umum penentuan waktu penahanan suhu (soaking time) pada PWHT.",
+    "o": [
+      "A. 100°C / 25 mm thickness",
+      "B. 723 hour / thickness",
+      "C. 1 minute / 25 mm thickness",
+      "D. 1 hour / 25 mm thickness"
+    ],
+    "a": 3,
+    "exp": "Standar umum yang digunakan adalah soaking time selama satu jam untuk setiap 25 mm ketebalan material, guna memastikan suhu merata ke seluruh penampang sebelum proses pendinginan dimulai.",
+    "w": {
+      "0": "Satuan pada pilihan ini tidak sesuai konteks soaking time, yang seharusnya dinyatakan dalam satuan waktu, bukan suhu.",
+      "1": "Nilai ini tidak masuk akal secara praktis dan tidak sesuai dengan standar soaking time yang berlaku.",
+      "2": "Waktu satu menit per 25 mm ketebalan terlalu singkat untuk memastikan pemerataan suhu pada seluruh penampang material.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "What is the temperature required for tempering?",
+    "t": "Soal ini menguji pemahaman mengenai rentang suhu tipikal yang digunakan pada proses tempering.",
+    "o": [
+      "A. 880°C – 920°C",
+      "B. 1000°C – 1100°C",
+      "C. 550°C – 600°C",
+      "D. 723°C – 880°C"
+    ],
+    "a": 2,
+    "exp": "Tempering dilakukan pada suhu di bawah suhu kritis bawah (Ac1, sekitar 723°C), dan untuk aplikasi struktural/pengelasan, rentang suhu sekitar 550–600°C umum digunakan untuk mencapai keseimbangan antara kekuatan dan ketangguhan tanpa mengubah struktur dasar material.",
+    "w": {
+      "0": "Rentang suhu ini berada pada daerah austenisasi/hardening, jauh di atas suhu yang digunakan untuk tempering.",
+      "1": "Rentang suhu ini sesuai untuk solution annealing pada stainless steel, bukan untuk proses tempering.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Rentang suhu ini berada di atas atau pada suhu kritis bawah (Ac1), yang sudah memasuki daerah transformasi fasa, bukan rentang tempering yang seharusnya berada di bawah suhu tersebut."
+    }
+  },
+  {
+    "q": "Where does weld decay occur?",
+    "t": "Soal ini menguji pemahaman mengenai lokasi terjadinya weld decay pada sambungan las stainless steel.",
+    "o": [
+      "A. In the weld",
+      "B. In the base metal",
+      "C. Centre line of weld",
+      "D. HAZ"
+    ],
+    "a": 3,
+    "exp": "Weld decay terjadi pada zona HAZ (Heat Affected Zone) base metal, tepatnya pada area yang mengalami rentang suhu sensitisasi (sekitar 450–850°C) selama siklus termal pengelasan, membentuk pita korosi intergranular sejajar dengan garis las.",
+    "w": {
+      "0": "Weld decay tidak terjadi pada logam las itu sendiri, melainkan pada base metal di area HAZ yang mengalami rentang suhu sensitisasi.",
+      "1": "Pilihan ini terlalu umum; weld decay terjadi secara spesifik pada area HAZ base metal, bukan pada keseluruhan base metal.",
+      "2": "Centreline weld berkaitan dengan cacat seperti solidification cracking, bukan lokasi terjadinya weld decay.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Weld decay begins to occur:",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh kadar karbon terhadap kecepatan terjadinya sensitisasi/weld decay pada stainless steel.",
+    "o": [
+      "A. Faster in low carbon grades",
+      "B. Immediately after welding",
+      "C. Slower in low carbon grades",
+      "D. After PWHT"
+    ],
+    "a": 2,
+    "exp": "Pada grade stainless steel dengan kadar karbon rendah (seperti 304L, 316L), ketersediaan karbon untuk membentuk karbida krom lebih sedikit, sehingga proses sensitisasi (yang menjadi awal mula weld decay) berlangsung lebih lambat dibandingkan grade dengan kadar karbon standar/tinggi.",
+    "w": {
+      "0": "Pernyataan ini terbalik; justru pada grade karbon rendah, proses sensitisasi berlangsung lebih lambat, bukan lebih cepat.",
+      "1": "Sensitisasi memang dapat terjadi selama siklus termal pengelasan, namun weld decay sebagai fenomena korosi baru termanifestasi ketika material terpapar lingkungan korosif, bukan langsung terlihat segera setelah pengelasan.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "PWHT (terutama solution annealing) justru dapat mengurangi risiko sensitisasi, bukan menjadi pemicu mulainya weld decay."
+    }
+  },
+  {
+    "q": "Which heat treatment is used to create a high strength but brittle microstructure?",
+    "t": "Soal ini menguji pemahaman mengenai jenis heat treatment yang menghasilkan struktur mikro dengan kekuatan tinggi namun getas.",
+    "o": [
+      "A. Quench hardening",
+      "B. Normalizing",
+      "C. Annealing",
+      "D. Tempering"
+    ],
+    "a": 0,
+    "exp": "Quench hardening melibatkan pendinginan cepat dari daerah austenit, menghasilkan struktur martensit yang memiliki kekuatan dan kekerasan tinggi namun bersifat getas karena struktur kisi yang terdistorsi dan tegangan internal yang tinggi.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Normalizing menghasilkan struktur butir halus dengan keseimbangan kekuatan dan ketangguhan yang baik, bukan struktur yang sangat keras dan getas.",
+      "2": "Annealing menghasilkan struktur yang lunak dan ulet dengan kekuatan rendah, bertolak belakang dengan struktur kekuatan tinggi namun getas.",
+      "3": "Tempering justru mengurangi kegetasan struktur martensit hasil quenching, bukan menciptakan struktur yang getas."
+    }
+  },
+  {
+    "q": "What properties change after heat treatment?",
+    "t": "Soal ini menguji pemahaman mengenai cakupan sifat material yang berubah akibat proses heat treatment.",
+    "o": [
+      "A. Hardenability",
+      "B. Machinability",
+      "C. Mechanical properties such as strength, toughness, hardness and ductility",
+      "D. Ductility"
+    ],
+    "a": 2,
+    "exp": "Heat treatment mengubah struktur mikro material, yang secara langsung memengaruhi berbagai sifat mekanik sekaligus, meliputi kekuatan, ketangguhan, kekerasan, dan keuletan, bukan hanya satu sifat tunggal.",
+    "w": {
+      "0": "Hardenability adalah sifat bawaan material berdasarkan komposisi kimianya (kemampuan untuk dapat dikeraskan), bukan sifat yang berubah akibat heat treatment itu sendiri.",
+      "1": "Machinability dapat sedikit terpengaruh, namun bukan fokus utama dari perubahan sifat akibat heat treatment dibandingkan sifat mekanik secara keseluruhan.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Pilihan ini benar namun tidak lengkap, karena heat treatment juga memengaruhi strength, toughness, dan hardness secara bersamaan, bukan hanya ductility."
+    }
+  },
+  {
+    "q": "Preheat measurements on plate thickness >50 mm should be taken:",
+    "t": "Soal ini menguji pemahaman mengenai praktik yang tepat dalam pengukuran suhu preheat pada material tebal (>50 mm).",
+    "o": [
+      "A. Immediately after the heat has been removed when using a gas flame",
+      "B. A minimum of 75 mm back from the bevel face",
+      "C. On the same side as the heat has been applied",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Pada material tebal, pengukuran suhu preheat yang akurat memerlukan kombinasi beberapa praktik: dilakukan segera setelah sumber panas (gas flame) dipindahkan agar tidak mengukur nyala api itu sendiri, pada jarak minimum tertentu (misalnya 75 mm) dari tepi bevel agar mewakili suhu material secara representatif, serta pada sisi yang sama dengan sisi pemanasan untuk konsistensi pengukuran sesuai prosedur yang berlaku.",
+    "w": {
+      "0": "Pilihan ini benar namun tidak lengkap, karena jarak pengukuran dan sisi pengukuran juga merupakan bagian penting dari praktik yang tepat.",
+      "1": "Pilihan ini benar namun tidak lengkap, karena waktu pengukuran dan sisi pengukuran juga perlu diperhatikan.",
+      "2": "Pilihan ini benar namun tidak lengkap, karena waktu dan jarak pengukuran juga merupakan faktor penting lainnya.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "What is the main reason for the application of preheat?",
+    "t": "Soal ini menguji pemahaman mengenai alasan utama penerapan preheat pada proses pengelasan.",
+    "o": [
+      "A. To limit the amount of residual stress",
+      "B. To increase the toughness value of the welded joint",
+      "C. To increase the UTS value of the welded joint",
+      "D. To improve overall weldability"
+    ],
+    "a": 3,
+    "exp": "Preheat diterapkan untuk memperlambat laju pendinginan, sehingga mengurangi risiko hydrogen cracking, kekerasan HAZ berlebih, dan tegangan termal, yang secara keseluruhan meningkatkan weldability (kemampuan-las) material secara umum.",
+    "w": {
+      "0": "Pengurangan residual stress merupakan salah satu manfaat preheat, namun bukan tujuan utama yang mencakup keseluruhan manfaat preheat terhadap weldability.",
+      "1": "Preheat tidak secara langsung meningkatkan toughness logam las; manfaat utamanya adalah mengurangi risiko cracking melalui kontrol laju pendinginan.",
+      "2": "Preheat tidak dirancang untuk meningkatkan kekuatan tarik (UTS) sambungan las; tujuannya lebih terkait pengendalian laju pendinginan dan risiko cracking.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "What would be a typical preheat value for the welding of a medium carbon steel joint?",
+    "t": "Soal ini menguji pemahaman mengenai nilai preheat tipikal yang diperlukan untuk pengelasan baja karbon menengah.",
+    "o": [
+      "A. 200°C",
+      "B. Not greater than 50°C",
+      "C. Above upper critical limit",
+      "D. 750°C–980°C",
+      "E. Not generally required"
+    ],
+    "a": 0,
+    "exp": "Baja karbon menengah memiliki carbon equivalent yang relatif tinggi, sehingga lebih rentan terhadap pembentukan struktur HAZ yang keras dan risiko hydrogen cracking. Nilai preheat tipikal sekitar 200°C umum diterapkan untuk memperlambat laju pendinginan dan mengurangi risiko tersebut.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Suhu ini terlalu rendah untuk memberikan efek perlambatan pendinginan yang memadai pada baja karbon menengah yang memiliki risiko cracking lebih tinggi.",
+      "2": "Preheat tidak pernah diterapkan hingga melampaui suhu kritis atas, karena hal tersebut akan mengubah struktur mikro material, bukan sekadar memperlambat pendinginan.",
+      "3": "Rentang suhu ini jauh melampaui suhu preheat yang wajar dan mendekati rentang suhu austenisasi, bukan nilai preheat tipikal.",
+      "4": "Pernyataan ini tidak tepat untuk baja karbon menengah, yang umumnya tetap memerlukan preheat karena risiko hydrogen cracking yang lebih tinggi dibandingkan baja karbon rendah."
+    }
+  },
+  {
+    "q": "Which requirements are required to determine a preheat temperature?",
+    "t": "Soal ini menguji pemahaman mengenai faktor-faktor yang menjadi dasar penentuan suhu preheat.",
+    "o": [
+      "A. CEV, heat input, hydrogen content, weather conditions",
+      "B. Material thickness, hydrogen content, weather conditions and humidity",
+      "C. CEV, heat input, material thickness and hydrogen content",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Penentuan suhu preheat mempertimbangkan kombinasi faktor seperti carbon equivalent (CEV), heat input, ketebalan material, kadar hidrogen difusibel, serta kondisi lingkungan (cuaca dan kelembapan) sesuai metode standar (misalnya nomogram pada EN 1011-2), sehingga seluruh faktor pada pilihan A, B, dan C relevan secara kolektif.",
+    "w": {
+      "0": "Pilihan ini benar namun tidak lengkap, karena ketebalan material juga merupakan faktor penting dalam penentuan suhu preheat.",
+      "1": "Pilihan ini benar namun tidak lengkap, karena CEV dan heat input juga merupakan faktor penting yang harus dipertimbangkan.",
+      "2": "Pilihan ini benar namun tidak lengkap, karena kondisi lingkungan (cuaca dan kelembapan) juga turut memengaruhi penentuan suhu preheat.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which European Standard provides information on preheat?",
+    "t": "Soal ini menguji pemahaman mengenai standar Eropa yang menjadi acuan utama untuk informasi terkait preheat.",
+    "o": [
+      "A. EN 22553",
+      "B. EN 499",
+      "C. EN 1011",
+      "D. EN 15614"
+    ],
+    "a": 2,
+    "exp": "EN 1011 (Welding — Recommendations for welding of metallic materials), khususnya bagian EN 1011-2 untuk baja ferritic, memberikan panduan dan metode perhitungan suhu preheat berdasarkan carbon equivalent, ketebalan, hidrogen, dan heat input.",
+    "w": {
+      "0": "Standar ini berkaitan dengan representasi simbol las pada gambar teknik, bukan panduan preheat.",
+      "1": "Standar ini berkaitan dengan spesifikasi consumable las (elektroda terbungkus) untuk baja non-paduan dan butir halus, bukan panduan preheat.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Standar ini berkaitan dengan kualifikasi prosedur las (WPS/WPQR), bukan panduan teknis penentuan suhu preheat."
+    }
+  },
+  {
+    "q": "Which material would generally not require preheat?",
+    "t": "Soal ini menguji pemahaman mengenai jenis material yang umumnya tidak memerlukan preheat saat pengelasan.",
+    "o": [
+      "A. Carbon manganese steels",
+      "B. 316L",
+      "C. Medium carbon steels",
+      "D. HSLA steels"
+    ],
+    "a": 1,
+    "exp": "Baja stainless austenitic seperti 316L tidak membentuk struktur HAZ yang keras (martensit) dan tidak rentan terhadap hydrogen cracking seperti baja karbon/paduan, sehingga umumnya tidak memerlukan preheat; bahkan preheat berlebih dapat berisiko meningkatkan distorsi atau sensitisasi pada material ini.",
+    "w": {
+      "0": "Baja C-Mn umumnya tetap memerlukan preheat tergantung ketebalan dan carbon equivalent untuk mengendalikan risiko hydrogen cracking.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Baja karbon menengah memiliki carbon equivalent yang relatif tinggi sehingga umumnya memerlukan preheat yang cukup signifikan.",
+      "3": "Baja HSLA, meskipun memiliki kadar karbon rendah, tetap dapat memerlukan preheat tergantung hardenability dan ketebalannya untuk mengendalikan risiko hydrogen cracking."
+    }
+  },
+  {
+    "q": "Under most conditions which would require the most preheat?",
+    "t": "Soal ini menguji pemahaman mengenai pengaruh jenis proses/consumable las terhadap kebutuhan preheat, dikaitkan dengan potensi kadar hidrogen difusibel masing-masing proses.",
+    "o": [
+      "A. MMA E8018",
+      "B. TIG Argon",
+      "C. MAG 100% CO₂",
+      "D. MMA E8010",
+      "E. a and c"
+    ],
+    "a": 3,
+    "exp": "Elektroda selulosa seperti E8010 memiliki kadar hidrogen difusibel yang jauh lebih tinggi dibandingkan elektroda low-hydrogen (seperti E8018) maupun proses TIG. Oleh karena itu, penggunaan E8010 umumnya memerlukan preheat yang lebih tinggi untuk mengkompensasi risiko hydrogen cracking yang lebih besar.",
+    "w": {
+      "0": "Elektroda E8018 merupakan elektroda low-hydrogen (basic coating) dengan kadar hidrogen difusibel rendah, sehingga umumnya memerlukan preheat yang lebih rendah dibandingkan E8010.",
+      "1": "Proses TIG memiliki risiko hidrogen yang sangat rendah karena tidak menggunakan flux dan menggunakan gas pelindung argon yang bersih, sehingga umumnya memerlukan preheat paling rendah di antara proses yang ada.",
+      "2": "Meskipun memiliki potensi hidrogen yang lebih tinggi dibandingkan TIG, proses ini umumnya tetap memerlukan preheat lebih rendah dibandingkan elektroda selulosa E8010.",
+      "3": "Jawaban ini benar sesuai pembahasan.",
+      "4": "Kombinasi E8018 dan MAG 100% CO₂ bukan merupakan proses dengan kebutuhan preheat tertinggi; E8010 selulosa tetap menjadi proses dengan kebutuhan preheat paling signifikan akibat kadar hidrogennya yang tinggi."
+    }
+  },
+  {
+    "q": "Who is ultimately responsible for ensuring the correct preheat is applied?",
+    "t": "Soal ini menguji pemahaman mengenai pihak yang secara langsung bertanggung jawab menerapkan preheat sesuai WPS selama proses pengelasan berlangsung.",
+    "o": [
+      "A. Welder",
+      "B. Welding Inspector",
+      "C. Welding Engineer",
+      "D. Welding Inspector or Supervisor"
+    ],
+    "a": 0,
+    "exp": "Welder adalah pihak yang secara langsung melaksanakan proses pengelasan dan bertanggung jawab untuk memastikan seluruh parameter WPS, termasuk suhu preheat, diterapkan dan dipertahankan dengan benar selama pekerjaan berlangsung, meskipun welding inspector bertugas memverifikasi kepatuhannya.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Welding inspector bertugas memverifikasi dan memeriksa kepatuhan terhadap preheat yang dipersyaratkan, namun tidak secara langsung menerapkannya selama proses pengelasan berlangsung.",
+      "2": "Welding engineer bertanggung jawab menyusun WPS dan menentukan persyaratan preheat, namun bukan pihak yang menerapkannya secara langsung di lapangan.",
+      "3": "Pihak-pihak ini berperan dalam pengawasan dan verifikasi, namun penerapan langsung preheat selama pengelasan tetap menjadi tanggung jawab welder."
+    }
+  },
+  {
+    "q": "If heat input increases, the required preheat temperature:",
+    "t": "Soal ini menguji pemahaman mengenai hubungan antara heat input dan kebutuhan suhu preheat.",
+    "o": [
+      "A. Increases",
+      "B. Decreases",
+      "C. Remains the same",
+      "D. No effect"
+    ],
+    "a": 1,
+    "exp": "Heat input yang lebih tinggi secara alami memperlambat laju pendinginan sambungan las, sehingga risiko pembentukan struktur HAZ yang keras dan hydrogen cracking berkurang. Akibatnya, suhu preheat yang dibutuhkan untuk mencapai laju pendinginan yang aman menjadi lebih rendah.",
+    "w": {
+      "0": "Pernyataan ini terbalik; semakin tinggi heat input, semakin rendah kebutuhan preheat karena laju pendinginan alami sudah lebih lambat.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Heat input dan preheat saling berkaitan dalam menentukan laju pendinginan, sehingga perubahan heat input akan memengaruhi kebutuhan preheat, bukan tetap sama.",
+      "3": "Pernyataan ini tidak tepat karena heat input merupakan salah satu faktor utama yang dipertimbangkan dalam perhitungan kebutuhan preheat."
+    }
+  },
+  {
+    "q": "Which statement applies to preheat?",
+    "t": "Soal ini menguji pemahaman mengenai kebenaran beberapa pernyataan umum terkait preheat.",
+    "o": [
+      "A. Always applied using gas flame",
+      "B. Always carried out above 25 mm thickness",
+      "C. Not required with basic electrodes",
+      "D. None of the above"
+    ],
+    "a": 3,
+    "exp": "Tidak satu pun pernyataan A, B, atau C berlaku secara universal: preheat dapat diterapkan menggunakan berbagai metode (gas flame, induksi, resistansi listrik), tidak selalu ditentukan berdasarkan ambang ketebalan tetap 25 mm (tergantung CEV dan faktor lain), dan elektroda basic/low-hydrogen tetap dapat memerlukan preheat tergantung material dan ketebalannya, meskipun kebutuhannya dapat berkurang dibandingkan elektroda dengan hidrogen tinggi.",
+    "w": {
+      "0": "Preheat dapat diterapkan dengan berbagai metode lain seperti pemanas induksi atau elemen resistansi listrik, tidak selalu menggunakan gas flame.",
+      "1": "Kebutuhan preheat ditentukan oleh kombinasi faktor seperti CEV, hidrogen, dan ketebalan, bukan oleh ambang ketebalan tetap 25 mm yang berlaku universal.",
+      "2": "Elektroda basic/low-hydrogen mengurangi risiko hidrogen, namun tidak menghilangkan kebutuhan preheat sepenuhnya, terutama pada material dengan CEV tinggi atau ketebalan besar.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "As a Welding Inspector, where would you find the required preheat temperature?",
+    "t": "Soal ini menguji pemahaman mengenai sumber acuan resmi yang digunakan welding inspector untuk memverifikasi suhu preheat yang dipersyaratkan.",
+    "o": [
+      "A. Approved WPS",
+      "B. WPQR",
+      "C. Welder's experience",
+      "D. Your own calculations",
+      "E. Both a and b"
+    ],
+    "a": 0,
+    "exp": "Approved WPS (Welding Procedure Specification) merupakan dokumen acuan resmi di lapangan yang mencantumkan parameter pengelasan, termasuk suhu preheat yang dipersyaratkan, sehingga menjadi sumber utama yang harus diverifikasi oleh welding inspector selama produksi.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "WPQR (Welding Procedure Qualification Record) merupakan dokumen pendukung hasil kualifikasi yang menjadi dasar penyusunan WPS, namun bukan dokumen acuan langsung yang digunakan di lapangan untuk verifikasi produksi.",
+      "2": "Pengalaman welder tidak dapat dijadikan acuan resmi untuk menentukan suhu preheat; parameter tersebut harus mengacu pada dokumen WPS yang telah disetujui.",
+      "3": "Welding inspector tidak berwenang menentukan suhu preheat berdasarkan perhitungan sendiri; tugasnya adalah memverifikasi kepatuhan terhadap WPS yang telah disetujui.",
+      "4": "Pilihan ini kurang tepat karena WPQR bukan dokumen acuan langsung di lapangan; sumber utama yang relevan adalah Approved WPS."
+    }
+  },
+  {
+    "q": "Which method provides the most accurate reading for preheat temperature during WPS approval?",
+    "t": "Soal ini menguji pemahaman mengenai metode pengukuran suhu yang paling akurat untuk digunakan selama proses kualifikasi WPS.",
+    "o": [
+      "A. Temperature indicating crayons",
+      "B. Thermocouples",
+      "C. Optical pyrometers",
+      "D. All of the above"
+    ],
+    "a": 1,
+    "exp": "Thermocouple memberikan pembacaan suhu yang akurat, kontinu, dan dapat didokumentasikan secara presisi, sehingga menjadi metode yang paling tepat digunakan selama proses kualifikasi WPS yang membutuhkan data suhu yang dapat dipertanggungjawabkan.",
+    "w": {
+      "0": "Crayon hanya memberikan indikasi apakah suhu tertentu telah tercapai atau belum, tanpa memberikan nilai numerik yang presisi seperti thermocouple.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Pyrometer optik dapat dipengaruhi oleh emisivitas permukaan dan kondisi lingkungan, sehingga kurang presisi dibandingkan thermocouple untuk pengujian terkontrol seperti kualifikasi WPS.",
+      "3": "Pilihan ini salah karena crayon dan pyrometer optik tidak memberikan tingkat akurasi yang setara dengan thermocouple untuk keperluan dokumentasi kualifikasi WPS."
+    }
+  },
+  {
+    "q": "Preheating:",
+    "t": "Soal ini menguji pemahaman mengenai definisi dan efek dasar dari proses preheating pada pengelasan.",
+    "o": [
+      "A. Always around 200°C",
+      "B. Not greater than 50°C",
+      "C. Not generally required on medium carbon steels",
+      "D. Delays cooling and improves fusion"
+    ],
+    "a": 3,
+    "exp": "Preheating berfungsi memperlambat laju pendinginan logam las dan base metal, mengurangi efek pendinginan cepat dari material dasar yang dingin, sehingga turut membantu meningkatkan fusi dan mengurangi risiko cacat seperti lack of fusion serta hydrogen cracking.",
+    "w": {
+      "0": "Nilai preheat bervariasi tergantung material, ketebalan, dan CEV, sehingga tidak selalu berada di sekitar 200°C untuk semua jenis pengelasan.",
+      "1": "Nilai ini terlalu spesifik dan rendah untuk berlaku sebagai definisi umum preheat, yang nilainya bergantung pada banyak faktor material dan proses.",
+      "2": "Pernyataan ini tidak tepat karena baja karbon menengah justru umumnya memerlukan preheat yang signifikan akibat carbon equivalent yang relatif tinggi.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "With respect to preheat and interpass temperatures, which is true?",
+    "t": "Soal ini menguji pemahaman mengenai hubungan antara suhu preheat awal dan suhu interpass selama proses pengelasan multi-pass berlangsung.",
+    "o": [
+      "A. Preheat higher than interpass",
+      "B. Interpass higher than preheat",
+      "C. Interpass always minimum",
+      "D. Preheat always maximum"
+    ],
+    "a": 1,
+    "exp": "Setelah pengelasan dimulai dan beberapa pass diselesaikan, panas yang terakumulasi dari proses pengelasan menyebabkan suhu komponen secara alami berada di atas suhu preheat awal yang diterapkan sebelum pengelasan dimulai. Oleh karena itu, suhu interpass pada praktiknya umumnya lebih tinggi dibandingkan suhu preheat minimum yang dipersyaratkan.",
+    "w": {
+      "0": "Pernyataan ini terbalik; suhu interpass justru cenderung lebih tinggi dibandingkan preheat awal akibat akumulasi panas selama pengelasan berlangsung.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Interpass temperature bukan merupakan nilai minimum tetap; nilainya dapat bervariasi tergantung akumulasi panas dan dikendalikan dengan batas maksimum (bukan minimum) untuk mencegah overheating.",
+      "3": "Preheat merupakan suhu minimum yang harus dicapai sebelum pengelasan dimulai, bukan nilai maksimum; justru interpass yang umumnya dikendalikan dengan batas maksimum."
+    }
+  }
+];
+let cur=0,start=0,score=0,ans={},detail={};
+
+
+function updateTopStats(){
+ let correct=0,falsev=0,blank=0;
+ for(let i=0;i<qs.length;i++){
+   if(ans[i]===undefined) blank++;
+   else if(ans[i]===qs[i].a) correct++;
+   else falsev++;
+ }
+ const pct=Math.round((correct/qs.length)*100)||0;
+ const c=document.getElementById('correctCnt'); if(c) c.innerText=correct;
+ const f=document.getElementById('falseCnt'); if(f) f.innerText=falsev;
+ const b=document.getElementById('blankCnt'); if(b) b.innerText=blank;
+ const p=document.getElementById('pctTop'); if(p) p.innerText=pct;
+
+ let h='';
+ let pageStart=Math.floor(cur/10)*10;
+ for(let i=pageStart;i<Math.min(pageStart+10,qs.length);i++){
+   let cls='num ';
+   if(ans[i]==undefined) cls+='unanswered';
+   else cls+=(ans[i]==qs[i].a?'correct':'wrong');
+   if(i==cur) cls+=' current';
+   h+=`<button class="${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
+ }
+ const nav=document.getElementById('navTop');
+ if(nav) nav.innerHTML=h;
+}
+
+function renderNav(){
+ let h="";
+ for(let i=start;i<Math.min(start+10,qs.length);i++){
+   let cls="num ";
+   if(ans[i]==undefined) cls+="unanswered";
+   else cls+=(ans[i]==qs[i].a?"correct":"wrong");
+   if(i==cur) cls+=" current";
+   h+=`<button class="${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
+ }
+ const navEl=document.getElementById("nav"); if(navEl) navEl.innerHTML=h;
+}
+
+function draw(){
+ const total=qs.length;
+ document.getElementById("question").innerHTML=`<div class="q-header"><div class="q-num-badge">${cur+1}</div><h3 style="margin:0;font-size:16px;line-height:1.5">${qs[cur].q}</h3></div>`;
+ document.getElementById("options").innerHTML=qs[cur].o.map((x,i)=>`<button class='option' onclick='pick(${i})'>${x}</button>`).join("");
+ document.getElementById("result").innerHTML=detail[cur]||"";
+ renderNav();updateTopStats();
+}
+
+function pick(i){
+ if(ans[cur]==undefined){ans[cur]=i;if(i==qs[cur].a)score++;}
+ const q=qs[cur];
+ const keys=['A','B','C','D','E','F'];
+ const isCorrect=(i==q.a);
+
+ // Build chosen wrong answer block (only if wrong)
+ let chosenWrongBlock='';
+ if(!isCorrect){
+  const chosenText=q.o[i].replace(/^[A-F]\.\s*/,'');
+  const chosenReason=q.w&&q.w[i]?q.w[i]:'Bukan jawaban yang paling tepat untuk konteks ini.';
+  chosenWrongBlock=`
+  <div style="background:#fff0f0;border-left:4px solid #dc3545;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#dc3545;margin-bottom:4px">❌ Jawaban Anda Salah: ${keys[i]}. ${chosenText}</div>
+   <div style="color:#666;font-size:13px">${chosenReason}</div>
+  </div>`;
+ }
+
+ // Correct answer block
+ const correctBlock=`
+  <div style="background:#f0fff4;border-left:4px solid #28a745;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#28a745;margin-bottom:4px">✅ Jawaban Benar: ${q.o[q.a]}</div>
+   <div style="color:#333;font-size:13px">${q.exp}</div>
+  </div>`;
+
+ // Remaining wrong options (excluding chosen and correct)
+ let remainingRows='';
+ q.o.forEach((opt,idx)=>{
+  if(idx===q.a) return;
+  if(!isCorrect && idx===i) return; // already shown above
+  const label=keys[idx];
+  const reason=q.w&&q.w[idx]?q.w[idx]:'Bukan jawaban yang paling tepat untuk konteks ini.';
+  const optText=opt.replace(/^[A-F]\.\s*/,'');
+  remainingRows+=`<div style="padding:6px 14px;border-top:1px solid #eee">
+   <span style="font-weight:bold;color:#dc3545">${label}. ${optText}</span><br>
+   <span style="color:#888;font-size:13px">${reason}</span>
+  </div>`;
+ });
+
+ const remainingBlock=remainingRows?`
+  <div style="background:#fff8f8;padding:6px 0">
+   <div style="padding:6px 14px;font-weight:bold;color:#dc3545;font-size:13px">Opsi lain yang salah:</div>
+   ${remainingRows}
+  </div>`:'';
+
+ const translationBlock=q.t?`
+  <div style="background:#fffde7;border-left:4px solid #f9a825;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#f57f17;margin-bottom:3px;font-size:12px">📝 ARTI / MAKSUD SOAL:</div>
+   <div style="color:#444;font-size:13px;font-style:italic">${q.t}</div>
+  </div>`:'';
+
+ detail[cur]=`
+ <div style="border:1px solid #ccc;border-radius:6px;overflow:hidden;margin-top:10px">
+  <div style="background:${isCorrect?'#d4edda':'#f8d7da'};padding:8px 14px;font-size:15px;font-weight:bold">
+   ${isCorrect?'✅ BENAR':'❌ SALAH'}
+  </div>
+  ${translationBlock}
+  ${chosenWrongBlock}
+  ${correctBlock}
+  ${remainingBlock}
+ </div>`;
+ draw();
+}
+
+function gotoQ(i){cur=i;draw();}
+function pageNext(){if(start+10<qs.length){start+=10;renderNav();updateTopStats();}}
+function pagePrev(){if(start-10>=0){start-=10;renderNav();updateTopStats();}}
+
+function prevQ(){if(cur>0){cur--;if(cur<start)start-=10;draw();}}
+function nextQ(){
+ if(cur<qs.length-1){cur++;if(cur>=start+10)start+=10;draw();}
+ else review();
+}
+
+function review(){
+ const total=qs.length;
+ const pct=Math.round(score/total*100);
+ const pass=pct>=70;
+ const keys=['A','B','C','D','E','F'];
+ let h=`<div class='review-box'>
+  <h2 style="color:#1a73e8;margin-bottom:16px">REVIEW ALL QUESTION</h2>`;
+
+ qs.forEach((q,i)=>{
+  const userAns=ans[i];
+  const correct=q.a;
+  const isCorrect=(userAns===correct);
+  const unanswered=(userAns===undefined);
+
+  let ansBlock='';
+  if(unanswered){
+   ansBlock=`<div style="color:#888;font-style:italic;margin-top:6px">Belum dijawab</div>
+   <div style="margin-top:6px;background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px">
+    <b style="color:#28a745">✅ Jawaban Benar: ${q.o[correct]}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  } else if(isCorrect){
+   ansBlock=`<div style="background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px;margin-top:6px">
+    <b style="color:#28a745">✅ Jawaban Anda Benar: ${q.o[correct]}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  } else {
+   const wrongReason=q.w&&q.w[userAns]?q.w[userAns]:'Bukan jawaban yang paling tepat.';
+   ansBlock=`
+   <div style="background:#fff0f0;border-left:3px solid #dc3545;padding:8px 12px;margin-top:6px">
+    <b style="color:#dc3545">❌ Jawaban Anda Salah: ${q.o[userAns]}</b><br>
+    <span style="font-size:13px;color:#666">${wrongReason}</span>
+   </div>
+   <div style="background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px;margin-top:6px">
+    <b style="color:#28a745">✅ Jawaban Benar: ${q.o[correct]}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  }
+
+  const reviewTransBlock=q.t?`<div style="background:#fffde7;border-left:3px solid #f9a825;padding:6px 10px;margin:4px 0 6px;border-radius:3px"><span style="font-size:11px;font-weight:bold;color:#f57f17">📝 Arti soal: </span><span style="font-size:12px;color:#555;font-style:italic">${q.t}</span></div>`:'';
+  h+=`<div style="background:#fff;border:1px solid #ddd;border-radius:6px;padding:14px;margin-bottom:14px">
+   <div style="display:flex;align-items:flex-start;gap:10px">
+    <div style="background:${isCorrect?'#28a745':unanswered?'#aaa':'#dc3545'};color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:13px">${i+1}</div>
+    <div style="flex:1">
+     <div style="font-weight:bold;font-size:14px;margin-bottom:2px">SOAL: ${q.q}</div>
+     ${reviewTransBlock}
+     ${ansBlock}
+    </div>
+   </div>
+  </div>`;
+ });
+
+ h+=`<div style="text-align:center;padding:20px;background:${pass?'#d4edda':'#f8d7da'};border-radius:8px;margin-top:10px">
+  <div style="font-size:22px;font-weight:bold;color:${pass?'#155724':'#721c24'}">
+   NILAI AKHIR: ${score}/${total} &nbsp; (${pct}%)
+  </div>
+  <div style="font-size:16px;margin-top:8px;color:${pass?'#155724':'#721c24'}">
+   ${pass?'🎉 LULUS — Passing Grade 70% Tercapai!':'😞 TIDAK LULUS — Passing Grade 70% Belum Tercapai'}
+  </div>
+  <div style="font-size:13px;color:#555;margin-top:6px">Passing Grade: 70% (${Math.ceil(total*0.7)} dari ${total} soal harus benar)</div>
+ </div>
+</div>`;
+ document.getElementById("review").innerHTML=h;
+ document.getElementById("review").scrollIntoView({behavior:'smooth'});
+}
+draw();
+</script>
+</body>
+</html>

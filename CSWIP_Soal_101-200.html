@@ -1,0 +1,1978 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>QUESTION BANK CSWIP 3.1 - Part 2 (Soal 101-200)</title>
+<style>
+body{font-family:Arial;max-width:1100px;margin:auto;background:#f4f4f4;padding:20px}
+.box{background:#fff;padding:20px;border-radius:10px}
+h1{text-align:center;margin:5px}
+h2{text-align:center;margin:5px;color:green}
+.navrow{display:flex;justify-content:center;gap:6px;margin:10px 0}
+.num{width:38px;height:38px;border-radius:50%;border:none;font-weight:bold;cursor:pointer}
+.current{outline:3px solid blue}
+.unanswered{background:#ddd}
+.correct{background:#28a745;color:#fff}
+.wrong{background:#dc3545;color:#fff}
+.option{display:block;width:100%;padding:10px;margin:8px 0;text-align:left;cursor:pointer;border:1px solid #ccc;border-radius:4px;background:#fff;font-size:14px}
+.option:hover{background:#f0f0f0}
+.progress{height:10px;background:#ddd;border-radius:10px}
+.fill{height:100%;background:#28a745;border-radius:10px;transition:width 0.3s}
+.review-box{background:#eef;padding:20px;margin-top:20px;border-radius:8px}
+.q-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.q-num-badge{background:#1a73e8;color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:14px}
+.nav-prev-next{display:flex;justify-content:space-between;align-items:center;margin-top:15px}
+.btn-nav{padding:8px 18px;font-size:14px;cursor:pointer;border:1px solid #ccc;border-radius:4px;background:#fff}
+.btn-nav:hover{background:#e8e8e8}
+.counter-bar{text-align:center;font-weight:bold;color:#555;margin:6px 0 12px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>QUESTION BANK CSWIP 3.1</h1>
+<h3 style="text-align:center;color:#1a73e8;margin:2px">Part 2 &mdash; Soal 101 s/d 200</h3>
+<h2>INSYA ALLAH LULUS</h2>
+
+
+<div id="topExamBar" style="margin-bottom:12px">
+  <div style="display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap">
+    <button class="btn-nav" onclick="prevQ()">◀ Previous</button>
+    <div id="navTop"></div>
+    <button class="btn-nav" onclick="nextQ()">Next ▶</button>
+  </div>
+  <div style="margin-top:6px;font-size:14px;font-weight:bold;text-align:center">
+    <span style="color:green">✔ Correct: <span id="correctCnt">0</span></span> |
+    <span style="color:red">✘ False: <span id="falseCnt">0</span></span> |
+    <span>☐ Blank: <span id="blankCnt">0</span></span> |
+    <span>%: <span id="pctTop">0</span></span>
+  </div>
+</div>
+
+<div id="question"></div>
+<div id="options"></div>
+<div id="result"></div>
+
+<div class="nav-prev-next">
+  <button class="btn-nav" onclick="prevQ()">⬅ Previous</button>
+  <button class="btn-nav" onclick="nextQ()">Next ➡</button>
+</div>
+
+
+<div id="review"></div>
+</div>
+
+<script>
+const qs=[
+  {
+    "q": "101. With reference to the previous question and the correct answer, which parameter has to be measured?",
+    "t": "Berdasarkan jawaban pada soal sebelumnya, parameter manakah yang memang harus diukur dan digunakan sebagai hasil utama dari transverse tensile test?",
+    "o": [
+      "A. A%",
+      "B. Rp",
+      "C. Re",
+      "D. UTS"
+    ],
+    "a": 3,
+    "exp": "Tujuan utama transverse tensile test adalah menentukan Ultimate Tensile Strength (UTS) dari sambungan las. Nilai ini menunjukkan beban maksimum yang mampu ditahan spesimen sebelum mengalami kegagalan. Dalam qualification test, nilai UTS digunakan untuk memastikan bahwa kekuatan sambungan memenuhi persyaratan minimum yang ditetapkan oleh standar atau spesifikasi material.",
+    "w": {
+      "0": "Persentase elongation umumnya tidak digunakan sebagai acceptance criteria pada transverse tensile test sambungan las karena pengukuran elongation menjadi kurang representatif akibat adanya weld metal dan HAZ dalam spesimen.",
+      "1": "Proof stress lebih sering digunakan pada pengujian material dasar atau all weld metal tensile test dan bukan parameter utama pada transverse tensile test.",
+      "2": "Yield strength bukan parameter yang biasanya digunakan sebagai acceptance criteria pada transverse tensile test sambungan las."
+    }
+  },
+  {
+    "q": "102. What is the transition temperature in the V-Notch test?",
+    "t": "Apa yang dimaksud dengan transition temperature pada Charpy V-Notch Impact Test?",
+    "o": [
+      "A. In the middle of temperature of ductile to brittle",
+      "B. In the middle of toughness of 47 Joule to 28 Joule",
+      "C. Between 0°C and -30°C",
+      "D. In between maximum absorbed energy at high temperature"
+    ],
+    "a": 0,
+    "exp": "Transition temperature adalah temperatur di mana mekanisme patahan material berubah dari perilaku ulet (ductile) menjadi getas (brittle). Pada temperatur ini terjadi perubahan signifikan pada energi serap dan karakteristik permukaan patahan.",
+    "w": {
+      "1": "Nilai energi tertentu dapat digunakan dalam beberapa spesifikasi, tetapi bukan definisi umum transition temperature.",
+      "2": "Transition temperature berbeda untuk setiap material sehingga tidak dapat ditentukan dengan rentang temperatur tetap.",
+      "3": "Energi maksimum pada temperatur tinggi tidak digunakan untuk mendefinisikan transition temperature."
+    }
+  },
+  {
+    "q": "103. With reference to the previous question and the correct answer, what material has no transition point?",
+    "t": "Berdasarkan konsep transition temperature pada Charpy V-Notch Test, material manakah yang umumnya tidak memiliki ductile-to-brittle transition point yang jelas?",
+    "o": [
+      "A. C-steel",
+      "B. C-Mn steel",
+      "C. Cr-Mo steel",
+      "D. 304L/316L"
+    ],
+    "a": 3,
+    "exp": "Stainless steel austenitik seperti 304L dan 316L memiliki struktur kristal FCC (Face Centered Cubic) yang tetap mempertahankan ketangguhannya pada temperatur rendah. Oleh karena itu material ini tidak menunjukkan ductile-to-brittle transition temperature yang jelas seperti yang terjadi pada baja ferritik.",
+    "w": {
+      "0": "Carbon steel umumnya memiliki transition temperature yang dapat diamati melalui pengujian Charpy.",
+      "1": "Carbon manganese steel menunjukkan perubahan toughness terhadap temperatur dan memiliki transition range.",
+      "2": "Low alloy steel seperti Cr-Mo tetap menunjukkan karakteristik ductile-to-brittle transition."
+    }
+  },
+  {
+    "q": "104. What is the purpose of the V-Notch test?",
+    "t": "Apa tujuan utama dilakukannya Charpy V-Notch Impact Test pada material atau sambungan las?",
+    "o": [
+      "A. Corrosion cracking",
+      "B. Corrosion sensitivity",
+      "C. Brittle fracture",
+      "D. All correct"
+    ],
+    "a": 2,
+    "exp": "Charpy V-Notch Test digunakan untuk menentukan kemampuan material menyerap energi sebelum patah akibat beban kejut dan untuk menilai ketahanan material terhadap brittle fracture, khususnya pada temperatur rendah.",
+    "w": {
+      "0": "Korosi retak memerlukan metode pengujian yang berbeda dan tidak dievaluasi melalui Charpy test.",
+      "1": "Charpy test tidak digunakan untuk mengevaluasi ketahanan korosi material.",
+      "3": "Karena pilihan A dan B tidak berkaitan langsung dengan tujuan Charpy V-Notch Test."
+    }
+  },
+  {
+    "q": "105. With reference to the previous question and the correct answer, what does the fracture surface look like?",
+    "t": "Jika terjadi brittle fracture seperti yang dimaksud pada soal sebelumnya, bagaimana karakteristik permukaan patahan yang biasanya terlihat?",
+    "o": [
+      "A. Crystalline surface",
+      "B. Flat surface",
+      "C. No reduction area",
+      "D. All above correct"
+    ],
+    "a": 3,
+    "exp": "Patahan getas biasanya menunjukkan permukaan kristalin (crystalline appearance), relatif datar (flat surface), dan hampir tidak menunjukkan pengurangan luas penampang (reduction of area). Semua karakteristik tersebut merupakan ciri khas brittle fracture.",
+    "w": {
+      "0": "Benar, tetapi hanya salah satu karakteristik brittle fracture.",
+      "1": "Benar, tetapi belum mencakup seluruh karakteristik.",
+      "2": "Benar, tetapi bukan satu-satunya ciri yang diamati."
+    }
+  },
+  {
+    "q": "106. The main purpose of transverse tensile test is:",
+    "t": "Apa tujuan utama dilakukannya transverse tensile test pada sambungan las?",
+    "o": [
+      "A. Hardness",
+      "B. Absorbed energy",
+      "C. Strength at maximum load",
+      "D. Transition range"
+    ],
+    "a": 2,
+    "exp": "Transverse tensile test digunakan untuk menentukan kekuatan tarik maksimum sambungan las dengan mengukur beban maksimum yang mampu ditahan spesimen sebelum patah.",
+    "w": {
+      "0": "Hardness diukur menggunakan hardness test.",
+      "1": "Energi serap diukur menggunakan Charpy impact test.",
+      "3": "Transition range ditentukan melalui serangkaian pengujian impact pada berbagai temperatur."
+    }
+  },
+  {
+    "q": "107. Which destructive test is correct regarding the previous question?",
+    "t": "Berkaitan dengan transverse tensile test pada soal sebelumnya, pernyataan manakah yang benar mengenai hasil atau karakteristik pengujian tersebut?",
+    "o": [
+      "A. All weld tensile test will show proof stress",
+      "B. Could break in base metal or weld",
+      "C. Charpy in weld zone",
+      "D. Hardness in weld zone"
+    ],
+    "a": 1,
+    "exp": "Pada transverse tensile test, spesimen dapat patah di weld metal, HAZ, maupun parent metal. Lokasi patahan bukan faktor utama penerimaan selama nilai kekuatan tarik memenuhi persyaratan yang ditentukan.",
+    "w": {
+      "0": "Pernyataan ini berkaitan dengan all weld tensile test, bukan transverse tensile test.",
+      "2": "Charpy impact test merupakan pengujian yang berbeda.",
+      "3": "Hardness test juga merupakan pengujian yang berbeda dan tidak menjadi hasil utama transverse tensile test."
+    }
+  },
+  {
+    "q": "108. What is the reason for doing hardness testing?",
+    "t": "Apa alasan utama dilakukannya hardness testing pada sambungan las?",
+    "o": [
+      "A. Ductility",
+      "B. Strength of weld zone",
+      "C. Susceptibility to cracking",
+      "D. Penetration"
+    ],
+    "a": 2,
+    "exp": "Hardness testing digunakan untuk mengidentifikasi area yang memiliki kekerasan tinggi yang berpotensi mengalami hydrogen cracking atau cold cracking. Nilai hardness yang terlalu tinggi sering menunjukkan terbentuknya mikrostruktur keras seperti martensite.",
+    "w": {
+      "0": "Daktilitas biasanya dievaluasi melalui tensile test atau bend test.",
+      "1": "Meskipun hardness berhubungan dengan kekuatan, tujuan utama dalam welding qualification adalah mengontrol risiko cracking.",
+      "3": "Penetrasi diperiksa melalui macro examination atau fracture test."
+    }
+  },
+  {
+    "q": "109. A STRA test is carried out to determine:",
+    "t": "Apa yang ditentukan atau diukur melalui STRA (Short Transverse Reduction Area) Test?",
+    "o": [
+      "A. Weld quality",
+      "B. Material not mechanically damaged by heat",
+      "C. Elongation properties",
+      "D. Through thickness ductility"
+    ],
+    "a": 3,
+    "exp": "STRA test digunakan untuk mengukur kemampuan deformasi material pada arah ketebalan dan merupakan metode yang umum digunakan untuk menilai ketahanan terhadap lamellar tearing.",
+    "w": {
+      "0": "STRA tidak digunakan untuk memeriksa kualitas visual atau kualitas fusion pada weld.",
+      "1": "Bukan tujuan utama dari STRA test.",
+      "2": "STRA lebih berfokus pada reduction of area dalam arah ketebalan dibanding elongation biasa."
+    }
+  },
+  {
+    "q": "110. Lamellar tearing is a problem in steels associated with:",
+    "t": "Lamellar tearing pada baja berhubungan dengan karakteristik material yang seperti apa?",
+    "o": [
+      "A. Sensitization in HAZ",
+      "B. Hydrogen >15ml/100g",
+      "C. Low through thickness ductility",
+      "D. Rapid cooling"
+    ],
+    "a": 2,
+    "exp": "Lamellar tearing terjadi ketika material memiliki daktilitas yang rendah pada arah ketebalan sehingga tidak mampu mengakomodasi tegangan tarik yang timbul selama penyusutan pengelasan.",
+    "w": {
+      "0": "Sensitization merupakan fenomena korosi pada stainless steel.",
+      "1": "Hydrogen berlebih lebih berkaitan dengan hydrogen cracking.",
+      "3": "Rapid cooling dapat meningkatkan hardness tetapi bukan penyebab utama lamellar tearing."
+    }
+  },
+  {
+    "q": "111. What is the main purpose of hardness testing?",
+    "t": "Apa tujuan utama dilakukannya hardness testing pada sambungan las dan daerah Heat Affected Zone (HAZ)?",
+    "o": [
+      "A. Brittle fracture resistance",
+      "B. Corrosion sensitivity",
+      "C. Cold cracking resistance",
+      "D. All above"
+    ],
+    "a": 2,
+    "exp": "Hardness testing dilakukan untuk mengidentifikasi area dengan kekerasan tinggi yang berpotensi mengalami hydrogen cracking atau cold cracking. Semakin tinggi nilai hardness, semakin besar kemungkinan terbentuknya mikrostruktur keras seperti martensite yang rentan terhadap retak dingin.",
+    "w": {
+      "0": "Ketahanan terhadap brittle fracture lebih tepat dievaluasi menggunakan Charpy Impact Test atau CTOD Test.",
+      "1": "Ketahanan korosi tidak ditentukan melalui hardness testing.",
+      "3": "Karena tujuan utama hardness testing dalam pengelasan adalah mengendalikan risiko cold cracking."
+    }
+  },
+  {
+    "q": "112. With reference to the previous question, what is the reason for high hardness?",
+    "t": "Berdasarkan soal sebelumnya, faktor manakah yang dapat menyebabkan nilai hardness menjadi tinggi pada sambungan las?",
+    "o": [
+      "A. High weld volume",
+      "B. Low temperature service",
+      "C. Lack of preheat",
+      "D. Too low heat input",
+      "E. All above"
+    ],
+    "a": 4,
+    "exp": "Kurangnya preheat, heat input yang terlalu rendah, temperatur operasi yang rendah, serta kondisi tertentu yang mempengaruhi laju pendinginan dapat meningkatkan pembentukan struktur keras. Semua faktor tersebut dapat berkontribusi terhadap peningkatan hardness.",
+    "w": {
+      "0": "Meskipun umumnya tidak meningkatkan hardness secara langsung, pada kondisi tertentu dapat mempengaruhi distribusi panas dan struktur mikro.",
+      "1": "Temperatur rendah meningkatkan kecenderungan brittle behaviour dan menjadi faktor yang perlu dipertimbangkan dalam evaluasi hardness.",
+      "2": "Merupakan salah satu penyebab utama meningkatnya hardness karena mempercepat laju pendinginan.",
+      "3": "Heat input yang rendah menyebabkan pendinginan lebih cepat dan meningkatkan kemungkinan terbentuknya martensite."
+    }
+  },
+  {
+    "q": "113. Which material would not have a distinct transition range?",
+    "t": "Material manakah yang tidak memiliki ductile-to-brittle transition range yang jelas?",
+    "o": [
+      "A. Carbon manganese steel",
+      "B. HSLA steel",
+      "C. Stainless steel 304/316",
+      "D. Low temperature carbon steel"
+    ],
+    "a": 2,
+    "exp": "Stainless steel austenitik seperti 304 dan 316 memiliki struktur FCC yang mempertahankan ketangguhan pada temperatur rendah sehingga tidak menunjukkan transition range yang jelas seperti baja ferritik.",
+    "w": {
+      "0": "Material ini memiliki transition temperature yang dapat diamati melalui Charpy testing.",
+      "1": "Masih menunjukkan perubahan toughness terhadap temperatur.",
+      "3": "Meskipun dirancang untuk temperatur rendah, tetap memiliki transition behaviour."
+    }
+  },
+  {
+    "q": "114. What are the features of brittle fracture?",
+    "t": "Apa ciri khas yang biasanya terlihat pada permukaan patahan getas (brittle fracture)?",
+    "o": [
+      "A. Torn surface",
+      "B. Reduction in area",
+      "C. Smooth surface",
+      "D. Crystalline surface"
+    ],
+    "a": 3,
+    "exp": "Brittle fracture biasanya menunjukkan permukaan kristalin yang berkilau, relatif datar, dan terjadi dengan deformasi plastis yang sangat kecil.",
+    "w": {
+      "0": "Permukaan robek merupakan karakteristik ductile fracture.",
+      "1": "Patahan getas hampir tidak menunjukkan reduction in area.",
+      "2": "Walaupun relatif datar, ciri yang paling khas adalah tampilan kristalin."
+    }
+  },
+  {
+    "q": "115. Which elongation value would be more susceptible to lamellar tearing?",
+    "t": "Nilai elongation berapakah yang menunjukkan material lebih rentan mengalami lamellar tearing?",
+    "o": [
+      "A. Greater than 20%",
+      "B. Less than 20%",
+      "C. 30% and above",
+      "D. All susceptible"
+    ],
+    "a": 1,
+    "exp": "Nilai elongation yang rendah menunjukkan daktilitas yang rendah pula. Material dengan daktilitas rendah pada arah ketebalan lebih rentan mengalami lamellar tearing saat menerima through-thickness stress.",
+    "w": {
+      "0": "Menunjukkan daktilitas yang lebih baik dan ketahanan yang lebih tinggi terhadap lamellar tearing.",
+      "2": "Nilai ini menunjukkan material yang sangat ulet.",
+      "3": "Kerentanan terhadap lamellar tearing tidak sama untuk semua nilai elongation."
+    }
+  },
+  {
+    "q": "116. What is the main purpose of Charpy testing?",
+    "t": "Apa tujuan utama dilakukannya Charpy Impact Test pada material atau sambungan las?",
+    "o": [
+      "A. Brittle fracture resistance",
+      "B. Corrosion sensitivity",
+      "C. Cold cracking",
+      "D. All above"
+    ],
+    "a": 0,
+    "exp": "Charpy Impact Test digunakan untuk mengukur kemampuan material menyerap energi sebelum patah akibat beban kejut dan mengevaluasi ketahanan terhadap brittle fracture pada temperatur tertentu.",
+    "w": {
+      "1": "Charpy tidak digunakan untuk mengevaluasi korosi.",
+      "2": "Cold cracking dievaluasi melalui kontrol hardness, hydrogen, dan prosedur pengelasan.",
+      "3": "Karena hanya brittle fracture resistance yang menjadi tujuan utama."
+    }
+  },
+  {
+    "q": "117. What is the meaning of transition temperature?",
+    "t": "Apa yang dimaksud dengan transition temperature pada hasil Charpy Impact Test?",
+    "o": [
+      "A. Between ductile and brittle",
+      "B. Mid span of temperature",
+      "C. 0°C to -20°C",
+      "D. 0°C to -30°C"
+    ],
+    "a": 0,
+    "exp": "Transition temperature adalah temperatur di mana sifat patahan material berubah dari ductile fracture menjadi brittle fracture.",
+    "w": {
+      "1": "Bukan definisi teknis transition temperature.",
+      "2": "Tidak semua material memiliki transition temperature pada rentang tersebut.",
+      "3": "Nilainya bergantung pada jenis material."
+    }
+  },
+  {
+    "q": "118. Which one below will be shown by micro test?",
+    "t": "Karakteristik manakah yang dapat diamati secara langsung melalui pengujian mikrostruktur (micro test)?",
+    "o": [
+      "A. Excess and root penetration",
+      "B. HAZ area",
+      "C. Rolling direction",
+      "D. Grain size"
+    ],
+    "a": 3,
+    "exp": "Micro examination digunakan untuk mengamati ukuran butir (grain size), struktur mikro, fasa yang terbentuk, dan perubahan metalurgi yang terjadi akibat pengelasan.",
+    "w": {
+      "0": "Lebih mudah diamati melalui macro examination.",
+      "1": "HAZ dapat terlihat pada macro maupun micro test, tetapi yang paling spesifik diamati dengan micro test adalah struktur mikronya.",
+      "2": "Rolling direction biasanya diketahui dari proses manufaktur material, bukan tujuan utama micro test."
+    }
+  },
+  {
+    "q": "119. In all weld metal tensile test, what parameter will not be measured?",
+    "t": "Pada all weld metal tensile test, parameter manakah yang umumnya tidak diukur atau tidak dilaporkan sebagai hasil utama?",
+    "o": [
+      "A. A%",
+      "B. Re",
+      "C. Rm",
+      "D. Rp"
+    ],
+    "a": 3,
+    "exp": "All weld metal tensile test biasanya melaporkan UTS (Rm), Yield Strength (Re), dan Elongation (A%). Proof stress (Rp) tidak selalu dipersyaratkan dan sering tidak menjadi parameter utama.",
+    "w": {
+      "0": "Elongation merupakan parameter penting dalam tensile test.",
+      "1": "Yield strength sering dilaporkan sebagai hasil pengujian.",
+      "2": "Ultimate tensile strength merupakan hasil utama tensile test."
+    }
+  },
+  {
+    "q": "120. What is the formula for ductility?",
+    "t": "Rumus manakah yang digunakan untuk menghitung atau menyatakan nilai ductility suatu material?",
+    "o": [
+      "A. (Actual length / Original Length) ×100%",
+      "B. (Original diameter − Diameter after break) ×100 / Original Diameter",
+      "C. (Additional length / Original Length) ×100%",
+      "D. b and c correct"
+    ],
+    "a": 3,
+    "exp": "Ductility dapat dinyatakan melalui persentase elongation maupun reduction of area. Keduanya merupakan metode yang diakui untuk mengukur kemampuan deformasi plastis material sebelum patah.",
+    "w": {
+      "0": "Rumus ini tidak menghitung pertambahan panjang yang terjadi selama pengujian.",
+      "1": "Merupakan salah satu metode yang benar tetapi bukan satu-satunya.",
+      "2": "Merupakan metode elongation tetapi belum mencakup reduction of area."
+    }
+  },
+  {
+    "q": "121. When is Rm measured?",
+    "t": "Pada tahap manakah nilai Rm (Ultimate Tensile Strength) ditentukan selama tensile test?",
+    "o": [
+      "A. At maximum load",
+      "B. When material excessively ductile",
+      "C. When material breaks",
+      "D. At maximum ductility"
+    ],
+    "a": 0,
+    "exp": "Rm atau UTS dihitung berdasarkan beban maksimum yang dicapai selama pengujian tarik sebelum spesimen mulai mengalami necking secara signifikan.",
+    "w": {
+      "1": "Daktilitas tidak menentukan titik pengukuran Rm.",
+      "2": "Patah terjadi setelah beban maksimum terlampaui.",
+      "3": "Daktilitas maksimum bukan parameter untuk menentukan Rm."
+    }
+  },
+  {
+    "q": "122. When is Re measured?",
+    "t": "Pada tahap manakah nilai Re (Yield Strength) ditentukan selama tensile test?",
+    "o": [
+      "A. At maximum load",
+      "B. When material excessively ductile",
+      "C. When material breaks",
+      "D. At maximum ductility"
+    ],
+    "a": 1,
+    "exp": "Re ditentukan ketika material mulai mengalami deformasi plastis permanen dan tidak lagi kembali ke bentuk semula setelah beban dilepaskan. Titik ini menandai batas antara daerah elastis dan plastis.",
+    "w": {
+      "0": "Ini merupakan titik penentuan UTS (Rm).",
+      "2": "Yield strength terjadi jauh sebelum spesimen patah.",
+      "3": "Daktilitas maksimum bukan dasar penentuan yield strength."
+    }
+  },
+  {
+    "q": "123. During the welder qualification test for fillet weld, which destructive tests are required?",
+    "t": "Pada welder qualification test untuk fillet weld, pengujian destruktif manakah yang biasanya dipersyaratkan?",
+    "o": [
+      "A. Nick break test",
+      "B. Fracture test",
+      "C. Quantitative test",
+      "D. Tensile test"
+    ],
+    "a": 1,
+    "exp": "Fillet weld qualification umumnya menggunakan fillet weld fracture test untuk mengevaluasi penetrasi, fusion, dan keberadaan cacat internal seperti slag inclusion atau lack of fusion. Pengujian ini merupakan metode yang paling umum digunakan untuk kualifikasi fillet weld.",
+    "w": {
+      "0": "Nick break lebih umum digunakan pada butt weld qualification.",
+      "2": "Ini bukan nama pengujian tertentu dan tidak secara spesifik digunakan untuk fillet weld qualification.",
+      "3": "Tensile test umumnya digunakan pada butt weld dan procedure qualification, bukan fillet weld welder qualification."
+    }
+  },
+  {
+    "q": "124. If an Iridium 192 isotope is issued with an activity of 400 GBq, what would its activity be after 296 days?",
+    "t": "Jika sebuah sumber radioaktif Iridium-192 memiliki aktivitas awal sebesar 400 GBq, berapakah aktivitas sumber tersebut setelah 296 hari?",
+    "o": [
+      "A. 50 GBq",
+      "B. 25 GBq",
+      "C. 12 GBq",
+      "D. None of the above can be selected; insufficient information provided."
+    ],
+    "a": 0,
+    "exp": "Half-life Iridium-192 sekitar 74 hari. Dalam 296 hari terjadi 4 kali half-life (296 ÷ 74 = 4). Aktivitas akan berkurang setengah setiap half-life: 400 → 200 → 100 → 50 → 25 Namun karena 296 hari tepat sekitar 4 half-life, aktivitas menjadi 25 GBq secara teoritis. Pada banyak soal CSWIP angka yang digunakan adalah 74 hari sehingga perlu perhitungan tepat. Jika menggunakan 4 half-life penuh jawabannya menjadi 25 GBq. Karena itu soal ini sering dianggap memerlukan data half-life yang diketahui.",
+    "w": {
+      "1": "Secara matematis ini sebenarnya hasil perhitungan yang benar jika menggunakan half-life Ir-192 sebesar 74 hari. Jawaban tergantung referensi soal aslinya.",
+      "2": "Nilai ini memerlukan 5 kali half-life.",
+      "3": "Data half-life Iridium-192 merupakan pengetahuan dasar RT sehingga informasi dianggap cukup."
+    }
+  },
+  {
+    "q": "125. Which of the following NDT methods is the most critical with respect to surface preparation and cleaning prior to conducting inspection?",
+    "t": "Metode NDT manakah yang paling bergantung pada kualitas pembersihan dan persiapan permukaan sebelum inspeksi dilakukan?",
+    "o": [
+      "A. Radiographic Inspection",
+      "B. Magnetic Particle Inspection",
+      "C. Dye Penetrant Inspection",
+      "D. Both b and c"
+    ],
+    "a": 2,
+    "exp": "DPI bekerja berdasarkan capillary action. Kontaminasi seperti minyak, cat, grease, slag, oksida, atau kotoran dapat menutup diskontinuitas sehingga penetrant tidak dapat masuk ke dalam cacat. Oleh karena itu kebersihan permukaan sangat kritis.",
+    "w": {
+      "0": "RT tidak terlalu dipengaruhi kondisi permukaan karena sinar menembus material.",
+      "1": "MPI memerlukan permukaan yang cukup bersih, tetapi tidak seketat DPI.",
+      "3": "MPI memang memerlukan pembersihan, tetapi DPI jauh lebih sensitif terhadap kondisi permukaan."
+    }
+  },
+  {
+    "q": "126. When conducting inspection on a Double V butt weld (35° bevel angle), which of the following NDT methods would be the most suited to the detection of lack of sidewall fusion in the root region?",
+    "t": "Saat memeriksa Double V butt weld dengan sudut bevel 35°, metode NDT manakah yang paling sesuai untuk mendeteksi lack of sidewall fusion pada daerah root?",
+    "o": [
+      "A. Ultrasonic Inspection",
+      "B. Radiographic Inspection",
+      "C. Magnetic Particle Inspection",
+      "D. Dye Penetrant Inspection"
+    ],
+    "a": 0,
+    "exp": "Lack of sidewall fusion merupakan planar defect. UT sangat sensitif terhadap planar indications karena gelombang ultrasonik akan dipantulkan dengan baik oleh permukaan cacat yang datar.",
+    "w": {
+      "1": "RT lebih efektif untuk volumetric defects seperti porosity dan slag inclusion dibanding planar defects.",
+      "2": "MPI hanya mendeteksi cacat permukaan atau dekat permukaan.",
+      "3": "DPI hanya mendeteksi cacat yang terbuka ke permukaan."
+    }
+  },
+  {
+    "q": "127. When scanning with a longitudinal wave probe in the through thickness direction on a flat component such as a rolled steel plate, which of the following defects would you expect to be detected?",
+    "t": "Ketika melakukan pemeriksaan menggunakan probe longitudinal wave tegak lurus terhadap ketebalan pelat baja, cacat apa yang paling mungkin terdeteksi?",
+    "o": [
+      "A. All defects laying less than 6 mm below the surface of the plate",
+      "B. Gas pores and fine porosity",
+      "C. Plate laminations",
+      "D. Transverse-type flaws with major dimensions at right angles to the rolled surface",
+      "E. All of the above"
+    ],
+    "a": 2,
+    "exp": "Laminasi pelat memiliki orientasi sejajar dengan permukaan pelat sehingga memberikan refleksi yang sangat baik terhadap gelombang longitudinal yang masuk tegak lurus.",
+    "w": {
+      "0": "Near-surface defects sering berada di dead zone UT.",
+      "1": "Porosity kecil sulit dideteksi secara efektif dengan UT.",
+      "3": "Orientasi cacat ini tidak ideal untuk probe 0°.",
+      "4": "Tidak semua jenis cacat dapat dideteksi secara efektif dengan konfigurasi tersebut."
+    }
+  },
+  {
+    "q": "128. Which NDT method would you associate with prods?",
+    "t": "Metode NDT manakah yang menggunakan peralatan berupa prods?",
+    "o": [
+      "A. Radiographic Inspection",
+      "B. Magnetic Particle Inspection",
+      "C. Ultrasonic Inspection",
+      "D. Dye Penetrant Inspection"
+    ],
+    "a": 1,
+    "exp": "Prods digunakan untuk mengalirkan arus listrik langsung ke dalam material selama MPI guna menghasilkan medan magnet lokal.",
+    "w": {
+      "0": "RT menggunakan sumber radiasi dan film/detektor.",
+      "2": "UT menggunakan probe ultrasonik.",
+      "3": "DPI menggunakan penetrant dan developer."
+    }
+  },
+  {
+    "q": "129. When conducting DPI, which of the following are critical considerations?",
+    "t": "Saat melakukan Dye Penetrant Inspection, faktor manakah yang menjadi pertimbangan penting?",
+    "o": [
+      "A. Thickness of component being tested",
+      "B. Weld preparation details",
+      "C. Component test temperature",
+      "D. All of the above"
+    ],
+    "a": 2,
+    "exp": "Temperatur benda kerja mempengaruhi viskositas penetrant, waktu penetrasi, dan kemampuan penetrant masuk ke dalam diskontinuitas.",
+    "w": {
+      "0": "Ketebalan material tidak mempengaruhi prinsip kerja DPI.",
+      "1": "Bukan faktor utama selama permukaan yang diperiksa dapat diakses.",
+      "3": "Tidak semua faktor tersebut sama pentingnya untuk DPI."
+    }
+  },
+  {
+    "q": "130. Which of the following probes is used for Ultrasonic Testing to detect laminations in parent plate?",
+    "t": "Probe UT manakah yang digunakan untuk mendeteksi laminasi pada parent plate?",
+    "o": [
+      "A. 0° probe",
+      "B. 45° probe",
+      "C. 60° probe",
+      "D. 70° probe"
+    ],
+    "a": 0,
+    "exp": "Laminasi biasanya sejajar dengan permukaan pelat sehingga paling efektif dideteksi menggunakan longitudinal wave 0° probe.",
+    "w": {
+      "1": "Digunakan untuk inspeksi weld.",
+      "2": "Umumnya digunakan untuk mendeteksi planar defects dalam weld.",
+      "3": "Lebih cocok untuk area tertentu pada sambungan las."
+    }
+  },
+  {
+    "q": "131. Which material would be the least effective for DPI?",
+    "t": "Material manakah yang paling tidak cocok atau paling kurang efektif diperiksa menggunakan Dye Penetrant Inspection?",
+    "o": [
+      "A. Carbon Manganese steels",
+      "B. 316L steel",
+      "C. Cast Iron",
+      "D. Both a and c"
+    ],
+    "a": 2,
+    "exp": "Cast iron memiliki porositas alami dan permukaan yang kasar sehingga penetrant dapat terjebak di banyak area dan menghasilkan indikasi palsu.",
+    "w": {
+      "0": "DPI dapat digunakan dengan baik jika permukaan cukup halus.",
+      "1": "DPI sangat umum digunakan pada stainless steel.",
+      "3": "Carbon manganese steel tidak termasuk material yang bermasalah untuk DPI."
+    }
+  },
+  {
+    "q": "132. Why might iron powder be used when conducting MPI?",
+    "t": "Mengapa serbuk besi kering (iron powder) dapat digunakan dalam MPI?",
+    "o": [
+      "A. If the component being tested is too large for regular inks to be used",
+      "B. During the inspection of components underwater",
+      "C. During the inspection of hot components",
+      "D. Iron powder is preferred over regular MPI inks due to the higher sensitivity achieved and ease of application",
+      "E. Both c and d"
+    ],
+    "a": 4,
+    "exp": "Dry powder MPI sering digunakan pada komponen panas dan memiliki sensitivitas yang baik pada kondisi tertentu di mana wet ink tidak dapat digunakan secara efektif.",
+    "w": {
+      "0": "Ukuran komponen bukan alasan utama.",
+      "1": "Bukan aplikasi normal dry powder MPI.",
+      "2": "Benar tetapi belum lengkap.",
+      "3": "Benar tetapi belum mencakup penggunaan pada komponen panas."
+    }
+  },
+  {
+    "q": "133. During MPI inspection using contrast inks, what is the minimum light intensity requirement in accordance with EN standards?",
+    "t": "Pada MPI menggunakan contrast ink, berapa intensitas cahaya minimum yang dipersyaratkan oleh standar EN?",
+    "o": [
+      "A. The same as that required for visual inspection",
+      "B. 350 lux minimum, 500 lux recommended",
+      "C. 600 lux",
+      "D. Not specified, it is left to the decision of the NDT technician"
+    ],
+    "a": 1,
+    "exp": "Standar EN mensyaratkan tingkat pencahayaan minimum tertentu agar indikasi dapat diamati dengan jelas dan akurat.",
+    "w": {
+      "0": "Persyaratan MPI memiliki nilai spesifik.",
+      "2": "Bukan nilai minimum yang ditentukan.",
+      "3": "Persyaratan pencahayaan diatur oleh standar."
+    }
+  },
+  {
+    "q": "134. A major disadvantage of DPI is:",
+    "t": "Apa kelemahan utama dari metode Dye Penetrant Inspection (DPI)?",
+    "o": [
+      "A. It can only be used on material over 3 mm thickness",
+      "B. It can only detect surface defects",
+      "C. It can only be used on non-ferrous materials",
+      "D. Both b and c",
+      "E. All of the above"
+    ],
+    "a": 1,
+    "exp": "DPI hanya mampu mendeteksi cacat yang terbuka ke permukaan. Cacat internal seperti lack of fusion, slag inclusion, atau porosity yang tidak mencapai permukaan tidak dapat dideteksi menggunakan metode ini.",
+    "w": {
+      "0": "DPI dapat digunakan pada berbagai ketebalan material selama permukaannya dapat diakses.",
+      "2": "DPI dapat digunakan pada material ferrous maupun non-ferrous.",
+      "3": "Karena pernyataan C tidak benar.",
+      "4": "Karena hanya pernyataan B yang merupakan kelemahan utama DPI."
+    }
+  },
+  {
+    "q": "135. What is the main purpose of an IQI when used in Radiography?",
+    "t": "Apa tujuan utama penggunaan IQI (Image Quality Indicator) dalam Radiographic Testing?",
+    "o": [
+      "A. To measure defect sensitivity",
+      "B. To assess the smallest defect which can be detected",
+      "C. To measure radiographic sensitivity",
+      "D. All of the above"
+    ],
+    "a": 2,
+    "exp": "IQI digunakan untuk memverifikasi kualitas radiograf dan menentukan sensitivitas radiografi yang dicapai selama proses pemeriksaan. IQI menunjukkan kemampuan teknik radiografi dalam mendeteksi perubahan ketebalan yang sangat kecil.",
+    "w": {
+      "0": "IQI tidak mengukur sensitivitas terhadap jenis cacat tertentu.",
+      "1": "IQI tidak menunjukkan ukuran cacat minimum yang dapat dideteksi secara langsung.",
+      "3": "Fungsi utama IQI adalah mengukur radiographic sensitivity."
+    }
+  },
+  {
+    "q": "136. Lamellar tearing can be detected by which of the following NDE methods?",
+    "t": "Metode NDE manakah yang paling sesuai untuk mendeteksi lamellar tearing?",
+    "o": [
+      "A. Radiography",
+      "B. Ultrasonic Testing",
+      "C. Eddy Current Testing",
+      "D. MPI using AC"
+    ],
+    "a": 1,
+    "exp": "Lamellar tearing merupakan planar defect yang berada di dalam parent metal. Ultrasonic Testing sangat efektif untuk mendeteksi cacat internal planar yang memiliki orientasi tertentu terhadap gelombang ultrasonik.",
+    "w": {
+      "0": "RT kurang efektif untuk mendeteksi planar defects yang orientasinya sejajar arah radiasi.",
+      "2": "Eddy Current terutama digunakan untuk cacat permukaan atau dekat permukaan.",
+      "3": "MPI hanya mendeteksi cacat permukaan atau sangat dekat permukaan."
+    }
+  },
+  {
+    "q": "137. Half-life is a term used to describe:",
+    "t": "Apa yang dimaksud dengan istilah half-life pada sumber radioaktif?",
+    "o": [
+      "A. The penetrating ability of a gamma source",
+      "B. Half the total time a gamma source will be useful",
+      "C. The time taken for the gamma source to reduce its strength by half",
+      "D. The rate of decay of an X-ray tube"
+    ],
+    "a": 2,
+    "exp": "Half-life adalah waktu yang diperlukan agar aktivitas radioaktif suatu sumber berkurang menjadi setengah dari aktivitas awalnya akibat proses peluruhan radioaktif.",
+    "w": {
+      "0": "Kemampuan penetrasi ditentukan oleh energi radiasi, bukan half-life.",
+      "1": "Tidak ada hubungan langsung antara half-life dan masa pakai praktis.",
+      "3": "X-ray tube tidak mengalami peluruhan radioaktif seperti gamma source."
+    }
+  },
+  {
+    "q": "138. A 300 mm diameter pipe with 8 mm wall thickness is to be radiographed using the Double Wall Single Image technique. The source to be used is Iridium. Which of the following statements is true?",
+    "t": "Pipa berdiameter 300 mm dengan ketebalan dinding 8 mm akan diperiksa menggunakan teknik Double Wall Single Image dengan sumber Iridium. Pernyataan manakah yang benar?",
+    "o": [
+      "A. It should not be done as the thickness is below that recommended",
+      "B. It would be better to use a Cobalt-60 source in this instance",
+      "C. There is no problem with the technique and it should be used with Iridium",
+      "D. Only the Double Wall Double Image technique should be used with Iridium"
+    ],
+    "a": 2,
+    "exp": "Iridium-192 sangat umum digunakan untuk radiografi pada ketebalan baja sekitar 10–50 mm dan masih dapat digunakan secara efektif pada ketebalan yang mendekati rentang tersebut dengan teknik yang sesuai.",
+    "w": {
+      "0": "Tidak ada larangan penggunaan teknik tersebut pada kondisi yang diberikan.",
+      "1": "Cobalt-60 biasanya digunakan untuk ketebalan yang jauh lebih besar.",
+      "3": "Pemilihan teknik bergantung pada diameter dan akses, bukan jenis sumber semata."
+    }
+  },
+  {
+    "q": "139. Why is MT better to find cracks in ferritic material than PT?",
+    "t": "Mengapa Magnetic Particle Testing lebih baik dibanding Penetrant Testing untuk mendeteksi retak pada material ferritik?",
+    "o": [
+      "A. MT is less sensitive than PT",
+      "B. Ferritic material is non-magnetic",
+      "C. MT is more sensitive than PT",
+      "D. MT and PT are the same thing"
+    ],
+    "a": 2,
+    "exp": "Pada material ferromagnetik, MT mampu mendeteksi cacat permukaan dan sedikit di bawah permukaan melalui kebocoran fluks magnet (flux leakage). Sensitivitas ini umumnya lebih tinggi dibanding PT untuk retak halus.",
+    "w": {
+      "0": "Untuk material ferromagnetik justru MT biasanya lebih sensitif.",
+      "1": "Ferritic material bersifat magnetik.",
+      "3": "Kedua metode bekerja dengan prinsip yang berbeda."
+    }
+  },
+  {
+    "q": "140. Which method of inspection is used to detect buried planar defects?",
+    "t": "Metode inspeksi manakah yang digunakan untuk mendeteksi planar defects yang berada di bawah permukaan material?",
+    "o": [
+      "A. Radiography",
+      "B. Fluorescent Penetrant Inspection",
+      "C. Magnetic Particle Inspection",
+      "D. Ultrasonic Testing"
+    ],
+    "a": 3,
+    "exp": "UT sangat efektif mendeteksi cacat planar internal seperti lack of fusion, cracks, dan lamellar tearing yang berada jauh di bawah permukaan.",
+    "w": {
+      "0": "Kurang efektif untuk beberapa planar defects tergantung orientasinya.",
+      "1": "Hanya mendeteksi cacat yang terbuka ke permukaan.",
+      "2": "Hanya mendeteksi cacat permukaan dan near-surface."
+    }
+  },
+  {
+    "q": "141. Which NDT method is suitable for checking linear surface and internal imperfections on ferrous material?",
+    "t": "Metode NDT manakah yang paling sesuai untuk memeriksa cacat linear pada permukaan dan bagian internal material ferrous?",
+    "o": [
+      "A. PT and UT",
+      "B. MT and UT",
+      "C. PT and RT",
+      "D. MT and RT"
+    ],
+    "a": 1,
+    "exp": "MT sangat efektif untuk cacat linear di permukaan material ferromagnetik, sedangkan UT sangat efektif untuk cacat internal linear seperti cracks dan lack of fusion.",
+    "w": {
+      "0": "PT dapat digunakan pada permukaan, tetapi MT lebih sensitif untuk material ferromagnetik.",
+      "2": "RT kurang efektif untuk banyak jenis planar defects.",
+      "3": "RT tidak seefektif UT untuk cacat planar internal."
+    }
+  },
+  {
+    "q": "142. Which imperfection from below will not be effectively detected by Radiography Testing?",
+    "t": "Cacat manakah yang tidak dapat dideteksi secara efektif menggunakan Radiographic Testing?",
+    "o": [
+      "A. Slag inclusion",
+      "B. Planar defect",
+      "C. Underfill",
+      "D. Volumetric defect"
+    ],
+    "a": 1,
+    "exp": "Planar defects seperti lack of fusion dan cracks sering memiliki ketebalan yang sangat kecil sehingga perubahan penyerapan radiasi juga sangat kecil. Akibatnya cacat tersebut sulit terlihat pada radiograf.",
+    "w": {
+      "0": "Merupakan volumetric defect yang biasanya terlihat jelas pada radiograf.",
+      "2": "Dapat menghasilkan perubahan ketebalan yang terlihat pada film.",
+      "3": "RT sangat efektif mendeteksi cacat volumetrik seperti porosity dan slag inclusion."
+    }
+  },
+  {
+    "q": "143. Which NDT method is suitable for checking the surface and internal imperfections on aluminium?",
+    "t": "Metode NDT manakah yang sesuai untuk memeriksa cacat permukaan dan cacat internal pada material aluminium?",
+    "o": [
+      "A. PT and UT",
+      "B. MT and UT",
+      "C. PT and RT",
+      "D. MT and RT"
+    ],
+    "a": 0,
+    "exp": "Aluminium tidak bersifat ferromagnetik sehingga MT tidak dapat digunakan. PT efektif untuk cacat permukaan, sedangkan UT efektif untuk cacat internal.",
+    "w": {
+      "1": "MT tidak dapat digunakan pada aluminium.",
+      "2": "Dapat digunakan, tetapi kombinasi PT dan UT umumnya dianggap lebih lengkap untuk tujuan ini.",
+      "3": "MT tidak cocok untuk aluminium."
+    }
+  },
+  {
+    "q": "144. Greatest disadvantage of Radiographic Inspection?",
+    "t": "Apa kelemahan terbesar dari metode Radiographic Inspection dibandingkan metode NDT lainnya?",
+    "o": [
+      "A. Cannot size defects accurately",
+      "B. Equipment size",
+      "C. Operator skill",
+      "D. Harmful ionizing radiation"
+    ],
+    "a": 3,
+    "exp": "Radiography menggunakan sinar-X atau sinar gamma yang termasuk radiasi pengion (ionizing radiation). Paparan radiasi dapat membahayakan kesehatan manusia sehingga diperlukan prosedur keselamatan yang ketat, area terlarang, monitoring radiasi, dan personel yang terlatih.",
+    "w": {
+      "0": "RT memang memiliki keterbatasan dalam sizing cacat tertentu, tetapi ini bukan kelemahan terbesarnya.",
+      "1": "Ukuran peralatan dapat menjadi pertimbangan, namun bukan kelemahan utama dibanding risiko radiasi.",
+      "2": "Semua metode NDT membutuhkan operator yang kompeten."
+    }
+  },
+  {
+    "q": "145. For MPI using the prods method, which statement is true?",
+    "t": "Pada Magnetic Particle Inspection menggunakan metode prods, pernyataan manakah yang benar?",
+    "o": [
+      "A. May cause surface damage",
+      "B. Requires fewer operators",
+      "C. Can be used with ferritic and non-ferritic materials",
+      "D. Faster than yoke"
+    ],
+    "a": 0,
+    "exp": "Metode prods menggunakan kontak langsung dengan permukaan material untuk mengalirkan arus listrik. Jika tidak digunakan dengan benar, dapat terjadi arc strike atau local overheating yang menyebabkan kerusakan permukaan.",
+    "w": {
+      "1": "Jumlah operator tidak menjadi karakteristik utama metode prods.",
+      "2": "MPI hanya dapat digunakan pada material ferromagnetik.",
+      "3": "Kecepatan inspeksi bergantung pada aplikasi dan kondisi lapangan."
+    }
+  },
+  {
+    "q": "146. Bright white inclusion in a MAG weld radiograph indicates:",
+    "t": "Pada radiograf hasil pengelasan MAG, indikasi berwarna putih terang biasanya menunjukkan adanya apa?",
+    "o": [
+      "A. Tungsten inclusion",
+      "B. Spatter",
+      "C. Copper inclusion",
+      "D. Film mark"
+    ],
+    "a": 2,
+    "exp": "Copper memiliki densitas yang lebih tinggi dibanding baja sehingga menyerap lebih banyak radiasi. Akibatnya area tersebut tampak lebih terang atau lebih putih pada radiograf.",
+    "w": {
+      "0": "Tungsten umumnya dikaitkan dengan proses GTAW/TIG, bukan MAG.",
+      "1": "Spatter biasanya berada di permukaan dan tidak menghasilkan indikasi khas seperti inclusion.",
+      "3": "Film mark merupakan artefak pada film dan bukan inclusion dalam las."
+    }
+  },
+  {
+    "q": "147. Advantage of Ultrasonic Testing over Radiography?",
+    "t": "Apa keunggulan utama Ultrasonic Testing dibandingkan Radiographic Testing?",
+    "o": [
+      "A. Access required from one side only",
+      "B. Area must be closed during inspection",
+      "C. Better for thin materials",
+      "D. Permanent image"
+    ],
+    "a": 0,
+    "exp": "UT umumnya hanya memerlukan akses dari satu sisi komponen. Hal ini sangat menguntungkan untuk struktur besar, pipa, tangki, atau area dengan akses terbatas.",
+    "w": {
+      "1": "Ini merupakan karakteristik RT karena adanya radiasi.",
+      "2": "UT justru kurang efektif pada material yang sangat tipis.",
+      "3": "RT memiliki film atau citra digital permanen, sedangkan UT tidak selalu."
+    }
+  },
+  {
+    "q": "148. Best method to detect internal lack of sidewall fusion?",
+    "t": "Metode terbaik untuk mendeteksi lack of sidewall fusion yang berada di dalam sambungan las adalah apa?",
+    "o": [
+      "A. Visual Inspection",
+      "B. Dye Penetrant Inspection",
+      "C. Ultrasonic Testing",
+      "D. Radiographic Inspection"
+    ],
+    "a": 2,
+    "exp": "Lack of sidewall fusion merupakan planar defect yang memberikan refleksi ultrasonik yang kuat sehingga sangat mudah dideteksi menggunakan UT.",
+    "w": {
+      "0": "Hanya dapat mendeteksi cacat permukaan.",
+      "1": "Hanya mendeteksi cacat yang terbuka ke permukaan.",
+      "3": "Kurang sensitif terhadap planar defects dibanding UT."
+    }
+  },
+  {
+    "q": "149. Method to detect surface and slight subsurface defects up to approximately 2 mm depth?",
+    "t": "Metode apakah yang mampu mendeteksi cacat permukaan dan sedikit di bawah permukaan hingga kedalaman sekitar 2 mm?",
+    "o": [
+      "A. Ultrasonic Testing",
+      "B. Dye Penetrant Inspection",
+      "C. Magnetic Particle Inspection (DC)",
+      "D. Magnetic Particle Inspection (AC)"
+    ],
+    "a": 2,
+    "exp": "MPI menggunakan arus DC mampu menghasilkan medan magnet yang menembus lebih dalam dibanding AC sehingga dapat mendeteksi cacat near-surface hingga beberapa milimeter di bawah permukaan.",
+    "w": {
+      "0": "Kurang efektif untuk cacat yang sangat dekat dengan permukaan.",
+      "1": "Hanya mendeteksi cacat yang terbuka ke permukaan.",
+      "3": "AC terutama sensitif terhadap cacat yang benar-benar berada di permukaan."
+    }
+  },
+  {
+    "q": "150. Radiograph appearance of lack of root fusion?",
+    "t": "Bagaimana tampilan lack of root fusion pada hasil radiografi?",
+    "o": [
+      "A. Dark straight line with light root",
+      "B. Dark root with straight edges",
+      "C. Dark uneven line",
+      "D. None of the above"
+    ],
+    "a": 0,
+    "exp": "Lack of root fusion biasanya terlihat sebagai garis gelap yang lurus pada area root karena adanya celah yang tidak terfusi dan menyebabkan lebih banyak radiasi mencapai film.",
+    "w": {
+      "1": "Tidak menggambarkan karakteristik khas lack of root fusion.",
+      "2": "Lebih sering dikaitkan dengan cacat lain seperti slag inclusion tertentu.",
+      "3": "Pilihan A sudah sesuai."
+    }
+  },
+  {
+    "q": "151. Penetrating power for X-rays and Gamma rays is determined by:",
+    "t": "Kemampuan penetrasi sinar-X dan sinar gamma ditentukan oleh parameter apa?",
+    "o": [
+      "A. mA and isotope",
+      "B. kV and strength",
+      "C. Isotope and strength",
+      "D. kV and isotope"
+    ],
+    "a": 3,
+    "exp": "Pada sinar-X, kemampuan penetrasi ditentukan oleh tegangan tabung (kV). Pada sinar gamma, kemampuan penetrasi ditentukan oleh jenis isotop yang digunakan karena setiap isotop memiliki energi radiasi yang berbeda.",
+    "w": {
+      "0": "mA mempengaruhi intensitas radiasi, bukan kemampuan penetrasi.",
+      "1": "Strength mempengaruhi aktivitas sumber, bukan energi penetrasi.",
+      "2": "Tidak berlaku untuk sinar-X."
+    }
+  },
+  {
+    "q": "152. Iridium-192 is useful for radiography of:",
+    "t": "Iridium-192 paling sesuai digunakan untuk radiografi baja dengan ketebalan berapa?",
+    "o": [
+      "A. Steel less than 0.5 mm",
+      "B. Steel 0.5–7 mm",
+      "C. Steel 10–50 mm",
+      "D. Cannot be used for steel"
+    ],
+    "a": 2,
+    "exp": "Iridium-192 memiliki energi radiasi yang sangat sesuai untuk inspeksi baja pada ketebalan menengah, umumnya sekitar 10 hingga 50 mm.",
+    "w": {
+      "0": "Terlalu tipis untuk penggunaan Iridium.",
+      "1": "Biasanya lebih sesuai menggunakan sinar-X.",
+      "3": "Iridium merupakan salah satu sumber gamma yang paling umum digunakan untuk radiografi baja."
+    }
+  },
+  {
+    "q": "153. NDT method associated with a yoke?",
+    "t": "Metode NDT manakah yang menggunakan alat berupa yoke?",
+    "o": [
+      "A. Radiography",
+      "B. Helium Leak Testing",
+      "C. Magnetic Particle Inspection",
+      "D. Ultrasonic Testing"
+    ],
+    "a": 2,
+    "exp": "Yoke digunakan dalam MPI untuk menghasilkan medan magnet pada area inspeksi sehingga kebocoran fluks magnet dapat mengungkap adanya cacat.",
+    "w": {
+      "0": "Menggunakan sumber radiasi.",
+      "1": "Menggunakan gas tracer.",
+      "3": "Menggunakan probe ultrasonik."
+    }
+  },
+  {
+    "q": "154. Method to detect laminations?",
+    "t": "Metode NDT manakah yang paling sesuai untuk mendeteksi laminasi pada pelat baja?",
+    "o": [
+      "A. Radiography",
+      "B. Ultrasonic Testing",
+      "C. Magnetic Particle Inspection",
+      "D. Fluorescent Penetrant Testing"
+    ],
+    "a": 1,
+    "exp": "Laminasi merupakan cacat planar internal yang sejajar dengan permukaan pelat dan sangat mudah dideteksi menggunakan probe 0° pada UT.",
+    "w": {
+      "0": "Kurang efektif untuk laminasi yang orientasinya sejajar arah radiasi.",
+      "2": "Tidak mampu mendeteksi cacat internal.",
+      "3": "Hanya mendeteksi cacat yang terbuka ke permukaan."
+    }
+  },
+  {
+    "q": "155. Suitable method for checking thickness?",
+    "t": "Metode NDT manakah yang paling sesuai untuk mengukur ketebalan material?",
+    "o": [
+      "A. RT",
+      "B. UT",
+      "C. MPI",
+      "D. DPI"
+    ],
+    "a": 1,
+    "exp": "Ultrasonic Thickness Measurement menggunakan waktu tempuh gelombang ultrasonik untuk menentukan ketebalan material secara akurat tanpa merusak komponen.",
+    "w": {
+      "0": "Tidak digunakan sebagai metode utama pengukuran ketebalan.",
+      "2": "Digunakan untuk mendeteksi cacat pada material ferromagnetik.",
+      "3": "Digunakan untuk mendeteksi cacat permukaan."
+    }
+  },
+  {
+    "q": "156. Principal working principle of Penetrant Testing?",
+    "t": "Apa prinsip kerja utama dari Penetrant Testing?",
+    "o": [
+      "A. X-ray radiation",
+      "B. Acoustic impedance",
+      "C. Magnetic flux leakage",
+      "D. Capillary action"
+    ],
+    "a": 3,
+    "exp": "Penetrant masuk ke dalam diskontinuitas permukaan melalui gaya kapiler (capillary action), kemudian ditarik kembali ke permukaan oleh developer sehingga cacat dapat terlihat.",
+    "w": {
+      "0": "Merupakan prinsip Radiography Testing.",
+      "1": "Merupakan prinsip Ultrasonic Testing.",
+      "2": "Merupakan prinsip Magnetic Particle Inspection."
+    }
+  },
+  {
+    "q": "157. Principal working principle of Magnetic Particle Inspection?",
+    "t": "Apa prinsip kerja utama yang digunakan dalam Magnetic Particle Inspection (MPI)?",
+    "o": [
+      "A. X-ray radiation",
+      "B. Acoustic impedance",
+      "C. Magnetic flux leakage",
+      "D. Capillary action"
+    ],
+    "a": 2,
+    "exp": "MPI bekerja berdasarkan kebocoran fluks magnet (magnetic flux leakage). Ketika medan magnet melewati material ferromagnetik yang memiliki cacat permukaan atau dekat permukaan, sebagian garis gaya magnet keluar dari permukaan material. Partikel magnetik akan berkumpul pada area tersebut sehingga cacat menjadi terlihat.",
+    "w": {
+      "0": "Prinsip ini digunakan pada Radiographic Testing.",
+      "1": "Prinsip ini digunakan pada Ultrasonic Testing.",
+      "3": "Prinsip ini digunakan pada Dye Penetrant Testing."
+    }
+  },
+  {
+    "q": "158. Principal working principle of Radiography Testing?",
+    "t": "Apa prinsip kerja utama yang digunakan dalam Radiographic Testing?",
+    "o": [
+      "A. X-ray and Gamma ray radiation",
+      "B. Acoustic impedance",
+      "C. Magnetic flux leakage",
+      "D. Capillary action"
+    ],
+    "a": 0,
+    "exp": "Radiographic Testing bekerja dengan memanfaatkan sinar-X atau sinar gamma yang mampu menembus material. Perbedaan penyerapan radiasi oleh material dan cacat akan menghasilkan gambar radiograf yang dapat digunakan untuk mengevaluasi kondisi internal sambungan las.",
+    "w": {
+      "1": "Merupakan prinsip kerja Ultrasonic Testing.",
+      "2": "Merupakan prinsip kerja Magnetic Particle Inspection.",
+      "3": "Merupakan prinsip kerja Dye Penetrant Inspection."
+    }
+  },
+  {
+    "q": "159. Principal working principle of Ultrasonic Testing?",
+    "t": "Apa prinsip kerja utama yang digunakan dalam Ultrasonic Testing?",
+    "o": [
+      "A. X-ray radiation",
+      "B. Acoustic impedance",
+      "C. Magnetic flux leakage",
+      "D. Capillary action"
+    ],
+    "a": 1,
+    "exp": "UT bekerja berdasarkan perbedaan acoustic impedance antara material dan cacat. Ketika gelombang ultrasonik mengenai batas antara dua media yang berbeda, sebagian energi akan dipantulkan dan diterima kembali oleh probe sebagai sinyal indikasi.",
+    "w": {
+      "0": "Digunakan pada Radiographic Testing.",
+      "2": "Digunakan pada Magnetic Particle Inspection.",
+      "3": "Digunakan pada Dye Penetrant Inspection."
+    }
+  },
+  {
+    "q": "160. Radiography is suitable for which materials?",
+    "t": "Radiographic Testing cocok digunakan untuk memeriksa material yang mana saja?",
+    "o": [
+      "A. Carbon-Manganese steel",
+      "B. HSLA steel",
+      "C. Non-ferrous materials",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Radiography dapat digunakan pada berbagai jenis material selama terdapat perbedaan penyerapan radiasi yang cukup untuk menghasilkan citra radiograf yang dapat dievaluasi. Metode ini umum digunakan pada baja karbon, baja HSLA, stainless steel, aluminium, dan material non-ferrous lainnya.",
+    "w": {
+      "0": "Benar, tetapi bukan satu-satunya material yang dapat diperiksa.",
+      "1": "Benar, tetapi bukan satu-satunya material yang dapat diperiksa.",
+      "2": "Benar, tetapi bukan satu-satunya material yang dapat diperiksa."
+    }
+  },
+  {
+    "q": "161. Which NDT methods are suitable for aluminium?",
+    "t": "Metode NDT manakah yang sesuai digunakan untuk memeriksa material aluminium?",
+    "o": [
+      "A. PT",
+      "B. MT",
+      "C. UT",
+      "D. RT",
+      "E. a and d"
+    ],
+    "a": 4,
+    "exp": "Aluminium bukan material ferromagnetik sehingga MT tidak dapat digunakan. PT sangat efektif untuk mendeteksi cacat permukaan pada aluminium, sedangkan RT sangat umum digunakan untuk mendeteksi cacat internal seperti porosity yang sering terjadi pada pengelasan aluminium.",
+    "w": {
+      "0": "Benar, tetapi belum lengkap sesuai pilihan jawaban.",
+      "1": "Aluminium tidak dapat dimagnetisasi sehingga MT tidak dapat digunakan.",
+      "2": "UT dapat digunakan pada aluminium, tetapi bukan kombinasi jawaban yang tersedia pada opsi.",
+      "3": "Benar, tetapi belum lengkap sesuai pilihan jawaban."
+    }
+  },
+  {
+    "q": "162. NDT method for surface planar imperfections on ferrous materials?",
+    "t": "Metode NDT manakah yang paling sesuai untuk mendeteksi cacat planar pada permukaan material ferrous?",
+    "o": [
+      "A. DPT",
+      "B. MPT",
+      "C. Fluorescent PT",
+      "D. RT"
+    ],
+    "a": 1,
+    "exp": "Magnetic Particle Testing memiliki sensitivitas yang sangat tinggi terhadap retak dan cacat linear pada permukaan material ferromagnetik. Metode ini juga mampu mendeteksi cacat yang sedikit berada di bawah permukaan.",
+    "w": {
+      "0": "DPT dapat digunakan, tetapi pada material ferromagnetik MPT lebih sensitif.",
+      "2": "Masih menggunakan prinsip penetrant dan sensitivitasnya terhadap cacat tertentu umumnya lebih rendah dibanding MPT pada material ferrous.",
+      "3": "RT tidak efektif untuk mendeteksi cacat planar permukaan."
+    }
+  },
+  {
+    "q": "163. Radiography test cannot detect?",
+    "t": "Cacat manakah yang tidak dapat dideteksi secara efektif menggunakan Radiographic Testing?",
+    "o": [
+      "A. Crack",
+      "B. Porosity",
+      "C. Undercut",
+      "D. Gas pore"
+    ],
+    "a": 0,
+    "exp": "Crack merupakan planar defect yang sering memiliki bukaan sangat kecil. Jika orientasi retak tidak sejajar dengan arah radiasi, perubahan penyerapan sinar menjadi sangat kecil sehingga sulit terlihat pada radiograf.",
+    "w": {
+      "1": "Porosity merupakan volumetric defect yang sangat mudah dideteksi menggunakan RT.",
+      "2": "Undercut dapat menghasilkan perubahan ketebalan yang terlihat pada radiograf jika orientasinya sesuai.",
+      "3": "Gas pore merupakan salah satu cacat yang paling mudah dikenali pada hasil radiografi."
+    }
+  },
+  {
+    "q": "164. With reference to the previous question and the correct answer, why is this?",
+    "t": "Mengapa cacat yang disebutkan pada soal sebelumnya sulit dideteksi menggunakan Radiographic Testing?",
+    "o": [
+      "A. There is a change in colour contrast",
+      "B. There is no real change in absorption of the beam",
+      "C. There is a change in penetration thickness",
+      "D. There is a change in absorption of the beam"
+    ],
+    "a": 1,
+    "exp": "Planar defects seperti crack memiliki ketebalan yang sangat kecil sehingga tidak menghasilkan perubahan penyerapan radiasi yang signifikan. Akibatnya kontras pada radiograf menjadi sangat rendah dan cacat sulit terlihat.",
+    "w": {
+      "0": "Justru kurangnya perubahan kontras menjadi penyebab utama.",
+      "2": "Perubahan ketebalan yang dihasilkan crack biasanya terlalu kecil.",
+      "3": "Perubahan penyerapan yang terjadi sangat kecil sehingga tidak cukup untuk menghasilkan indikasi yang jelas."
+    }
+  },
+  {
+    "q": "165. Easy to detect by MPI is:",
+    "t": "Jenis cacat manakah yang paling mudah dideteksi menggunakan Magnetic Particle Inspection?",
+    "o": [
+      "A. Buried slag",
+      "B. Lack of inter-run fusion",
+      "C. Internal crack",
+      "D. Surface crack"
+    ],
+    "a": 3,
+    "exp": "MPI sangat sensitif terhadap retak permukaan karena retak tersebut menyebabkan kebocoran fluks magnet yang kuat sehingga partikel magnetik berkumpul dengan jelas pada lokasi cacat.",
+    "w": {
+      "0": "Merupakan cacat internal yang umumnya tidak dapat dideteksi MPI.",
+      "1": "Jika berada di dalam weld, MPI tidak efektif untuk mendeteksinya.",
+      "2": "MPI hanya mampu mendeteksi cacat permukaan atau dekat permukaan."
+    }
+  },
+  {
+    "q": "166. With reference to the previous question and the correct answer, how does MPI detect?",
+    "t": "Berdasarkan soal sebelumnya, bagaimana MPI mendeteksi adanya retak permukaan?",
+    "o": [
+      "A. Capillary action",
+      "B. Magnetic field",
+      "C. Flux leakage",
+      "D. a and c correct"
+    ],
+    "a": 2,
+    "exp": "Retak permukaan mengganggu jalur medan magnet dalam material sehingga terjadi kebocoran fluks magnet (flux leakage). Partikel magnetik akan tertarik dan berkumpul pada area tersebut sehingga membentuk indikasi yang dapat diamati oleh inspector.",
+    "w": {
+      "0": "Merupakan prinsip kerja Dye Penetrant Inspection.",
+      "1": "Medan magnet memang diperlukan, tetapi mekanisme deteksi cacat terjadi karena flux leakage.",
+      "3": "Capillary action tidak digunakan dalam MPI sehingga pilihan ini tidak benar."
+    }
+  },
+  {
+    "q": "167. In most cases which of the following do you consider to be an essential variable on a WPS?",
+    "t": "Dalam sebagian besar kasus, variabel manakah yang termasuk essential variable pada Welding Procedure Specification (WPS)?",
+    "o": [
+      "A. Parent material grouping",
+      "B. Welding process",
+      "C. Cleaning method",
+      "D. Both a and b",
+      "E. All of the above"
+    ],
+    "a": 3,
+    "exp": "Kelompok material induk (parent material grouping) dan proses pengelasan merupakan essential variables karena perubahan salah satu dari keduanya dapat mempengaruhi sifat mekanik, metalurgi, kualitas sambungan las, serta validitas prosedur yang telah dikualifikasi.",
+    "w": {
+      "0": "Benar, tetapi bukan satu-satunya essential variable.",
+      "1": "Benar, tetapi bukan satu-satunya essential variable.",
+      "2": "Metode pembersihan merupakan variabel pendukung dan umumnya tidak termasuk essential variable yang mempengaruhi hasil pengujian kualifikasi WPS.",
+      "4": "Karena cleaning method bukan essential variable."
+    }
+  },
+  {
+    "q": "168. Before a welding procedure has undergone testing and approval, it is referred to as:",
+    "t": "Sebelum prosedur pengelasan diuji dan disetujui secara resmi, istilah apakah yang digunakan untuk menyebut dokumen tersebut?",
+    "o": [
+      "A. WPS",
+      "B. pWPS",
+      "C. uWPS",
+      "D. WPAR"
+    ],
+    "a": 1,
+    "exp": "Sebelum dilakukan qualification test, dokumen tersebut disebut Preliminary Welding Procedure Specification (pWPS). Dokumen ini digunakan sebagai dasar pelaksanaan pengelasan test coupon untuk memperoleh WPQR/PQR.",
+    "w": {
+      "0": "WPS adalah prosedur yang sudah didukung oleh hasil qualification atau metode approval yang sah.",
+      "2": "Istilah ini tidak digunakan dalam sistem approval standar.",
+      "3": "WPAR atau WPQR merupakan catatan hasil pengujian prosedur, bukan prosedur itu sendiri."
+    }
+  },
+  {
+    "q": "169. Which of the following European standards relates to the approval of Welding Procedures?",
+    "t": "Standar Eropa manakah yang digunakan untuk approval atau qualification Welding Procedure?",
+    "o": [
+      "A. EN 499",
+      "B. EN 287",
+      "C. EN ISO 15614",
+      "D. EN 22553 / ISO 2553",
+      "E. None of the above"
+    ],
+    "a": 2,
+    "exp": "EN ISO 15614 merupakan standar utama untuk qualification welding procedures melalui welding procedure test dan pengujian mekanik yang relevan.",
+    "w": {
+      "0": "Membahas klasifikasi consumable.",
+      "1": "Membahas qualification welder.",
+      "3": "Membahas welding symbols pada gambar teknik.",
+      "4": "Karena EN ISO 15614 memang standar yang benar."
+    }
+  },
+  {
+    "q": "170. Generally who is responsible for producing a WPS?",
+    "t": "Siapa yang umumnya bertanggung jawab menyusun Welding Procedure Specification (WPS)?",
+    "o": [
+      "A. Welding Inspector",
+      "B. Welding Engineer",
+      "C. Welding Engineer and the Welder",
+      "D. Both a and b"
+    ],
+    "a": 1,
+    "exp": "Welding Engineer memiliki kompetensi untuk menentukan parameter pengelasan, pemilihan material, consumable, heat input, preheat, PWHT, dan seluruh persyaratan teknis yang harus dicantumkan dalam WPS.",
+    "w": {
+      "0": "Inspector bertugas memverifikasi dan memeriksa penerapan WPS, bukan menyusunnya.",
+      "2": "Welder dapat memberikan masukan, tetapi tanggung jawab penyusunan tetap berada pada Welding Engineer.",
+      "3": "Inspector bukan pihak utama penyusun WPS."
+    }
+  },
+  {
+    "q": "171. When calculating the heat input during the welding of a WPS test piece, which parameters are required?",
+    "t": "Parameter apa saja yang diperlukan untuk menghitung heat input selama pengelasan test piece WPS?",
+    "o": [
+      "A. Current, voltage and travel speed",
+      "B. Voltage, ROL and current",
+      "C. Voltage and current",
+      "D. All of the above"
+    ],
+    "a": 0,
+    "exp": "Rumus heat input memerlukan arus (A), tegangan (V), dan travel speed atau rate of travel (mm/min). Ketiga parameter ini menentukan jumlah energi panas yang masuk ke sambungan las.",
+    "w": {
+      "1": "Secara teknis sama dengan A jika ROL diartikan sebagai travel speed, namun jawaban standar yang digunakan dalam CSWIP biasanya A.",
+      "2": "Tidak cukup karena travel speed juga diperlukan.",
+      "3": "Pilihan C tidak lengkap."
+    }
+  },
+  {
+    "q": "172. Who should have access to WPQRs?",
+    "t": "Siapa yang seharusnya memiliki akses terhadap Welding Procedure Qualification Record (WPQR)?",
+    "o": [
+      "A. Inspectors and NDT technicians only",
+      "B. Welding Engineer and Quality Department",
+      "C. Welders only",
+      "D. Inspectors only"
+    ],
+    "a": 1,
+    "exp": "WPQR merupakan dokumen teknis dan mutu yang digunakan untuk mendukung validitas WPS. Dokumen ini harus tersedia bagi Welding Engineer dan Quality Department untuk keperluan verifikasi dan audit.",
+    "w": {
+      "0": "Akses tidak terbatas hanya pada personel tersebut.",
+      "2": "Welder biasanya menggunakan WPS, bukan WPQR.",
+      "3": "WPQR digunakan oleh lebih banyak fungsi dalam sistem mutu."
+    }
+  },
+  {
+    "q": "173. Which welders would normally be qualified to weld in accordance with a certain WPS?",
+    "t": "Welder mana yang dianggap memenuhi syarat untuk mengelas menggunakan WPS tertentu?",
+    "o": [
+      "A. The welder who initially conducted the welding of the test piece",
+      "B. A welder who hasn’t conducted a qualification test but produces good welds",
+      "C. A welder who has evidence of welding to the WPS over 18 months",
+      "D. Both a and c"
+    ],
+    "a": 3,
+    "exp": "Welder yang telah lulus qualification test dan welder yang memiliki continuity record yang valid sesuai persyaratan standar dapat dianggap tetap qualified.",
+    "w": {
+      "0": "Benar tetapi belum lengkap.",
+      "1": "Kemampuan praktik saja tidak cukup tanpa qualification yang sah.",
+      "2": "Benar tetapi bukan satu-satunya kondisi."
+    }
+  },
+  {
+    "q": "174. Reasons for withdrawing a welder qualification certificate?",
+    "t": "Apa saja alasan yang dapat menyebabkan sertifikat kualifikasi welder dicabut atau tidak berlaku lagi?",
+    "o": [
+      "A. Not working to an approved WPS for over six months",
+      "B. High repair rates",
+      "C. Not working to an approved WPS for 12 months",
+      "D. Both a, b and c",
+      "E. Both b and c"
+    ],
+    "a": 3,
+    "exp": "Kualifikasi welder dapat dicabut apabila continuity tidak terjaga, performa pengelasan menunjukkan tingkat repair yang tinggi, atau welder tidak melakukan pekerjaan pengelasan dalam periode yang ditentukan standar.",
+    "w": {
+      "0": "Benar tetapi tidak lengkap.",
+      "1": "Benar tetapi tidak lengkap.",
+      "2": "Juga dapat menjadi alasan tergantung persyaratan standar yang digunakan.",
+      "4": "Masih mengabaikan kondisi pada opsi A."
+    }
+  },
+  {
+    "q": "175. Which documents provide information on approving Welding Procedure Specifications?",
+    "t": "Dokumen atau standar mana yang memberikan persyaratan untuk approval Welding Procedure Specification (WPS)?",
+    "o": [
+      "A. EN ISO 15614",
+      "B. AWS D1.1",
+      "C. ASME IX",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "EN ISO 15614, AWS D1.1, dan ASME Section IX semuanya memiliki ketentuan untuk qualification dan approval welding procedures meskipun pendekatan dan ruang lingkupnya berbeda.",
+    "w": {
+      "0": "Benar tetapi bukan satu-satunya standar.",
+      "1": "Benar tetapi bukan satu-satunya standar.",
+      "2": "Benar tetapi bukan satu-satunya standar."
+    }
+  },
+  {
+    "q": "176. A welder qualified using basic flux electrodes would normally be qualified to use which fluxes?",
+    "t": "Welder yang telah qualified menggunakan elektroda basic biasanya diperbolehkan menggunakan jenis flux apa saja?",
+    "o": [
+      "A. Rutile, basic, acidic and cellulosic",
+      "B. Rutile and basic only",
+      "C. Basic only",
+      "D. Cellulosic and basic only"
+    ],
+    "a": 1,
+    "exp": "Elektroda basic dianggap lebih sulit digunakan dibanding rutile sehingga qualification pada basic biasanya mencakup penggunaan rutile, tetapi tidak otomatis mencakup cellulosic yang memiliki karakteristik operasional berbeda.",
+    "w": {
+      "0": "Cellulosic memerlukan qualification tersendiri.",
+      "2": "Qualification basic biasanya juga mencakup rutile.",
+      "3": "Tidak mencakup rutile yang sebenarnya termasuk dalam cakupan qualification tersebut."
+    }
+  },
+  {
+    "q": "177. A welder is using an unapproved WPS for production tack welding carbon steel. What action would you take?",
+    "t": "Apa tindakan yang harus dilakukan jika welder menggunakan WPS yang belum disetujui untuk tack welding pada pekerjaan produksi?",
+    "o": [
+      "A. Have the tacks removed and MPI the weld preparation for cracking",
+      "B. Nothing, as they will probably be removed anyway",
+      "C. Nothing if the WPS covered the material type",
+      "D. Give the correct approved WPS and allow continuation"
+    ],
+    "a": 3,
+    "exp": "Pengelasan produksi harus selalu dilakukan menggunakan WPS yang telah disetujui. Tindakan pertama adalah menghentikan penggunaan WPS yang tidak sah dan memberikan WPS yang benar.",
+    "w": {
+      "0": "Tindakan ini belum tentu diperlukan sebelum dilakukan evaluasi teknis.",
+      "1": "Tetap merupakan ketidaksesuaian prosedur.",
+      "2": "Persetujuan resmi tetap diperlukan."
+    }
+  },
+  {
+    "q": "178. Is it always necessary to preheat the base material before welding?",
+    "t": "Apakah material dasar selalu harus dipreheat sebelum dilakukan pengelasan?",
+    "o": [
+      "A. Not on a sunny day",
+      "B. Only in accordance with the WPS",
+      "C. If equipment is available it must be used",
+      "D. Cellulosic rods provide enough heat"
+    ],
+    "a": 1,
+    "exp": "Kebutuhan preheat ditentukan oleh WPS berdasarkan material, ketebalan, carbon equivalent, hydrogen level, dan persyaratan teknis lainnya.",
+    "w": {
+      "0": "Kondisi cuaca tidak menentukan kebutuhan preheat.",
+      "2": "Penggunaan peralatan tidak otomatis mewajibkan preheat.",
+      "3": "Jenis elektroda tidak menghilangkan persyaratan preheat yang ditentukan WPS."
+    }
+  },
+  {
+    "q": "179. Who should have access to the WPQRs?",
+    "t": "Siapa yang paling tepat memiliki akses terhadap dokumen WPQR?",
+    "o": [
+      "A. NDT Operator",
+      "B. Inspectors only",
+      "C. Welders only",
+      "D. Welding Engineer"
+    ],
+    "a": 3,
+    "exp": "Welding Engineer menggunakan WPQR sebagai dasar penyusunan dan validasi WPS serta untuk memastikan bahwa parameter pengelasan telah memenuhi hasil qualification test.",
+    "w": {
+      "0": "Bukan pengguna utama WPQR.",
+      "1": "Akses tidak terbatas hanya pada inspector.",
+      "2": "Welder menggunakan WPS, bukan WPQR sebagai dokumen kerja utama."
+    }
+  },
+  {
+    "q": "180. Who should have access to the WPS?",
+    "t": "Siapa yang harus memiliki akses terhadap Welding Procedure Specification (WPS)?",
+    "o": [
+      "A. NDT Operator",
+      "B. Inspectors only",
+      "C. Welders only",
+      "D. Welders and Inspectors"
+    ],
+    "a": 3,
+    "exp": "Welder memerlukan WPS sebagai panduan kerja, sedangkan Inspector memerlukan WPS untuk memverifikasi bahwa pekerjaan dilakukan sesuai parameter yang telah disetujui.",
+    "w": {
+      "0": "Bukan pengguna utama WPS.",
+      "1": "Welder juga harus memiliki akses terhadap WPS.",
+      "2": "Inspector juga memerlukan WPS untuk proses inspeksi."
+    }
+  },
+  {
+    "q": "181. What is an essential variable as per ISO 15614 welding procedure?",
+    "t": "Menurut ISO 15614, apa yang dimaksud dengan essential variable dalam welding procedure qualification?",
+    "o": [
+      "A. Something essential for welding properties",
+      "B. Something that varies during welding",
+      "C. Something that will affect mechanical properties",
+      "D. A list of welding conditions"
+    ],
+    "a": 2,
+    "exp": "Essential variable adalah parameter yang apabila diubah melebihi batas yang diizinkan dapat mempengaruhi sifat mekanik, metalurgi, kualitas sambungan las, atau validitas hasil qualification test. Oleh karena itu perubahan essential variable biasanya memerlukan requalification.",
+    "w": {
+      "0": "Pernyataan ini terlalu umum dan tidak menjelaskan kaitannya dengan hasil qualification.",
+      "1": "Tidak semua variabel yang berubah saat pengelasan merupakan essential variable.",
+      "3": "Essential variable bukan daftar kondisi pengelasan, melainkan parameter tertentu yang mempengaruhi hasil qualification."
+    }
+  },
+  {
+    "q": "182. Why are welding procedures produced? To check:",
+    "t": "Mengapa welding procedure dibuat dan dikualifikasi?",
+    "o": [
+      "A. Quality",
+      "B. Mechanical properties",
+      "C. Welding equipment",
+      "D. Capabilities of the welders"
+    ],
+    "a": 1,
+    "exp": "Tujuan utama qualification welding procedure adalah membuktikan bahwa prosedur tersebut mampu menghasilkan sambungan las dengan sifat mekanik yang memenuhi persyaratan desain seperti tensile strength, impact toughness, bend performance, dan lainnya.",
+    "w": {
+      "0": "Kualitas memang penting, tetapi tujuan utama qualification adalah membuktikan sifat mekanik hasil las.",
+      "2": "Peralatan bukan fokus utama qualification WPS.",
+      "3": "Kemampuan welder diperiksa melalui welder qualification test, bukan procedure qualification."
+    }
+  },
+  {
+    "q": "183. Which is most considered an essential variable for a welder qualification test?",
+    "t": "Perubahan apa yang paling sering dianggap sebagai essential variable dalam welder qualification test?",
+    "o": [
+      "A. Change in electrode classification",
+      "B. Change of pipe wall thickness by at least 15 mm",
+      "C. Change in preheat temperature",
+      "D. Change in welding position",
+      "E. All of the above"
+    ],
+    "a": 3,
+    "exp": "Perubahan posisi pengelasan secara langsung mempengaruhi tingkat kesulitan pengelasan dan kemampuan welder. Karena itu perubahan posisi biasanya memerlukan qualification yang berbeda.",
+    "w": {
+      "0": "Tidak selalu menjadi essential variable dalam qualification welder.",
+      "1": "Ketebalan memiliki pengaruh terhadap range qualification, tetapi bukan jawaban terbaik.",
+      "2": "Lebih terkait dengan WPS daripada kemampuan welder.",
+      "4": "Tidak semua pilihan selalu dianggap essential variable dalam welder qualification."
+    }
+  },
+  {
+    "q": "184. Arc energy question answer:",
+    "t": "Soal ini meminta perhitungan nilai arc energy berdasarkan data pengelasan yang diberikan.",
+    "o": [
+      "A. 1.54 kJ/mm",
+      "B. 1.26 kJ/mm",
+      "C. 2.82 kJ/mm",
+      "D. All of the above are incorrect"
+    ],
+    "a": 3,
+    "exp": "Perhitungan arc energy memerlukan data: Arc Energy = (V × A × 60) ÷ (1000 × Travel Speed). Karena data tidak diberikan pada soal yang ditampilkan, nilai tidak dapat dihitung.",
+    "w": {
+      "0": "Semua nilai tersebut hanya dapat diverifikasi apabila data perhitungan tersedia.",
+      "1": "Semua nilai tersebut hanya dapat diverifikasi apabila data perhitungan tersedia.",
+      "2": "Semua nilai tersebut hanya dapat diverifikasi apabila data perhitungan tersedia.",
+      "3": "Hanya benar apabila hasil perhitungan aktual tidak sesuai dengan ketiga nilai tersebut."
+    }
+  },
+  {
+    "q": "185. Test used for welder qualification on a plate butt weld using 13 mm low carbon steel:",
+    "t": "Pengujian destruktif apa yang dapat digunakan untuk qualification welder pada plate butt weld baja karbon rendah tebal 13 mm?",
+    "o": [
+      "A. CTOD",
+      "B. Nick break test",
+      "C. Fracture fillet test",
+      "D. IZOD"
+    ],
+    "a": 1,
+    "exp": "Nick break test merupakan salah satu pengujian yang digunakan untuk menilai kualitas internal las dan sering digunakan dalam welder qualification tertentu.",
+    "w": {
+      "0": "CTOD digunakan untuk fracture toughness assessment pada procedure qualification.",
+      "2": "Digunakan untuk fillet weld qualification.",
+      "3": "Bukan pengujian yang umum digunakan untuk welder qualification."
+    }
+  },
+  {
+    "q": "186. What type of WPS is used when welding Pipe to Plate?",
+    "t": "Jenis WPS apa yang biasanya digunakan ketika mengelas pipa ke pelat?",
+    "o": [
+      "A. Butt welding",
+      "B. Compound weld",
+      "C. Fillet weld",
+      "D. Tack welding"
+    ],
+    "a": 2,
+    "exp": "Sambungan pipe-to-plate umumnya menghasilkan sambungan T-joint atau branch connection yang menggunakan fillet weld sebagai tipe las utama.",
+    "w": {
+      "0": "Biasanya digunakan untuk penyambungan dua komponen yang berada pada bidang yang sama.",
+      "1": "Tidak selalu digunakan pada pipe-to-plate.",
+      "3": "Tack weld hanya bersifat sementara."
+    }
+  },
+  {
+    "q": "187. For welder qualification on a fillet weld, which test should be done?",
+    "t": "Pengujian apa yang biasanya dilakukan untuk qualification welder pada fillet weld?",
+    "o": [
+      "A. Nick break test",
+      "B. Bending test",
+      "C. Fracture fillet weld test",
+      "D. Tensile test"
+    ],
+    "a": 2,
+    "exp": "Fracture fillet weld test digunakan untuk menilai penetrasi, fusion, dan kualitas internal fillet weld setelah spesimen dipatahkan.",
+    "w": {
+      "0": "Lebih sering digunakan pada butt weld qualification.",
+      "1": "Umumnya digunakan untuk butt weld.",
+      "3": "Bukan pengujian utama untuk fillet weld qualification."
+    }
+  },
+  {
+    "q": "188. Which WPS is suitable for achieving a good root profile and high deposition rate?",
+    "t": "Proses pengelasan manakah yang paling cocok untuk menghasilkan root profile yang baik sekaligus memiliki deposition rate yang tinggi?",
+    "o": [
+      "A. 141 (GTAW/TIG)",
+      "B. 111 (MMA/SMAW)",
+      "C. 136 (FCAW)",
+      "D. All of the above"
+    ],
+    "a": 2,
+    "exp": "FCAW memiliki deposition rate yang tinggi dibanding TIG dan MMA, serta mampu menghasilkan kualitas root yang baik apabila parameter dan teknik pengelasan diterapkan dengan benar.",
+    "w": {
+      "0": "TIG menghasilkan root berkualitas tinggi tetapi deposition rate relatif rendah.",
+      "1": "Deposition rate lebih rendah dibanding FCAW.",
+      "3": "Tidak semua proses memberikan kombinasi root quality dan deposition rate yang sama baiknya."
+    }
+  },
+  {
+    "q": "189. In which position of the welding symbol the cross section area dimension has to be drawn based on BS EN ISO 2553?",
+    "t": "Menurut BS EN ISO 2553, di bagian mana ukuran penampang las (cross-sectional dimension) harus dituliskan pada simbol pengelasan?",
+    "o": [
+      "A. On the left side of the symbol",
+      "B. On the right side of the symbol",
+      "C. Attach to the reference line",
+      "D. Attach to the identification line"
+    ],
+    "a": 0,
+    "exp": "Dalam BS EN ISO 2553, dimensi penampang seperti throat thickness (a) atau leg length (z) ditempatkan di sisi kiri simbol las.",
+    "w": {
+      "1": "Posisi kanan digunakan untuk dimensi linear seperti panjang las dan pitch.",
+      "2": "Tidak sesuai aturan standar.",
+      "3": "Tidak digunakan untuk penempatan dimensi penampang."
+    }
+  },
+  {
+    "q": "190. A drawing with BS EN 22553 weld symbols will indicate a 5 mm leg length fillet, as:",
+    "t": "Pada gambar teknik yang menggunakan simbol BS EN 22553, bagaimana cara menunjukkan fillet weld dengan leg length 5 mm?",
+    "o": [
+      "A. s5",
+      "B. a5",
+      "C. z5",
+      "D. 5z"
+    ],
+    "a": 2,
+    "exp": "Dalam sistem BS EN 22553, huruf z menunjukkan leg length fillet weld. Oleh karena itu leg length 5 mm ditulis sebagai z5.",
+    "w": {
+      "0": "Simbol ini tidak digunakan untuk leg length fillet weld.",
+      "1": "Huruf a menunjukkan throat thickness, bukan leg length.",
+      "3": "Urutan penulisan tidak sesuai standar."
+    }
+  },
+  {
+    "q": "191. What would the number 141 placed at the end of the reference line indicate on a welding symbol in accordance with BS EN ISO 2553?",
+    "t": "Apa yang ditunjukkan oleh angka 141 yang ditempatkan pada ujung garis referensi (reference line) pada simbol pengelasan sesuai BS EN ISO 2553?",
+    "o": [
+      "A. NDT requirements",
+      "B. SAW welding process",
+      "C. MMA welding process",
+      "D. TIG welding process"
+    ],
+    "a": 3,
+    "exp": "Dalam ISO 4063, setiap proses pengelasan memiliki nomor identifikasi khusus. Nomor 141 digunakan untuk proses GTAW (Gas Tungsten Arc Welding) atau yang lebih dikenal sebagai TIG (Tungsten Inert Gas). Pada gambar teknik, nomor proses ini dapat dicantumkan pada simbol las untuk menunjukkan secara jelas proses pengelasan yang harus digunakan selama fabrikasi. Penggunaan nomor proses menghindari kesalahan interpretasi dan memastikan bahwa prosedur pengelasan yang digunakan sesuai dengan WPS yang telah disetujui.",
+    "w": {
+      "0": "Nomor 141 tidak digunakan untuk menunjukkan metode inspeksi atau persyaratan NDT. Persyaratan NDT biasanya dicantumkan pada dokumen inspeksi, ITP, atau catatan gambar yang terpisah.",
+      "1": "SAW (Submerged Arc Welding) memiliki nomor proses 121 menurut ISO 4063, sehingga bukan 141.",
+      "2": "MMA (Manual Metal Arc Welding) memiliki nomor proses 111, sehingga tidak sesuai dengan angka 141."
+    }
+  },
+  {
+    "q": "192. In which position of the welding symbol the linear dimension has to be drawn based on BS EN ISO 2553?",
+    "t": "Pada posisi manakah ukuran linier seperti panjang las atau jarak antar las harus dituliskan pada simbol pengelasan menurut BS EN ISO 2553?",
+    "o": [
+      "A. On the left side of the symbol",
+      "B. On the right side of the symbol",
+      "C. Attach to the reference line",
+      "D. Attach to the identification line"
+    ],
+    "a": 1,
+    "exp": "Menurut BS EN ISO 2553, dimensi linier seperti panjang las (weld length) dan pitch untuk intermittent weld dituliskan di sebelah kanan simbol las. Aturan ini dibuat agar informasi ukuran penampang las dan ukuran panjang las dapat dibedakan dengan jelas. Ukuran seperti throat thickness atau leg length biasanya dituliskan di sebelah kiri simbol, sedangkan panjang las dituliskan di sebelah kanan.",
+    "w": {
+      "0": "Sisi kiri biasanya digunakan untuk menunjukkan ukuran penampang las seperti a-dimension atau z-dimension.",
+      "2": "Dimensi memang berhubungan dengan reference line, tetapi lokasi penulisannya memiliki aturan tertentu.",
+      "3": "Identification line bukan lokasi standar untuk menempatkan dimensi linier."
+    }
+  },
+  {
+    "q": "193. When the welding symbol is attached on the reference line, where does the weld go based on BS EN ISO 2553?",
+    "t": "Apabila simbol las ditempatkan pada reference line menurut BS EN ISO 2553, pada sisi manakah pengelasan harus dilakukan?",
+    "o": [
+      "A. On the top side",
+      "B. Anywhere",
+      "C. Arrow side",
+      "D. Other side"
+    ],
+    "a": 2,
+    "exp": "Dalam sistem ISO, apabila simbol las ditempatkan pada garis referensi penuh (continuous line/reference line), maka pengelasan dilakukan pada arrow side. Sistem ini digunakan untuk membedakan lokasi pengelasan secara jelas pada sambungan yang memiliki dua sisi yang berbeda.",
+    "w": {
+      "0": "Istilah top side tidak digunakan dalam interpretasi simbol pengelasan ISO.",
+      "1": "Lokasi pengelasan harus ditentukan secara spesifik dan tidak boleh ditafsirkan bebas.",
+      "3": "Other side ditunjukkan dengan simbol yang ditempatkan pada broken line, bukan pada continuous line."
+    }
+  },
+  {
+    "q": "194. A \"Weld all around\" symbol is not required when?",
+    "t": "Dalam kondisi apa simbol \"weld all around\" tidak perlu dicantumkan pada gambar pengelasan?",
+    "o": [
+      "A. Indicating a circumferential joint",
+      "B. Indicating a pipe to pipe butt weld",
+      "C. Indicating a nozzle to shell weld",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Pada sambungan yang secara alami sudah jelas berbentuk keliling penuh, seperti circumferential weld pada pipa, butt weld antar pipa, atau nozzle-to-shell weld pada pressure vessel, kebutuhan pengelasan mengelilingi seluruh sambungan sudah dapat dipahami dari bentuk geometri komponen. Oleh karena itu simbol weld all around sering dianggap tidak diperlukan.",
+    "w": {
+      "0": "Benar, tetapi hanya salah satu contoh.",
+      "1": "Benar, tetapi bukan satu-satunya kondisi.",
+      "2": "Benar, tetapi belum mencakup seluruh jawaban."
+    }
+  },
+  {
+    "q": "195. According to BS EN 2553, what should a black flag be interpreted as?",
+    "t": "Menurut BS EN ISO 2553, apa arti simbol bendera hitam (black flag) yang terdapat pada simbol pengelasan?",
+    "o": [
+      "A. The weld is to be made in fabrication shop",
+      "B. The weld is automated",
+      "C. The weld is made on site (field weld)",
+      "D. The weld is a tie-in pipeline weld"
+    ],
+    "a": 2,
+    "exp": "Simbol bendera menunjukkan bahwa pengelasan dilakukan di lapangan atau lokasi pemasangan (field weld/site weld), bukan di workshop fabrikasi. Informasi ini penting karena kondisi kerja di lapangan biasanya berbeda dengan kondisi di workshop sehingga dapat mempengaruhi metode kerja, inspeksi, dan kontrol kualitas.",
+    "w": {
+      "0": "Justru kebalikan dari arti simbol tersebut.",
+      "1": "Tidak ada hubungan antara simbol bendera dan tingkat otomatisasi proses.",
+      "3": "Field weld dapat berupa tie-in weld, tetapi simbol tersebut tidak secara khusus menunjukkan tie-in weld."
+    }
+  },
+  {
+    "q": "196. According to AWS A2.4, a weld symbol below the reference line refers to?",
+    "t": "Menurut AWS A2.4, simbol las yang ditempatkan di bawah reference line menunjukkan bahwa pengelasan dilakukan pada sisi mana?",
+    "o": [
+      "A. A weld on the other side",
+      "B. A weld at the root of the joint",
+      "C. A weld on the arrow side",
+      "D. None of the above"
+    ],
+    "a": 2,
+    "exp": "Dalam sistem AWS A2.4, simbol yang ditempatkan di bawah reference line menunjukkan pengelasan pada arrow side. Aturan ini merupakan dasar penting dalam membaca gambar pengelasan dan sering muncul dalam ujian CSWIP.",
+    "w": {
+      "0": "Pada AWS, other side ditunjukkan oleh simbol yang berada di atas reference line.",
+      "1": "Posisi simbol tidak menunjukkan lokasi root.",
+      "3": "Terdapat jawaban yang benar."
+    }
+  },
+  {
+    "q": "197. Similarities between ISO 22553 and AWS A2.4 in depicting welding symbols are:",
+    "t": "Persamaan apa yang dimiliki oleh standar ISO 2553 dan AWS A2.4 dalam cara menggambarkan simbol pengelasan?",
+    "o": [
+      "A. Both have the same rule for depicting weld all around",
+      "B. Both have the same rule for depicting other side",
+      "C. Both have the same rule for depicting sequence of operations",
+      "D. Both have the same method"
+    ],
+    "a": 0,
+    "exp": "Baik ISO maupun AWS menggunakan simbol lingkaran kecil pada titik pertemuan antara panah dan reference line untuk menunjukkan bahwa pengelasan harus dilakukan mengelilingi seluruh sambungan (all around weld).",
+    "w": {
+      "1": "Metode penunjukan arrow side dan other side berbeda antara ISO dan AWS.",
+      "2": "Tidak sepenuhnya sama.",
+      "3": "Secara keseluruhan kedua standar memiliki sistem yang berbeda."
+    }
+  },
+  {
+    "q": "198. According to AWS A2.4, where does the symbol go for welding on the arrow side?",
+    "t": "Menurut AWS A2.4, di mana posisi simbol las harus ditempatkan untuk menunjukkan pengelasan pada arrow side?",
+    "o": [
+      "A. Below solid line",
+      "B. Above solid line",
+      "C. Depend on the joint",
+      "D. Where the arrow is pointing"
+    ],
+    "a": 0,
+    "exp": "Dalam AWS A2.4, simbol yang berada di bawah reference line selalu menunjukkan weld pada arrow side. Aturan ini harus dipahami karena merupakan dasar pembacaan simbol pengelasan.",
+    "w": {
+      "1": "Menunjukkan weld pada other side.",
+      "2": "Tidak bergantung pada jenis sambungan.",
+      "3": "Arrow menunjukkan lokasi sambungan, bukan posisi simbol."
+    }
+  },
+  {
+    "q": "199. Asymmetrical weld symbols to EN 22553 are:",
+    "t": "Apa yang dimaksud dengan asymmetrical weld symbol menurut EN 22553?",
+    "o": [
+      "A. The same both sides of the arrow",
+      "B. Different each side of the arrow",
+      "C. Show fillet welds only",
+      "D. Show butt welds only"
+    ],
+    "a": 1,
+    "exp": "Asymmetrical weld symbol digunakan ketika bentuk kampuh, ukuran las, atau detail pengelasan berbeda antara arrow side dan other side. Oleh karena itu simbol yang digunakan tidak identik pada kedua sisi sambungan.",
+    "w": {
+      "0": "Ini menggambarkan symmetrical weld.",
+      "2": "Asymmetrical weld dapat digunakan pada berbagai jenis sambungan.",
+      "3": "Tidak terbatas pada butt weld."
+    }
+  },
+  {
+    "q": "200. When marking a symbol for a symmetrical weld (EN 22553):",
+    "t": "Ketika menggambar simbol untuk sambungan las simetris menurut EN 22553, ketentuan manakah yang benar?",
+    "o": [
+      "A. The weld size is not mentioned",
+      "B. The length can be mentioned to the left of the symbol",
+      "C. The finish is associated with flat",
+      "D. The broken line can be omitted"
+    ],
+    "a": 3,
+    "exp": "Pada sambungan simetris, detail pengelasan sama pada kedua sisi sambungan sehingga tidak diperlukan pembedaan antara arrow side dan other side. Oleh karena itu broken line dapat dihilangkan untuk menyederhanakan simbol.",
+    "w": {
+      "0": "Ukuran las tetap harus dicantumkan apabila dipersyaratkan.",
+      "1": "Menurut aturan ISO, panjang las ditempatkan di sebelah kanan simbol.",
+      "2": "Bentuk finishing tidak selalu flat dan harus ditunjukkan secara terpisah jika diperlukan."
+    }
+  }
+];
+let cur=0,start=0,score=0,ans={},detail={};
+
+
+function updateTopStats(){
+ let correct=0,falsev=0,blank=0;
+ for(let i=0;i<qs.length;i++){
+   if(ans[i]===undefined) blank++;
+   else if(ans[i]===qs[i].a) correct++;
+   else falsev++;
+ }
+ const pct=Math.round((correct/qs.length)*100)||0;
+ const c=document.getElementById('correctCnt'); if(c) c.innerText=correct;
+ const f=document.getElementById('falseCnt'); if(f) f.innerText=falsev;
+ const b=document.getElementById('blankCnt'); if(b) b.innerText=blank;
+ const p=document.getElementById('pctTop'); if(p) p.innerText=pct;
+
+ let h='';
+ let pageStart=Math.floor(cur/10)*10;
+ for(let i=pageStart;i<Math.min(pageStart+10,qs.length);i++){
+   let cls='num ';
+   if(ans[i]==undefined) cls+='unanswered';
+   else cls+=(ans[i]==qs[i].a?'correct':'wrong');
+   if(i==cur) cls+=' current';
+   h+=`<button class="${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
+ }
+ const nav=document.getElementById('navTop');
+ if(nav) nav.innerHTML=h;
+}
+
+function renderNav(){
+ let h="";
+ for(let i=start;i<Math.min(start+10,qs.length);i++){
+   let cls="num ";
+   if(ans[i]==undefined) cls+="unanswered";
+   else cls+=(ans[i]==qs[i].a?"correct":"wrong");
+   if(i==cur) cls+=" current";
+   h+=`<button class="${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
+ }
+ const navEl=document.getElementById("nav"); if(navEl) navEl.innerHTML=h;
+}
+
+function draw(){
+ const total=qs.length;
+ document.getElementById("question").innerHTML=`<div class="q-header"><div class="q-num-badge">${cur+1}</div><h3 style="margin:0;font-size:16px;line-height:1.5">${qs[cur].q}</h3></div>`;
+ document.getElementById("options").innerHTML=qs[cur].o.map((x,i)=>`<button class='option' onclick='pick(${i})'>${x}</button>`).join("");
+ document.getElementById("result").innerHTML=detail[cur]||"";
+ renderNav();updateTopStats();
+}
+
+function pick(i){
+ if(ans[cur]==undefined){ans[cur]=i;if(i==qs[cur].a)score++;}
+ const q=qs[cur];
+ const keys=['A','B','C','D','E','F'];
+ const isCorrect=(i==q.a);
+
+ // Build chosen wrong answer block (only if wrong)
+ let chosenWrongBlock='';
+ if(!isCorrect){
+  const chosenText=q.o[i].replace(/^[A-F]\.\s*/,'');
+  const chosenReason=q.w&&q.w[i]?q.w[i]:'Bukan jawaban yang paling tepat untuk konteks ini.';
+  chosenWrongBlock=`
+  <div style="background:#fff0f0;border-left:4px solid #dc3545;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#dc3545;margin-bottom:4px">❌ Jawaban Anda Salah: ${keys[i]}. ${chosenText}</div>
+   <div style="color:#666;font-size:13px">${chosenReason}</div>
+  </div>`;
+ }
+
+ // Correct answer block
+ const correctBlock=`
+  <div style="background:#f0fff4;border-left:4px solid #28a745;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#28a745;margin-bottom:4px">✅ Jawaban Benar: ${q.o[q.a]}</div>
+   <div style="color:#333;font-size:13px">${q.exp}</div>
+  </div>`;
+
+ // Remaining wrong options (excluding chosen and correct)
+ let remainingRows='';
+ q.o.forEach((opt,idx)=>{
+  if(idx===q.a) return;
+  if(!isCorrect && idx===i) return; // already shown above
+  const label=keys[idx];
+  const reason=q.w&&q.w[idx]?q.w[idx]:'Bukan jawaban yang paling tepat untuk konteks ini.';
+  const optText=opt.replace(/^[A-F]\.\s*/,'');
+  remainingRows+=`<div style="padding:6px 14px;border-top:1px solid #eee">
+   <span style="font-weight:bold;color:#dc3545">${label}. ${optText}</span><br>
+   <span style="color:#888;font-size:13px">${reason}</span>
+  </div>`;
+ });
+
+ const remainingBlock=remainingRows?`
+  <div style="background:#fff8f8;padding:6px 0">
+   <div style="padding:6px 14px;font-weight:bold;color:#dc3545;font-size:13px">Opsi lain yang salah:</div>
+   ${remainingRows}
+  </div>`:'';
+
+ const translationBlock=q.t?`
+  <div style="background:#fffde7;border-left:4px solid #f9a825;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#f57f17;margin-bottom:3px;font-size:12px">📝 ARTI / MAKSUD SOAL:</div>
+   <div style="color:#444;font-size:13px;font-style:italic">${q.t}</div>
+  </div>`:'';
+
+ detail[cur]=`
+ <div style="border:1px solid #ccc;border-radius:6px;overflow:hidden;margin-top:10px">
+  <div style="background:${isCorrect?'#d4edda':'#f8d7da'};padding:8px 14px;font-size:15px;font-weight:bold">
+   ${isCorrect?'✅ BENAR':'❌ SALAH'}
+  </div>
+  ${translationBlock}
+  ${chosenWrongBlock}
+  ${correctBlock}
+  ${remainingBlock}
+ </div>`;
+ draw();
+}
+
+function gotoQ(i){cur=i;draw();}
+function pageNext(){if(start+10<qs.length){start+=10;renderNav();updateTopStats();}}
+function pagePrev(){if(start-10>=0){start-=10;renderNav();updateTopStats();}}
+
+function prevQ(){if(cur>0){cur--;if(cur<start)start-=10;draw();}}
+function nextQ(){
+ if(cur<qs.length-1){cur++;if(cur>=start+10)start+=10;draw();}
+ else review();
+}
+
+function review(){
+ const total=qs.length;
+ const pct=Math.round(score/total*100);
+ const pass=pct>=70;
+ const keys=['A','B','C','D','E','F'];
+ let h=`<div class='review-box'>
+  <h2 style="color:#1a73e8;margin-bottom:16px">REVIEW ALL QUESTION</h2>`;
+
+ qs.forEach((q,i)=>{
+  const userAns=ans[i];
+  const correct=q.a;
+  const isCorrect=(userAns===correct);
+  const unanswered=(userAns===undefined);
+
+  let ansBlock='';
+  if(unanswered){
+   ansBlock=`<div style="color:#888;font-style:italic;margin-top:6px">Belum dijawab</div>
+   <div style="margin-top:6px;background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px">
+    <b style="color:#28a745">✅ Jawaban Benar: ${q.o[correct]}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  } else if(isCorrect){
+   ansBlock=`<div style="background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px;margin-top:6px">
+    <b style="color:#28a745">✅ Jawaban Anda Benar: ${q.o[correct]}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  } else {
+   const wrongReason=q.w&&q.w[userAns]?q.w[userAns]:'Bukan jawaban yang paling tepat.';
+   ansBlock=`
+   <div style="background:#fff0f0;border-left:3px solid #dc3545;padding:8px 12px;margin-top:6px">
+    <b style="color:#dc3545">❌ Jawaban Anda Salah: ${q.o[userAns]}</b><br>
+    <span style="font-size:13px;color:#666">${wrongReason}</span>
+   </div>
+   <div style="background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px;margin-top:6px">
+    <b style="color:#28a745">✅ Jawaban Benar: ${q.o[correct]}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  }
+
+  const reviewTransBlock=q.t?`<div style="background:#fffde7;border-left:3px solid #f9a825;padding:6px 10px;margin:4px 0 6px;border-radius:3px"><span style="font-size:11px;font-weight:bold;color:#f57f17">📝 Arti soal: </span><span style="font-size:12px;color:#555;font-style:italic">${q.t}</span></div>`:'';
+  h+=`<div style="background:#fff;border:1px solid #ddd;border-radius:6px;padding:14px;margin-bottom:14px">
+   <div style="display:flex;align-items:flex-start;gap:10px">
+    <div style="background:${isCorrect?'#28a745':unanswered?'#aaa':'#dc3545'};color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:13px">${i+1}</div>
+    <div style="flex:1">
+     <div style="font-weight:bold;font-size:14px;margin-bottom:2px">SOAL: ${q.q}</div>
+     ${reviewTransBlock}
+     ${ansBlock}
+    </div>
+   </div>
+  </div>`;
+ });
+
+ h+=`<div style="text-align:center;padding:20px;background:${pass?'#d4edda':'#f8d7da'};border-radius:8px;margin-top:10px">
+  <div style="font-size:22px;font-weight:bold;color:${pass?'#155724':'#721c24'}">
+   NILAI AKHIR: ${score}/${total} &nbsp; (${pct}%)
+  </div>
+  <div style="font-size:16px;margin-top:8px;color:${pass?'#155724':'#721c24'}">
+   ${pass?'🎉 LULUS — Passing Grade 70% Tercapai!':'😞 TIDAK LULUS — Passing Grade 70% Belum Tercapai'}
+  </div>
+  <div style="font-size:13px;color:#555;margin-top:6px">Passing Grade: 70% (${Math.ceil(total*0.7)} dari ${total} soal harus benar)</div>
+ </div>
+</div>`;
+ document.getElementById("review").innerHTML=h;
+ document.getElementById("review").scrollIntoView({behavior:'smooth'});
+}
+draw();
+</script>
+</body>
+</html>

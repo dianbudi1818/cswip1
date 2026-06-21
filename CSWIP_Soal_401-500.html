@@ -1,0 +1,2176 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>QUESTION BANK CSWIP 3.1 - Part 5 (Soal 401-500)</title>
+<style>
+body{font-family:Arial;max-width:1100px;margin:auto;background:#f4f4f4;padding:20px}
+.box{background:#fff;padding:20px;border-radius:10px}
+h1{text-align:center;margin:5px}
+h2{text-align:center;margin:5px;color:green}
+.navrow{display:flex;justify-content:center;gap:6px;margin:10px 0}
+.num{width:38px;height:38px;border-radius:50%;border:none;font-weight:bold;cursor:pointer}
+.current{outline:3px solid blue}
+.unanswered{background:#ddd}
+.correct{background:#28a745;color:#fff}
+.wrong{background:#dc3545;color:#fff}
+.option{display:block;width:100%;padding:10px;margin:8px 0;text-align:left;cursor:pointer;border:1px solid #ccc;border-radius:4px;background:#fff;font-size:14px}
+.option:hover{background:#f0f0f0}
+.progress{height:10px;background:#ddd;border-radius:10px}
+.fill{height:100%;background:#28a745;border-radius:10px;transition:width 0.3s}
+.review-box{background:#eef;padding:20px;margin-top:20px;border-radius:8px}
+.q-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.q-num-badge{background:#1a73e8;color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:14px}
+.nav-prev-next{display:flex;justify-content:space-between;align-items:center;margin-top:15px}
+.btn-nav{padding:8px 18px;font-size:14px;cursor:pointer;border:1px solid #ccc;border-radius:4px;background:#fff}
+.btn-nav:hover{background:#e8e8e8}
+.counter-bar{text-align:center;font-weight:bold;color:#555;margin:6px 0 12px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>QUESTION BANK CSWIP 3.1</h1>
+<h3 style="text-align:center;color:#1a73e8;margin:2px">Part 5 &mdash; Soal 401 s/d 500</h3>
+<h2>INSYA ALLAH LULUS</h2>
+
+
+<div id="topExamBar" style="margin-bottom:12px">
+  <div style="display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap">
+    <button class="btn-nav" onclick="prevQ()">◀ Previous</button>
+    <div id="navTop"></div>
+    <button class="btn-nav" onclick="nextQ()">Next ▶</button>
+  </div>
+  <div style="margin-top:6px;font-size:14px;font-weight:bold;text-align:center">
+    <span style="color:green">✔ Correct: <span id="correctCnt">0</span></span> |
+    <span style="color:red">✘ False: <span id="falseCnt">0</span></span> |
+    <span>☐ Blank: <span id="blankCnt">0</span></span> |
+    <span>%: <span id="pctTop">0</span></span>
+  </div>
+</div>
+
+<div id="question"></div>
+<div id="options"></div>
+<div id="result"></div>
+
+<div class="nav-prev-next">
+  <button class="btn-nav" onclick="prevQ()">⬅ Previous</button>
+  <button class="btn-nav" onclick="nextQ()">Next ➡</button>
+</div>
+
+
+<div id="review"></div>
+</div>
+
+<script>
+const qs=[
+  {
+    "num": 401,
+    "q": "An advantage of the SAW process is that:",
+    "t": "Apa salah satu keunggulan proses SAW (Submerged Arc Welding)?",
+    "o": [
+      "A) It can be used in the vertical down (PG) position",
+      "B) Little or no ozone or UV light is produced/emitted",
+      "C) It is not affected by arc blow",
+      "D) It is not prone to solidification cracking"
+    ],
+    "a": 1,
+    "correctText": "B) Little or no ozone or UV light is produced/emitted",
+    "exp": "Pada proses SAW, busur las tertutup sepenuhnya oleh flux granular sehingga radiasi UV dan pembentukan ozon sangat rendah dibandingkan proses busur terbuka seperti MMA, MIG/MAG, dan TIG. Kondisi ini membuat lingkungan kerja lebih nyaman dan aman bagi operator.",
+    "w": {
+      "0": "SAW umumnya hanya digunakan pada posisi PA dan PB karena flux granular akan jatuh akibat gravitasi jika digunakan pada posisi vertikal atau overhead.",
+      "2": "SAW masih dapat mengalami arc blow terutama saat menggunakan arus DC dan pada konfigurasi sambungan tertentu.",
+      "3": "Solidification cracking tetap dapat terjadi pada SAW, terutama jika terdapat sulfur, fosfor tinggi, restrain tinggi, atau profil las yang dalam dan sempit."
+    }
+  },
+  {
+    "num": 402,
+    "q": "The welders have increased the electrode stickout length of the SAW set. What would be the effect on the weld?",
+    "t": "Welder meningkatkan electrode stick-out pada SAW. Apa pengaruhnya terhadap hasil pengelasan?",
+    "o": [
+      "A) No effect",
+      "B) The weld width would be narrower",
+      "C) Penetration will be increased",
+      "D) The deposition rate would be greater if wire feed rate is increased also"
+    ],
+    "a": 3,
+    "correctText": "D) The deposition rate would be greater if wire feed rate is increased also",
+    "exp": "Stick-out yang lebih panjang meningkatkan pemanasan resistansi (resistance heating) pada wire sebelum mencapai busur. Akibatnya wire meleleh lebih cepat dan deposition rate meningkat, terutama bila wire feed speed juga ditingkatkan.",
+    "w": {
+      "0": "Stick-out merupakan salah satu parameter penting yang mempengaruhi burn-off rate dan karakteristik pengelasan.",
+      "1": "Perubahan stick-out tidak secara langsung menyebabkan weld width menjadi lebih sempit.",
+      "2": "Penetrasi biasanya cenderung berkurang karena sebagian energi digunakan untuk memanaskan wire."
+    }
+  },
+  {
+    "num": 403,
+    "q": "In SAW normally DCEP is used. When is DCEN preferred?",
+    "t": "SAW biasanya menggunakan DCEP. Dalam kondisi apa DCEN lebih disukai?",
+    "o": [
+      "A) For positional welding",
+      "B) For welding thicker plate",
+      "C) For fully automated welding",
+      "D) For surfacing applications"
+    ],
+    "a": 3,
+    "correctText": "D) For surfacing applications",
+    "exp": "DCEN menghasilkan deposition rate yang lebih tinggi dan penetrasi yang lebih rendah. Karakteristik ini ideal untuk surfacing atau cladding karena tujuan utamanya adalah menambahkan lapisan logam tanpa penetrasi berlebihan ke logam dasar.",
+    "w": {
+      "0": "SAW hampir tidak digunakan untuk positional welding.",
+      "1": "Pelat tebal biasanya memerlukan penetrasi tinggi sehingga DCEP lebih sesuai.",
+      "2": "Tingkat otomatisasi tidak menentukan pilihan polaritas."
+    }
+  },
+  {
+    "num": 404,
+    "q": "Which of the following cracks occur in the weld metal, usually along the centreline of the weld?",
+    "t": "Jenis retak apa yang biasanya terjadi di logam las sepanjang weld centreline?",
+    "o": [
+      "A) Hydrogen cracks",
+      "B) Transfer cracks",
+      "C) Solidification cracks",
+      "D) Liquation cracks"
+    ],
+    "a": 2,
+    "correctText": "C) Solidification cracks",
+    "exp": "Solidification crack terjadi pada tahap akhir pembekuan logam las. Daerah weld centreline merupakan bagian terakhir yang membeku sehingga menjadi lokasi paling rentan terhadap retak pembekuan.",
+    "w": {
+      "0": "Biasanya terjadi setelah pendinginan dan sering ditemukan di HAZ atau daerah tegangan tinggi.",
+      "1": "Bukan mekanisme retak standar dalam terminologi pengelasan.",
+      "3": "Biasanya terjadi di HAZ dekat fusion line, bukan di weld centreline."
+    }
+  },
+  {
+    "num": 405,
+    "q": "SAW Welding?",
+    "t": "Bagaimana karakteristik umum proses SAW?",
+    "o": [
+      "A) Full automatic",
+      "B) Semi automatic",
+      "C) Manual",
+      "D) Welder controls arc length"
+    ],
+    "a": 0,
+    "correctText": "A) Full automatic",
+    "exp": "SAW umumnya dijalankan secara otomatis atau mekanis dengan wire feed dan travel system yang dikendalikan mesin sehingga produktivitas sangat tinggi.",
+    "w": {
+      "1": "Walaupun ada aplikasi tertentu yang semi-otomatis, karakteristik umum SAW adalah otomatis.",
+      "2": "SAW bukan proses manual seperti MMA.",
+      "3": "Arc length dikontrol oleh sistem mesin dan wire feed, bukan secara manual oleh welder."
+    }
+  },
+  {
+    "num": 406,
+    "q": "What is the effect of high voltage?",
+    "t": "Apa pengaruh tegangan busur yang terlalu tinggi?",
+    "o": [
+      "A) Arc length increase",
+      "B) Weld width increase",
+      "C) Penetration decrease",
+      "D) Amperage decrease"
+    ],
+    "a": 1,
+    "correctText": "B) Weld width increase",
+    "exp": "Tegangan yang lebih tinggi menghasilkan busur yang lebih panjang dan penyebaran panas yang lebih luas sehingga weld bead menjadi lebih lebar.",
+    "w": {
+      "0": "Ini memang terjadi, tetapi merupakan efek langsung. Dampak yang biasanya dicari pada hasil las adalah peningkatan weld width.",
+      "2": "Dapat terjadi, tetapi bukan efek utama yang paling jelas.",
+      "3": "Tidak selalu terjadi karena tergantung karakteristik power source."
+    }
+  },
+  {
+    "num": 407,
+    "q": "Which welding process gives the highest deposition rate?",
+    "t": "Proses pengelasan manakah yang memiliki deposition rate tertinggi?",
+    "o": [
+      "A) FCAW",
+      "B) SAW",
+      "C) MIG",
+      "D) MAG"
+    ],
+    "a": 1,
+    "correctText": "B) SAW",
+    "exp": "SAW menggunakan arus yang sangat tinggi, efisiensi deposisi yang tinggi, serta kehilangan logam yang sangat kecil sehingga menghasilkan deposition rate tertinggi di antara proses-proses umum.",
+    "w": {
+      "0": "Memiliki deposition rate tinggi tetapi masih di bawah SAW.",
+      "2": "Lebih rendah dibanding SAW.",
+      "3": "Juga lebih rendah dibanding SAW."
+    }
+  },
+  {
+    "num": 408,
+    "q": "Which process and material are the most likely to solidification crack?",
+    "t": "Kombinasi proses dan material manakah yang paling rentan mengalami solidification cracking?",
+    "o": [
+      "A) SAW and Aluminium",
+      "B) SAW and rolled plate Z-quality",
+      "C) SAW and rolled plate carbon steel",
+      "D) MMA and forging materials"
+    ],
+    "a": 0,
+    "correctText": "A) SAW and Aluminium",
+    "exp": "Aluminium memiliki rentang pembekuan yang lebar dan lebih sensitif terhadap segregasi unsur selama pembekuan. Dikombinasikan dengan weld pool besar pada SAW, risiko solidification cracking menjadi lebih tinggi.",
+    "w": {
+      "1": "Z-quality dirancang untuk meningkatkan through-thickness ductility dan mengurangi risiko lamellar tearing.",
+      "2": "Baja karbon umumnya lebih tahan terhadap solidification cracking dibanding aluminium.",
+      "3": "Bukan kombinasi yang paling dikenal berisiko tinggi terhadap solidification cracking."
+    }
+  },
+  {
+    "num": 409,
+    "q": "When material carbon steel is changed to SS 316L, what type of defect will occur?",
+    "t": "Jika material diganti dari carbon steel menjadi stainless steel 316L, cacat apa yang lebih mungkin terjadi?",
+    "o": [
+      "A) Step-like appearance",
+      "B) Lamellar tearing",
+      "C) Hydrogen crack",
+      "D) Solidification crack"
+    ],
+    "a": 3,
+    "correctText": "D) Solidification crack",
+    "exp": "Austenitic stainless steel seperti 316L memiliki kecenderungan lebih tinggi mengalami solidification cracking dibanding carbon steel karena mekanisme pembekuan dan segregasi unsur paduan.",
+    "w": {
+      "0": "Bukan cacat metalurgi yang terkait dengan perubahan material.",
+      "1": "Berkaitan dengan sifat through-thickness ductility pelat, bukan jenis stainless steel.",
+      "2": "Austenitic stainless steel relatif tahan terhadap hydrogen cracking dibanding carbon steel."
+    }
+  },
+  {
+    "num": 410,
+    "q": "SAW welding:",
+    "t": "Pernyataan manakah yang paling menggambarkan karakteristik SAW?",
+    "o": [
+      "A) High heat input",
+      "B) Productivity 90%",
+      "C) Fully automatic",
+      "D) PA and PB positions"
+    ],
+    "a": 0,
+    "correctText": "A) High heat input",
+    "exp": "Heat input tinggi merupakan salah satu karakteristik paling khas dari SAW karena penggunaan arus besar dan thermal efficiency yang sangat tinggi.",
+    "w": {
+      "1": "Produktivitas memang tinggi tetapi angka 90% bukan karakteristik standar yang digunakan dalam teori pengelasan.",
+      "2": "Sering benar, tetapi bukan karakteristik teknis utama yang paling khas.",
+      "3": "Benar secara umum tetapi bukan karakteristik utama proses."
+    }
+  },
+  {
+    "num": 411,
+    "q": "Which welding process has the highest heat input?",
+    "t": "Proses pengelasan manakah yang menghasilkan heat input tertinggi?",
+    "o": [
+      "A) MMA",
+      "B) MIG",
+      "C) MAG",
+      "D) SAW"
+    ],
+    "a": 3,
+    "correctText": "D) SAW",
+    "exp": "SAW menggunakan arus sangat tinggi, thermal efficiency tinggi, dan mampu menghasilkan energi panas terbesar yang masuk ke sambungan las dibanding MMA, MIG, maupun MAG.",
+    "w": {
+      "0": "Menggunakan arus lebih rendah dan efisiensi panas lebih rendah.",
+      "1": "Heat input lebih rendah dibanding SAW.",
+      "2": "Tidak mampu menghasilkan heat input setinggi SAW."
+    }
+  },
+  {
+    "num": 412,
+    "q": "With reference to the previous question and the correct answer, what is the suitable reason?",
+    "t": "Mengapa proses tersebut menghasilkan heat input tertinggi?",
+    "o": [
+      "A) Arc is insulated",
+      "B) It is operated with higher current",
+      "C) Because the above process uses low travel speed",
+      "D) Because it is automatic welding"
+    ],
+    "a": 1,
+    "correctText": "B) It is operated with higher current",
+    "exp": "Heat input sangat dipengaruhi oleh arus pengelasan. SAW mampu beroperasi pada arus yang jauh lebih tinggi dibanding proses lain sehingga energi panas yang masuk ke sambungan meningkat secara signifikan.",
+    "w": {
+      "0": "Flux memang menutupi busur, tetapi bukan penyebab utama heat input tinggi.",
+      "2": "Travel speed dapat berpengaruh, tetapi bukan alasan utama pada SAW.",
+      "3": "Otomatisasi tidak secara langsung meningkatkan heat input."
+    }
+  },
+  {
+    "num": 413,
+    "q": "Where does a solidification crack occur?",
+    "t": "Di lokasi mana solidification crack biasanya ditemukan?",
+    "o": [
+      "A) In the weld zone",
+      "B) In the base metal just below HAZ",
+      "C) Weld centreline",
+      "D) In the HAZ area"
+    ],
+    "a": 2,
+    "correctText": "C) Weld centreline",
+    "exp": "Centreline merupakan daerah terakhir yang membeku dan menjadi lokasi utama konsentrasi impurity serta tegangan tarik selama pembekuan.",
+    "w": {
+      "0": "Terlalu umum. Lokasi yang lebih tepat adalah weld centreline.",
+      "1": "Lebih sering terkait dengan hydrogen cracking atau HAZ cracking.",
+      "3": "HAZ lebih sering mengalami liquation cracking daripada solidification cracking."
+    }
+  },
+  {
+    "num": 414,
+    "q": "Undesirable elements for solidification cracking?",
+    "t": "Unsur apa yang paling tidak diinginkan karena dapat meningkatkan risiko solidification cracking?",
+    "o": [
+      "A) Too high phosphorus",
+      "B) Too high sulphur",
+      "C) Too high manganese",
+      "D) Too high sulphur and phosphorus"
+    ],
+    "a": 3,
+    "correctText": "D) Too high sulphur and phosphorus",
+    "exp": "Sulphur (S) dan Phosphorus (P) membentuk senyawa bertitik leleh rendah yang tetap berada dalam keadaan cair pada tahap akhir pembekuan logam las. Lapisan cair ini berada di antara dendrite dan sangat mudah robek akibat tegangan susut sehingga memicu solidification cracking.",
+    "w": {
+      "0": "Benar berkontribusi terhadap retak, tetapi bukan satu-satunya unsur yang paling berbahaya.",
+      "1": "Juga benar berkontribusi, namun soal meminta kombinasi unsur yang paling merugikan.",
+      "2": "Manganese justru membantu mengikat sulphur menjadi MnS sehingga mengurangi risiko solidification cracking."
+    }
+  },
+  {
+    "num": 415,
+    "q": "How to avoid solidification cracking?",
+    "t": "Bagaimana cara mengurangi risiko solidification cracking?",
+    "o": [
+      "A) Use of high sulphur in the electrode",
+      "B) Use high manganese in the electrode",
+      "C) Use of high phosphorus in the electrode",
+      "D) a and c correct"
+    ],
+    "a": 1,
+    "correctText": "B) Use high manganese in the electrode",
+    "exp": "Manganese bereaksi dengan sulphur membentuk manganese sulphide (MnS) yang memiliki titik leleh lebih tinggi dibanding iron sulphide (FeS). Dengan demikian terbentuk lebih sedikit film cair bertitik leleh rendah pada akhir pembekuan.",
+    "w": {
+      "0": "Sulphur merupakan unsur utama penyebab solidification cracking.",
+      "2": "Phosphorus juga meningkatkan kecenderungan solidification cracking.",
+      "3": "Kedua pilihan tersebut justru memperparah risiko retak."
+    }
+  },
+  {
+    "num": 416,
+    "q": "Solidification crack occurs due to?",
+    "t": "Penyebab utama terjadinya solidification crack adalah?",
+    "o": [
+      "A) High current density",
+      "B) High restraint",
+      "C) Low melting point liquid",
+      "D) High dilution",
+      "E) Deep and narrow weld profile"
+    ],
+    "a": 2,
+    "correctText": "C) Low melting point liquid",
+    "exp": "Solidification cracking terjadi karena adanya film cair bertitik leleh rendah yang masih tersisa di antara butiran logam ketika sebagian besar weld metal telah membeku. Saat terjadi penyusutan, film cair tersebut tidak mampu menahan tegangan dan akhirnya retak.",
+    "w": {
+      "0": "Dapat berkontribusi secara tidak langsung terhadap bentuk bead, tetapi bukan mekanisme utama.",
+      "1": "Meningkatkan tegangan tarik, namun bukan penyebab dasar terjadinya solidification crack.",
+      "3": "Dapat meningkatkan unsur pengotor tertentu, tetapi bukan mekanisme utama.",
+      "4": "Merupakan faktor yang meningkatkan risiko, bukan penyebab dasar retak."
+    }
+  },
+  {
+    "num": 417,
+    "q": "The term low hydrogen electrode is often used for certain electrodes. What type of covering will they have?",
+    "t": "Elektroda yang disebut low hydrogen biasanya memiliki jenis flux apa?",
+    "o": [
+      "A) Cellulosic",
+      "B) Rutile",
+      "C) Acid",
+      "D) Basic"
+    ],
+    "a": 3,
+    "correctText": "D) Basic",
+    "exp": "Basic electrode dirancang untuk menghasilkan kadar hidrogen difusibel yang sangat rendah sehingga mengurangi risiko hydrogen cracking, terutama pada baja tebal dan baja berkekuatan tinggi.",
+    "w": {
+      "0": "Menghasilkan kadar hidrogen paling tinggi karena kandungan selulosa pada flux.",
+      "1": "Memiliki kadar hidrogen lebih tinggi dibanding basic electrode.",
+      "2": "Bukan tipe low hydrogen electrode."
+    }
+  },
+  {
+    "num": 418,
+    "q": "The three main types of MMA electrodes used for welding C and C-Mn steels are:",
+    "t": "Tiga jenis utama elektroda MMA untuk pengelasan carbon steel dan carbon-manganese steel adalah?",
+    "o": [
+      "A) Basic, Cellulosic and Rutile",
+      "B) Neutral, Cellulosic and Rutile",
+      "C) Basic, Cellulosic and Neutral",
+      "D) Rutile, Low Hydrogen and Basic"
+    ],
+    "a": 0,
+    "correctText": "A) Basic, Cellulosic and Rutile",
+    "exp": "Ketiga kelompok ini merupakan klasifikasi utama elektroda MMA berdasarkan jenis flux coating yang paling umum digunakan dalam industri.",
+    "w": {
+      "1": "Neutral bukan klasifikasi utama elektroda MMA.",
+      "2": "Neutral bukan kelompok utama elektroda.",
+      "3": "Low hydrogen pada dasarnya adalah basic electrode sehingga terjadi pengulangan kategori."
+    }
+  },
+  {
+    "num": 419,
+    "q": "Which type of electrode is used for stovepipe welding for overland pipeline construction?",
+    "t": "Jenis elektroda apa yang umum digunakan untuk stovepipe welding pada konstruksi pipa lintas darat?",
+    "o": [
+      "A) Rutile",
+      "B) Cellulosic",
+      "C) High Recovery Rutile",
+      "D) Acid-Rutile"
+    ],
+    "a": 1,
+    "correctText": "B) Cellulosic",
+    "exp": "Cellulosic electrode menghasilkan penetrasi sangat dalam, pembekuan cepat, dan sangat cocok untuk pengelasan pipa posisi vertical down yang digunakan pada konstruksi pipeline.",
+    "w": {
+      "0": "Penetrasi lebih dangkal dan kurang sesuai untuk root pass pipeline.",
+      "2": "Lebih cocok untuk deposisi tinggi pada posisi tertentu.",
+      "3": "Tidak digunakan sebagai elektroda utama pipeline."
+    }
+  },
+  {
+    "num": 420,
+    "q": "Basic coated electrodes have which of the following properties?",
+    "t": "Karakteristik utama elektroda basic adalah?",
+    "o": [
+      "A) High mechanical properties, may be used to produce welds of high deposition rates and to produce welds of low hydrogen content",
+      "B) Friable slag, high mechanical strength, and produce welds of low hydrogen content",
+      "C) Low hydrogen content welds, good stop/start properties and high strength",
+      "D) Low carbon content welds, friable slag and high strength"
+    ],
+    "a": 1,
+    "correctText": "B) Friable slag, high mechanical strength, and produce welds of low hydrogen content",
+    "exp": "Basic electrode menghasilkan weld metal dengan sifat mekanik tinggi, kadar hidrogen rendah, serta slag yang mudah dibersihkan (friable slag).",
+    "w": {
+      "0": "High deposition rate bukan karakteristik utama basic electrode.",
+      "2": "Stop/start properties justru biasanya lebih baik pada rutile electrode.",
+      "3": "Kadar karbon weld metal bukan karakteristik klasifikasi basic electrode."
+    }
+  },
+  {
+    "num": 421,
+    "q": "In BS EN ISO 2560, what does the number 50 represent in the following electrode classification: E 50 3 1Ni B 160 1 H5?",
+    "t": "Pada klasifikasi EN ISO 2560 E 50 3 1Ni B 160 1 H5, apa arti angka 50?",
+    "o": [
+      "A) A minimum 50 N/mm² yield strength",
+      "B) A minimum 500 N/mm² tensile strength",
+      "C) A minimum 50,000 psi yield strength",
+      "D) None of the above"
+    ],
+    "a": 1,
+    "correctText": "B) A minimum 500 N/mm² tensile strength",
+    "exp": "Dalam sistem klasifikasi EN ISO 2560, angka 50 menunjukkan kategori kekuatan tarik minimum sekitar 500 MPa untuk weld metal yang dihasilkan.",
+    "w": {
+      "0": "Nilainya terlalu rendah dan tidak sesuai standar.",
+      "2": "Menggunakan sistem AWS, bukan EN ISO.",
+      "3": "Pilihan B sudah benar."
+    }
+  },
+  {
+    "num": 422,
+    "q": "Which of the following electrode types produces the lowest level of hydrogen?",
+    "t": "Jenis elektroda manakah yang menghasilkan kadar hidrogen paling rendah?",
+    "o": [
+      "A) Cellulose coated electrode sealed in a tin immediately after manufacture",
+      "B) Basic coated electrodes when baked correctly immediately prior to use",
+      "C) Rutile coated electrodes when dried at 100°C prior to use",
+      "D) Heavy rutile coated electrodes when dried at 180°C for 2 hours prior to use"
+    ],
+    "a": 1,
+    "correctText": "B) Basic coated electrodes when baked correctly immediately prior to use",
+    "exp": "Basic low hydrogen electrodes yang dibaking dengan benar memiliki kadar hidrogen difusibel paling rendah sehingga paling efektif untuk mencegah hydrogen cracking.",
+    "w": {
+      "0": "Cellulosic electrode tetap menghasilkan hidrogen tinggi karena komposisi flux-nya.",
+      "2": "Kadar hidrogen masih lebih tinggi dibanding basic electrode.",
+      "3": "Masih menghasilkan kadar hidrogen lebih tinggi daripada low hydrogen basic electrode."
+    }
+  },
+  {
+    "num": 423,
+    "q": "An electrode is classified to BS EN ISO 2560 as E35 3 B. What does the letter B represent?",
+    "t": "Pada klasifikasi E35 3 B, huruf B menunjukkan apa?",
+    "o": [
+      "A) Covering",
+      "B) Grade",
+      "C) Position",
+      "D) Rutile"
+    ],
+    "a": 0,
+    "correctText": "A) Covering",
+    "exp": "Huruf B menunjukkan jenis covering atau flux coating yaitu Basic coating.",
+    "w": {
+      "1": "Grade ditunjukkan oleh angka dan klasifikasi kekuatan.",
+      "2": "Posisi pengelasan ditunjukkan oleh simbol lain dalam klasifikasi lengkap.",
+      "3": "Huruf B berarti Basic, bukan Rutile."
+    }
+  },
+  {
+    "num": 424,
+    "q": "Highest hydrogen levels would be found in:",
+    "t": "Kadar hidrogen tertinggi akan ditemukan pada hasil las yang dibuat menggunakan elektroda apa?",
+    "o": [
+      "A) A weld carried out with an E6013 electrode",
+      "B) A weld carried out with an E6011 electrode",
+      "C) A weld carried out with an E8018 electrode",
+      "D) A weld carried out with an E43 1 Ni 2 RR electrode"
+    ],
+    "a": 1,
+    "correctText": "B) A weld carried out with an E6011 electrode",
+    "exp": "E6011 merupakan elektroda cellulosic yang menghasilkan kandungan hidrogen difusibel paling tinggi di antara pilihan yang tersedia karena flux mengandung bahan organik dan selulosa.",
+    "w": {
+      "0": "Rutile electrode menghasilkan hidrogen lebih rendah dibanding cellulosic.",
+      "2": "Low hydrogen basic electrode menghasilkan kadar hidrogen paling rendah.",
+      "3": "Rutile-rutile electrode masih menghasilkan hidrogen lebih rendah daripada cellulosic electrode."
+    }
+  },
+  {
+    "num": 425,
+    "q": "When welding medium carbon steel plate over 100 mm in thickness, would basic electrodes require any pre-treatment before use?",
+    "t": "Saat mengelas pelat medium carbon steel dengan ketebalan di atas 100 mm, apakah elektroda basic memerlukan perlakuan khusus sebelum digunakan?",
+    "o": [
+      "A) None if they were in a vacuum pack opened 8 hours prior to use",
+      "B) None if they were in a sealed vacuum pack immediately prior to use",
+      "C) Heat to 500°C for 2 hours if used outside",
+      "D) Bake at 150°C for 4 hours prior to use"
+    ],
+    "a": 3,
+    "correctText": "D) Bake at 150°C for 4 hours prior to use",
+    "exp": "Pada material tebal dan medium carbon steel, risiko hydrogen cracking sangat tinggi. Elektroda basic bersifat higroskopis sehingga dapat menyerap kelembaban dari udara. Baking dilakukan untuk menghilangkan kelembaban pada flux coating sehingga kadar hidrogen difusibel tetap rendah dan risiko hydrogen cracking dapat diminimalkan.",
+    "w": {
+      "0": "Setelah kemasan dibuka, elektroda mulai menyerap kelembaban dari atmosfer. Untuk pekerjaan kritis pada material tebal, asumsi bahwa elektroda tetap kering setelah 8 jam tidak dapat diterima.",
+      "1": "Memang elektroda baru dapat digunakan langsung setelah kemasan dibuka, tetapi dalam konteks soal CSWIP yang menekankan pengelasan material tebal dan kontrol hidrogen, baking merupakan tindakan yang paling aman.",
+      "2": "Temperatur ini terlalu tinggi dan dapat merusak flux coating serta karakteristik elektroda."
+    }
+  },
+  {
+    "num": 426,
+    "q": "Which type of MMA electrode gives the deepest penetration?",
+    "t": "Jenis elektroda MMA manakah yang menghasilkan penetrasi terdalam?",
+    "o": [
+      "A) Iron Powder DC−",
+      "B) Rutile AC",
+      "C) Cellulose DC−",
+      "D) Cellulose DC+"
+    ],
+    "a": 3,
+    "correctText": "D) Cellulose DC+",
+    "exp": "Elektroda cellulosic yang digunakan pada DCEP (DC+) menghasilkan busur yang sangat kuat dan terfokus dengan penetrasi sangat dalam. Inilah alasan utama elektroda seperti E6010 digunakan untuk root welding dan pipeline welding.",
+    "w": {
+      "0": "Dirancang untuk deposition rate tinggi, bukan penetrasi maksimum.",
+      "1": "Mudah digunakan tetapi penetrasinya relatif sedang.",
+      "2": "Masih menghasilkan penetrasi dalam, tetapi tidak sedalam cellulosic pada DCEP."
+    }
+  },
+  {
+    "num": 427,
+    "q": "According to AWS A5.1, an iron powder electrode has which of the following designations?",
+    "t": "Menurut AWS A5.1, elektroda manakah yang termasuk kategori iron powder electrode?",
+    "o": [
+      "A) E6013",
+      "B) E7018",
+      "C) E7024",
+      "D) E6010"
+    ],
+    "a": 2,
+    "correctText": "C) E7024",
+    "exp": "E7024 dikenal sebagai heavy iron powder rutile electrode. Kandungan iron powder yang tinggi menghasilkan deposition rate tinggi dan biasanya digunakan pada posisi PA dan PB.",
+    "w": {
+      "0": "Merupakan rutile electrode standar dengan kandungan iron powder yang jauh lebih rendah.",
+      "1": "Merupakan low hydrogen basic electrode.",
+      "3": "Merupakan cellulosic electrode."
+    }
+  },
+  {
+    "num": 428,
+    "q": "A typical baking temperature for basic low hydrogen electrodes is:",
+    "t": "Berapa temperatur baking yang umum digunakan untuk elektroda basic low hydrogen?",
+    "o": [
+      "A) 120°C",
+      "B) 350°C",
+      "C) 500°C",
+      "D) 200°C"
+    ],
+    "a": 1,
+    "correctText": "B) 350°C",
+    "exp": "Temperatur baking sekitar 300–350°C merupakan praktik umum untuk menghilangkan kelembaban yang terserap oleh flux coating tanpa merusak sifat elektroda.",
+    "w": {
+      "0": "Biasanya hanya digunakan untuk holding oven, bukan rebaking.",
+      "2": "Terlalu tinggi dan dapat merusak coating.",
+      "3": "Masih terlalu rendah untuk menghilangkan seluruh kelembaban yang terserap."
+    }
+  },
+  {
+    "num": 429,
+    "q": "Which of the following MMA electrode types is generally only suitable for welding in the PA and PB positions?",
+    "t": "Jenis elektroda MMA manakah yang umumnya hanya cocok digunakan pada posisi PA dan PB?",
+    "o": [
+      "A) Cellulosic",
+      "B) Rutile",
+      "C) Iron Powder",
+      "D) Basic"
+    ],
+    "a": 2,
+    "correctText": "C) Iron Powder",
+    "exp": "Heavy iron powder electrodes seperti E7024 menghasilkan weld pool besar dan cair sehingga umumnya terbatas pada posisi flat (PA) dan horizontal fillet (PB).",
+    "w": {
+      "0": "Sangat cocok untuk posisi vertical down dan berbagai posisi lainnya.",
+      "1": "Tersedia dalam berbagai klasifikasi all-position.",
+      "3": "Banyak basic electrode dapat digunakan pada berbagai posisi termasuk vertical up."
+    }
+  },
+  {
+    "num": 430,
+    "q": "According to AWS A5.1, what type of covering is an E6013 electrode?",
+    "t": "Menurut AWS A5.1, jenis coating apa yang dimiliki elektroda E6013?",
+    "o": [
+      "A) Fused",
+      "B) Rutile",
+      "C) Cellulosic",
+      "D) Basic"
+    ],
+    "a": 1,
+    "correctText": "B) Rutile",
+    "exp": "E6013 merupakan elektroda rutile dengan karakteristik busur halus, slag mudah dibersihkan, dan mudah digunakan dalam berbagai aplikasi fabrikasi umum.",
+    "w": {
+      "0": "Bukan klasifikasi coating AWS untuk elektroda ini.",
+      "2": "Contohnya adalah E6010 dan E6011.",
+      "3": "Contohnya adalah E7016 dan E7018."
+    }
+  },
+  {
+    "num": 431,
+    "q": "An MMA electrode is designated as E42. According to BS EN ISO 2560, what does the number 42 indicate?",
+    "t": "Pada klasifikasi BS EN ISO 2560, apa arti angka 42 pada elektroda E42?",
+    "o": [
+      "A) 40 Joules at a test temperature of −20°C",
+      "B) 420 N/mm² Yield Strength",
+      "C) 42% Elongation",
+      "D) 42 N/mm² Tensile Strength"
+    ],
+    "a": 1,
+    "correctText": "B) 420 N/mm² Yield Strength",
+    "exp": "Dalam sistem EN ISO 2560, angka pertama menunjukkan kelas kekuatan logam las. E42 menunjukkan minimum yield strength sekitar 420 MPa (N/mm²).",
+    "w": {
+      "0": "Ini berkaitan dengan toughness classification, bukan angka 42.",
+      "2": "Elongation tidak ditunjukkan oleh angka tersebut.",
+      "3": "Nilainya terlalu rendah dan tidak sesuai standar pengelasan."
+    }
+  },
+  {
+    "num": 432,
+    "q": "In welding the presence of Sulphur in large quantities may lead to:",
+    "t": "Apa dampak kandungan sulphur yang tinggi pada pengelasan?",
+    "o": [
+      "A) Hydrogen cracking",
+      "B) A weld with excessively high toughness values",
+      "C) Solidification cracking",
+      "D) Lamellar tearing in the weld metal",
+      "E) Both c and d"
+    ],
+    "a": 2,
+    "correctText": "C) Solidification cracking",
+    "exp": "Sulphur membentuk senyawa bertitik leleh rendah yang berada pada batas dendrite selama pembekuan weld metal. Saat terjadi penyusutan, area tersebut sangat rentan terhadap solidification cracking.",
+    "w": {
+      "0": "Hydrogen cracking terutama berkaitan dengan hidrogen, struktur keras, dan tegangan tarik.",
+      "1": "Sulphur justru menurunkan toughness.",
+      "3": "Lamellar tearing berkaitan dengan inklusi non-logam pada material induk dan sifat through-thickness ductility.",
+      "4": "Lamellar tearing bukan efek langsung dari sulphur tinggi pada weld metal."
+    }
+  },
+  {
+    "num": 433,
+    "q": "Hydrogen cracking is caused by which of the following?",
+    "t": "Apa penyebab hydrogen cracking?",
+    "o": [
+      "A) Hydrogen, materials over 25 mm thickness and temperatures below 250°C",
+      "B) Hydrogen, materials with high CEV and excessively high heat inputs",
+      "C) Hydrogen, high stress levels and susceptible grain structure",
+      "D) All of the above could cause hydrogen cracking"
+    ],
+    "a": 2,
+    "correctText": "C) Hydrogen, high stress levels and susceptible grain structure",
+    "exp": "Tiga syarat utama hydrogen cracking adalah: Adanya hidrogen difusibel. Struktur mikro yang rentan (keras/brittle). Tegangan tarik yang cukup tinggi. Ketiga faktor tersebut secara langsung membentuk mekanisme hydrogen cracking.",
+    "w": {
+      "0": "Ketebalan dan temperatur bukan syarat dasar hydrogen cracking.",
+      "1": "High CEV memang meningkatkan hardenability, tetapi heat input tinggi justru sering menurunkan laju pendinginan.",
+      "3": "Pilihan A tidak menggambarkan mekanisme dasar secara benar."
+    }
+  },
+  {
+    "num": 434,
+    "q": "Lamellar tearing is best prevented by:",
+    "t": "Bagaimana cara terbaik mencegah lamellar tearing?",
+    "o": [
+      "A) The use of buttering runs",
+      "B) Inspection by UT",
+      "C) The use of a high tensile strength welding electrode",
+      "D) All of the above"
+    ],
+    "a": 0,
+    "correctText": "A) The use of buttering runs",
+    "exp": "Buttering runs membantu mengubah arah tegangan susut sehingga mengurangi tegangan through-thickness yang menjadi penyebab utama lamellar tearing.",
+    "w": {
+      "1": "UT hanya mendeteksi cacat, bukan mencegahnya.",
+      "2": "Tidak menghilangkan penyebab utama lamellar tearing dan bahkan dapat meningkatkan tegangan susut.",
+      "3": "Karena B dan C bukan metode pencegahan utama."
+    }
+  },
+  {
+    "num": 435,
+    "q": "Solidification cracking in steel weldments normally occurs:",
+    "t": "Di mana solidification cracking biasanya terjadi?",
+    "o": [
+      "A) Weld centre line",
+      "B) In the HAZ",
+      "C) In the parent material just outside the HAZ",
+      "D) Can occur anywhere in the welded joint"
+    ],
+    "a": 0,
+    "correctText": "A) Weld centre line",
+    "exp": "Weld centre line merupakan bagian terakhir yang membeku dan lokasi utama konsentrasi unsur pengotor serta tegangan susut sehingga paling rentan terhadap solidification cracking.",
+    "w": {
+      "1": "HAZ lebih sering terkait dengan liquation cracking.",
+      "2": "Lebih berkaitan dengan hydrogen cracking atau masalah material induk.",
+      "3": "Solidification cracking memiliki lokasi khas yaitu weld centre line."
+    }
+  },
+  {
+    "num": 436,
+    "q": "Lamellar tearing is associated with:",
+    "t": "Lamellar tearing berhubungan dengan faktor apa?",
+    "o": [
+      "A) Fast cooling",
+      "B) Carbide precipitation",
+      "C) High levels of Hydrogen",
+      "D) Poor through thickness ductility"
+    ],
+    "a": 3,
+    "correctText": "D) Poor through thickness ductility",
+    "exp": "Lamellar tearing terjadi karena material induk memiliki ductility yang buruk pada arah ketebalan pelat akibat adanya stringer inclusions hasil proses rolling.",
+    "w": {
+      "0": "Lebih berkaitan dengan pembentukan struktur keras dan hydrogen cracking.",
+      "1": "Berkaitan dengan sensitisation pada stainless steel.",
+      "2": "Merupakan faktor utama hydrogen cracking, bukan lamellar tearing."
+    }
+  },
+  {
+    "num": 437,
+    "q": "Austenitic stainless steels are generally welded by:",
+    "t": "Bagaimana austenitic stainless steel umumnya dilas?",
+    "o": [
+      "A) 316L electrodes",
+      "B) The GTAW welding process",
+      "C) High strength basic electrodes",
+      "D) None of the above can be selected, insufficient information provided"
+    ],
+    "a": 3,
+    "correctText": "D) None of the above can be selected, insufficient information provided",
+    "exp": "Austenitic stainless steel dapat dilas menggunakan berbagai proses seperti GTAW, GMAW, MMA, FCAW, SAW, dan berbagai jenis filler metal tergantung grade material. Informasi pada soal tidak cukup untuk memilih satu jawaban spesifik.",
+    "w": {
+      "0": "Tidak semua austenitic stainless steel menggunakan elektroda 316L.",
+      "1": "GTAW hanyalah salah satu proses yang dapat digunakan.",
+      "2": "Bukan pilihan umum untuk seluruh kelompok austenitic stainless steel."
+    }
+  },
+  {
+    "num": 438,
+    "q": "It is often stated in WPSs that \"no inspection is to be conducted until 48 hours has elapsed\". What is the main reason for this?",
+    "t": "Mengapa pada beberapa WPS dicantumkan bahwa inspeksi tidak boleh dilakukan sampai 48 jam setelah pengelasan selesai?",
+    "o": [
+      "A) To allow sufficient time for residual hydrogen to form cracking (assuming hydrogen is present)",
+      "B) To allow sufficient time for the weld to cool down to enable NDT to be carried out",
+      "C) To determine the susceptibility of the material to solidification cracking",
+      "D) Both a and b",
+      "E) All of the above"
+    ],
+    "a": 0,
+    "correctText": "A) To allow sufficient time for residual hydrogen to form cracking (assuming hydrogen is present)",
+    "exp": "Hydrogen cracking merupakan delayed cracking yang dapat muncul beberapa jam hingga beberapa hari setelah pengelasan selesai. Jika inspeksi dilakukan terlalu cepat, retak mungkin belum terbentuk sehingga hasil inspeksi menjadi tidak representatif. Oleh karena itu periode tunggu 48 jam digunakan agar retak akibat hidrogen memiliki kesempatan untuk muncul sebelum dilakukan pemeriksaan.",
+    "w": {
+      "1": "Sebagian besar sambungan las telah mencapai temperatur lingkungan jauh sebelum 48 jam. Pendinginan bukan alasan utama adanya holding period.",
+      "2": "Solidification cracking terjadi saat logam las membeku dan akan muncul segera selama atau sesaat setelah pengelasan, bukan setelah 48 jam.",
+      "3": "Walaupun pendinginan memang terjadi, alasan utama yang menjadi dasar persyaratan ini adalah delayed hydrogen cracking.",
+      "4": "Solidification cracking tidak memerlukan periode tunggu 48 jam sehingga pilihan ini tidak benar."
+    }
+  },
+  {
+    "num": 439,
+    "q": "Additions of manganese to steels improve:",
+    "t": "Apa manfaat penambahan unsur mangan (Mn) pada baja?",
+    "o": [
+      "A) Strength and toughness",
+      "B) Deoxidization",
+      "C) Desulphurization",
+      "D) All of the above"
+    ],
+    "a": 3,
+    "correctText": "D) All of the above",
+    "exp": "Manganese memiliki beberapa fungsi penting dalam baja: Meningkatkan strength dan toughness. Bertindak sebagai deoxidizer selama proses pembuatan baja. Bereaksi dengan sulphur membentuk manganese sulphide (MnS), sehingga mengurangi efek merugikan sulphur dan membantu proses desulphurization. Karena seluruh pernyataan benar, maka jawaban yang tepat adalah D.",
+    "w": {
+      "0": "Benar, tetapi hanya salah satu fungsi mangan.",
+      "1": "Benar, tetapi bukan satu-satunya manfaat mangan.",
+      "2": "Benar, tetapi belum mencakup seluruh fungsi mangan."
+    }
+  },
+  {
+    "num": 440,
+    "q": "Solidification cracking can be best prevented by:",
+    "t": "Metode manakah yang paling efektif untuk membantu mencegah solidification cracking?",
+    "o": [
+      "A) An increase in restraint to the weld (reduction in distortion)",
+      "B) Maintaining sulphur levels above 0.5%",
+      "C) The avoidance of electrodes containing manganese",
+      "D) Keeping dilution to a minimum",
+      "E) None of the above"
+    ],
+    "a": 3,
+    "correctText": "D) Keeping dilution to a minimum",
+    "exp": "Dilution yang tinggi dapat meningkatkan masuknya unsur-unsur pengotor seperti sulphur dan phosphorus dari base metal ke weld metal. Dengan menjaga dilution tetap rendah, komposisi weld metal lebih mudah dikontrol sehingga risiko terbentuknya film cair bertitik leleh rendah pada akhir pembekuan dapat dikurangi.",
+    "w": {
+      "0": "Restraint yang tinggi justru meningkatkan tegangan tarik selama pembekuan dan meningkatkan risiko solidification cracking.",
+      "1": "Sulphur merupakan salah satu penyebab utama solidification cracking. Nilai 0.5% sangat tinggi dan sangat berbahaya bagi weld metal.",
+      "2": "Manganese justru membantu mengikat sulphur menjadi MnS dan umumnya mengurangi kecenderungan solidification cracking.",
+      "4": "Pilihan D merupakan metode yang benar."
+    }
+  },
+  {
+    "num": 441,
+    "q": "Which of the following is a different form of crack mechanism to the others?",
+    "t": "Manakah jenis retak yang memiliki mekanisme berbeda dibandingkan yang lain?",
+    "o": [
+      "A) Cold cracking",
+      "B) Hot tearing",
+      "C) Delayed cracking",
+      "D) Under bead cracking"
+    ],
+    "a": 1,
+    "correctText": "B) Hot tearing",
+    "exp": "Hot tearing (solidification cracking) terjadi selama tahap pembekuan logam las pada temperatur tinggi. Mekanismenya berkaitan dengan penyusutan saat solidifikasi dan adanya film cair bertitik leleh rendah di antara dendrite.",
+    "w": {
+      "0": "Cold cracking termasuk hydrogen cracking yang terjadi setelah pendinginan.",
+      "2": "Delayed cracking merupakan bentuk hydrogen cracking yang muncul beberapa jam hingga beberapa hari setelah pengelasan.",
+      "3": "Under bead cracking merupakan bentuk hydrogen cracking yang terjadi di HAZ tepat di bawah weld bead."
+    }
+  },
+  {
+    "num": 442,
+    "q": "Welds made with excessively high heat inputs show:",
+    "t": "Apa pengaruh heat input yang terlalu tinggi terhadap sifat sambungan las?",
+    "o": [
+      "A) A reduction in UTS values",
+      "B) An increase in toughness values",
+      "C) An increase in hardness",
+      "D) A reduction in toughness"
+    ],
+    "a": 3,
+    "correctText": "D) A reduction in toughness",
+    "exp": "Heat input yang terlalu tinggi menyebabkan pertumbuhan butir (grain growth) terutama pada HAZ. Struktur butir yang kasar menurunkan kemampuan material menyerap energi benturan sehingga toughness berkurang.",
+    "w": {
+      "0": "UTS dapat berubah, tetapi efek yang paling umum dan signifikan adalah penurunan toughness.",
+      "1": "Justru kebalikannya. Grain growth biasanya menurunkan toughness.",
+      "2": "Heat input tinggi umumnya memperlambat pendinginan dan sering menyebabkan hardness menurun, bukan meningkat."
+    }
+  },
+  {
+    "num": 443,
+    "q": "What would be the consequences of allowing a weld to cool down too quickly?",
+    "t": "Apa akibat jika sambungan las mendingin terlalu cepat?",
+    "o": [
+      "A) A reduction in tensile strength",
+      "B) An increase in hardness",
+      "C) Excessively high toughness values",
+      "D) Both a and b"
+    ],
+    "a": 1,
+    "correctText": "B) An increase in hardness",
+    "exp": "Pendinginan cepat meningkatkan kemungkinan terbentuknya martensite atau struktur keras lainnya di HAZ. Struktur ini meningkatkan hardness dan sekaligus meningkatkan risiko hydrogen cracking.",
+    "w": {
+      "0": "Pendinginan cepat tidak selalu menurunkan tensile strength.",
+      "2": "Pendinginan cepat justru biasanya menurunkan toughness.",
+      "3": "Peningkatan hardness adalah efek yang paling konsisten dan signifikan."
+    }
+  },
+  {
+    "num": 444,
+    "q": "Inspection for hydrogen cracking is often specified to be done between 48 to 72 hours after completion of the weld. This is because:",
+    "t": "Mengapa inspeksi hydrogen cracking sering dilakukan 48–72 jam setelah pengelasan?",
+    "o": [
+      "A) The stress level will have reduced by then",
+      "B) It is the maximum time it takes for all the hydrogen to diffuse out of the weld",
+      "C) Usually after 48 hours such cracking is unlikely to occur",
+      "D) It is to ensure the weld has properly cooled down to ambient temperature"
+    ],
+    "a": 2,
+    "correctText": "C) Usually after 48 hours such cracking is unlikely to occur",
+    "exp": "Hydrogen cracking merupakan delayed cracking. Retak dapat muncul beberapa jam hingga beberapa hari setelah pengelasan. Setelah periode 48–72 jam, sebagian besar retak yang disebabkan hidrogen biasanya sudah muncul sehingga inspeksi menjadi lebih efektif.",
+    "w": {
+      "0": "Residual stress tidak hilang secara signifikan hanya karena menunggu 48 jam.",
+      "1": "Tidak semua hidrogen keluar dalam periode tersebut.",
+      "3": "Sambungan biasanya sudah dingin jauh sebelum 48 jam."
+    }
+  },
+  {
+    "num": 445,
+    "q": "Hydrogen cracking is considered a cold crack as it will not form until the weldment cools to below:",
+    "t": "Mengapa hydrogen cracking disebut cold crack?",
+    "o": [
+      "A) 500°C",
+      "B) 200°C",
+      "C) 300°F",
+      "D) 730°C"
+    ],
+    "a": 1,
+    "correctText": "B) 200°C",
+    "exp": "Hydrogen cracking umumnya terjadi setelah temperatur sambungan turun di bawah sekitar 200°C. Pada temperatur ini struktur keras mulai terbentuk dan hidrogen terjebak sehingga retak dapat berkembang.",
+    "w": {
+      "0": "Terlalu tinggi dan masih berada pada rentang temperatur panas.",
+      "2": "Sekitar 149°C dan bukan nilai referensi yang umum digunakan dalam teori CSWIP.",
+      "3": "Merupakan temperatur yang jauh terlalu tinggi."
+    }
+  },
+  {
+    "num": 446,
+    "q": "At what level is H₂ considered to be more critical in cracking?",
+    "t": "Pada kadar hidrogen berapa risiko hydrogen cracking dianggap sangat kritis?",
+    "o": [
+      "A) Less than 15 ml per 100 g of weld metal deposited",
+      "B) Between 5 and 10 ml per 100 g of weld metal deposited",
+      "C) Between 10 and 15 ml per 100 g of weld metal deposited",
+      "D) Over 15 ml per 100 g of weld metal deposited"
+    ],
+    "a": 3,
+    "correctText": "D) Over 15 ml per 100 g of weld metal deposited",
+    "exp": "Semakin tinggi kadar hidrogen difusibel, semakin besar risiko terjadinya hydrogen cracking. Nilai di atas 15 ml/100 g weld metal dianggap tinggi dan meningkatkan risiko secara signifikan.",
+    "w": {
+      "0": "Risiko masih lebih rendah dibanding kadar di atas 15 ml.",
+      "1": "Merupakan kategori menengah.",
+      "2": "Masih lebih rendah dibanding kategori paling kritis."
+    }
+  },
+  {
+    "num": 447,
+    "q": "The temperature at which this compound is formed is in the range:",
+    "t": "Pada temperatur berapakah senyawa yang menyebabkan weld decay terbentuk?",
+    "o": [
+      "A) 350–550°C",
+      "B) 550–800°C",
+      "C) 800–1050°C",
+      "D) 1050–1500°C"
+    ],
+    "a": 1,
+    "correctText": "B) 550–800°C",
+    "exp": "Chromium carbide precipitation yang menyebabkan weld decay pada stainless steel umumnya terjadi pada rentang sekitar 550–800°C. Daerah ini sering disebut sensitization range.",
+    "w": {
+      "0": "Terlalu rendah untuk pembentukan chromium carbide secara signifikan.",
+      "2": "Di atas rentang sensitization utama.",
+      "3": "Pada temperatur ini karbida justru dapat larut kembali."
+    }
+  },
+  {
+    "num": 448,
+    "q": "Weld decay is caused by the formation of a compound with carbon. The other element in this compound is:",
+    "t": "Weld decay terjadi karena pembentukan senyawa karbon dengan unsur apa?",
+    "o": [
+      "A) Manganese",
+      "B) Sulphur",
+      "C) Chromium",
+      "D) Nickel"
+    ],
+    "a": 2,
+    "correctText": "C) Chromium",
+    "exp": "Weld decay terjadi akibat pembentukan chromium carbide pada batas butir. Pembentukan karbida ini mengurangi kandungan chromium di sekitar batas butir sehingga ketahanan korosi menurun.",
+    "w": {
+      "0": "Tidak menyebabkan weld decay.",
+      "1": "Lebih berkaitan dengan hot cracking.",
+      "3": "Tidak membentuk senyawa yang menyebabkan weld decay."
+    }
+  },
+  {
+    "num": 449,
+    "q": "Weld decay can be minimized by specifying steel with:",
+    "t": "Bagaimana cara meminimalkan weld decay?",
+    "o": [
+      "A) Higher carbon level",
+      "B) Higher chromium level",
+      "C) Lower carbon level",
+      "D) Lower chromium level"
+    ],
+    "a": 2,
+    "correctText": "C) Lower carbon level",
+    "exp": "Stainless steel grade L (contohnya 304L dan 316L) memiliki kandungan karbon rendah sehingga jumlah chromium carbide yang dapat terbentuk menjadi jauh lebih sedikit.",
+    "w": {
+      "0": "Justru meningkatkan pembentukan chromium carbide.",
+      "1": "Dapat membantu dalam kondisi tertentu tetapi bukan metode utama yang digunakan.",
+      "3": "Menurunkan ketahanan korosi stainless steel."
+    }
+  },
+  {
+    "num": 450,
+    "q": "Which welding process produces the highest level of hydrogen?",
+    "t": "Proses pengelasan manakah yang menghasilkan kadar hidrogen tertinggi?",
+    "o": [
+      "A) TIG Autogenous",
+      "B) MIG solid wire",
+      "C) FCAW",
+      "D) MMA basic electrodes"
+    ],
+    "a": 2,
+    "correctText": "C) FCAW",
+    "exp": "Flux Cored Arc Welding menggunakan flux di dalam kawat yang dapat menjadi sumber hidrogen. Secara umum kadar hidrogen FCAW lebih tinggi dibanding TIG autogenous, MIG solid wire, maupun MMA basic low hydrogen electrodes.",
+    "w": {
+      "0": "Hampir tidak memiliki sumber hidrogen tambahan.",
+      "1": "Kadar hidrogen relatif rendah.",
+      "3": "Dirancang sebagai low hydrogen process."
+    }
+  },
+  {
+    "num": 451,
+    "q": "What is the minimum requirement of stress for hydrogen cracking to be applicable?",
+    "t": "Berapa tingkat tegangan minimum yang umumnya dianggap diperlukan agar hydrogen cracking dapat terjadi?",
+    "o": [
+      "A) 0.5 N/mm²",
+      "B) 0.5 joules of the yield",
+      "C) 0.5% of the yield of the material",
+      "D) 0.5 of the yield of the material"
+    ],
+    "a": 3,
+    "correctText": "D) 0.5 of the yield of the material",
+    "exp": "Hydrogen cracking membutuhkan tegangan tarik yang cukup besar. Sebagai pedoman umum, tegangan sekitar 50% dari yield strength material dianggap cukup untuk berkontribusi terhadap terjadinya retak.",
+    "w": {
+      "0": "Nilainya terlalu kecil.",
+      "1": "Satuan tidak sesuai untuk tegangan.",
+      "2": "Nilainya terlalu rendah untuk memicu retak."
+    }
+  },
+  {
+    "num": 452,
+    "q": "Lamellar tearing is a problem in steels which is always associated with:",
+    "t": "Lamellar tearing selalu berkaitan dengan kondisi apa pada material?",
+    "o": [
+      "A) Sensitization in the HAZ",
+      "B) Hydrogen levels above 15 ml/100 g of weld metal",
+      "C) Low through-thickness ductility",
+      "D) Rapid cooling from above the upper critical"
+    ],
+    "a": 2,
+    "correctText": "C) Low through-thickness ductility",
+    "exp": "Lamellar tearing terjadi karena rendahnya keuletan arah tebal pelat (through-thickness ductility), biasanya akibat adanya stringer inclusion non-logam hasil proses rolling.",
+    "w": {
+      "0": "Berkaitan dengan weld decay pada stainless steel.",
+      "1": "Berkaitan dengan hydrogen cracking.",
+      "3": "Lebih berkaitan dengan pembentukan struktur keras."
+    }
+  },
+  {
+    "num": 453,
+    "q": "One way to reduce the chances of hydrogen cracking is by:",
+    "t": "Salah satu cara mengurangi risiko hydrogen cracking adalah?",
+    "o": [
+      "A) Using an E7018 on a short arc length",
+      "B) Using an E6010 electrode",
+      "C) Using an E7018 on a long arc length",
+      "D) None of the above will reduce the chances of hydrogen cracking"
+    ],
+    "a": 0,
+    "correctText": "A) Using an E7018 on a short arc length",
+    "exp": "E7018 merupakan low hydrogen electrode. Penggunaan arc yang pendek membantu meminimalkan penyerapan hidrogen dari atmosfer sehingga risiko hydrogen cracking semakin rendah.",
+    "w": {
+      "1": "Cellulosic electrode menghasilkan kadar hidrogen tinggi.",
+      "2": "Arc panjang meningkatkan kemungkinan kontaminasi atmosfer dan penyerapan hidrogen.",
+      "3": "Pilihan A merupakan metode yang efektif."
+    }
+  },
+  {
+    "num": 454,
+    "q": "Increasing the carbon content of steel will:",
+    "t": "Apa pengaruh peningkatan kandungan karbon pada baja?",
+    "o": [
+      "A) Increase hardness and toughness",
+      "B) Decrease hardness and toughness",
+      "C) Increase hardness, decrease toughness",
+      "D) Decrease hardness, increase toughness"
+    ],
+    "a": 2,
+    "correctText": "C) Increase hardness, decrease toughness",
+    "exp": "Karbon meningkatkan kemampuan pengerasan (hardenability) dan kekerasan baja, tetapi pada saat yang sama menurunkan keuletan dan toughness.",
+    "w": {
+      "0": "Toughness biasanya menurun saat karbon meningkat.",
+      "1": "Hardness justru meningkat.",
+      "3": "Berlawanan dengan pengaruh karbon pada baja."
+    }
+  },
+  {
+    "num": 455,
+    "q": "Hot cracking in steel weldments occurs:",
+    "t": "Di mana hot cracking biasanya terjadi pada sambungan las baja?",
+    "o": [
+      "A) Along the fusion line",
+      "B) In the last metal to solidify",
+      "C) Weld centreline",
+      "D) In areas of the lowest dilution"
+    ],
+    "a": 1,
+    "correctText": "B) In the last metal to solidify",
+    "exp": "Hot cracking terjadi pada bagian terakhir yang membeku karena daerah tersebut mengandung konsentrasi impurity tertinggi dan masih terdapat film cair bertitik leleh rendah.",
+    "w": {
+      "0": "Lebih sering dikaitkan dengan liquation cracking.",
+      "2": "Sering benar sebagai lokasi, tetapi penyebab fundamentalnya adalah karena daerah tersebut merupakan bagian terakhir yang membeku.",
+      "3": "Tidak berkaitan langsung dengan mekanisme hot cracking."
+    }
+  },
+  {
+    "num": 456,
+    "q": "Hydrogen cracking in the HAZ is most likely to occur when welding:",
+    "t": "Material manakah yang paling rentan mengalami hydrogen cracking di HAZ?",
+    "o": [
+      "A) Carbon manganese steels",
+      "B) Austenitic stainless steel",
+      "C) Micro-alloyed steel (HSLA)",
+      "D) All the above"
+    ],
+    "a": 2,
+    "correctText": "C) Micro-alloyed steel (HSLA)",
+    "exp": "HSLA memiliki hardenability yang lebih tinggi sehingga lebih mudah membentuk struktur keras di HAZ yang rentan terhadap hydrogen cracking.",
+    "w": {
+      "0": "Dapat mengalami hydrogen cracking tetapi umumnya kurang rentan dibanding HSLA.",
+      "1": "Sangat tahan terhadap hydrogen cracking karena struktur austenitiknya.",
+      "3": "Austenitic stainless steel tidak memiliki kerentanan yang sama."
+    }
+  },
+  {
+    "num": 457,
+    "q": "Weld decay:",
+    "t": "Apa penyebab weld decay pada stainless steel?",
+    "o": [
+      "A) Can be prevented by using Titanium backing bar",
+      "B) Only happens in martensitic stainless steel",
+      "C) Is a result of Niobium carbide formation",
+      "D) Is a result of Chromium carbide formation"
+    ],
+    "a": 3,
+    "correctText": "D) Is a result of Chromium carbide formation",
+    "exp": "Weld decay terjadi karena pembentukan chromium carbide pada batas butir yang menyebabkan daerah sekitar batas butir kehilangan chromium dan menjadi rentan terhadap korosi intergranular.",
+    "w": {
+      "0": "Backing bar tidak mencegah sensitization.",
+      "1": "Weld decay terutama terkait dengan austenitic stainless steel.",
+      "2": "Niobium justru digunakan untuk menstabilkan karbon dan mencegah pembentukan chromium carbide."
+    }
+  },
+  {
+    "num": 458,
+    "q": "Weld sensitization will cause which of the following problem?",
+    "t": "Sensitization pada material las akan menyebabkan masalah apa?",
+    "o": [
+      "A) A reduced resistance to corrosion",
+      "B) A lower tensile strength",
+      "C) Reduced toughness",
+      "D) Increased hardness"
+    ],
+    "a": 0,
+    "correctText": "A) A reduced resistance to corrosion",
+    "exp": "Sensitization terjadi ketika chromium carbide mengendap di batas butir (grain boundaries) pada rentang temperatur sekitar 450–850°C. Pengendapan ini menguras kandungan chromium di sekitar batas butir sehingga terbentuk daerah miskin chromium yang kehilangan kemampuan membentuk lapisan pasif. Akibatnya ketahanan korosi, terutama intergranular corrosion, menurun drastis.",
+    "w": {
+      "1": "Sensitization tidak secara langsung menyebabkan penurunan tensile strength yang signifikan.",
+      "2": "Dapat terjadi pada kondisi tertentu, tetapi bukan efek utama yang menjadi perhatian.",
+      "3": "Bukan karakteristik utama akibat sensitization."
+    }
+  },
+  {
+    "num": 459,
+    "q": "Which of the following may increase the risk of HAZ cracking when welding thick section carbon manganese steel?",
+    "t": "Faktor mana yang dapat meningkatkan risiko HAZ cracking pada baja carbon-manganese tebal?",
+    "o": [
+      "A) Slow cooling after welding",
+      "B) Low moisture content in the electrode covering",
+      "C) Use of steels grade with low CEV",
+      "D) Use of a low heat input"
+    ],
+    "a": 3,
+    "correctText": "D) Use of a low heat input",
+    "exp": "Heat input yang rendah menyebabkan pendinginan lebih cepat. Pendinginan cepat meningkatkan pembentukan mikrostruktur keras seperti martensite di HAZ. Bila terdapat hidrogen dan tegangan tarik, risiko hydrogen-induced HAZ cracking meningkat signifikan.",
+    "w": {
+      "0": "Slow cooling justru membantu mengurangi pembentukan struktur keras dan menurunkan risiko retak.",
+      "1": "Kadar kelembaban rendah mengurangi sumber hidrogen difusibel.",
+      "2": "CEV rendah berarti weldability lebih baik dan risiko retak lebih kecil."
+    }
+  },
+  {
+    "num": 460,
+    "q": "Which of the following materials is most susceptible to hydrogen cracking?",
+    "t": "Material mana yang paling rentan terhadap hydrogen cracking?",
+    "o": [
+      "A) Low carbon steel",
+      "B) Austenitic stainless steel",
+      "C) High strength low alloy steel",
+      "D) Aluminium"
+    ],
+    "a": 2,
+    "correctText": "C) High strength low alloy steel",
+    "exp": "HSLA steel memiliki hardenability lebih tinggi sehingga lebih mudah membentuk struktur keras di HAZ. Struktur keras yang dikombinasikan dengan hidrogen difusibel dan tegangan tarik sangat rentan terhadap hydrogen cracking.",
+    "w": {
+      "0": "Umumnya memiliki weldability yang baik dan lebih tahan terhadap hydrogen cracking.",
+      "1": "Sangat tahan terhadap hydrogen cracking karena struktur austenitiknya.",
+      "3": "Tidak mengalami hydrogen cracking seperti baja."
+    }
+  },
+  {
+    "num": 461,
+    "q": "Carbon equivalent values are useful to determine:",
+    "t": "Carbon Equivalent Value (CEV) digunakan untuk menentukan apa?",
+    "o": [
+      "A) Weldability aspects",
+      "B) Crack sensitivity aspects",
+      "C) Typical mechanical properties",
+      "D) All of the above"
+    ],
+    "a": 3,
+    "correctText": "D) All of the above",
+    "exp": "CEV digunakan untuk mengevaluasi weldability, kecenderungan pembentukan struktur keras, sensitivitas terhadap hydrogen cracking, kebutuhan preheat, serta memberikan indikasi umum terhadap perilaku mekanik material selama pengelasan.",
+    "w": {
+      "0": "Benar tetapi belum lengkap.",
+      "1": "Benar tetapi hanya sebagian fungsi CEV.",
+      "2": "Dapat memberikan indikasi tertentu, tetapi bukan satu-satunya penggunaan."
+    }
+  },
+  {
+    "num": 462,
+    "q": "Arc strike can be removed by:",
+    "t": "Bagaimana cara penanganan arc strike yang benar?",
+    "o": [
+      "A) Grinding only",
+      "B) Grinding and MPI",
+      "C) Very light wire brushing only",
+      "D) None of the above. Arc strike has no effect on parent plate"
+    ],
+    "a": 1,
+    "correctText": "B) Grinding and MPI",
+    "exp": "Arc strike dapat menyebabkan pengerasan lokal, microcracking, dan perubahan mikrostruktur pada parent metal. Prosedur yang umum adalah menghilangkan area tersebut dengan grinding kemudian melakukan MPI untuk memastikan tidak ada retak yang tersisa.",
+    "w": {
+      "0": "Grinding menghilangkan cacat visual, tetapi tidak memastikan tidak adanya retak.",
+      "2": "Tidak menghilangkan perubahan metalurgi akibat arc strike.",
+      "3": "Arc strike dapat berdampak serius terutama pada material kritis."
+    }
+  },
+  {
+    "num": 463,
+    "q": "The steel composition in a structural contract is changed from 0.15% Carbon / 0.6% Manganese to 0.2% Carbon / 1.2% Manganese. This might influence the incidence of:",
+    "t": "Jika kandungan karbon dan mangan meningkat, cacat apa yang kemungkinan meningkat?",
+    "o": [
+      "A) Porosity",
+      "B) Cracking in the weld zone",
+      "C) Undercut for fillet welds",
+      "D) Lack of fusion defects"
+    ],
+    "a": 1,
+    "correctText": "B) Cracking in the weld zone",
+    "exp": "Peningkatan karbon dan mangan meningkatkan Carbon Equivalent Value (CEV), hardenability, dan kecenderungan pembentukan struktur keras. Hal ini meningkatkan risiko retak terutama hydrogen cracking.",
+    "w": {
+      "0": "Porosity lebih dipengaruhi oleh gas, kelembaban, dan kontaminasi.",
+      "2": "Berkaitan dengan teknik dan parameter pengelasan.",
+      "3": "Lebih dipengaruhi oleh heat input dan teknik pengelasan."
+    }
+  },
+  {
+    "num": 464,
+    "q": "In hydrogen crack (HICC), temperature is an essential factor because:",
+    "t": "Mengapa temperatur menjadi faktor penting dalam hydrogen cracking?",
+    "o": [
+      "A) Below 300°C, hydrogen becomes molecular",
+      "B) Above 300°C, hydrogen becomes atomic",
+      "C) At low temperature hydrogen becomes entrapped",
+      "D) At high temperature hydrogen diffuses out"
+    ],
+    "a": 3,
+    "correctText": "D) At high temperature hydrogen diffuses out",
+    "exp": "Pada temperatur tinggi, atom hidrogen bergerak lebih mudah dan dapat berdifusi keluar dari weld metal. Ketika temperatur turun, kemampuan difusi menurun sehingga hidrogen dapat terperangkap dan menyebabkan retak.",
+    "w": {
+      "0": "Bukan alasan utama yang digunakan dalam teori hydrogen cracking CSWIP.",
+      "1": "Bukan mekanisme yang menjelaskan pengaruh temperatur terhadap HICC.",
+      "2": "Pernyataan ini benar sebagai konsekuensi, tetapi alasan utama yang dicari adalah kemampuan difusi pada temperatur tinggi."
+    }
+  },
+  {
+    "num": 465,
+    "q": "With reference to the above question and the correct answer, what is the temperature characteristic?",
+    "t": "Mengacu pada soal sebelumnya, karakteristik hidrogen pada saat temperatur menurun adalah apa?",
+    "o": [
+      "A) Hydrogen becomes entrapped",
+      "B) Hydrogen becomes reduced",
+      "C) Hydrogen becomes molecular",
+      "D) b and c correct"
+    ],
+    "a": 0,
+    "correctText": "A) Hydrogen becomes entrapped",
+    "exp": "Saat temperatur turun, mobilitas atom hidrogen berkurang sehingga hidrogen terperangkap dalam struktur logam dan dapat berkontribusi terhadap pembentukan hydrogen crack.",
+    "w": {
+      "1": "Jumlah hidrogen tidak otomatis berkurang.",
+      "2": "Bukan jawaban yang digunakan dalam konteks mekanisme HICC pada CSWIP.",
+      "3": "Karena B dan C tidak tepat maka pilihan ini salah."
+    }
+  },
+  {
+    "num": 466,
+    "q": "Which welding process produces the lowest hydrogen?",
+    "t": "Proses pengelasan manakah yang menghasilkan kadar hidrogen paling rendah?",
+    "o": [
+      "A) 141",
+      "B) 111",
+      "C) 121",
+      "D) 131"
+    ],
+    "a": 0,
+    "correctText": "A) 141",
+    "exp": "Proses 141 (TIG/GTAW) menggunakan elektroda tungsten non-consumable dan shielding gas inert tanpa flux. Karena tidak ada flux yang menjadi sumber hidrogen, kadar hidrogen yang dihasilkan sangat rendah.",
+    "w": {
+      "1": "MMA menggunakan flux coating yang dapat menjadi sumber hidrogen.",
+      "2": "SAW menggunakan flux yang masih dapat menyumbang hidrogen.",
+      "3": "MIG menghasilkan hidrogen rendah tetapi umumnya masih lebih tinggi dibanding TIG."
+    }
+  },
+  {
+    "num": 467,
+    "q": "Which welding process produces the highest hydrogen?",
+    "t": "Proses pengelasan manakah yang menghasilkan kadar hidrogen tertinggi?",
+    "o": [
+      "A) 141",
+      "B) 111",
+      "C) 121",
+      "D) 131"
+    ],
+    "a": 1,
+    "correctText": "B) 111",
+    "exp": "MMA (111), terutama dengan elektroda cellulosic atau elektroda yang tidak disimpan dengan benar, dapat menghasilkan kadar hidrogen difusibel yang jauh lebih tinggi dibanding proses lainnya.",
+    "w": {
+      "0": "TIG menghasilkan kadar hidrogen paling rendah.",
+      "2": "SAW umumnya lebih rendah daripada MMA.",
+      "3": "MIG menggunakan shielding gas sehingga kadar hidrogen relatif rendah."
+    }
+  },
+  {
+    "num": 468,
+    "q": "Hot shortness is sometimes known as:",
+    "t": "Hot shortness dikenal sebagai kondisi apa?",
+    "o": [
+      "A) The tensile strength becomes lower at high temperature",
+      "B) The tensile strength becomes higher at high temperature",
+      "C) At high temperature the iron sulphide does not form",
+      "D) At high temperature, material becomes brittle"
+    ],
+    "a": 3,
+    "correctText": "D) At high temperature, material becomes brittle",
+    "exp": "Hot shortness adalah kondisi dimana material menjadi rapuh pada temperatur tinggi akibat terbentuknya film iron sulphide bertitik leleh rendah di batas butir.",
+    "w": {
+      "0": "Semua material mengalami penurunan kekuatan pada temperatur tinggi, tetapi itu bukan definisi hot shortness.",
+      "1": "Berlawanan dengan perilaku material.",
+      "2": "Justru iron sulphide merupakan penyebab utama hot shortness."
+    }
+  },
+  {
+    "num": 469,
+    "q": "With reference to the above question and the correct answer, what will be the effect of this condition?",
+    "t": "Efek apa yang berkaitan dengan hot shortness?",
+    "o": [
+      "A) Manganese sulphides formation",
+      "B) Chromium carbide formation",
+      "C) Iron sulphides formation",
+      "D) Lamellar tearing formation"
+    ],
+    "a": 2,
+    "correctText": "C) Iron sulphides formation",
+    "exp": "Hot shortness terjadi akibat pembentukan iron sulphide (FeS) di batas butir. FeS memiliki titik leleh rendah dan menyebabkan batas butir menjadi rapuh pada temperatur tinggi.",
+    "w": {
+      "0": "MnS justru membantu mengurangi efek buruk sulphur.",
+      "1": "Berkaitan dengan sensitization pada stainless steel.",
+      "3": "Merupakan mekanisme retak yang berbeda."
+    }
+  },
+  {
+    "num": 470,
+    "q": "Why does solidification crack occur?",
+    "t": "Mengapa solidification crack dapat terjadi?",
+    "o": [
+      "A) Low melting point liquid",
+      "B) High melting point liquid",
+      "C) Chromium carbide liquid",
+      "D) Manganese sulphide liquid"
+    ],
+    "a": 0,
+    "correctText": "A) Low melting point liquid",
+    "exp": "Pada tahap akhir pembekuan, masih terdapat film cair bertitik leleh rendah yang tidak mampu menahan tegangan susut sehingga terjadi retak di daerah yang terakhir membeku.",
+    "w": {
+      "1": "Tidak menyebabkan mekanisme solidification cracking.",
+      "2": "Tidak berkaitan dengan solidification cracking.",
+      "3": "MnS justru membantu mengurangi efek sulphur."
+    }
+  },
+  {
+    "num": 471,
+    "q": "With reference to the previous question and the correct answer, this is caused by:",
+    "t": "Mengacu pada soal sebelumnya, kondisi tersebut disebabkan oleh apa?",
+    "o": [
+      "A) Chromium carbide formation",
+      "B) Iron sulphide formation",
+      "C) A weakened zone in the weld",
+      "D) None of the above"
+    ],
+    "a": 1,
+    "correctText": "B) Iron sulphide formation",
+    "exp": "Iron sulphide membentuk film bertitik leleh rendah pada daerah terakhir yang membeku sehingga menghasilkan kondisi ideal untuk terjadinya solidification cracking.",
+    "w": {
+      "0": "Berkaitan dengan sensitization.",
+      "2": "Ini merupakan akibat, bukan penyebab spesifik.",
+      "3": "Pilihan B merupakan jawaban yang benar."
+    }
+  },
+  {
+    "num": 472,
+    "q": "Weld decay occurs in which of the following steel types?",
+    "t": "Pada jenis baja apa weld decay paling umum terjadi?",
+    "o": [
+      "A) Carbon manganese",
+      "B) Low alloy",
+      "C) Any stainless steels",
+      "D) Austenitic stainless steels"
+    ],
+    "a": 3,
+    "correctText": "D) Austenitic stainless steels",
+    "exp": "Weld decay merupakan bentuk korosi intergranular yang terjadi pada austenitic stainless steel akibat pembentukan chromium carbide di batas butir selama pemanasan pada rentang temperatur sensitization (sekitar 550–800°C). Pembentukan chromium carbide menyebabkan daerah di sekitar batas butir kekurangan chromium sehingga kehilangan ketahanan korosinya.",
+    "w": {
+      "0": "Carbon manganese steel tidak mengalami weld decay karena tidak bergantung pada chromium untuk ketahanan korosinya.",
+      "1": "Low alloy steel tidak mengalami mekanisme sensitization seperti yang terjadi pada austenitic stainless steel.",
+      "2": "Tidak semua stainless steel rentan terhadap weld decay. Fenomena ini terutama dikaitkan dengan kelompok austenitic stainless steel yang tidak distabilkan atau yang memiliki kandungan karbon lebih tinggi."
+    }
+  },
+  {
+    "num": 473,
+    "q": "Sensitization is a term applied to the formation of which inter-metallic compound at the grain boundaries in the HAZ of austenitic stainless steels?",
+    "t": "Istilah sensitization digunakan untuk menggambarkan terbentuknya senyawa apa pada batas butir HAZ stainless steel austenitik?",
+    "o": [
+      "A) Chromium carbide",
+      "B) Titanium carbide",
+      "C) Niobium carbide",
+      "D) Molybdenum carbide"
+    ],
+    "a": 0,
+    "correctText": "A) Chromium carbide",
+    "exp": "Sensitization terjadi ketika chromium dan carbon bereaksi membentuk chromium carbide (Cr₂₃C₆) pada batas butir. Akibatnya chromium di sekitar batas butir berkurang hingga di bawah kadar minimum yang diperlukan untuk mempertahankan lapisan pasif tahan korosi.",
+    "w": {
+      "1": "Titanium carbide justru digunakan untuk membantu mencegah sensitization.",
+      "2": "Niobium carbide juga digunakan untuk mengikat karbon dan mengurangi pembentukan chromium carbide.",
+      "3": "Bukan senyawa utama yang menyebabkan sensitization pada stainless steel austenitik."
+    }
+  },
+  {
+    "num": 474,
+    "q": "It may also be minimized by adding elements called stabilizers. These may be:",
+    "t": "Sensitization dapat diminimalkan dengan menambahkan unsur penstabil (stabilizers). Unsur apakah yang dimaksud?",
+    "o": [
+      "A) Vanadium / Titanium",
+      "B) Titanium / Niobium",
+      "C) Niobium / Vanadium",
+      "D) Vanadium / Titanium / Niobium"
+    ],
+    "a": 1,
+    "correctText": "B) Titanium / Niobium",
+    "exp": "Titanium dan niobium memiliki afinitas terhadap karbon yang lebih tinggi dibanding chromium. Kedua unsur ini akan terlebih dahulu bereaksi dengan karbon membentuk titanium carbide atau niobium carbide sehingga karbon tidak tersedia untuk membentuk chromium carbide.",
+    "w": {
+      "0": "Titanium memang stabilizer, tetapi vanadium bukan stabilizer yang umum digunakan pada stainless steel austenitik untuk mencegah sensitization.",
+      "2": "Niobium benar, tetapi vanadium bukan pilihan standar untuk tujuan ini.",
+      "3": "Karena vanadium bukan stabilizer utama dalam konteks weld decay stainless steel, pilihan ini tidak tepat."
+    }
+  },
+  {
+    "num": 475,
+    "q": "With reference to the previous question and the correct answer, what would happen with them?",
+    "t": "Mengacu pada soal sebelumnya, apa yang dilakukan oleh unsur stabilizer tersebut?",
+    "o": [
+      "A) To combine with chromium content",
+      "B) To combine with nickel",
+      "C) To combine with chromium carbide",
+      "D) To combine with carbon"
+    ],
+    "a": 3,
+    "correctText": "D) To combine with carbon",
+    "exp": "Titanium dan niobium akan bereaksi dengan karbon membentuk titanium carbide (TiC) atau niobium carbide (NbC). Dengan demikian karbon tidak lagi tersedia untuk membentuk chromium carbide yang menyebabkan sensitization dan weld decay.",
+    "w": {
+      "0": "Stabilizer tidak ditambahkan untuk bereaksi dengan chromium.",
+      "1": "Tidak ada mekanisme utama yang melibatkan pengikatan nickel oleh titanium atau niobium untuk mencegah weld decay.",
+      "2": "Stabilizer bekerja sebelum chromium carbide terbentuk, yaitu dengan mengikat karbon terlebih dahulu."
+    }
+  },
+  {
+    "num": 476,
+    "q": "To form HICC, the microstructure susceptible to hydrogen cracking is caused by:",
+    "t": "Untuk terbentuknya HICC (Hydrogen Induced Cold Cracking), struktur mikro yang rentan terhadap retak hidrogen disebabkan oleh apa?",
+    "o": [
+      "A) Lack of preheat",
+      "B) Low heat input",
+      "C) Martensite formation",
+      "D) All of the above correct"
+    ],
+    "a": 3,
+    "correctText": "D) All of the above correct",
+    "exp": "Ketiga faktor tersebut saling berkaitan dalam pembentukan struktur yang rentan terhadap hydrogen cracking: Kurangnya preheat meningkatkan laju pendinginan. Heat input rendah juga meningkatkan laju pendinginan. Pendinginan cepat mendorong terbentuknya martensite yang keras dan getas. Martensite merupakan struktur mikro yang paling rentan terhadap HICC karena memiliki kekerasan tinggi dan kemampuan deformasi yang rendah.",
+    "w": {
+      "0": "Benar, tetapi hanya salah satu faktor penyebab.",
+      "1": "Benar, tetapi bukan satu-satunya penyebab.",
+      "2": "Merupakan mekanisme utama, tetapi soal meminta seluruh faktor yang berkontribusi."
+    }
+  },
+  {
+    "num": 477,
+    "q": "With reference to the previous question and the correct answer, which alloy from below has the greatest effect on the susceptible microstructure?",
+    "t": "Mengacu pada soal sebelumnya, unsur paduan manakah yang paling berpengaruh terhadap terbentuknya struktur mikro yang rentan terhadap hydrogen cracking?",
+    "o": [
+      "A) High manganese content",
+      "B) High copper content",
+      "C) High silicon content",
+      "D) High silicon content"
+    ],
+    "a": 0,
+    "correctText": "A) High manganese content",
+    "exp": "Manganese meningkatkan hardenability baja. Semakin tinggi hardenability, semakin besar kemungkinan terbentuknya martensite saat pendinginan setelah pengelasan. Oleh karena itu kandungan Mn memiliki pengaruh besar terhadap kerentanan terhadap HICC.",
+    "w": {
+      "1": "Copper memiliki pengaruh yang jauh lebih kecil terhadap hardenability dibanding manganese.",
+      "2": "Silicon mempengaruhi sifat mekanik tertentu tetapi bukan faktor utama pembentuk martensite.",
+      "3": "Sama seperti pilihan C."
+    }
+  },
+  {
+    "num": 478,
+    "q": "What alloy element creates the solidification crack?",
+    "t": "Unsur paduan apa yang paling sering dikaitkan dengan pembentukan solidification crack?",
+    "o": [
+      "A) Phosphorous",
+      "B) Sulphur",
+      "C) Copper",
+      "D) Nickel"
+    ],
+    "a": 1,
+    "correctText": "B) Sulphur",
+    "exp": "Sulphur membentuk senyawa bertitik leleh rendah seperti FeS yang tetap cair pada tahap akhir pembekuan. Film cair ini sangat mudah robek akibat tegangan susut sehingga menyebabkan solidification cracking.",
+    "w": {
+      "0": "Juga berkontribusi terhadap solidification cracking, tetapi sulphur umumnya dianggap sebagai unsur yang paling kritis.",
+      "2": "Tidak merupakan penyebab utama solidification cracking pada baja.",
+      "3": "Nickel umumnya digunakan untuk meningkatkan toughness."
+    }
+  },
+  {
+    "num": 479,
+    "q": "With reference to previous question and the correct answer, which other mechanism occurs to make cracking?",
+    "t": "Selain unsur penyebab solidification cracking, mekanisme apa yang juga diperlukan agar retak dapat terjadi?",
+    "o": [
+      "A) Residual stress",
+      "B) Tensile stress",
+      "C) Proof stress",
+      "D) All of the above"
+    ],
+    "a": 1,
+    "correctText": "B) Tensile stress",
+    "exp": "Retak hanya akan berkembang apabila terdapat tegangan tarik yang bekerja pada daerah yang lemah. Pada pengelasan, tegangan tarik ini biasanya berasal dari penyusutan selama pendinginan.",
+    "w": {
+      "0": "Residual stress merupakan salah satu sumber tensile stress, tetapi jawaban yang lebih tepat adalah tensile stress itu sendiri.",
+      "2": "Merupakan sifat mekanik material, bukan mekanisme pembentuk retak.",
+      "3": "Proof stress bukan mekanisme penyebab retak."
+    }
+  },
+  {
+    "num": 480,
+    "q": "Residual stress problem level:",
+    "t": "Pada tingkat berapa residual stress mulai menjadi masalah signifikan?",
+    "o": [
+      "A) No influence",
+      "B) 30–40% yield",
+      "C) Greater than 50% yield",
+      "D) Greater than 75% UTS"
+    ],
+    "a": 2,
+    "correctText": "C) Greater than 50% yield",
+    "exp": "Dalam konteks hydrogen cracking, tegangan tarik sekitar 50% dari yield strength sudah cukup untuk berkontribusi terhadap pembentukan retak apabila faktor lain seperti hidrogen dan struktur keras juga hadir.",
+    "w": {
+      "0": "Residual stress merupakan salah satu faktor utama hydrogen cracking.",
+      "1": "Biasanya belum dianggap tingkat kritis yang umum digunakan dalam teori CSWIP.",
+      "3": "Terlalu tinggi dan bukan nilai referensi yang umum digunakan."
+    }
+  },
+  {
+    "num": 481,
+    "q": "Highest preheat required:",
+    "t": "Sambungan manakah yang biasanya memerlukan preheat tertinggi?",
+    "o": [
+      "A) Butt weld 35 mm",
+      "B) Cruciform 25 mm",
+      "C) Tee butt 30 mm",
+      "D) Tee fillet 20 mm"
+    ],
+    "a": 1,
+    "correctText": "B) Cruciform 25 mm",
+    "exp": "Cruciform joint memiliki restraint yang sangat tinggi dan pendinginan yang lebih cepat akibat massa logam yang besar di sekitar sambungan. Walaupun ketebalannya lebih kecil dibanding beberapa pilihan lain, tingkat restraint yang tinggi meningkatkan kebutuhan preheat.",
+    "w": {
+      "0": "Ketebalan besar meningkatkan kebutuhan preheat, tetapi restraint lebih rendah dibanding cruciform.",
+      "2": "Restraint tidak setinggi cruciform.",
+      "3": "Ketebalan dan restraint lebih rendah."
+    }
+  },
+  {
+    "num": 482,
+    "q": "Lowest preheat hydrogen cracking:",
+    "t": "Proses mana yang umumnya memerlukan preheat paling rendah terkait risiko hydrogen cracking?",
+    "o": [
+      "A) MMA cellulosic",
+      "B) MMA rutile",
+      "C) MMA heavy rutile",
+      "D) MAG solid wire"
+    ],
+    "a": 3,
+    "correctText": "D) MAG solid wire",
+    "exp": "MAG solid wire menghasilkan kadar hidrogen difusibel yang relatif rendah dibanding proses MMA, terutama dibanding cellulosic electrode. Oleh karena itu kebutuhan preheat untuk mengendalikan hydrogen cracking umumnya lebih rendah.",
+    "w": {
+      "0": "Menghasilkan hidrogen tertinggi sehingga memerlukan preheat lebih tinggi.",
+      "1": "Masih menghasilkan hidrogen lebih tinggi dibanding MAG solid wire.",
+      "2": "Masih lebih tinggi dibanding MAG solid wire."
+    }
+  },
+  {
+    "num": 483,
+    "q": "Inspection for hydrogen cracking 48–72 hours because:",
+    "t": "Mengapa inspeksi hydrogen cracking dilakukan 48–72 jam setelah pengelasan?",
+    "o": [
+      "A) Stress reduced",
+      "B) Time for hydrogen diffusion",
+      "C) Cracking unlikely",
+      "D) Ensure cooled"
+    ],
+    "a": 1,
+    "correctText": "B) Time for hydrogen diffusion",
+    "exp": "Hydrogen cracking merupakan delayed cracking. Hidrogen memerlukan waktu untuk berdifusi ke daerah yang rentan sebelum retak terbentuk. Oleh karena itu inspeksi ditunda agar retak yang muncul dapat terdeteksi.",
+    "w": {
+      "0": "Residual stress tidak hilang secara signifikan dalam waktu tersebut.",
+      "2": "Justru periode tersebut digunakan karena retak masih mungkin muncul.",
+      "3": "Pendinginan ke temperatur ruang terjadi jauh lebih cepat dari 48 jam."
+    }
+  },
+  {
+    "num": 484,
+    "q": "H₂ critical level:",
+    "t": "Pada kadar hidrogen berapa risiko hydrogen cracking dianggap kritis?",
+    "o": [
+      "A) < 5 ml",
+      "B) 5–10 ml",
+      "C) 10–15 ml",
+      "D) > 15 ml"
+    ],
+    "a": 3,
+    "correctText": "D) > 15 ml",
+    "exp": "Kadar hidrogen di atas 15 ml/100 g weld metal dianggap tinggi dan secara signifikan meningkatkan risiko hydrogen cracking.",
+    "w": {
+      "0": "Risiko relatif rendah.",
+      "1": "Risiko sedang.",
+      "2": "Mulai meningkat tetapi belum termasuk kategori paling kritis."
+    }
+  },
+  {
+    "num": 485,
+    "q": "Electrode highest hydrogen:",
+    "t": "Jenis elektroda manakah yang menghasilkan kadar hidrogen tertinggi?",
+    "o": [
+      "A) Basic baked",
+      "B) Cellulosic sealed",
+      "C) Rutile",
+      "D) Heavy rutile"
+    ],
+    "a": 1,
+    "correctText": "B) Cellulosic sealed",
+    "exp": "Cellulosic electrode mengandung bahan organik dan selulosa yang selama pengelasan menghasilkan jumlah hidrogen yang tinggi. Walaupun disimpan dalam kemasan tertutup, karakteristik dasarnya tetap menghasilkan kadar hidrogen tertinggi.",
+    "w": {
+      "0": "Merupakan low hydrogen electrode.",
+      "2": "Menghasilkan hidrogen lebih rendah daripada cellulosic.",
+      "3": "Masih lebih rendah dibanding cellulosic."
+    }
+  },
+  {
+    "num": 486,
+    "q": "Highest preheat generally:",
+    "t": "Proses mana yang umumnya memerlukan preheat tertinggi?",
+    "o": [
+      "A) MMA cellulosic",
+      "B) MMA rutile",
+      "C) MMA basic",
+      "D) MAG solid"
+    ],
+    "a": 0,
+    "correctText": "A) MMA cellulosic",
+    "exp": "Karena menghasilkan kadar hidrogen tertinggi, MMA cellulosic biasanya membutuhkan preheat lebih tinggi untuk membantu difusi hidrogen dan mengurangi risiko hydrogen cracking.",
+    "w": {
+      "1": "Kadar hidrogen lebih rendah.",
+      "2": "Low hydrogen electrode sehingga kebutuhan preheat umumnya lebih rendah.",
+      "3": "Memiliki kadar hidrogen relatif rendah."
+    }
+  },
+  {
+    "num": 487,
+    "q": "Microstructure critical to hydrogen cracking:",
+    "t": "Struktur mikro manakah yang paling rentan terhadap hydrogen cracking?",
+    "o": [
+      "A) Austenite",
+      "B) Ferrite",
+      "C) Pearlite",
+      "D) Martensite"
+    ],
+    "a": 3,
+    "correctText": "D) Martensite",
+    "exp": "Martensite memiliki kekerasan tinggi, keuletan rendah, dan kemampuan deformasi yang terbatas sehingga sangat rentan terhadap retak akibat hidrogen.",
+    "w": {
+      "0": "Memiliki ketahanan sangat baik terhadap hydrogen cracking.",
+      "1": "Lebih ulet dan kurang rentan.",
+      "2": "Tidak serentan martensite."
+    }
+  },
+  {
+    "num": 488,
+    "q": "Why preheat base material?",
+    "t": "Mengapa material dasar perlu dipanaskan sebelum pengelasan?",
+    "o": [
+      "A) Remove oil",
+      "B) Remove moisture",
+      "C) Prevent cracking",
+      "D) Not required"
+    ],
+    "a": 2,
+    "correctText": "C) Prevent cracking",
+    "exp": "Preheat memperlambat pendinginan, mengurangi pembentukan martensite, membantu difusi hidrogen, dan menurunkan risiko hydrogen cracking.",
+    "w": {
+      "0": "Pembersihan minyak dilakukan sebelum pengelasan dan bukan tujuan utama preheat.",
+      "1": "Dapat menjadi manfaat tambahan, tetapi bukan tujuan utama.",
+      "3": "Pada banyak material dan ketebalan tertentu preheat sangat diperlukan."
+    }
+  },
+  {
+    "num": 489,
+    "q": "Weld decay occurs in:",
+    "t": "Weld decay umumnya terjadi pada jenis material apa?",
+    "o": [
+      "A) Carbon manganese",
+      "B) Low alloy",
+      "C) Any stainless steel",
+      "D) Austenitic stainless steel"
+    ],
+    "a": 3,
+    "correctText": "D) Austenitic stainless steel",
+    "exp": "Weld decay merupakan bentuk korosi intergranular akibat pembentukan chromium carbide yang paling umum terjadi pada austenitic stainless steel yang mengalami sensitization.",
+    "w": {
+      "0": "Tidak mengalami weld decay.",
+      "1": "Bukan material yang umum mengalami weld decay.",
+      "2": "Tidak semua stainless steel rentan terhadap weld decay."
+    }
+  },
+  {
+    "num": 490,
+    "q": "Weld decay caused by compound with carbon:",
+    "t": "Weld decay disebabkan oleh pembentukan senyawa karbon dengan unsur apa?",
+    "o": [
+      "A) Manganese",
+      "B) Sulphur",
+      "C) Chromium",
+      "D) Nickel"
+    ],
+    "a": 2,
+    "correctText": "C) Chromium",
+    "exp": "Chromium bereaksi dengan karbon membentuk chromium carbide pada batas butir. Akibatnya daerah sekitar batas butir kehilangan chromium dan menjadi rentan terhadap korosi intergranular.",
+    "w": {
+      "0": "Manganese tidak membentuk senyawa utama yang menyebabkan weld decay dan justru sering digunakan untuk mengikat sulphur.",
+      "1": "Sulphur lebih berkaitan dengan solidification cracking daripada sensitisation.",
+      "3": "Nickel berfungsi menstabilkan struktur austenite dan bukan penyebab weld decay."
+    }
+  },
+  {
+    "num": 491,
+    "q": "Temperature compound formed:",
+    "t": "Pada rentang temperatur berapa chromium carbide yang menyebabkan weld decay paling mudah terbentuk?",
+    "o": [
+      "A) 350–550°C",
+      "B) 550–800°C",
+      "C) 800–1050°C",
+      "D) 1050–1500°C"
+    ],
+    "a": 1,
+    "correctText": "B) 550–800°C",
+    "exp": "Rentang sekitar 550–800°C dikenal sebagai sensitisation range. Pada temperatur ini difusi karbon dan chromium berlangsung cukup cepat sehingga chromium carbide mudah terbentuk di batas butir.",
+    "w": {
+      "0": "Difusi masih relatif lambat sehingga pembentukan chromium carbide tidak maksimum.",
+      "2": "Pada temperatur tinggi ini chromium cenderung kembali larut ke dalam struktur.",
+      "3": "Di atas temperatur solution treatment, carbide akan larut kembali."
+    }
+  },
+  {
+    "num": 492,
+    "q": "Weld decay will cause:",
+    "t": "Apa akibat utama weld decay pada stainless steel?",
+    "o": [
+      "A) Reduced corrosion resistance",
+      "B) Lower tensile strength",
+      "C) Reduced toughness",
+      "D) Increased hardness"
+    ],
+    "a": 0,
+    "correctText": "A) Reduced corrosion resistance",
+    "exp": "Karena chromium terikat menjadi chromium carbide, daerah di sekitar batas butir kehilangan chromium bebas yang dibutuhkan untuk membentuk lapisan pasif. Akibatnya ketahanan korosi menurun secara signifikan.",
+    "w": {
+      "1": "Kekuatan tarik bukan efek utama yang paling signifikan dari weld decay.",
+      "2": "Dapat terjadi pada kondisi tertentu tetapi bukan dampak utama yang menjadi perhatian.",
+      "3": "Peningkatan kekerasan bukan karakteristik utama weld decay."
+    }
+  },
+  {
+    "num": 493,
+    "q": "Weld decay minimized by:",
+    "t": "Bagaimana cara paling umum meminimalkan weld decay?",
+    "o": [
+      "A) Higher carbon",
+      "B) Higher chromium",
+      "C) Lower carbon",
+      "D) Lower chromium"
+    ],
+    "a": 2,
+    "correctText": "C) Lower carbon",
+    "exp": "Kandungan karbon yang rendah seperti pada grade 304L atau 316L mengurangi jumlah karbon yang tersedia untuk membentuk chromium carbide sehingga risiko sensitisation menjadi jauh lebih kecil.",
+    "w": {
+      "0": "Justru meningkatkan pembentukan chromium carbide.",
+      "1": "Dapat membantu, tetapi bukan metode utama yang paling efektif.",
+      "3": "Akan memperburuk ketahanan korosi."
+    }
+  },
+  {
+    "num": 494,
+    "q": "Stabilizers:",
+    "t": "Unsur stabilizer apa yang digunakan untuk mencegah weld decay pada stainless steel?",
+    "o": [
+      "A) Vanadium / Titanium",
+      "B) Titanium / Niobium",
+      "C) Niobium / Vanadium",
+      "D) All"
+    ],
+    "a": 1,
+    "correctText": "B) Titanium / Niobium",
+    "exp": "Titanium dan niobium memiliki afinitas terhadap karbon yang lebih tinggi daripada chromium. Karbon akan membentuk titanium carbide atau niobium carbide sehingga chromium tetap tersedia untuk mempertahankan ketahanan korosi.",
+    "w": {
+      "0": "Vanadium bukan stabilizer yang umum digunakan pada stainless steel austenitik.",
+      "2": "Vanadium bukan pilihan standar untuk pencegahan sensitisation.",
+      "3": "Karena vanadium tidak termasuk stabilizer utama dalam konteks ini."
+    }
+  },
+  {
+    "num": 495,
+    "q": "PWHT minimize weld decay:",
+    "t": "Jenis perlakuan panas apa yang paling efektif untuk menghilangkan efek weld decay?",
+    "o": [
+      "A) Stress relief",
+      "B) Normalizing",
+      "C) Quench and temper",
+      "D) Solution treatment >1000°C"
+    ],
+    "a": 3,
+    "correctText": "D) Solution treatment >1000°C",
+    "exp": "Solution annealing pada temperatur di atas sekitar 1000°C akan melarutkan chromium carbide kembali ke dalam struktur austenite. Setelah pendinginan cepat, chromium tetap terdistribusi merata sehingga ketahanan korosi pulih.",
+    "w": {
+      "0": "Tidak cukup tinggi untuk melarutkan chromium carbide.",
+      "1": "Bukan perlakuan panas yang digunakan untuk stainless austenitik.",
+      "2": "Digunakan untuk baja yang dapat dikeraskan, bukan untuk mengatasi weld decay."
+    }
+  },
+  {
+    "num": 496,
+    "q": "Main element causing solidification cracking:",
+    "t": "Unsur apa yang paling berperan menyebabkan solidification cracking?",
+    "o": [
+      "A) Chromium",
+      "B) Molybdenum",
+      "C) Sulphur",
+      "D) Silica"
+    ],
+    "a": 2,
+    "correctText": "C) Sulphur",
+    "exp": "Sulphur membentuk senyawa bertitik leleh rendah yang tetap cair hingga tahap akhir pembekuan. Film cair ini sangat rentan robek akibat tegangan susut sehingga menyebabkan solidification cracking.",
+    "w": {
+      "0": "Tidak merupakan penyebab utama solidification cracking.",
+      "1": "Lebih berperan dalam peningkatan kekuatan dan creep resistance.",
+      "3": "Bukan unsur utama penyebab retak pembekuan."
+    }
+  },
+  {
+    "num": 497,
+    "q": "Which one of these statements is true concerning solidification cracking?",
+    "t": "Pernyataan mana yang benar mengenai solidification cracking?",
+    "o": [
+      "A) Only occurs in MMA welding",
+      "B) Never occurs in MIG/MAG welding",
+      "C) Increased depth-to-width ratio will increase stress",
+      "D) All of the above"
+    ],
+    "a": 2,
+    "correctText": "C) Increased depth-to-width ratio will increase stress",
+    "exp": "Weld bead yang dalam dan sempit (deep and narrow bead) menghasilkan konsentrasi tegangan susut yang lebih tinggi di weld centreline sehingga meningkatkan risiko solidification cracking.",
+    "w": {
+      "0": "Solidification cracking dapat terjadi pada hampir semua proses fusion welding.",
+      "1": "MIG/MAG juga dapat mengalami solidification cracking.",
+      "3": "Karena A dan B salah."
+    }
+  },
+  {
+    "num": 498,
+    "q": "Solidification cracking occurs:",
+    "t": "Di mana solidification cracking biasanya terjadi?",
+    "o": [
+      "A) In the HAZ",
+      "B) In the parent metal",
+      "C) In the weld",
+      "D) All of the above"
+    ],
+    "a": 2,
+    "correctText": "C) In the weld",
+    "exp": "Solidification cracking terjadi selama pembekuan weld metal dan biasanya ditemukan di weld centreline.",
+    "w": {
+      "0": "HAZ lebih sering mengalami liquation cracking.",
+      "1": "Bukan lokasi normal terjadinya solidification cracking.",
+      "3": "Solidification cracking memiliki lokasi spesifik yaitu weld metal."
+    }
+  },
+  {
+    "num": 499,
+    "q": "The main purpose of pre-heating is to:",
+    "t": "Apa tujuan utama preheating sebelum pengelasan?",
+    "o": [
+      "A) Remove moisture",
+      "B) Delay the cooling rate",
+      "C) Remove hydrogen",
+      "D) Improve fusion"
+    ],
+    "a": 1,
+    "correctText": "B) Delay the cooling rate",
+    "exp": "Preheat memperlambat laju pendinginan sambungan las sehingga mengurangi pembentukan struktur keras, menurunkan tegangan termal, dan membantu hidrogen berdifusi keluar dari logam las.",
+    "w": {
+      "0": "Penghilangan kelembaban bukan tujuan utama preheat pada material.",
+      "2": "Preheat membantu difusi hidrogen tetapi bukan fungsi utamanya secara langsung.",
+      "3": "Fusion lebih dipengaruhi oleh parameter pengelasan seperti arus, tegangan, dan teknik pengelasan."
+    }
+  },
+  {
+    "num": 500,
+    "q": "In order to prevent hydrogen cracking which of the following would need to be mainly considered?",
+    "t": "Faktor mana yang paling penting dipertimbangkan untuk mencegah hydrogen cracking?",
+    "o": [
+      "A) Material thickness",
+      "B) Welding position",
+      "C) Carbon equivalent value",
+      "D) Joint design"
+    ],
+    "a": 2,
+    "correctText": "C) Carbon equivalent value",
+    "exp": "Carbon Equivalent Value (CEV) menunjukkan hardenability material. Semakin tinggi CEV, semakin besar kemungkinan terbentuk struktur keras yang rentan terhadap hydrogen cracking. Oleh karena itu CEV menjadi faktor utama dalam menentukan kebutuhan preheat, heat input, dan prosedur pengelasan.",
+    "w": {
+      "0": "Ketebalan memang berpengaruh terhadap cooling rate, tetapi faktor fundamentalnya tetap hardenability material yang direpresentasikan oleh CEV.",
+      "1": "Tidak berhubungan langsung dengan mekanisme hydrogen cracking.",
+      "3": "Dapat mempengaruhi tingkat restrain, tetapi bukan faktor utama yang pertama kali digunakan untuk menilai risiko hydrogen cracking."
+    }
+  }
+];
+let cur=0,start=0,score=0,ans={},detail={};
+
+function isCorrectAnswer(q, idx){
+ const correct=Array.isArray(q.a)? q.a : [q.a];
+ return correct.includes(idx);
+}
+
+function correctLabel(q){
+ return q.correctText || (Array.isArray(q.a) ? q.a.map(i=>q.o[i]).join(" / ") : q.o[q.a]);
+}
+
+
+function updateTopStats(){
+ let correct=0,falsev=0,blank=0;
+ for(let i=0;i<qs.length;i++){
+   if(ans[i]===undefined) blank++;
+   else if(isCorrectAnswer(qs[i], ans[i])) correct++;
+   else falsev++;
+ }
+ const pct=Math.round((correct/qs.length)*100)||0;
+ const c=document.getElementById('correctCnt'); if(c) c.innerText=correct;
+ const f=document.getElementById('falseCnt'); if(f) f.innerText=falsev;
+ const b=document.getElementById('blankCnt'); if(b) b.innerText=blank;
+ const p=document.getElementById('pctTop'); if(p) p.innerText=pct;
+
+ let h='';
+ let pageStart=Math.floor(cur/10)*10;
+ for(let i=pageStart;i<Math.min(pageStart+10,qs.length);i++){
+   let cls='num ';
+   if(ans[i]==undefined) cls+='unanswered';
+   else cls+=(isCorrectAnswer(qs[i], ans[i])?'correct':'wrong');
+   if(i==cur) cls+=' current';
+   h+=`<button class="${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
+ }
+ const nav=document.getElementById('navTop');
+ if(nav) nav.innerHTML=h;
+}
+
+function renderNav(){
+ let h="";
+ for(let i=start;i<Math.min(start+10,qs.length);i++){
+   let cls="num ";
+   if(ans[i]==undefined) cls+="unanswered";
+   else cls+=(isCorrectAnswer(qs[i], ans[i])?"correct":"wrong");
+   if(i==cur) cls+=" current";
+   h+=`<button class="${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
+ }
+ const navEl=document.getElementById("nav"); if(navEl) navEl.innerHTML=h;
+}
+
+function draw(){
+ const total=qs.length;
+ document.getElementById("question").innerHTML=`<div class="q-header"><div class="q-num-badge">${cur+1}</div><h3 style="margin:0;font-size:16px;line-height:1.5">${qs[cur].q}</h3></div>`;
+ document.getElementById("options").innerHTML=qs[cur].o.map((x,i)=>`<button class='option' onclick='pick(${i})'>${x}</button>`).join("");
+ document.getElementById("result").innerHTML=detail[cur]||"";
+ renderNav();updateTopStats();
+}
+
+function pick(i){
+ if(ans[cur]==undefined){ans[cur]=i;if(isCorrectAnswer(qs[cur], i))score++;}
+ const q=qs[cur];
+ const keys=['A','B','C','D','E','F'];
+ const isCorrect=isCorrectAnswer(q, i);
+
+ // Build chosen wrong answer block (only if wrong)
+ let chosenWrongBlock='';
+ if(!isCorrect){
+  const chosenText=q.o[i].replace(/^[A-F]\.\s*/,'');
+  const chosenReason=q.w&&q.w[i]?q.w[i]:'Bukan jawaban yang paling tepat untuk konteks ini.';
+  chosenWrongBlock=`
+  <div style="background:#fff0f0;border-left:4px solid #dc3545;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#dc3545;margin-bottom:4px">❌ Jawaban Anda Salah: ${keys[i]}. ${chosenText}</div>
+   <div style="color:#666;font-size:13px">${chosenReason}</div>
+  </div>`;
+ }
+
+ // Correct answer block
+ const correctBlock=`
+  <div style="background:#f0fff4;border-left:4px solid #28a745;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#28a745;margin-bottom:4px">✅ Jawaban Benar: ${correctLabel(q)}</div>
+   <div style="color:#333;font-size:13px">${q.exp}</div>
+  </div>`;
+
+ // Remaining wrong options (excluding chosen and correct)
+ let remainingRows='';
+ q.o.forEach((opt,idx)=>{
+  if(isCorrectAnswer(q, idx)) return;
+  if(!isCorrect && idx===i) return; // already shown above
+  const label=keys[idx];
+  const reason=q.w&&q.w[idx]?q.w[idx]:'Bukan jawaban yang paling tepat untuk konteks ini.';
+  const optText=opt.replace(/^[A-F]\.\s*/,'');
+  remainingRows+=`<div style="padding:6px 14px;border-top:1px solid #eee">
+   <span style="font-weight:bold;color:#dc3545">${label}. ${optText}</span><br>
+   <span style="color:#888;font-size:13px">${reason}</span>
+  </div>`;
+ });
+
+ const remainingBlock=remainingRows?`
+  <div style="background:#fff8f8;padding:6px 0">
+   <div style="padding:6px 14px;font-weight:bold;color:#dc3545;font-size:13px">Opsi lain yang salah:</div>
+   ${remainingRows}
+  </div>`:'';
+
+ const translationBlock=q.t?`
+  <div style="background:#fffde7;border-left:4px solid #f9a825;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#f57f17;margin-bottom:3px;font-size:12px">📝 ARTI / MAKSUD SOAL:</div>
+   <div style="color:#444;font-size:13px;font-style:italic">${q.t}</div>
+  </div>`:'';
+
+ detail[cur]=`
+ <div style="border:1px solid #ccc;border-radius:6px;overflow:hidden;margin-top:10px">
+  <div style="background:${isCorrect?'#d4edda':'#f8d7da'};padding:8px 14px;font-size:15px;font-weight:bold">
+   ${isCorrect?'✅ BENAR':'❌ SALAH'}
+  </div>
+  ${translationBlock}
+  ${chosenWrongBlock}
+  ${correctBlock}
+  ${remainingBlock}
+ </div>`;
+ draw();
+}
+
+function gotoQ(i){cur=i;draw();}
+function pageNext(){if(start+10<qs.length){start+=10;renderNav();updateTopStats();}}
+function pagePrev(){if(start-10>=0){start-=10;renderNav();updateTopStats();}}
+
+function prevQ(){if(cur>0){cur--;if(cur<start)start-=10;draw();}}
+function nextQ(){
+ if(cur<qs.length-1){cur++;if(cur>=start+10)start+=10;draw();}
+ else review();
+}
+
+function review(){
+ const total=qs.length;
+ const pct=Math.round(score/total*100);
+ const pass=pct>=70;
+ const keys=['A','B','C','D','E','F'];
+ let h=`<div class='review-box'>
+  <h2 style="color:#1a73e8;margin-bottom:16px">REVIEW ALL QUESTION</h2>`;
+
+ qs.forEach((q,i)=>{
+  const userAns=ans[i];
+  const correct=q.a;
+  const isCorrect=isCorrectAnswer(q, userAns);
+  const unanswered=(userAns===undefined);
+
+  let ansBlock='';
+  if(unanswered){
+   ansBlock=`<div style="color:#888;font-style:italic;margin-top:6px">Belum dijawab</div>
+   <div style="margin-top:6px;background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px">
+    <b style="color:#28a745">✅ Jawaban Benar: ${correctLabel(q)}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  } else if(isCorrect){
+   ansBlock=`<div style="background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px;margin-top:6px">
+    <b style="color:#28a745">✅ Jawaban Anda Benar: ${correctLabel(q)}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  } else {
+   const wrongReason=q.w&&q.w[userAns]?q.w[userAns]:'Bukan jawaban yang paling tepat.';
+   ansBlock=`
+   <div style="background:#fff0f0;border-left:3px solid #dc3545;padding:8px 12px;margin-top:6px">
+    <b style="color:#dc3545">❌ Jawaban Anda Salah: ${q.o[userAns]}</b><br>
+    <span style="font-size:13px;color:#666">${wrongReason}</span>
+   </div>
+   <div style="background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px;margin-top:6px">
+    <b style="color:#28a745">✅ Jawaban Benar: ${correctLabel(q)}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  }
+
+  const reviewTransBlock=q.t?`<div style="background:#fffde7;border-left:3px solid #f9a825;padding:6px 10px;margin:4px 0 6px;border-radius:3px"><span style="font-size:11px;font-weight:bold;color:#f57f17">📝 Arti soal: </span><span style="font-size:12px;color:#555;font-style:italic">${q.t}</span></div>`:'';
+  h+=`<div style="background:#fff;border:1px solid #ddd;border-radius:6px;padding:14px;margin-bottom:14px">
+   <div style="display:flex;align-items:flex-start;gap:10px">
+    <div style="background:${isCorrect?'#28a745':unanswered?'#aaa':'#dc3545'};color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:13px">${i+1}</div>
+    <div style="flex:1">
+     <div style="font-weight:bold;font-size:14px;margin-bottom:2px">SOAL: ${q.q}</div>
+     ${reviewTransBlock}
+     ${ansBlock}
+    </div>
+   </div>
+  </div>`;
+ });
+
+ h+=`<div style="text-align:center;padding:20px;background:${pass?'#d4edda':'#f8d7da'};border-radius:8px;margin-top:10px">
+  <div style="font-size:22px;font-weight:bold;color:${pass?'#155724':'#721c24'}">
+   NILAI AKHIR: ${score}/${total} &nbsp; (${pct}%)
+  </div>
+  <div style="font-size:16px;margin-top:8px;color:${pass?'#155724':'#721c24'}">
+   ${pass?'🎉 LULUS — Passing Grade 70% Tercapai!':'😞 TIDAK LULUS — Passing Grade 70% Belum Tercapai'}
+  </div>
+  <div style="font-size:13px;color:#555;margin-top:6px">Passing Grade: 70% (${Math.ceil(total*0.7)} dari ${total} soal harus benar)</div>
+ </div>
+</div>`;
+ document.getElementById("review").innerHTML=h;
+ document.getElementById("review").scrollIntoView({behavior:'smooth'});
+}
+draw();
+</script>
+</body>
+</html>

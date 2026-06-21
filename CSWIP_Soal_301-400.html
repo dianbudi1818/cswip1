@@ -1,0 +1,2186 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>QUESTION BANK CSWIP 3.1 - Part 4 (Soal 301-400)</title>
+<style>
+body{font-family:Arial;max-width:1100px;margin:auto;background:#f4f4f4;padding:20px}
+.box{background:#fff;padding:20px;border-radius:10px}
+h1{text-align:center;margin:5px}
+h2{text-align:center;margin:5px;color:green}
+.navrow{display:flex;justify-content:center;gap:6px;margin:10px 0}
+.num{width:38px;height:38px;border-radius:50%;border:none;font-weight:bold;cursor:pointer}
+.current{outline:3px solid blue}
+.unanswered{background:#ddd}
+.correct{background:#28a745;color:#fff}
+.wrong{background:#dc3545;color:#fff}
+.option{display:block;width:100%;padding:10px;margin:8px 0;text-align:left;cursor:pointer;border:1px solid #ccc;border-radius:4px;background:#fff;font-size:14px}
+.option:hover{background:#f0f0f0}
+.progress{height:10px;background:#ddd;border-radius:10px}
+.fill{height:100%;background:#28a745;border-radius:10px;transition:width 0.3s}
+.review-box{background:#eef;padding:20px;margin-top:20px;border-radius:8px}
+.q-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.q-num-badge{background:#1a73e8;color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:14px}
+.nav-prev-next{display:flex;justify-content:space-between;align-items:center;margin-top:15px}
+.btn-nav{padding:8px 18px;font-size:14px;cursor:pointer;border:1px solid #ccc;border-radius:4px;background:#fff}
+.btn-nav:hover{background:#e8e8e8}
+.counter-bar{text-align:center;font-weight:bold;color:#555;margin:6px 0 12px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>QUESTION BANK CSWIP 3.1</h1>
+<h3 style="text-align:center;color:#1a73e8;margin:2px">Part 4 &mdash; Soal 301 s/d 400</h3>
+<h2>INSYA ALLAH LULUS</h2>
+
+
+<div id="topExamBar" style="margin-bottom:12px">
+  <div style="display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap">
+    <button class="btn-nav" onclick="prevQ()">◀ Previous</button>
+    <div id="navTop"></div>
+    <button class="btn-nav" onclick="nextQ()">Next ▶</button>
+  </div>
+  <div style="margin-top:6px;font-size:14px;font-weight:bold;text-align:center">
+    <span style="color:green">✔ Correct: <span id="correctCnt">0</span></span> |
+    <span style="color:red">✘ False: <span id="falseCnt">0</span></span> |
+    <span>☐ Blank: <span id="blankCnt">0</span></span> |
+    <span>%: <span id="pctTop">0</span></span>
+  </div>
+</div>
+
+<div id="question"></div>
+<div id="options"></div>
+<div id="result"></div>
+
+<div class="nav-prev-next">
+  <button class="btn-nav" onclick="prevQ()">⬅ Previous</button>
+  <button class="btn-nav" onclick="nextQ()">Next ➡</button>
+</div>
+
+
+<div id="review"></div>
+</div>
+
+<script>
+const qs=[
+  {
+    "num": 301,
+    "q": "Which of the following would you never see on a TIG welding WPS?",
+    "t": "Parameter manakah yang tidak akan pernah ditemukan pada WPS untuk proses TIG welding?",
+    "o": [
+      "A) Gas flow rate",
+      "B) Consumable type",
+      "C) Electrode stick-out length",
+      "D) Welding voltage",
+      "E) None of the above"
+    ],
+    "a": 4,
+    "correctText": "E) None of the above",
+    "exp": "Semua parameter tersebut dapat dicantumkan dalam WPS TIG. Gas flow rate diperlukan untuk perlindungan gas, consumable type mengacu pada filler wire, electrode stick-out mempengaruhi perlindungan gas dan stabilitas busur, sedangkan welding voltage merupakan salah satu parameter pengelasan yang dapat direkam selama kualifikasi prosedur.",
+    "w": {
+      "0": "Merupakan parameter penting dalam TIG karena mempengaruhi efektivitas shielding gas.",
+      "1": "Jenis filler wire wajib ditentukan apabila digunakan filler metal.",
+      "2": "Mempengaruhi perlindungan gas dan akses pengelasan.",
+      "3": "Dapat digunakan sebagai parameter monitoring selama pengelasan."
+    }
+  },
+  {
+    "num": 302,
+    "q": "Which of the following applies to the TIG welding of carbon steels?",
+    "t": "Kombinasi arus dan elektroda tungsten manakah yang umum digunakan untuk TIG welding baja karbon?",
+    "o": [
+      "A) DC−, Thorium electrode",
+      "B) DC+, Cerium electrode",
+      "C) AC, Zirconium electrode",
+      "D) None of the above applies to the welding of carbon steels"
+    ],
+    "a": 0,
+    "correctText": "A) DC−, Thorium electrode",
+    "exp": "TIG welding baja karbon umumnya menggunakan DCEN (DC electrode negative) dengan thoriated tungsten karena memberikan stabilitas busur yang sangat baik, penetrasi yang baik, dan umur elektroda yang panjang.",
+    "w": {
+      "1": "DC+ menyebabkan panas berlebih pada tungsten dan jarang digunakan untuk baja karbon.",
+      "2": "AC lebih umum digunakan untuk aluminium dan magnesium.",
+      "3": "Pilihan A merupakan kombinasi yang umum digunakan."
+    }
+  },
+  {
+    "num": 303,
+    "q": "In the TIG welding plant, the main purpose of the up-slope device is:",
+    "t": "Apa fungsi utama fitur up-slope pada mesin TIG?",
+    "o": [
+      "A) To prevent the occurrence of crater pipes and crater cracks",
+      "B) To increase the welding speed, making the process more productive",
+      "C) To reduce or prevent thermal shock to the tungsten electrode",
+      "D) To increase the current supplied to the tungsten electrode"
+    ],
+    "a": 2,
+    "correctText": "C) To reduce or prevent thermal shock to the tungsten electrode",
+    "exp": "Up-slope meningkatkan arus secara bertahap pada awal pengelasan sehingga elektroda tungsten tidak mengalami perubahan temperatur secara mendadak. Hal ini membantu menjaga bentuk ujung tungsten dan meningkatkan stabilitas busur.",
+    "w": {
+      "0": "Fungsi ini lebih berkaitan dengan slope-out.",
+      "1": "Tidak dirancang untuk meningkatkan produktivitas.",
+      "3": "Arus memang meningkat, tetapi secara bertahap dan bukan tujuan utamanya."
+    }
+  },
+  {
+    "num": 304,
+    "q": "Which of the following gas/gas mixtures would be the most suited for the welding of copper and copper alloys?",
+    "t": "Gas pelindung apa yang paling sesuai untuk pengelasan tembaga dan paduan tembaga?",
+    "o": [
+      "A) Ar 75% + CO₂ 25%",
+      "B) 100% Ar",
+      "C) 100% He",
+      "D) 75% CO₂ + 25% Ar"
+    ],
+    "a": 2,
+    "correctText": "C) 100% He",
+    "exp": "Tembaga memiliki konduktivitas panas yang sangat tinggi. Helium menghasilkan busur yang lebih panas dibanding argon sehingga memberikan penetrasi yang lebih baik dan membantu mengatasi kehilangan panas yang tinggi pada material tembaga.",
+    "w": {
+      "0": "CO₂ tidak digunakan untuk TIG welding tembaga.",
+      "1": "Dapat digunakan tetapi tidak seefektif helium untuk material dengan konduktivitas panas tinggi.",
+      "3": "Campuran ini digunakan untuk MAG welding, bukan TIG tembaga."
+    }
+  },
+  {
+    "num": 305,
+    "q": "Which of the following would be an advantage of the TIG welding process when compared to the MMA welding process?",
+    "t": "Apa keunggulan TIG dibanding MMA?",
+    "o": [
+      "A) High deposition rates achievable",
+      "B) Less welder skill required",
+      "C) Welding autogenously possible",
+      "D) More suited to the welding of large diameter cross-country pipelines",
+      "E) Both c and d"
+    ],
+    "a": 2,
+    "correctText": "C) Welding autogenously possible",
+    "exp": "TIG dapat digunakan untuk autogenous welding, yaitu pengelasan tanpa filler metal. Hal ini sangat berguna pada material tipis, root pass tertentu, dan aplikasi presisi tinggi.",
+    "w": {
+      "0": "TIG memiliki deposition rate yang relatif rendah.",
+      "1": "TIG membutuhkan keterampilan lebih tinggi dibanding MMA.",
+      "3": "MMA cellulosic lebih umum digunakan pada pipeline konstruksi.",
+      "4": "Karena D salah maka pilihan ini salah."
+    }
+  },
+  {
+    "num": 306,
+    "q": "With reference to the previous question and the correct answer, which of the following is the correct statement?",
+    "t": "Mengacu pada soal sebelumnya, pernyataan manakah yang benar?",
+    "o": [
+      "A) TIG welding process with DC+ is better than DC− polarity",
+      "B) TIG welding process can be used without filler wire",
+      "C) TIG welding process with AC polarity is suitable for stainless steel welding",
+      "D) TIG welding process can be operated under DC+ polarity to weld carbon steel"
+    ],
+    "a": 1,
+    "correctText": "B) TIG welding process can be used without filler wire",
+    "exp": "Autogenous welding berarti pengelasan dilakukan tanpa filler wire. TIG merupakan salah satu proses yang memungkinkan teknik tersebut dilakukan dengan baik.",
+    "w": {
+      "0": "Untuk baja karbon, DCEN lebih umum digunakan.",
+      "2": "AC biasanya digunakan untuk aluminium.",
+      "3": "Jarang digunakan karena panas berlebih pada tungsten."
+    }
+  },
+  {
+    "num": 307,
+    "q": "Which of the following current types would produce the best cleaning action?",
+    "t": "Jenis arus manakah yang menghasilkan efek cleaning action terbaik pada TIG welding?",
+    "o": [
+      "A) DC+",
+      "B) DC−",
+      "C) AC",
+      "D) All of the above are about the same"
+    ],
+    "a": 0,
+    "correctText": "A) DC+",
+    "exp": "Pada DCEP terjadi cathodic cleaning yang sangat kuat. Ion positif menghantam permukaan benda kerja dan membantu menghancurkan lapisan oksida.",
+    "w": {
+      "1": "Memberikan penetrasi tinggi tetapi cleaning action rendah.",
+      "2": "Memiliki cleaning action yang baik, tetapi tidak sebesar DCEP murni.",
+      "3": "Setiap jenis arus memiliki karakteristik berbeda."
+    }
+  },
+  {
+    "num": 308,
+    "q": "With reference to the previous question and correct answer, what actually happens?",
+    "t": "Mengacu pada soal sebelumnya, apa yang sebenarnya terjadi saat cleaning action berlangsung?",
+    "o": [
+      "A) Ions moving from base metal to electrode",
+      "B) Ions moving from electrode to base metal",
+      "C) Electrons moving from electrode to base metal",
+      "D) Ions and electrons moving together at the same time"
+    ],
+    "a": 0,
+    "correctText": "A) Ions moving from base metal to electrode",
+    "exp": "Pada DCEP, benda kerja menjadi kutub negatif sehingga ion positif bergerak menuju elektroda. Mekanisme ini menghasilkan efek pembersihan oksida yang dikenal sebagai cathodic cleaning.",
+    "w": {
+      "1": "Arah pergerakan ion tidak sesuai dengan kondisi DCEP.",
+      "2": "Berkaitan dengan aliran elektron, bukan mekanisme cleaning action utama.",
+      "3": "Keduanya bergerak dalam arah yang berbeda."
+    }
+  },
+  {
+    "num": 309,
+    "q": "Which of the following would be a typical gas flow rate when using Argon as the shielding gas?",
+    "t": "Berapa aliran gas argon yang umumnya digunakan pada TIG welding?",
+    "o": [
+      "A) Approximately 10–12 litres/minute",
+      "B) Approximately 12–16 litres/minute",
+      "C) Approximately 16–18 litres/minute",
+      "D) Approximately 4 litres/minute"
+    ],
+    "a": 0,
+    "correctText": "A) Approximately 10–12 litres/minute",
+    "exp": "Kisaran 10–12 L/min merupakan nilai umum yang cukup untuk memberikan perlindungan efektif tanpa menyebabkan turbulensi pada sebagian besar aplikasi TIG.",
+    "w": {
+      "1": "Masih mungkin digunakan pada kondisi tertentu tetapi bukan nilai tipikal umum.",
+      "2": "Cenderung terlalu tinggi dan dapat menyebabkan turbulensi.",
+      "3": "Biasanya terlalu rendah untuk memberikan perlindungan memadai."
+    }
+  },
+  {
+    "num": 310,
+    "q": "With reference to the previous question and correct answer, what would be the effect when using Helium as a shielding gas?",
+    "t": "Jika menggunakan helium sebagai shielding gas, bagaimana pengaruhnya terhadap gas flow rate?",
+    "o": [
+      "A) No effect at all",
+      "B) Could be quite same in rate",
+      "C) Could be 3 times the rate",
+      "D) Could be less than Argon rate"
+    ],
+    "a": 2,
+    "correctText": "C) Could be 3 times the rate",
+    "exp": "Helium memiliki densitas yang jauh lebih rendah daripada argon sehingga memerlukan flow rate yang lebih tinggi untuk memberikan perlindungan yang sama. Dalam beberapa aplikasi, laju aliran dapat mencapai beberapa kali lebih besar dibanding argon.",
+    "w": {
+      "0": "Jenis gas sangat mempengaruhi kebutuhan flow rate.",
+      "1": "Umumnya helium membutuhkan aliran yang lebih tinggi.",
+      "3": "Berlawanan dengan karakteristik helium."
+    }
+  },
+  {
+    "num": 311,
+    "q": "Which of the following could minimize the occurrence of crater pipes at the end of a weld run made with the TIG welding process?",
+    "t": "Metode apa yang dapat digunakan untuk mengurangi kemungkinan terjadinya crater pipe pada akhir pengelasan TIG?",
+    "o": [
+      "A) The use of a slope-in device in the welding plant",
+      "B) The use of a slope-out device in the welding plant",
+      "C) Increasing the travel speed",
+      "D) The use of PWHT"
+    ],
+    "a": 1,
+    "correctText": "B) The use of a slope-out device in the welding plant",
+    "exp": "Slope-out secara bertahap menurunkan arus pengelasan sebelum busur dipadamkan. Hal ini memungkinkan weld pool membeku secara perlahan dan terisi dengan baik sehingga mencegah terbentuknya crater pipe maupun crater crack pada akhir jalur las.",
+    "w": {
+      "0": "Slope-in bekerja pada awal pengelasan, bukan pada akhir pengelasan.",
+      "2": "Travel speed yang terlalu tinggi justru dapat memperburuk kualitas akhir weld bead.",
+      "3": "PWHT dilakukan setelah pengelasan selesai dan tidak mencegah terbentuknya crater pipe."
+    }
+  },
+  {
+    "num": 312,
+    "q": "Which of the following standards deals with filler wires used for the GTAW welding process?",
+    "t": "Standar manakah yang berkaitan dengan filler wire yang digunakan untuk proses GTAW (TIG)?",
+    "o": [
+      "A) EN 499",
+      "B) EN 439",
+      "C) EN 440",
+      "D) EN 287"
+    ],
+    "a": 2,
+    "correctText": "C) EN 440",
+    "exp": "EN 440 merupakan standar yang berkaitan dengan filler wire dan welding consumables tertentu yang digunakan pada proses pengelasan busur listrik termasuk GTAW.",
+    "w": {
+      "0": "Berhubungan dengan klasifikasi elektroda MMA.",
+      "1": "Berhubungan dengan shielding gases.",
+      "3": "Berhubungan dengan kualifikasi juru las."
+    }
+  },
+  {
+    "num": 313,
+    "q": "Which of the following are essential for the TIG welding plant?",
+    "t": "Komponen apa yang penting pada peralatan TIG welding?",
+    "o": [
+      "A) Constant current, transformer, rectifier",
+      "B) Constant voltage, transformer, rectifier",
+      "C) Constant current or constant voltage, transformer, rectifier",
+      "D) All of the above are possible"
+    ],
+    "a": 0,
+    "correctText": "A) Constant current, transformer, rectifier",
+    "exp": "TIG welding pada umumnya menggunakan power source dengan karakteristik constant current. Sistem ini biasanya terdiri dari transformer dan rectifier untuk menghasilkan arus yang stabil selama pengelasan.",
+    "w": {
+      "1": "Constant voltage umumnya digunakan pada MIG/MAG.",
+      "2": "TIG standar menggunakan constant current, bukan kedua karakteristik secara bergantian.",
+      "3": "Tidak semua konfigurasi merupakan konfigurasi standar TIG."
+    }
+  },
+  {
+    "num": 314,
+    "q": "TIG welding:",
+    "t": "Pernyataan manakah yang benar mengenai penggunaan elektroda zirconiated pada TIG welding?",
+    "o": [
+      "A) Zirconiated electrodes are generally used for the welding of Aluminium.",
+      "B) Zirconiated electrodes are generally used for the welding of Aluminium on DC current only.",
+      "C) Zirconiated electrodes are to be used on all weldable materials except high alloy steels.",
+      "D) Zirconiated electrodes are regularly used on all weldable materials."
+    ],
+    "a": 0,
+    "correctText": "A) Zirconiated electrodes are generally used for the welding of Aluminium.",
+    "exp": "Zirconiated tungsten banyak digunakan untuk pengelasan aluminium menggunakan AC karena memiliki ketahanan yang baik terhadap pembentukan ujung bola (balling) dan mampu bekerja dengan baik pada arus AC.",
+    "w": {
+      "1": "Penggunaan utamanya justru pada AC.",
+      "2": "Tidak digunakan secara universal untuk semua material.",
+      "3": "Setiap jenis tungsten memiliki aplikasi spesifik."
+    }
+  },
+  {
+    "num": 315,
+    "q": "What does the high frequency do in TIG welding?",
+    "t": "Apa fungsi high frequency pada proses TIG welding?",
+    "o": [
+      "A) Control the current",
+      "B) Help tungsten contaminations",
+      "C) Creates arc initiation",
+      "D) Improve the duty cycle"
+    ],
+    "a": 2,
+    "correctText": "C) Creates arc initiation",
+    "exp": "High frequency menghasilkan loncatan listrik yang memungkinkan busur menyala tanpa kontak langsung antara tungsten dan benda kerja. Hal ini mengurangi risiko tungsten contamination.",
+    "w": {
+      "0": "Arus dikontrol oleh power source.",
+      "1": "Justru membantu mencegah kontaminasi tungsten.",
+      "3": "Tidak berhubungan dengan duty cycle."
+    }
+  },
+  {
+    "num": 316,
+    "q": "When TIG welding, the methods of initiation could be?",
+    "t": "Metode apa saja yang dapat digunakan untuk memulai busur pada TIG welding?",
+    "o": [
+      "A) Lift arc",
+      "B) High frequency",
+      "C) Constant",
+      "D) Both a and b"
+    ],
+    "a": 3,
+    "correctText": "D) Both a and b",
+    "exp": "Busur TIG dapat dinyalakan menggunakan sistem high frequency atau lift arc. Keduanya merupakan metode umum yang digunakan pada mesin TIG modern.",
+    "w": {
+      "0": "Benar tetapi tidak lengkap.",
+      "1": "Benar tetapi tidak lengkap.",
+      "2": "Bukan metode penyalaan busur."
+    }
+  },
+  {
+    "num": 317,
+    "q": "Which polarity is normally used for TIG welding of aluminium?",
+    "t": "Jenis arus atau polaritas apa yang biasanya digunakan untuk TIG welding aluminium?",
+    "o": [
+      "A) AC",
+      "B) DC electrode negative",
+      "C) DC electrode positive",
+      "D) It would make little difference which was used"
+    ],
+    "a": 0,
+    "correctText": "A) AC",
+    "exp": "Aluminium memiliki lapisan oksida yang sangat stabil. Arus AC memberikan kombinasi penetrasi dan cathodic cleaning sehingga lapisan oksida dapat dipecah selama pengelasan berlangsung.",
+    "w": {
+      "1": "Memberikan penetrasi baik tetapi cleaning action sangat terbatas.",
+      "2": "Cleaning action tinggi tetapi panas berlebih terjadi pada tungsten.",
+      "3": "Jenis arus sangat mempengaruhi kualitas pengelasan aluminium."
+    }
+  },
+  {
+    "num": 318,
+    "q": "With reference to the previous question and correct answer, what would be the reasons?",
+    "t": "Mengacu pada soal sebelumnya, mengapa AC digunakan untuk TIG welding aluminium?",
+    "o": [
+      "A) Could be combined with ceriated tungsten",
+      "B) Could be used autogenously",
+      "C) Cathodic cleaning",
+      "D) Could be combined with thoriated tungsten"
+    ],
+    "a": 2,
+    "correctText": "C) Cathodic cleaning",
+    "exp": "Cathodic cleaning menghancurkan lapisan aluminium oxide yang memiliki titik leleh jauh lebih tinggi dibanding logam aluminium itu sendiri. Tanpa efek ini, pengelasan aluminium menjadi sulit dilakukan.",
+    "w": {
+      "0": "Bukan alasan utama penggunaan AC.",
+      "1": "Tidak berkaitan dengan pemilihan AC.",
+      "3": "Bukan alasan utama penggunaan AC."
+    }
+  },
+  {
+    "num": 319,
+    "q": "Which defect would you expect to obtain in TIG welds in non-deoxidized steel?",
+    "t": "Cacat apa yang kemungkinan terjadi saat mengelas baja non-deoxidized menggunakan proses TIG?",
+    "o": [
+      "A) Undercut",
+      "B) Porosity",
+      "C) Tungsten inclusions",
+      "D) Linear misalignment"
+    ],
+    "a": 1,
+    "correctText": "B) Porosity",
+    "exp": "Baja non-deoxidized mengandung oksigen yang dapat bereaksi selama pengelasan dan menghasilkan gas yang terjebak saat pembekuan weld pool sehingga membentuk porosity.",
+    "w": {
+      "0": "Tidak berhubungan langsung dengan sifat non-deoxidized steel.",
+      "2": "Lebih berkaitan dengan kontak tungsten dengan weld pool.",
+      "3": "Merupakan masalah fit-up, bukan metalurgi."
+    }
+  },
+  {
+    "num": 320,
+    "q": "Productivity in the GTAW process can be increased by:",
+    "t": "Bagaimana cara meningkatkan produktivitas proses GTAW (TIG)?",
+    "o": [
+      "A) Hybrid welding",
+      "B) Using carbon dioxide gas mixtures with argon",
+      "C) Hot wire additions",
+      "D) All of the above"
+    ],
+    "a": 2,
+    "correctText": "C) Hot wire additions",
+    "exp": "Hot wire TIG memanaskan filler wire secara elektrik sebelum masuk ke weld pool sehingga laju deposisi meningkat secara signifikan tanpa mengurangi kualitas pengelasan.",
+    "w": {
+      "0": "Dapat meningkatkan produktivitas dalam sistem khusus, tetapi bukan jawaban standar yang paling tepat untuk GTAW.",
+      "1": "CO₂ tidak digunakan sebagai shielding gas TIG.",
+      "3": "Karena B salah maka pilihan ini salah."
+    }
+  },
+  {
+    "num": 321,
+    "q": "The term “A fusion weld made without filler metal by TIG, Plasma, Electron Beam, Laser or Oxy-Fuel Gas Welding” is called:",
+    "t": "Istilah untuk fusion weld yang dibuat tanpa menggunakan filler metal disebut apa?",
+    "o": [
+      "A) Slot weld",
+      "B) Plug weld",
+      "C) Autogenous weld",
+      "D) Butt weld"
+    ],
+    "a": 2,
+    "correctText": "C) Autogenous weld",
+    "exp": "Autogenous weld adalah sambungan las yang dibuat hanya dengan melelehkan logam dasar tanpa penambahan filler metal.",
+    "w": {
+      "0": "Merupakan jenis sambungan las tertentu.",
+      "1": "Merupakan jenis sambungan las tertentu.",
+      "3": "Merupakan bentuk sambungan, bukan metode pengelasan tanpa filler metal."
+    }
+  },
+  {
+    "num": 322,
+    "q": "A fusible insert for TIG welding helps:",
+    "t": "Apa fungsi utama fusible insert pada TIG welding?",
+    "o": [
+      "A) Reduce porosity",
+      "B) Give controlled root penetration",
+      "C) Avoid the need for a back purge",
+      "D) By acting as a backing for the root run"
+    ],
+    "a": 1,
+    "correctText": "B) Give controlled root penetration",
+    "exp": "Fusible insert dirancang untuk membantu menghasilkan root penetration yang konsisten dan terkendali pada pengelasan pipa atau sambungan kritis.",
+    "w": {
+      "0": "Bukan fungsi utamanya.",
+      "2": "Back purge tetap dapat diperlukan tergantung material dan prosedur.",
+      "3": "Fusible insert meleleh menjadi bagian dari sambungan, bukan sekadar backing biasa."
+    }
+  },
+  {
+    "num": 323,
+    "q": "Cathodic cleaning is used to remove:",
+    "t": "Cathodic cleaning digunakan untuk menghilangkan apa?",
+    "o": [
+      "A) Sign weaves",
+      "B) Oxides",
+      "C) Surface inclusions",
+      "D) Low melting point compounds"
+    ],
+    "a": 1,
+    "correctText": "B) Oxides",
+    "exp": "Cathodic cleaning berfungsi menghancurkan lapisan oksida terutama pada aluminium sehingga memungkinkan terbentuknya fusi yang baik selama pengelasan.",
+    "w": {
+      "0": "Tidak berkaitan dengan cathodic cleaning.",
+      "2": "Bukan fungsi utama cathodic cleaning.",
+      "3": "Yang dihilangkan terutama adalah oxide film."
+    }
+  },
+  {
+    "num": 324,
+    "q": "Thoriated tungsten electrodes have the major disadvantage of:",
+    "t": "Apa kelemahan utama dari elektroda tungsten jenis thoriated yang digunakan pada proses TIG welding?",
+    "o": [
+      "A) Being very costly",
+      "B) Being radioactive in nature",
+      "C) Having lower melting point",
+      "D) Being scarcely available"
+    ],
+    "a": 1,
+    "correctText": "B) Being radioactive in nature",
+    "exp": "Thoriated tungsten mengandung thorium oxide (ThO₂) yang bersifat radioaktif. Walaupun tingkat radiasinya rendah selama penggunaan normal, debu hasil penggerindaan elektroda dapat terhirup oleh operator dan menimbulkan risiko kesehatan. Oleh karena itu pada banyak industri modern, penggunaan thoriated tungsten mulai digantikan oleh ceriated, lanthanated, atau rare earth tungsten yang lebih aman.",
+    "w": {
+      "0": "Harga thoriated tungsten bukan kelemahan utamanya. Bahkan dalam banyak kasus harganya tidak jauh berbeda dengan jenis tungsten lainnya.",
+      "2": "Tungsten memiliki titik leleh yang sangat tinggi dan penambahan thorium tidak menyebabkan kelemahan utama berupa titik leleh rendah.",
+      "3": "Thoriated tungsten masih tersedia secara luas di industri pengelasan dan bukan masalah utama penggunaannya."
+    }
+  },
+  {
+    "num": 325,
+    "q": "Due to the high heating effect in the electrode when TIG welding (141) with AC, it is usual that a tungsten electrode used for AC welding is:",
+    "t": "Karena elektroda tungsten mengalami pemanasan yang tinggi saat TIG welding menggunakan AC, bagaimana kondisi ujung elektroda yang biasanya dipersiapkan sebelum digunakan?",
+    "o": [
+      "A) Ground to a fine vertex angle <30° before welding",
+      "B) Used straight from the packet without any grinding",
+      "C) Lightly ground to a slight chamfer (corners only removed)",
+      "D) Used without grinding and baked at 300°C for one hour before use"
+    ],
+    "a": 2,
+    "correctText": "C) Lightly ground to a slight chamfer (corners only removed)",
+    "exp": "Pada pengelasan AC, khususnya aluminium, ujung tungsten biasanya diberi sedikit chamfer atau penghalusan ringan pada sudutnya. Saat busur dinyalakan, ujung tersebut akan membentuk ball yang stabil. Persiapan ini membantu menjaga stabilitas busur dan mengurangi risiko pelepasan partikel tungsten.",
+    "w": {
+      "0": "Sudut yang sangat runcing lebih umum digunakan pada DC welding, bukan AC welding.",
+      "1": "Persiapan ujung tungsten tetap diperlukan untuk mendapatkan bentuk ball yang lebih stabil.",
+      "3": "Tungsten tidak memerlukan proses baking seperti elektroda MMA."
+    }
+  },
+  {
+    "num": 326,
+    "q": "Why is AC polarity used in the TIG welding process?",
+    "t": "Mengapa arus AC digunakan pada proses TIG welding?",
+    "o": [
+      "A) To reduce heat in the electrode to 30%",
+      "B) To avoid tungsten inclusion",
+      "C) To avoid crater crack",
+      "D) To remove oxide layer"
+    ],
+    "a": 3,
+    "correctText": "D) To remove oxide layer",
+    "exp": "Pada pengelasan aluminium dan magnesium, lapisan oksida memiliki titik leleh jauh lebih tinggi daripada logam dasarnya. Arus AC menghasilkan efek cathodic cleaning yang membantu menghancurkan dan menghilangkan lapisan oksida tersebut sehingga memungkinkan terjadinya fusi yang baik.",
+    "w": {
+      "0": "Distribusi panas memang berubah pada AC, tetapi bukan alasan utama penggunaan AC.",
+      "1": "Tungsten inclusion lebih berkaitan dengan teknik pengelasan dan kondisi elektroda.",
+      "2": "Crater crack dikendalikan dengan teknik penghentian busur seperti slope-out, bukan penggunaan AC."
+    }
+  },
+  {
+    "num": 327,
+    "q": "Purpose of vertex angle in the TIG process?",
+    "t": "Apa tujuan pengaturan vertex angle (sudut ujung tungsten) pada proses TIG welding?",
+    "o": [
+      "A) Increase vertex angle, increased voltage",
+      "B) To increase weld width",
+      "C) For best penetration and profile",
+      "D) To initiate welding in TIG"
+    ],
+    "a": 2,
+    "correctText": "C) For best penetration and profile",
+    "exp": "Vertex angle mempengaruhi bentuk dan konsentrasi busur. Sudut yang tepat menghasilkan keseimbangan antara penetrasi, stabilitas busur, dan profil weld bead. Oleh karena itu pemilihan vertex angle yang benar sangat penting untuk mendapatkan kualitas las yang optimum.",
+    "w": {
+      "0": "Perubahan vertex angle tidak secara langsung digunakan untuk mengatur tegangan busur.",
+      "1": "Lebar las dipengaruhi oleh banyak faktor dan bukan tujuan utama pengaturan vertex angle.",
+      "3": "Penyalaan busur dilakukan dengan high frequency atau lift arc, bukan dengan mengubah vertex angle."
+    }
+  },
+  {
+    "num": 328,
+    "q": "How to avoid crater pipe?",
+    "t": "Bagaimana cara mencegah terjadinya crater pipe pada akhir pengelasan?",
+    "o": [
+      "A) By use of Helium gas",
+      "B) By use of slope-in devices",
+      "C) By use of slope-out device",
+      "D) By increasing gas flow rate"
+    ],
+    "a": 2,
+    "correctText": "C) By use of slope-out device",
+    "exp": "Slope-out menurunkan arus secara bertahap sebelum busur dipadamkan. Hal ini memungkinkan kawah akhir (crater) terisi dengan baik dan membeku secara perlahan sehingga mengurangi risiko crater pipe maupun crater crack.",
+    "w": {
+      "0": "Jenis gas tidak secara langsung mencegah crater pipe.",
+      "1": "Slope-in bekerja pada awal pengelasan, bukan pada akhir pengelasan.",
+      "3": "Flow rate yang lebih tinggi tidak menghilangkan penyebab crater pipe."
+    }
+  },
+  {
+    "num": 329,
+    "q": "The directions of shrinkage on a welded joint are:",
+    "t": "Apa arah penyusutan (shrinkage) yang terjadi pada sambungan las setelah pengelasan?",
+    "o": [
+      "A) Transverse and diagonal",
+      "B) Transverse, short transverse and longitudinal",
+      "C) Transverse, short diagonal and longitudinal",
+      "D) Angular, diagonal and transgranular"
+    ],
+    "a": 1,
+    "correctText": "B) Transverse, short transverse and longitudinal",
+    "exp": "Penyusutan pada sambungan las terjadi dalam beberapa arah akibat pendinginan logam las dan HAZ. Arah utama yang dikenal dalam teori distorsi pengelasan adalah longitudinal shrinkage, transverse shrinkage, dan short transverse shrinkage. Ketiganya berkontribusi terhadap perubahan dimensi dan distorsi struktur.",
+    "w": {
+      "0": "Tidak mencakup seluruh arah penyusutan utama yang dikenal dalam pengelasan.",
+      "2": "Istilah short diagonal bukan klasifikasi standar dalam teori shrinkage pengelasan.",
+      "3": "Angular distortion adalah bentuk distorsi, sedangkan transgranular berkaitan dengan mekanisme retak, bukan arah shrinkage."
+    }
+  },
+  {
+    "num": 330,
+    "q": "What is the gas flow rate of TIG welding?",
+    "t": "Berapakah kisaran aliran gas pelindung yang umum digunakan pada proses TIG welding?",
+    "o": [
+      "A) 10–12 litres/minute",
+      "B) 8–10 litres/minute",
+      "C) 10–15 litres/minute",
+      "D) 15–20 litres/minute"
+    ],
+    "a": 0,
+    "correctText": "A) 10–12 litres/minute",
+    "exp": "Untuk sebagian besar aplikasi TIG menggunakan argon, laju aliran gas sekitar 10–12 liter per menit dianggap cukup untuk memberikan perlindungan yang baik terhadap weld pool dan elektroda tungsten tanpa menyebabkan turbulensi.",
+    "w": {
+      "1": "Masih dapat digunakan pada kondisi tertentu, tetapi bukan nilai tipikal yang paling umum digunakan.",
+      "2": "Dapat digunakan pada beberapa aplikasi khusus, tetapi rentang standar yang paling sering diajarkan dalam CSWIP adalah 10–12 L/min.",
+      "3": "Aliran gas yang terlalu tinggi dapat menyebabkan turbulensi sehingga udara luar justru masuk ke area las dan meningkatkan risiko porosity."
+    }
+  },
+  {
+    "num": 331,
+    "q": "What is the purpose of post-flow?",
+    "t": "Apa fungsi utama post-flow pada proses TIG welding?",
+    "o": [
+      "A) To avoid weld pool contamination",
+      "B) To avoid crater crack",
+      "C) For back purging",
+      "D) For underfill avoidance"
+    ],
+    "a": 0,
+    "correctText": "A) To avoid weld pool contamination",
+    "exp": "Post-flow mempertahankan aliran shielding gas setelah busur padam. Hal ini melindungi weld pool yang masih panas dan elektroda tungsten yang masih berpijar dari kontak dengan oksigen, nitrogen, dan kelembaban atmosfer. Tanpa post-flow yang memadai, oksidasi dapat terjadi pada logam las maupun elektroda tungsten sehingga menurunkan kualitas sambungan.",
+    "w": {
+      "1": "Crater crack dicegah terutama dengan penggunaan slope-out atau teknik penghentian pengelasan yang benar.",
+      "2": "Back purging adalah sistem perlindungan terpisah yang digunakan pada sisi belakang sambungan.",
+      "3": "Underfill berkaitan dengan teknik pengelasan dan volume logam las, bukan fungsi post-flow."
+    }
+  },
+  {
+    "num": 332,
+    "q": "What is high frequency in TIG?",
+    "t": "Apa fungsi high frequency pada proses TIG welding?",
+    "o": [
+      "A) To avoid spatter",
+      "B) To initiate the arc in TIG welding",
+      "C) Can damage electronic systems",
+      "D) To ease control of heat input"
+    ],
+    "a": 1,
+    "correctText": "B) To initiate the arc in TIG welding",
+    "exp": "High frequency menghasilkan loncatan tegangan tinggi yang memungkinkan busur menyala tanpa kontak langsung antara tungsten dan benda kerja. Sistem ini membantu menjaga kebersihan tungsten dan mengurangi risiko tungsten contamination.",
+    "w": {
+      "0": "TIG memang menghasilkan spatter yang sangat sedikit, tetapi bukan fungsi utama high frequency.",
+      "2": "Walaupun interferensi elektromagnetik dapat terjadi pada kondisi tertentu, ini bukan fungsi high frequency.",
+      "3": "Pengendalian heat input dilakukan melalui pengaturan arus dan parameter pengelasan."
+    }
+  },
+  {
+    "num": 333,
+    "q": "What is the function of pre-flow in TIG?",
+    "t": "Apa fungsi pre-flow pada proses TIG welding?",
+    "o": [
+      "A) For easier welding",
+      "B) To cool down faster",
+      "C) To protect the weld metal",
+      "D) To avoid crater pipe in the weld"
+    ],
+    "a": 2,
+    "correctText": "C) To protect the weld metal",
+    "exp": "Pre-flow mengalirkan shielding gas beberapa saat sebelum busur dinyalakan. Tujuannya adalah mengusir udara dari area pengelasan sehingga saat busur mulai terbentuk, weld pool langsung mendapatkan perlindungan gas yang memadai.",
+    "w": {
+      "0": "Kemudahan pengelasan bukan fungsi utama pre-flow.",
+      "1": "Pre-flow terjadi sebelum pengelasan dimulai sehingga tidak berfungsi untuk pendinginan.",
+      "3": "Crater pipe terjadi pada akhir pengelasan dan dikendalikan dengan slope-out."
+    }
+  },
+  {
+    "num": 334,
+    "q": "Why do we use the TIG welding process for aluminium?",
+    "t": "Mengapa proses TIG sangat cocok digunakan untuk pengelasan aluminium?",
+    "o": [
+      "A) Crater pipe avoidance",
+      "B) Cathodic cleaning",
+      "C) Crack avoidance",
+      "D) Underfill avoidance"
+    ],
+    "a": 1,
+    "correctText": "B) Cathodic cleaning",
+    "exp": "Aluminium memiliki lapisan aluminium oxide yang sangat stabil dan memiliki titik leleh jauh lebih tinggi daripada logam induknya. Pada TIG AC terjadi cathodic cleaning yang membantu menghancurkan lapisan oksida tersebut sehingga memungkinkan terbentuknya fusi yang baik.",
+    "w": {
+      "0": "Bukan alasan utama pemilihan TIG untuk aluminium.",
+      "2": "Retak dapat dikendalikan dengan berbagai metode dan bukan alasan utama penggunaan TIG.",
+      "3": "Underfill berkaitan dengan teknik pengelasan, bukan keunggulan khusus TIG pada aluminium."
+    }
+  },
+  {
+    "num": 335,
+    "q": "Which of the following gas/gas mixtures would be the most suited for welding copper and copper alloys?",
+    "t": "Gas pelindung apa yang paling sesuai untuk pengelasan tembaga dan paduan tembaga?",
+    "o": [
+      "A) Ar 75% + CO₂ 25%",
+      "B) 100% Ar",
+      "C) 100% He",
+      "D) 75% CO₂ + 25% Ar"
+    ],
+    "a": 2,
+    "correctText": "C) 100% He",
+    "exp": "Tembaga memiliki konduktivitas panas yang sangat tinggi sehingga panas pengelasan cepat menyebar. Helium menghasilkan busur yang lebih panas dibanding argon sehingga mampu memberikan penetrasi yang lebih baik dan membantu mengatasi kehilangan panas pada material tembaga.",
+    "w": {
+      "0": "Campuran ini digunakan untuk MAG welding baja karbon, bukan TIG tembaga.",
+      "1": "Dapat digunakan, tetapi tidak memberikan panas dan penetrasi sebesar helium.",
+      "3": "Tidak digunakan untuk pengelasan tembaga dengan TIG."
+    }
+  },
+  {
+    "num": 336,
+    "q": "Which of the following may be considered for the welding of stainless steels using the GMAW welding process?",
+    "t": "Campuran gas manakah yang dapat digunakan untuk pengelasan stainless steel dengan proses GMAW (MIG/MAG)?",
+    "o": [
+      "A) 25% Ar + 75% CO₂",
+      "B) 75% CO₂ + 25% Ar",
+      "C) 100% CO₂",
+      "D) Ar + 1 to 5% O₂"
+    ],
+    "a": 3,
+    "correctText": "D) Ar + 1 to 5% O₂",
+    "exp": "Campuran argon dengan sedikit oksigen sering digunakan untuk meningkatkan stabilitas busur, memperbaiki wetting action, dan menghasilkan bead yang lebih baik saat mengelas stainless steel.",
+    "w": {
+      "0": "Kandungan CO₂ terlalu tinggi dan dapat menyebabkan oksidasi berlebihan pada stainless steel.",
+      "1": "Tidak sesuai untuk stainless steel karena oksidasi yang tinggi.",
+      "2": "Umumnya digunakan untuk baja karbon dan kurang cocok untuk stainless steel."
+    }
+  },
+  {
+    "num": 337,
+    "q": "Which of the following variables would have the greatest effect on the deposited weld metal quality using the GMAW process, spray transfer?",
+    "t": "Variabel apa yang paling berpengaruh terhadap kualitas logam las yang dihasilkan pada proses GMAW mode spray transfer?",
+    "o": [
+      "A) Inductance settings",
+      "B) Electrode coating",
+      "C) Gas flow rate",
+      "D) All of the above"
+    ],
+    "a": 2,
+    "correctText": "C) Gas flow rate",
+    "exp": "Spray transfer sangat bergantung pada perlindungan gas yang baik. Jika gas flow rate tidak sesuai, udara dapat masuk ke weld pool dan menyebabkan porosity, oksidasi, serta penurunan kualitas logam las.",
+    "w": {
+      "0": "Lebih berpengaruh pada mode dip transfer dibanding spray transfer.",
+      "1": "GMAW menggunakan wire tanpa coating flux seperti MMA.",
+      "3": "Karena electrode coating tidak relevan pada GMAW maka pilihan ini salah."
+    }
+  },
+  {
+    "num": 338,
+    "q": "Which of the following gas mixtures would be the most suited to the welding of Aluminium thin sections with the GMAW process?",
+    "t": "Gas pelindung apa yang paling sesuai untuk pengelasan aluminium tipis menggunakan GMAW?",
+    "o": [
+      "A) 100% Argon",
+      "B) Argon-Helium",
+      "C) 25% Argon + 75% CO₂",
+      "D) Argon-3% O₂"
+    ],
+    "a": 0,
+    "correctText": "A) 100% Argon",
+    "exp": "Argon memberikan stabilitas busur yang sangat baik pada aluminium tipis dan membantu mengontrol heat input sehingga risiko burn-through dan distorsi dapat diminimalkan.",
+    "w": {
+      "1": "Lebih sering digunakan untuk material lebih tebal yang membutuhkan panas tambahan.",
+      "2": "CO₂ tidak digunakan untuk aluminium.",
+      "3": "Oksigen tidak digunakan untuk aluminium karena meningkatkan oksidasi."
+    }
+  },
+  {
+    "num": 339,
+    "q": "Which of the following gas mixtures would be the most suited for the welding of low alloy carbon steels?",
+    "t": "Gas pelindung apa yang paling sesuai untuk pengelasan baja karbon paduan rendah menggunakan GMAW?",
+    "o": [
+      "A) 100% Argon",
+      "B) Argon-Helium",
+      "C) 75% Argon + 25% CO₂",
+      "D) Argon-3% O₂"
+    ],
+    "a": 2,
+    "correctText": "C) 75% Argon + 25% CO₂",
+    "exp": "Campuran 75% argon dan 25% CO₂ memberikan keseimbangan yang baik antara stabilitas busur, penetrasi, transfer logam, dan kualitas bead pada baja karbon serta baja paduan rendah.",
+    "w": {
+      "0": "Kurang ideal untuk baja karbon karena transfer logam dan penetrasi tidak sebaik campuran argon-CO₂.",
+      "1": "Jarang digunakan untuk baja karbon.",
+      "3": "Lebih umum digunakan pada stainless steel."
+    }
+  },
+  {
+    "num": 340,
+    "q": "Which of the following applies if the MIG/MAG welding torch is leading?",
+    "t": "Karakteristik apa yang biasanya terjadi jika torch MIG/MAG menggunakan teknik leading (push angle)?",
+    "o": [
+      "A) Excessive undercut, moderate capping, moderate penetration",
+      "B) Excessive capping, deep penetration, moderate undercut",
+      "C) Shallow penetration, minimum capping, minimum undercut",
+      "D) All of the above could apply"
+    ],
+    "a": 2,
+    "correctText": "C) Shallow penetration, minimum capping, minimum undercut",
+    "exp": "Teknik push angle atau leading menghasilkan weld bead yang lebih lebar dan rata, undercut yang lebih kecil, tetapi penetrasi cenderung lebih dangkal dibanding teknik drag angle.",
+    "w": {
+      "0": "Undercut justru biasanya berkurang dengan teknik leading.",
+      "1": "Deep penetration lebih sering dikaitkan dengan drag angle.",
+      "3": "Karakteristik yang paling sesuai adalah pilihan C."
+    }
+  },
+  {
+    "num": 341,
+    "q": "In the MIG/MAG welding process which of the following remains constant during welding?",
+    "t": "Pada proses MIG/MAG, parameter apa yang biasanya dipertahankan tetap selama pengelasan?",
+    "o": [
+      "A) Voltage and wire feed speed",
+      "B) Current and voltage",
+      "C) Current and wire feed speed",
+      "D) Voltage and travel speed"
+    ],
+    "a": 0,
+    "correctText": "A) Voltage and wire feed speed",
+    "exp": "MIG/MAG menggunakan power source constant voltage. Welder biasanya mengatur voltage dan wire feed speed sebelum pengelasan. Sistem kemudian menyesuaikan arus secara otomatis sesuai kondisi busur.",
+    "w": {
+      "1": "Arus akan berubah sesuai burn-off rate dan kondisi pengelasan.",
+      "2": "Arus tidak selalu tetap.",
+      "3": "Travel speed sangat bergantung pada operator dan tidak dijaga konstan oleh mesin. Benar, saya terhenti di 341. Berikut lanjutannya:"
+    }
+  },
+  {
+    "num": 342,
+    "q": "In the MIG/MAG welding plant the purpose of inductance is:",
+    "t": "Apa fungsi pengaturan inductance pada mesin MIG/MAG?",
+    "o": [
+      "A) To minimise spatter in the spray transfer mode",
+      "B) To minimise spatter in the dip transfer mode",
+      "C) To minimise spatter in the globular transfer mode",
+      "D) Both a and b"
+    ],
+    "a": 1,
+    "correctText": "B) To minimise spatter in the dip transfer mode",
+    "exp": "Pada mode dip transfer (short circuit transfer), inductance mengontrol laju kenaikan arus saat terjadi hubungan singkat antara kawat dan weld pool. Pengaturan inductance yang tepat membuat transfer logam lebih halus dan mengurangi spatter secara signifikan.",
+    "w": {
+      "0": "Spray transfer secara alami sudah menghasilkan spatter yang sangat sedikit sehingga inductance tidak terlalu berpengaruh.",
+      "2": "Globular transfer secara karakteristik memang menghasilkan spatter tinggi dan tidak dikendalikan terutama oleh inductance.",
+      "3": "Penggunaan utama inductance adalah pada dip transfer."
+    }
+  },
+  {
+    "num": 343,
+    "q": "What would be a typical voltage setting for the GMAW welding process, dip transfer mode?",
+    "t": "Berapakah tegangan yang umum digunakan pada proses GMAW mode dip transfer?",
+    "o": [
+      "A) Less than 24V",
+      "B) 24 to 28V",
+      "C) 30 to 35V",
+      "D) Greater than 35V"
+    ],
+    "a": 0,
+    "correctText": "A) Less than 24V",
+    "exp": "Dip transfer bekerja pada arus dan tegangan yang relatif rendah. Umumnya tegangan berada di bawah 24 volt agar transfer logam terjadi melalui mekanisme short circuit secara stabil.",
+    "w": {
+      "1": "Rentang ini lebih mendekati area transisi menuju globular transfer.",
+      "2": "Biasanya digunakan pada spray transfer.",
+      "3": "Terlalu tinggi untuk dip transfer."
+    }
+  },
+  {
+    "num": 344,
+    "q": "Which of the following would be an advantage of the MIG/MAG welding process when compared to the MMA welding process?",
+    "t": "Apa keuntungan MIG/MAG dibandingkan MMA?",
+    "o": [
+      "A) Faster welding speeds",
+      "B) Minimal cleaning",
+      "C) Welding autogenously possible",
+      "D) Both a and b"
+    ],
+    "a": 3,
+    "correctText": "D) Both a and b",
+    "exp": "MIG/MAG memiliki kecepatan pengelasan yang lebih tinggi dan tidak menghasilkan slag seperti MMA sehingga kebutuhan pembersihan setelah pengelasan jauh lebih sedikit. Kedua hal ini meningkatkan produktivitas secara signifikan.",
+    "w": {
+      "0": "Benar tetapi belum lengkap.",
+      "1": "Benar tetapi belum lengkap.",
+      "2": "Autogenous welding lebih identik dengan TIG daripada MIG/MAG."
+    }
+  },
+  {
+    "num": 345,
+    "q": "In the MIG/MAG welding process, which of the following applies to the spray transfer mode?",
+    "t": "Pernyataan manakah yang sesuai untuk mode spray transfer pada proses MIG/MAG?",
+    "o": [
+      "A) Welding of steels in overhead and vertical positions",
+      "B) Welding of aluminium alloys in overhead and vertical positions",
+      "C) Welding of thin steel sections less than 6 mm thick",
+      "D) None of the above"
+    ],
+    "a": 3,
+    "correctText": "D) None of the above",
+    "exp": "Spray transfer menghasilkan heat input tinggi dan weld pool yang sangat cair. Oleh karena itu umumnya digunakan pada material yang lebih tebal dan posisi datar (PA) atau horizontal (PB). Spray transfer tidak cocok untuk pengelasan vertikal, overhead, maupun pelat tipis.",
+    "w": {
+      "0": "Spray transfer sulit dikendalikan pada posisi vertikal dan overhead karena weld pool sangat cair.",
+      "1": "Meskipun aluminium dapat dilas dengan spray transfer, posisi vertikal dan overhead bukan aplikasi normal.",
+      "2": "Heat input spray transfer terlalu tinggi untuk pelat tipis dan berisiko menyebabkan burn-through serta distorsi."
+    }
+  },
+  {
+    "num": 346,
+    "q": "Which of the following defects may occur when welding with the GMAW (solid wire) process?",
+    "t": "Cacat apa yang dapat terjadi pada proses GMAW (solid wire)?",
+    "o": [
+      "A) Slag inclusions",
+      "B) Silica inclusions",
+      "C) Copper inclusions",
+      "D) Both b and c"
+    ],
+    "a": 3,
+    "correctText": "D) Both b and c",
+    "exp": "Pada proses GMAW (MIG/MAG) dengan solid wire, slag tidak terbentuk seperti pada MMA atau FCAW. Namun, dapat ditemukan silica inclusions akibat deoxidizers dalam wire dan copper inclusions akibat lapisan tembaga pada permukaan wire yang ikut terperangkap dalam logam las.",
+    "w": {
+      "0": "GMAW solid wire tidak menghasilkan slag sehingga slag inclusion tidak umum terjadi.",
+      "1": "Benar, tetapi bukan satu-satunya jawaban yang benar.",
+      "2": "Benar, tetapi bukan satu-satunya jawaban yang benar."
+    }
+  },
+  {
+    "num": 347,
+    "q": "Which of the following is not suitable for the welding of carbon steels?",
+    "t": "Proses pengelasan manakah yang tidak cocok untuk pengelasan baja karbon?",
+    "o": [
+      "A) MAG",
+      "B) SAW",
+      "C) MIG",
+      "D) MMA"
+    ],
+    "a": 2,
+    "correctText": "C) MIG",
+    "exp": "MIG menggunakan gas inert seperti argon atau helium dan umumnya digunakan untuk aluminium, stainless steel, dan non-ferrous materials. Untuk baja karbon biasanya digunakan MAG dengan gas aktif atau campuran gas aktif.",
+    "w": {
+      "0": "Sangat umum digunakan untuk baja karbon.",
+      "1": "Sangat cocok untuk baja karbon terutama material tebal.",
+      "3": "Merupakan salah satu proses yang paling umum digunakan untuk baja karbon."
+    }
+  },
+  {
+    "num": 348,
+    "q": "Which of the following processes uses a flat characteristic?",
+    "t": "Proses manakah yang menggunakan power source dengan karakteristik flat (constant voltage)?",
+    "o": [
+      "A) MAG (GMAW)",
+      "B) MMA (SMAW)",
+      "C) TIG (GTAW)",
+      "D) SAW using greater than 1000 amps"
+    ],
+    "a": 0,
+    "correctText": "A) MAG (GMAW)",
+    "exp": "MAG/GMAW menggunakan constant voltage (flat characteristic). Sistem ini memungkinkan wire feed speed mengontrol arus secara otomatis sehingga busur tetap stabil selama pengelasan.",
+    "w": {
+      "1": "Menggunakan drooping characteristic (constant current).",
+      "2": "Menggunakan constant current.",
+      "3": "Walaupun beberapa SAW otomatis dapat menggunakan CV, jawaban standar CSWIP untuk flat characteristic adalah GMAW/MAG."
+    }
+  },
+  {
+    "num": 349,
+    "q": "If the torch was trailing when using the MIG/MAG process, which appearance of the weld is most likely to be observed during visual inspection?",
+    "t": "Jika teknik trailing torch digunakan pada MIG/MAG, bagaimana penampilan las yang paling mungkin terlihat?",
+    "o": [
+      "A) No undercut and shallow penetration",
+      "B) Severe undercut and deep penetration",
+      "C) Moderate undercut and penetration",
+      "D) Minimum undercut and excess weld metal"
+    ],
+    "a": 1,
+    "correctText": "B) Severe undercut and deep penetration",
+    "exp": "Trailing (drag) technique menghasilkan busur yang lebih terfokus ke dalam sambungan sehingga penetrasi meningkat. Namun teknik ini juga meningkatkan kemungkinan terbentuknya undercut pada toe weld.",
+    "w": {
+      "0": "Berlawanan dengan karakteristik trailing technique.",
+      "2": "Tidak seakurat pilihan B.",
+      "3": "Trailing technique tidak biasanya menghasilkan kondisi ini."
+    }
+  },
+  {
+    "num": 350,
+    "q": "Voltage and amperage meters have been removed from MIG/MAG (GMAW) equipment making calibration invalid. The equipment should be:",
+    "t": "Jika voltmeter dan ammeter pada mesin MIG/MAG dilepas sehingga kalibrasi tidak lagi valid, apa yang harus dilakukan?",
+    "o": [
+      "A) Quarantined",
+      "B) Only used for tack welds",
+      "C) Only used if validated",
+      "D) Monitored closely by the welding inspector"
+    ],
+    "a": 0,
+    "correctText": "A) Quarantined",
+    "exp": "Peralatan yang tidak dapat menunjukkan parameter pengelasan secara akurat tidak boleh digunakan untuk pekerjaan yang memerlukan kontrol parameter. Mesin harus dipisahkan (quarantined) sampai diperbaiki dan dikalibrasi ulang.",
+    "w": {
+      "1": "Tack weld tetap merupakan bagian dari pekerjaan pengelasan yang harus memenuhi persyaratan kualitas.",
+      "2": "Validasi tidak dapat dilakukan tanpa alat ukur yang berfungsi.",
+      "3": "Inspektor tidak dapat menggantikan fungsi kalibrasi alat."
+    }
+  },
+  {
+    "num": 351,
+    "q": "What are the three metal transfer modes when using MIG/MAG (GMAW)?",
+    "t": "Apa tiga mode transfer logam utama pada proses MIG/MAG?",
+    "o": [
+      "A) Dip, drop and drag",
+      "B) Trailing, vertical and leading",
+      "C) Pulse, dip and flood",
+      "D) Dip, spray and pulse"
+    ],
+    "a": 3,
+    "correctText": "D) Dip, spray and pulse",
+    "exp": "Tiga mode transfer utama yang diajarkan dalam CSWIP adalah: Dip transfer (short circuit) Spray transfer Pulse transfer Ketiganya digunakan sesuai material, posisi, dan ketebalan material.",
+    "w": {
+      "0": "Bukan klasifikasi transfer mode yang benar.",
+      "1": "Merupakan teknik atau posisi pengelasan, bukan transfer mode.",
+      "2": "Flood bukan transfer mode standar."
+    }
+  },
+  {
+    "num": 352,
+    "q": "Overlap at the toe of a butt weld using process 135 may be caused by:",
+    "t": "Apa penyebab overlap pada toe weld saat menggunakan proses 135 (MAG)?",
+    "o": [
+      "A) Voltage and current balanced",
+      "B) Drooping characteristic",
+      "C) Current being too low",
+      "D) Current too high"
+    ],
+    "a": 2,
+    "correctText": "C) Current being too low",
+    "exp": "Arus yang terlalu rendah menyebabkan logam las mengalir ke sisi sambungan tanpa cukup melelehkan logam dasar sehingga terbentuk overlap.",
+    "w": {
+      "0": "Kondisi ini justru menghasilkan pengelasan yang normal.",
+      "1": "Bukan penyebab overlap pada GMAW.",
+      "3": "Biasanya menyebabkan undercut atau burn-through."
+    }
+  },
+  {
+    "num": 353,
+    "q": "In which of the following modes of transfer is inductance usually a variable parameter in solid wire welding (135)?",
+    "t": "Pada mode transfer apa inductance biasanya menjadi parameter yang diatur pada proses MAG solid wire?",
+    "o": [
+      "A) Dip transfer",
+      "B) Spray transfer",
+      "C) Pulse transfer",
+      "D) Globular transfer"
+    ],
+    "a": 0,
+    "correctText": "A) Dip transfer",
+    "exp": "Dalam short circuit (dip transfer), inductance digunakan untuk mengontrol laju kenaikan arus saat terjadi short circuit sehingga jumlah spatter dapat dikurangi.",
+    "w": {
+      "1": "Inductance tidak terlalu kritis pada spray transfer.",
+      "2": "Pulse transfer lebih dikontrol oleh parameter pulse current.",
+      "3": "Bukan aplikasi utama pengaturan inductance."
+    }
+  },
+  {
+    "num": 354,
+    "q": "When MIG/MAG welding, wire feed speed is proportional to:",
+    "t": "Pada MIG/MAG, wire feed speed berbanding lurus dengan parameter apa?",
+    "o": [
+      "A) Travel speed",
+      "B) Welding current",
+      "C) Arc length",
+      "D) Inductance"
+    ],
+    "a": 1,
+    "correctText": "B) Welding current",
+    "exp": "Pada sistem constant voltage, peningkatan wire feed speed akan meningkatkan welding current. Oleh karena itu wire feed speed dan arus pengelasan memiliki hubungan langsung.",
+    "w": {
+      "0": "Tidak berhubungan secara langsung.",
+      "2": "Arc length lebih banyak dikontrol oleh voltage.",
+      "3": "Inductance tidak berbanding lurus dengan wire feed speed."
+    }
+  },
+  {
+    "num": 355,
+    "q": "The output characteristic of a typical GMAW set is:",
+    "t": "Karakteristik output yang umum digunakan pada mesin GMAW adalah?",
+    "o": [
+      "A) Constant voltage",
+      "B) Constant current",
+      "C) Drooping",
+      "D) Pulsing"
+    ],
+    "a": 0,
+    "correctText": "A) Constant voltage",
+    "exp": "GMAW menggunakan constant voltage power source sehingga perubahan kecil pada arc length dapat dikompensasi secara otomatis oleh perubahan arus.",
+    "w": {
+      "1": "Digunakan pada TIG dan MMA.",
+      "2": "Merupakan karakteristik constant current.",
+      "3": "Merupakan mode operasi, bukan karakteristik dasar power source."
+    }
+  },
+  {
+    "num": 356,
+    "q": "In MIG/MAG welding which mode of transfer is referred to as non-desired?",
+    "t": "Mode transfer manakah yang dianggap tidak diinginkan pada MIG/MAG welding?",
+    "o": [
+      "A) Dip",
+      "B) Pulse",
+      "C) Spray",
+      "D) Globular"
+    ],
+    "a": 3,
+    "correctText": "D) Globular",
+    "exp": "Globular transfer menghasilkan droplet besar yang tidak stabil, spatter tinggi, kualitas las rendah, dan umumnya dihindari dalam praktik pengelasan modern.",
+    "w": {
+      "0": "Sangat berguna untuk material tipis dan positional welding.",
+      "1": "Merupakan mode transfer yang sangat baik dan terkontrol.",
+      "2": "Menghasilkan kualitas las tinggi dengan spatter sangat rendah."
+    }
+  },
+  {
+    "num": 357,
+    "q": "Drooping characteristic:",
+    "t": "Apa yang dimaksud dengan drooping characteristic?",
+    "o": [
+      "A) Welding current drops constantly during welding",
+      "B) Large change in voltage equals small change in amperage",
+      "C) Uses a self-adjusting arc to balance amperage and voltage",
+      "D) Small change in voltage equals large change in amperage"
+    ],
+    "a": 1,
+    "correctText": "B) Large change in voltage equals small change in amperage",
+    "exp": "Pada power source constant current (drooping characteristic), perubahan tegangan yang cukup besar hanya menghasilkan perubahan arus yang kecil sehingga busur tetap stabil meskipun panjang busur berubah.",
+    "w": {
+      "0": "Bukan definisi drooping characteristic.",
+      "2": "Ini lebih menggambarkan constant voltage system.",
+      "3": "Merupakan karakteristik flat characteristic."
+    }
+  },
+  {
+    "num": 358,
+    "q": "MAG welding:",
+    "t": "Pernyataan manakah yang benar mengenai nomor proses MAG menurut EN ISO 4063?",
+    "o": [
+      "A) EN process numbers 131 and 135 represent MAG welding",
+      "B) EN process number 141 represents MAG welding",
+      "C) EN process number 121 represents FCAW welding",
+      "D) None of the above"
+    ],
+    "a": 3,
+    "correctText": "D) None of the above",
+    "exp": "131 = MIG welding 135 = MAG welding 141 = TIG welding 121 = SAW Tidak ada pernyataan yang sepenuhnya benar.",
+    "w": {
+      "0": "131 adalah MIG, bukan MAG.",
+      "1": "141 adalah TIG.",
+      "2": "121 adalah SAW."
+    }
+  },
+  {
+    "num": 359,
+    "q": "Which of the following defects is usually associated with MAG (GMAW) welding when using dip transfer?",
+    "t": "Cacat apa yang sering dikaitkan dengan MAG welding menggunakan dip transfer?",
+    "o": [
+      "A) Centreline cracking",
+      "B) Lack of side wall fusion",
+      "C) Undercut",
+      "D) Tungsten inclusions"
+    ],
+    "a": 1,
+    "correctText": "B) Lack of side wall fusion",
+    "exp": "Dip transfer menghasilkan heat input yang relatif rendah sehingga apabila parameter tidak tepat dapat terjadi lack of side wall fusion terutama pada material yang lebih tebal.",
+    "w": {
+      "0": "Tidak secara khusus berhubungan dengan dip transfer.",
+      "2": "Lebih sering terjadi akibat arus tinggi atau travel speed berlebihan.",
+      "3": "Hanya terjadi pada TIG."
+    }
+  },
+  {
+    "num": 360,
+    "q": "Which of the following uses a flat characteristic?",
+    "t": "Kelompok proses mana yang menggunakan flat characteristic (constant voltage)?",
+    "o": [
+      "A) Processes 111, 141, 121, 136",
+      "B) Processes 131, 136, 121, 135",
+      "C) Processes 111, 121, 135, 141",
+      "D) All welding processes use both flat and drooping characteristics"
+    ],
+    "a": 1,
+    "correctText": "B) Processes 131, 136, 121, 135",
+    "exp": "Proses wire-fed seperti MIG (131), MAG (135), FCAW (136), dan banyak aplikasi SAW (121) menggunakan flat characteristic untuk menjaga kestabilan busur dan pengumpanan kawat otomatis.",
+    "w": {
+      "0": "111 (MMA) dan 141 (TIG) menggunakan drooping characteristic.",
+      "2": "111 dan 141 bukan flat characteristic.",
+      "3": "Setiap proses memiliki karakteristik power source yang spesifik dan tidak menggunakan keduanya secara bersamaan."
+    }
+  },
+  {
+    "num": 361,
+    "q": "MAG welding:",
+    "t": "Pernyataan manakah yang benar mengenai proses MAG welding?",
+    "o": [
+      "A) DC− is preferred to DC+ for most materials",
+      "B) AC current improves cleaning action",
+      "C) Inductance controls spatter and penetration in spray transfer",
+      "D) Wire feed speed remains constant during welding"
+    ],
+    "a": 2,
+    "correctText": "C) Inductance controls spatter and penetration in spray transfer",
+    "exp": "Inductance mempengaruhi karakteristik transfer logam, kestabilan busur, jumlah spatter, dan tingkat penetrasi. Pengaturan inductance yang tepat sangat penting untuk memperoleh transfer logam yang stabil terutama pada proses MAG.",
+    "w": {
+      "0": "MAG umumnya menggunakan DCEP (DC+) karena memberikan kestabilan busur dan transfer logam yang lebih baik.",
+      "1": "MAG hampir selalu menggunakan DC, bukan AC.",
+      "3": "Wire feed speed dapat diubah sesuai kebutuhan parameter pengelasan."
+    }
+  },
+  {
+    "num": 362,
+    "q": "When welding carbon steels using the MAG process with 100% CO₂, which metal transfer would be used?",
+    "t": "Saat mengelas baja karbon menggunakan MAG dengan gas pelindung 100% CO₂, mode transfer logam apa yang digunakan?",
+    "o": [
+      "A) Spray",
+      "B) Pulse",
+      "C) Dip",
+      "D) All options are correct"
+    ],
+    "a": 2,
+    "correctText": "C) Dip",
+    "exp": "Dengan gas 100% CO₂, transfer yang paling umum dan stabil terutama pada material tipis dan posisi pengelasan adalah dip transfer (short circuit transfer). Spray transfer umumnya memerlukan gas campuran berbasis argon.",
+    "w": {
+      "0": "Spray transfer biasanya tidak stabil dengan 100% CO₂.",
+      "1": "Pulse transfer umumnya menggunakan gas campuran argon.",
+      "3": "Tidak semua mode transfer dapat digunakan secara efektif dengan 100% CO₂."
+    }
+  },
+  {
+    "num": 363,
+    "q": "In MAG welding process, which mode of transfer is not suitable for positional welding?",
+    "t": "Mode transfer logam manakah yang tidak cocok untuk positional welding?",
+    "o": [
+      "A) Dip transfer mode",
+      "B) Short circuiting mode",
+      "C) Pulse transfer mode",
+      "D) Spray transfer mode"
+    ],
+    "a": 3,
+    "correctText": "D) Spray transfer mode",
+    "exp": "Spray transfer menghasilkan weld pool yang besar dan sangat cair sehingga sulit dikendalikan pada posisi vertikal atau overhead. Oleh karena itu biasanya digunakan pada posisi datar (PA) dan horizontal (PB).",
+    "w": {
+      "0": "Sangat cocok untuk positional welding.",
+      "1": "Merupakan nama lain dari dip transfer dan cocok untuk berbagai posisi.",
+      "2": "Dirancang agar dapat digunakan pada berbagai posisi pengelasan."
+    }
+  },
+  {
+    "num": 364,
+    "q": "The deposition rate of the FCAW process is widely accepted as being:",
+    "t": "Laju deposisi FCAW secara umum dibandingkan dengan GMAW adalah?",
+    "o": [
+      "A) Higher than GMAW process",
+      "B) Lower than GMAW process",
+      "C) The same as GMAW process",
+      "D) Higher or lower depending on welding position"
+    ],
+    "a": 0,
+    "correctText": "A) Higher than GMAW process",
+    "exp": "FCAW dikenal memiliki deposition rate yang tinggi karena penggunaan tubular wire dan tingginya efisiensi pelelehan kawat. Oleh sebab itu FCAW banyak digunakan untuk pekerjaan produksi dan fabrikasi berat.",
+    "w": {
+      "1": "Secara umum FCAW memiliki deposition rate lebih tinggi.",
+      "2": "Tidak benar untuk sebagian besar aplikasi industri.",
+      "3": "Posisi memang berpengaruh, tetapi secara umum FCAW tetap memiliki deposition rate lebih tinggi."
+    }
+  },
+  {
+    "num": 365,
+    "q": "The melting rate of the wire in the GMAW and FCAW process depends on:",
+    "t": "Laju pelelehan kawat pada proses GMAW dan FCAW terutama dipengaruhi oleh apa?",
+    "o": [
+      "A) Voltage per unit length",
+      "B) Shielding gas flow rate",
+      "C) Current density",
+      "D) Ampere per unit length of wire"
+    ],
+    "a": 2,
+    "correctText": "C) Current density",
+    "exp": "Current density adalah jumlah arus yang mengalir melalui luas penampang kawat. Semakin tinggi current density, semakin tinggi pula laju pelelehan kawat.",
+    "w": {
+      "0": "Bukan faktor utama yang mengendalikan melting rate.",
+      "1": "Gas flow rate mempengaruhi perlindungan las, bukan laju pelelehan kawat.",
+      "3": "Istilah ini bukan parameter standar yang digunakan untuk menjelaskan wire melting rate."
+    }
+  },
+  {
+    "num": 366,
+    "q": "Changing polarity from DCEP to DCEN will have which effect?",
+    "t": "Apa pengaruh perubahan polaritas dari DCEP ke DCEN?",
+    "o": [
+      "A) Penetration decreases",
+      "B) Weld width increases",
+      "C) Penetration increases",
+      "D) Higher deposition rate"
+    ],
+    "a": 3,
+    "correctText": "D) Higher deposition rate",
+    "exp": "Pada DCEN lebih banyak panas terkonsentrasi pada elektroda sehingga kawat meleleh lebih cepat dan deposition rate meningkat.",
+    "w": {
+      "0": "Memang biasanya terjadi, tetapi efek yang paling khas dan sering diuji adalah meningkatnya deposition rate.",
+      "1": "Bukan efek utama perubahan polaritas.",
+      "2": "Justru penetrasi cenderung menurun."
+    }
+  },
+  {
+    "num": 367,
+    "q": "What is the main purpose of inductance?",
+    "t": "Apa fungsi utama pengaturan inductance pada proses MIG/MAG?",
+    "o": [
+      "A) Avoid inclusions",
+      "B) Avoid crater pipe",
+      "C) Reduce spatter",
+      "D) Avoid lack of fusion"
+    ],
+    "a": 2,
+    "correctText": "C) Reduce spatter",
+    "exp": "Inductance mengontrol kecepatan kenaikan arus saat terjadi short circuit sehingga transfer logam menjadi lebih halus dan jumlah spatter berkurang.",
+    "w": {
+      "0": "Inclusion lebih berkaitan dengan teknik pengelasan dan pembersihan.",
+      "1": "Crater pipe dikendalikan dengan teknik penghentian busur.",
+      "3": "Lack of fusion lebih dipengaruhi oleh heat input dan teknik pengelasan."
+    }
+  },
+  {
+    "num": 368,
+    "q": "What is the effect of inductance being set too low?",
+    "t": "Apa akibat jika nilai inductance disetel terlalu rendah?",
+    "o": [
+      "A) Good for thick materials",
+      "B) Underfill",
+      "C) High spatter",
+      "D) Lack of fusion"
+    ],
+    "a": 2,
+    "correctText": "C) High spatter",
+    "exp": "Inductance rendah menyebabkan kenaikan arus sangat cepat saat short circuit sehingga transfer logam menjadi kasar dan menghasilkan banyak spatter.",
+    "w": {
+      "0": "Tidak berkaitan langsung dengan ketebalan material.",
+      "1": "Bukan akibat utama dari inductance rendah.",
+      "3": "Bukan efek utama yang dihasilkan."
+    }
+  },
+  {
+    "num": 369,
+    "q": "To weld a 2-inch pipe with 5 mm wall thickness, which transfer mode would normally be selected?",
+    "t": "Untuk mengelas pipa 2 inci dengan ketebalan 5 mm, mode transfer logam apa yang biasanya dipilih?",
+    "o": [
+      "A) Dip",
+      "B) Spray",
+      "C) Globular",
+      "D) FCAW"
+    ],
+    "a": 0,
+    "correctText": "A) Dip",
+    "exp": "Dip transfer menghasilkan heat input yang relatif rendah, kontrol weld pool yang baik, dan sangat cocok untuk material tipis serta positional welding pada pipa.",
+    "w": {
+      "1": "Terlalu panas untuk aplikasi ini dan sulit digunakan pada posisi tertentu.",
+      "2": "Kurang stabil dan menghasilkan banyak spatter.",
+      "3": "Merupakan proses pengelasan, bukan mode transfer logam."
+    }
+  },
+  {
+    "num": 370,
+    "q": "What polarity is normally used for MIG/MAG welding?",
+    "t": "Polaritas apa yang umumnya digunakan pada MIG/MAG welding?",
+    "o": [
+      "A) AC",
+      "B) AC and DC",
+      "C) DC+",
+      "D) DC−"
+    ],
+    "a": 2,
+    "correctText": "C) DC+",
+    "exp": "MIG/MAG hampir selalu menggunakan DCEP (DC+) karena memberikan transfer logam yang stabil, penetrasi yang baik, dan kualitas las yang optimal.",
+    "w": {
+      "0": "Tidak umum digunakan untuk MIG/MAG.",
+      "1": "MIG/MAG standar menggunakan DC+.",
+      "3": "Jarang digunakan karena transfer logam menjadi kurang stabil."
+    }
+  },
+  {
+    "num": 371,
+    "q": "Pulse transfer mode:",
+    "t": "Karakteristik apa yang dimiliki oleh pulse transfer mode?",
+    "o": [
+      "A) Voltage less than 24V",
+      "B) Thickness greater than 6 mm",
+      "C) Suitable for all positions",
+      "D) Moderate heat input",
+      "E) Pinch effect"
+    ],
+    "a": [
+      2,
+      3,
+      4
+    ],
+    "correctText": "C), D), dan E)",
+    "exp": "Pulse transfer: Cocok untuk semua posisi pengelasan. Memberikan heat input yang moderat. Menggunakan prinsip pinch effect untuk melepaskan droplet secara terkontrol.",
+    "w": {
+      "0": "Tidak selalu benar karena tegangan tergantung sistem dan parameter yang digunakan.",
+      "1": "Pulse transfer dapat digunakan pada berbagai ketebalan material, termasuk yang relatif tipis."
+    }
+  },
+  {
+    "num": 372,
+    "q": "Basic shielding gas for MIG/MAG welding:",
+    "t": "Pernyataan mana yang benar mengenai shielding gas MIG/MAG?",
+    "o": [
+      "A) MIG = 100% Ar / Ar-He mixtures",
+      "B) MAG = 100% CO₂ or Ar-CO₂ mixtures",
+      "C) Spray transfer generally requires mixed gases",
+      "D) Globular transfer commonly uses 100% CO₂",
+      "E) Dip transfer may use 100% CO₂"
+    ],
+    "a": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "correctText": "A), B), C), D), dan E)",
+    "exp": "Semua pernyataan tersebut sesuai dengan praktik umum MIG/MAG welding dan karakteristik masing-masing mode transfer logam.",
+    "w": {}
+  },
+  {
+    "num": 373,
+    "q": "What is the meaning of CTWD?",
+    "t": "Apa kepanjangan dari CTWD?",
+    "o": [
+      "A) Centre Point to Work Distance",
+      "B) Centre Tip to Work Distance",
+      "C) Contact Tip to Work Distance",
+      "D) Central Tip to Work Distance"
+    ],
+    "a": 2,
+    "correctText": "C) Contact Tip to Work Distance",
+    "exp": "CTWD adalah jarak antara contact tip dan permukaan benda kerja. Parameter ini sangat mempengaruhi arus, penetrasi, dan stabilitas transfer logam.",
+    "w": {
+      "0": "Bukan istilah yang digunakan dalam standar pengelasan."
+    }
+  },
+  {
+    "num": 374,
+    "q": "Which of the following applies to globular transfer mode?",
+    "t": "Karakteristik apa yang dimiliki globular transfer?",
+    "o": [
+      "A) Produces a lot of spatter",
+      "B) Unstable transfer",
+      "C) Generally PA (flat) position only",
+      "D) Often associated with 100% CO₂",
+      "E) Suitable for 3–6 mm material"
+    ],
+    "a": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "correctText": "A), B), C), dan D)",
+    "exp": "Globular transfer: Menghasilkan banyak spatter. Kurang stabil. Umumnya digunakan pada posisi datar. Sering terjadi saat menggunakan 100% CO₂.",
+    "w": {
+      "4": "Ketebalan material bukan karakteristik utama yang mendefinisikan globular transfer."
+    }
+  },
+  {
+    "num": 375,
+    "q": "Changing from spray transfer to dip transfer generally results in:",
+    "t": "Apa yang umumnya terjadi jika mode transfer diubah dari spray transfer ke dip transfer?",
+    "o": [
+      "A) Lower penetration",
+      "B) Suitable for thinner materials",
+      "C) Higher spatter",
+      "D) Increased risk of lack of fusion"
+    ],
+    "a": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "correctText": "A), B), C), dan D)",
+    "exp": "Dibanding spray transfer, dip transfer: Memberikan penetrasi lebih rendah. Lebih cocok untuk material tipis. Menghasilkan spatter lebih banyak. Memiliki risiko lack of fusion yang lebih tinggi apabila parameter tidak sesuai.",
+    "w": {}
+  },
+  {
+    "num": 376,
+    "q": "What is the effect of changing shielding gas from Argon to Helium?",
+    "t": "Apa pengaruh yang terjadi jika shielding gas diubah dari Argon menjadi Helium?",
+    "o": [
+      "A) Helium can be used for purging",
+      "B) Lower penetration",
+      "C) Higher penetration",
+      "D) Helium density is lower than air"
+    ],
+    "a": 2,
+    "correctText": "C) Higher penetration",
+    "exp": "Helium menghasilkan busur yang lebih panas dibanding Argon karena memiliki potential ionisasi yang lebih tinggi. Akibatnya heat input ke benda kerja meningkat sehingga penetrasi menjadi lebih dalam. Oleh karena itu Helium sering digunakan untuk material dengan konduktivitas panas tinggi seperti aluminium dan tembaga.",
+    "w": {
+      "0": "Meskipun benar bahwa Helium dapat digunakan untuk purging, hal ini bukan efek utama dari perubahan shielding gas yang ditanyakan pada soal.",
+      "1": "Kebalikannya yang terjadi. Helium justru meningkatkan penetrasi.",
+      "3": "Ini merupakan sifat fisik Helium, bukan efek pengelasan yang dimaksud dalam soal."
+    }
+  },
+  {
+    "num": 377,
+    "q": "What is the effect of high inductance?",
+    "t": "Apa pengaruh penggunaan nilai inductance yang tinggi pada proses pengelasan?",
+    "o": [
+      "A) Reduced spatter",
+      "B) Concave weld profile",
+      "C) Suitable for stainless steel welding",
+      "D) Hotter arc"
+    ],
+    "a": 0,
+    "correctText": "A) Reduced spatter",
+    "exp": "Inductance yang tinggi memperhalus perubahan arus selama transfer logam sehingga transfer droplet menjadi lebih stabil. Hal ini mengurangi ledakan kecil pada ujung kawat las dan menurunkan jumlah spatter yang terbentuk.",
+    "w": {
+      "1": "Profil las dipengaruhi oleh banyak faktor dan bukan efek utama dari inductance tinggi.",
+      "2": "Inductance tidak menentukan apakah suatu proses cocok untuk stainless steel.",
+      "3": "Inductance mempengaruhi karakteristik transfer logam dan kestabilan busur, bukan membuat busur menjadi lebih panas secara langsung. SAW"
+    }
+  },
+  {
+    "num": 378,
+    "q": "Which SAW flux type can be best described as non-uniform granulated flux?",
+    "t": "Jenis flux SAW manakah yang dapat digambarkan sebagai flux granular yang tidak seragam bentuk partikelnya?",
+    "o": [
+      "A) Fused flux",
+      "B) Rutile flux",
+      "C) Agglomerated flux",
+      "D) High acidic flux"
+    ],
+    "a": 2,
+    "correctText": "C) Agglomerated flux",
+    "exp": "Agglomerated flux dibuat dengan mencampurkan bahan-bahan flux kemudian diikat menggunakan binder dan dipanggang. Proses ini menghasilkan bentuk partikel yang tidak seragam (non-uniform granulated flux).",
+    "w": {
+      "0": "Fused flux diproduksi melalui proses peleburan sehingga partikel cenderung lebih homogen.",
+      "1": "Rutile menunjukkan komposisi flux, bukan metode pembuatannya.",
+      "3": "Menunjukkan karakteristik kimia flux, bukan bentuk partikelnya."
+    }
+  },
+  {
+    "num": 379,
+    "q": "Which of the following would best describe a weld profile using high voltages with the SAW process?",
+    "t": "Bagaimana bentuk profil las yang dihasilkan jika tegangan pengelasan SAW dibuat tinggi?",
+    "o": [
+      "A) Narrow deep profile",
+      "B) Wide deep profile",
+      "C) Wide flat profile",
+      "D) All of the above could apply as voltage has little or no effect on weld profile"
+    ],
+    "a": 2,
+    "correctText": "C) Wide flat profile",
+    "exp": "Peningkatan voltage memperpanjang panjang busur sehingga panas menyebar lebih luas. Akibatnya weld bead menjadi lebih lebar dan lebih datar, sementara penetrasi cenderung berkurang.",
+    "w": {
+      "0": "Biasanya dihasilkan oleh arus tinggi dengan voltage relatif rendah.",
+      "1": "Voltage tinggi umumnya tidak menghasilkan penetrasi dalam.",
+      "3": "Voltage memiliki pengaruh yang sangat signifikan terhadap bentuk bead."
+    }
+  },
+  {
+    "num": 380,
+    "q": "Which of the following could apply if excessively high currents are used with the SAW process?",
+    "t": "Apa yang dapat terjadi jika arus yang digunakan pada proses SAW terlalu tinggi?",
+    "o": [
+      "A) Deep narrow welds with a high susceptibility to solidification cracking",
+      "B) Deep narrow welds with a high susceptibility to hydrogen cracking",
+      "C) Deep wide weld with a low susceptibility to solidification cracking",
+      "D) Both a and b"
+    ],
+    "a": 0,
+    "correctText": "A) Deep narrow welds with a high susceptibility to solidification cracking",
+    "exp": "Arus yang terlalu tinggi dapat menghasilkan weld bead yang dalam dan sempit (deep narrow profile). Bentuk ini meningkatkan risiko centerline solidification cracking karena tegangan penyusutan terkonsentrasi pada bagian tengah las saat pembekuan.",
+    "w": {
+      "1": "SAW merupakan salah satu proses dengan kandungan hidrogen yang sangat rendah sehingga hydrogen cracking bukan risiko utama.",
+      "2": "Arus tinggi cenderung menghasilkan profil sempit dan dalam, bukan lebar.",
+      "3": "Bagian b tidak benar."
+    }
+  },
+  {
+    "num": 381,
+    "q": "Excessive electrode extensions in the SAW process may cause:",
+    "t": "Apa akibat dari electrode extension (stick-out) yang terlalu panjang pada proses SAW?",
+    "o": [
+      "A) High melting rate of the electrode",
+      "B) Low melting rate of the electrode",
+      "C) Flat weld profiles",
+      "D) Both a and c"
+    ],
+    "a": 3,
+    "correctText": "D) Both a and c",
+    "exp": "Stick-out yang lebih panjang meningkatkan resistive heating pada elektroda sebelum mencapai busur. Hal ini meningkatkan melting rate elektroda dan cenderung menghasilkan weld profile yang lebih lebar dan lebih datar.",
+    "w": {
+      "0": "Benar tetapi belum lengkap.",
+      "1": "Justru melting rate meningkat.",
+      "2": "Benar tetapi bukan satu-satunya efek."
+    }
+  },
+  {
+    "num": 382,
+    "q": "Which of the following SAW flux types would under most circumstances produce the highest mechanical properties in the completed weld joint?",
+    "t": "Jenis flux SAW manakah yang umumnya menghasilkan sifat mekanik terbaik pada sambungan las?",
+    "o": [
+      "A) Fused, acidic flux",
+      "B) Fused, neutral flux",
+      "C) Agglomerated, neutral flux",
+      "D) Agglomerated, basic flux"
+    ],
+    "a": 3,
+    "correctText": "D) Agglomerated, basic flux",
+    "exp": "Basic agglomerated flux memberikan kadar oksigen rendah dalam weld metal, toughness yang tinggi, dan sifat mekanik yang sangat baik. Jenis flux ini umum digunakan pada konstruksi kritis dan pressure vessel.",
+    "w": {
+      "0": "Memberikan toughness yang lebih rendah.",
+      "1": "Sifat mekaniknya lebih rendah dibanding basic agglomerated flux.",
+      "2": "Baik, tetapi umumnya masih di bawah basic flux dalam hal toughness."
+    }
+  },
+  {
+    "num": 383,
+    "q": "Which of the following applies to current types with the SAW process?",
+    "t": "Karakteristik sumber arus apa yang dapat digunakan pada proses SAW?",
+    "o": [
+      "A) Constant current, variable voltage",
+      "B) Constant voltage, variable current",
+      "C) Constant current, constant voltage",
+      "D) Both a and b"
+    ],
+    "a": 3,
+    "correctText": "D) Both a and b",
+    "exp": "SAW dapat menggunakan power source constant current maupun constant voltage tergantung konfigurasi sistem dan aplikasi yang digunakan.",
+    "w": {
+      "0": "Benar tetapi tidak lengkap.",
+      "1": "Benar tetapi tidak lengkap.",
+      "2": "Kedua karakteristik tidak dapat dipertahankan konstan secara bersamaan."
+    }
+  },
+  {
+    "num": 384,
+    "q": "Which of the following combinations would produce the deepest penetration with the SAW process? Assume the flux, electrode and travel speed to be the same.",
+    "t": "Kombinasi diameter elektroda dan arus manakah yang menghasilkan penetrasi terdalam pada SAW?",
+    "o": [
+      "A) Electrode diameter 3.2 mm, current 600 A",
+      "B) Electrode diameter 4.0 mm, current 500 A",
+      "C) Electrode diameter 5.0 mm, current 800 A",
+      "D) Electrode diameter 6.0 mm, current 700 A"
+    ],
+    "a": 0,
+    "correctText": "A) Electrode diameter 3.2 mm, current 600 A",
+    "exp": "Diameter elektroda yang lebih kecil menghasilkan current density yang lebih tinggi. Dengan arus yang besar pada diameter kecil, energi menjadi lebih terkonsentrasi sehingga penetrasi menjadi lebih dalam.",
+    "w": {
+      "1": "Current density lebih rendah.",
+      "2": "Walaupun arus tinggi, current density lebih rendah dibanding opsi A.",
+      "3": "Current density paling rendah di antara pilihan yang ada."
+    }
+  },
+  {
+    "num": 385,
+    "q": "An AC welding current is often preferred to a DC welding current in the SAW process, the reason for this is:",
+    "t": "Mengapa arus AC sering dipilih dibanding DC pada proses SAW?",
+    "o": [
+      "A) To prevent arc blow",
+      "B) To provide the deepest penetration",
+      "C) To provide the highest build up",
+      "D) Both a and b"
+    ],
+    "a": 0,
+    "correctText": "A) To prevent arc blow",
+    "exp": "Pada arus AC arah aliran arus berubah secara terus-menerus sehingga efek medan magnet yang menyebabkan arc blow dapat diminimalkan.",
+    "w": {
+      "1": "Penetrasi terdalam biasanya diperoleh dari konfigurasi DC tertentu.",
+      "2": "Tidak menjadi alasan utama penggunaan AC.",
+      "3": "Bagian b tidak benar."
+    }
+  },
+  {
+    "num": 386,
+    "q": "Which of the following are advantages of the SAW process?",
+    "t": "Manakah yang merupakan keunggulan proses SAW?",
+    "o": [
+      "A) High deposition rates, all positional welding",
+      "B) High deposition rates, low dilution process",
+      "C) Fast travel speeds, low susceptibility to solidification cracking",
+      "D) One of the lowest hydrogen processes, high deposition rates",
+      "E) None of the above"
+    ],
+    "a": 3,
+    "correctText": "D) One of the lowest hydrogen processes, high deposition rates",
+    "exp": "SAW memiliki kandungan hidrogen yang sangat rendah dan deposition rate yang sangat tinggi. Kedua karakteristik ini merupakan keunggulan utama proses SAW.",
+    "w": {
+      "0": "SAW tidak cocok untuk semua posisi pengelasan.",
+      "1": "SAW umumnya menghasilkan dilution yang cukup tinggi.",
+      "2": "Solidification cracking masih dapat terjadi jika parameter tidak tepat.",
+      "4": "Pilihan D benar."
+    }
+  },
+  {
+    "num": 387,
+    "q": "Which of the following conditions is most likely to produce gas flats in a completed SAW weld?",
+    "t": "Kondisi apa yang paling mungkin menyebabkan gas flats pada hasil las SAW?",
+    "o": [
+      "A) Flux depth too shallow",
+      "B) Flux depth too deep",
+      "C) The use of a fused flux",
+      "D) The use of an agglomerated flux"
+    ],
+    "a": 1,
+    "correctText": "B) Flux depth too deep",
+    "exp": "Lapisan flux yang terlalu tebal dapat menghambat keluarnya gas dari weld pool sehingga gas terjebak dan membentuk gas flats pada permukaan las.",
+    "w": {
+      "0": "Biasanya menyebabkan perlindungan busur yang kurang baik.",
+      "2": "Jenis flux bukan penyebab utama gas flats.",
+      "3": "Tidak secara langsung menyebabkan gas flats."
+    }
+  },
+  {
+    "num": 388,
+    "q": "Which of the following defects are unlikely to occur during the welding of a butt joint with the SAW process?",
+    "t": "Cacat manakah yang paling tidak mungkin terjadi pada proses SAW?",
+    "o": [
+      "A) Lack of fusion",
+      "B) Porosity",
+      "C) Slag inclusions",
+      "D) Spatter"
+    ],
+    "a": 3,
+    "correctText": "D) Spatter",
+    "exp": "Busur pada SAW sepenuhnya tertutup flux sehingga transfer logam berlangsung sangat stabil dan hampir tidak menghasilkan spatter.",
+    "w": {
+      "0": "Masih dapat terjadi jika parameter tidak sesuai.",
+      "1": "Masih dapat terjadi akibat kontaminasi atau flux yang lembab.",
+      "2": "Masih dapat terjadi terutama pada multi-pass welding."
+    }
+  },
+  {
+    "num": 389,
+    "q": "Which of the following materials can be welded with the SAW process?",
+    "t": "Material apa saja yang dapat dilas menggunakan proses SAW?",
+    "o": [
+      "A) Carbon manganese steels",
+      "B) Duplex stainless steels",
+      "C) Creep resistant steels",
+      "D) Both a and c",
+      "E) All of the above"
+    ],
+    "a": 4,
+    "correctText": "E) All of the above",
+    "exp": "SAW dapat digunakan untuk carbon manganese steel, duplex stainless steel, maupun creep resistant steel dengan pemilihan flux dan consumable yang sesuai.",
+    "w": {
+      "0": "Benar tetapi belum lengkap.",
+      "1": "Benar tetapi belum lengkap.",
+      "2": "Benar tetapi belum lengkap.",
+      "3": "Masih mengabaikan duplex stainless steel."
+    }
+  },
+  {
+    "num": 390,
+    "q": "Which of the following statements is true?",
+    "t": "Pernyataan manakah yang benar mengenai jenis arus pada proses SAW?",
+    "o": [
+      "A) DC can only be used on SAW",
+      "B) AC and DC can be used for welding with SAW",
+      "C) DC is only used for MMA welding",
+      "D) AC is only used for TIG welding"
+    ],
+    "a": 1,
+    "correctText": "B) AC and DC can be used for welding with SAW",
+    "exp": "SAW dapat menggunakan AC maupun DC tergantung kebutuhan penetrasi, pengendalian arc blow, konfigurasi sistem, dan aplikasi pengelasan.",
+    "w": {
+      "0": "DC digunakan pada banyak proses lain seperti MMA, TIG, MIG, dan FCAW.",
+      "2": "DC digunakan pada berbagai proses pengelasan.",
+      "3": "AC juga digunakan pada SAW dan proses lainnya."
+    }
+  },
+  {
+    "num": 391,
+    "q": "Which of the following defects are not associated with the SAW process?",
+    "t": "Cacat manakah yang tidak berhubungan dengan proses SAW (Submerged Arc Welding)?",
+    "o": [
+      "A) Centreline cracking",
+      "B) Chevron cracking",
+      "C) Copper inclusion",
+      "D) Tungsten inclusions"
+    ],
+    "a": 3,
+    "correctText": "D) Tungsten inclusions",
+    "exp": "SAW menggunakan kawat elektroda consumable dan tidak menggunakan elektroda tungsten. Oleh karena itu cacat tungsten inclusion tidak mungkin terjadi pada proses SAW. Tungsten inclusion hanya berhubungan dengan proses TIG (GTAW) yang menggunakan elektroda tungsten non-consumable.",
+    "w": {
+      "0": "Dapat terjadi pada SAW terutama pada weld bead yang dalam dan sempit.",
+      "1": "Merupakan salah satu bentuk solidification cracking yang dapat ditemukan pada pengelasan dengan heat input tinggi termasuk SAW.",
+      "2": "Dapat terjadi apabila lapisan copper coating pada wire electrode terlepas dan masuk ke weld metal."
+    }
+  },
+  {
+    "num": 392,
+    "q": "A long centreline crack has been detected in a submerged arc weld bead. This may be due to:",
+    "t": "Ditemukan retak memanjang pada garis tengah (centreline crack) pada hasil las SAW. Apa penyebab yang paling mungkin?",
+    "o": [
+      "A) Use of a high manganese filler wire",
+      "B) Use of a damp flux",
+      "C) Weld bead is deep and narrow",
+      "D) Use of too high voltage"
+    ],
+    "a": 2,
+    "correctText": "C) Weld bead is deep and narrow",
+    "exp": "Centreline cracking sering terjadi pada weld bead dengan rasio depth-to-width yang tinggi (deep and narrow bead). Bentuk bead seperti ini meningkatkan konsentrasi tegangan penyusutan di tengah las selama solidifikasi sehingga memicu terbentuknya retak solidifikasi.",
+    "w": {
+      "0": "Manganese justru membantu mengurangi pengaruh sulfur dan menurunkan risiko solidification cracking.",
+      "1": "Lebih sering menyebabkan hydrogen-related problems dan porosity.",
+      "3": "Voltage tinggi biasanya menghasilkan bead yang lebih lebar, bukan lebih sempit."
+    }
+  },
+  {
+    "num": 393,
+    "q": "Which of the following processes is most prone to solidification cracks?",
+    "t": "Proses pengelasan manakah yang paling rentan terhadap terjadinya solidification cracking?",
+    "o": [
+      "A) MMA with basic coated electrodes",
+      "B) MMA with rutile coated electrodes",
+      "C) TIG",
+      "D) SAW"
+    ],
+    "a": 3,
+    "correctText": "D) SAW",
+    "exp": "SAW menggunakan heat input tinggi, weld pool besar, dan sering menghasilkan bead yang dalam serta sempit. Kondisi ini meningkatkan kemungkinan terjadinya solidification cracking dibanding proses lainnya.",
+    "w": {
+      "0": "Elektroda basic menghasilkan logam las dengan ketahanan retak yang baik.",
+      "1": "Risiko solidification crack lebih rendah dibanding SAW.",
+      "2": "Heat input dan ukuran weld pool biasanya lebih kecil dibanding SAW."
+    }
+  },
+  {
+    "num": 394,
+    "q": "Which of the following could be used to minimise the occurrence of solidification cracks in steel welds?",
+    "t": "Tindakan apa yang dapat dilakukan untuk mengurangi kemungkinan terjadinya solidification cracking pada baja?",
+    "o": [
+      "A) Increase sulphur levels to a minimum of 0.5%",
+      "B) Reduce the dilution into the base metal",
+      "C) Increase carbon content in the weld metal",
+      "D) Reduce the manganese content in the weld metal"
+    ],
+    "a": 1,
+    "correctText": "B) Reduce the dilution into the base metal",
+    "exp": "Dilution yang tinggi dapat membawa unsur-unsur pengotor seperti sulfur dan fosfor dari base metal ke weld metal. Mengurangi dilution membantu menjaga komposisi weld metal sehingga risiko solidification cracking berkurang.",
+    "w": {
+      "0": "Sulfur merupakan unsur yang sangat meningkatkan kecenderungan retak solidifikasi.",
+      "2": "Karbon yang lebih tinggi meningkatkan hardenability dan risiko retak.",
+      "3": "Manganese membantu mengikat sulfur menjadi MnS sehingga mengurangi risiko retak."
+    }
+  },
+  {
+    "num": 395,
+    "q": "Submerged arc welding is noted for its ability to employ high weld currents owing to the properties and functions of the flux. Generally what polarity is used up to about 1000 A?",
+    "t": "Pada proses SAW, polaritas apa yang umumnya digunakan hingga sekitar 1000 ampere?",
+    "o": [
+      "A) AC",
+      "B) DC electrode negative",
+      "C) DC electrode positive & negative",
+      "D) DC electrode positive"
+    ],
+    "a": 3,
+    "correctText": "D) DC electrode positive",
+    "exp": "DCEP (DC+) merupakan polaritas yang paling umum digunakan pada SAW hingga sekitar 1000 A karena memberikan penetrasi yang baik, stabilitas busur tinggi, dan kualitas las yang konsisten.",
+    "w": {
+      "0": "Biasanya lebih banyak digunakan pada arus yang sangat tinggi atau sistem multi-wire.",
+      "1": "Digunakan untuk aplikasi khusus seperti cladding.",
+      "2": "Bukan polaritas tunggal yang umum digunakan pada kondisi ini."
+    }
+  },
+  {
+    "num": 396,
+    "q": "In SAW at higher currents or in the case of multiple electrode systems, AC is often preferred to:",
+    "t": "Pada SAW dengan arus tinggi atau sistem multi-wire, mengapa AC sering dipilih?",
+    "o": [
+      "A) Avoid the problem of lack of fusion",
+      "B) Avoid the problem of excess penetration",
+      "C) Avoid the problem of arc blow",
+      "D) Avoid the problem of dilution"
+    ],
+    "a": 2,
+    "correctText": "C) Avoid the problem of arc blow",
+    "exp": "Pada arus yang sangat tinggi, medan magnet yang terbentuk dapat menyebabkan arc blow. Penggunaan AC mengurangi efek medan magnet tetap sehingga masalah arc blow dapat diminimalkan.",
+    "w": {
+      "0": "LOF lebih dipengaruhi oleh parameter pengelasan dan teknik.",
+      "1": "Tidak merupakan alasan utama penggunaan AC.",
+      "3": "Dilution lebih dipengaruhi oleh polaritas dan parameter pengelasan."
+    }
+  },
+  {
+    "num": 397,
+    "q": "On some applications (i.e. cladding operations) by SAW, DC electrode negative is needed to:",
+    "t": "Pada aplikasi cladding menggunakan SAW, mengapa digunakan DC electrode negative (DCEN)?",
+    "o": [
+      "A) Reduce penetration and dilution",
+      "B) Increase penetration and dilution",
+      "C) Reduce penetration and increase dilution",
+      "D) Increase penetration and reduce dilution"
+    ],
+    "a": 0,
+    "correctText": "A) Reduce penetration and dilution",
+    "exp": "Pada DCEN, panas lebih banyak berada pada elektroda sehingga penetrasi ke base metal berkurang. Hal ini mengurangi dilution dan sangat penting pada cladding agar komposisi lapisan overlay tetap sesuai spesifikasi.",
+    "w": {
+      "1": "Berlawanan dengan karakteristik DCEN.",
+      "2": "Jika penetrasi berkurang maka dilution juga cenderung berkurang.",
+      "3": "Secara metalurgi tidak logis karena keduanya saling berkaitan."
+    }
+  },
+  {
+    "num": 398,
+    "q": "SAW welding:",
+    "t": "Pernyataan manakah yang benar mengenai karakteristik polaritas pada SAW?",
+    "o": [
+      "A) In a multiple wire system it is not recommended to use AC",
+      "B) DC+ generally produces deeper penetration when compared with AC",
+      "C) DC+ generally produces higher build up when compared with AC",
+      "D) DC− generally produces deeper penetration when compared with DC+"
+    ],
+    "a": 1,
+    "correctText": "B) DC+ generally produces deeper penetration when compared with AC",
+    "exp": "DCEP menghasilkan penetrasi lebih dalam dibanding AC karena distribusi panas lebih terkonsentrasi pada benda kerja. Oleh karena itu DCEP sering digunakan ketika diperlukan penetrasi maksimum.",
+    "w": {
+      "0": "Justru AC sering digunakan pada sistem multi-wire.",
+      "2": "Build-up lebih tinggi biasanya diperoleh pada DCEN.",
+      "3": "DCEN menghasilkan penetrasi yang lebih dangkal."
+    }
+  },
+  {
+    "num": 399,
+    "q": "What would be the most likely SAW flux type for welding medium carbon steel which requires impact testing?",
+    "t": "Jenis flux SAW apa yang paling sesuai untuk mengelas medium carbon steel yang memerlukan pengujian impact toughness?",
+    "o": [
+      "A) Cellulosic",
+      "B) Rutile",
+      "C) Fused",
+      "D) Agglomerated"
+    ],
+    "a": 3,
+    "correctText": "D) Agglomerated",
+    "exp": "Agglomerated flux memungkinkan penambahan alloying elements ke weld metal dan umumnya memberikan sifat mekanik yang lebih baik, termasuk impact toughness yang tinggi. Oleh karena itu flux jenis ini sering digunakan untuk aplikasi yang mensyaratkan Charpy impact test.",
+    "w": {
+      "0": "Tidak digunakan sebagai flux SAW.",
+      "1": "Istilah ini lebih umum digunakan pada elektroda MMA.",
+      "2": "Memiliki keunggulan tertentu tetapi kurang fleksibel dibanding agglomerated flux untuk memenuhi persyaratan toughness tinggi."
+    }
+  },
+  {
+    "num": 400,
+    "q": "When SAW welding using twin wires with separate power supplies, what should the electrical characteristics be?",
+    "t": "Pada SAW twin-wire dengan sumber daya terpisah, bagaimana kombinasi karakteristik listrik yang umum digunakan?",
+    "o": [
+      "A) Both wires DC+",
+      "B) Both wires AC",
+      "C) The lead wire DC+ polarity followed by the trailing wire using AC polarity",
+      "D) Both wires DC−"
+    ],
+    "a": 2,
+    "correctText": "C) The lead wire DC+ polarity followed by the trailing wire using AC polarity",
+    "exp": "Lead wire menggunakan DCEP untuk memperoleh penetrasi yang baik pada bagian depan weld pool. Trailing wire menggunakan AC untuk meningkatkan deposition rate dan mengurangi risiko arc blow akibat arus tinggi pada sistem multi-wire.",
+    "w": {
+      "0": "Meningkatkan risiko arc blow pada arus tinggi.",
+      "1": "Dapat digunakan pada aplikasi tertentu tetapi bukan konfigurasi yang paling umum dan efektif.",
+      "3": "Menghasilkan penetrasi yang rendah dan tidak umum digunakan untuk konfigurasi twin-wire standar."
+    }
+  }
+];
+let cur=0,start=0,score=0,ans={},detail={};
+
+function isCorrectAnswer(q, idx){
+ const correct=Array.isArray(q.a)? q.a : [q.a];
+ return correct.includes(idx);
+}
+
+function correctLabel(q){
+ return q.correctText || (Array.isArray(q.a) ? q.a.map(i=>q.o[i]).join(" / ") : q.o[q.a]);
+}
+
+
+function updateTopStats(){
+ let correct=0,falsev=0,blank=0;
+ for(let i=0;i<qs.length;i++){
+   if(ans[i]===undefined) blank++;
+   else if(isCorrectAnswer(qs[i], ans[i])) correct++;
+   else falsev++;
+ }
+ const pct=Math.round((correct/qs.length)*100)||0;
+ const c=document.getElementById('correctCnt'); if(c) c.innerText=correct;
+ const f=document.getElementById('falseCnt'); if(f) f.innerText=falsev;
+ const b=document.getElementById('blankCnt'); if(b) b.innerText=blank;
+ const p=document.getElementById('pctTop'); if(p) p.innerText=pct;
+
+ let h='';
+ let pageStart=Math.floor(cur/10)*10;
+ for(let i=pageStart;i<Math.min(pageStart+10,qs.length);i++){
+   let cls='num ';
+   if(ans[i]==undefined) cls+='unanswered';
+   else cls+=(isCorrectAnswer(qs[i], ans[i])?'correct':'wrong');
+   if(i==cur) cls+=' current';
+   h+=`<button class="${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
+ }
+ const nav=document.getElementById('navTop');
+ if(nav) nav.innerHTML=h;
+}
+
+function renderNav(){
+ let h="";
+ for(let i=start;i<Math.min(start+10,qs.length);i++){
+   let cls="num ";
+   if(ans[i]==undefined) cls+="unanswered";
+   else cls+=(isCorrectAnswer(qs[i], ans[i])?"correct":"wrong");
+   if(i==cur) cls+=" current";
+   h+=`<button class="${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
+ }
+ const navEl=document.getElementById("nav"); if(navEl) navEl.innerHTML=h;
+}
+
+function draw(){
+ const total=qs.length;
+ document.getElementById("question").innerHTML=`<div class="q-header"><div class="q-num-badge">${cur+1}</div><h3 style="margin:0;font-size:16px;line-height:1.5">${qs[cur].q}</h3></div>`;
+ document.getElementById("options").innerHTML=qs[cur].o.map((x,i)=>`<button class='option' onclick='pick(${i})'>${x}</button>`).join("");
+ document.getElementById("result").innerHTML=detail[cur]||"";
+ renderNav();updateTopStats();
+}
+
+function pick(i){
+ if(ans[cur]==undefined){ans[cur]=i;if(isCorrectAnswer(qs[cur], i))score++;}
+ const q=qs[cur];
+ const keys=['A','B','C','D','E','F'];
+ const isCorrect=isCorrectAnswer(q, i);
+
+ // Build chosen wrong answer block (only if wrong)
+ let chosenWrongBlock='';
+ if(!isCorrect){
+  const chosenText=q.o[i].replace(/^[A-F]\.\s*/,'');
+  const chosenReason=q.w&&q.w[i]?q.w[i]:'Bukan jawaban yang paling tepat untuk konteks ini.';
+  chosenWrongBlock=`
+  <div style="background:#fff0f0;border-left:4px solid #dc3545;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#dc3545;margin-bottom:4px">❌ Jawaban Anda Salah: ${keys[i]}. ${chosenText}</div>
+   <div style="color:#666;font-size:13px">${chosenReason}</div>
+  </div>`;
+ }
+
+ // Correct answer block
+ const correctBlock=`
+  <div style="background:#f0fff4;border-left:4px solid #28a745;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#28a745;margin-bottom:4px">✅ Jawaban Benar: ${correctLabel(q)}</div>
+   <div style="color:#333;font-size:13px">${q.exp}</div>
+  </div>`;
+
+ // Remaining wrong options (excluding chosen and correct)
+ let remainingRows='';
+ q.o.forEach((opt,idx)=>{
+  if(isCorrectAnswer(q, idx)) return;
+  if(!isCorrect && idx===i) return; // already shown above
+  const label=keys[idx];
+  const reason=q.w&&q.w[idx]?q.w[idx]:'Bukan jawaban yang paling tepat untuk konteks ini.';
+  const optText=opt.replace(/^[A-F]\.\s*/,'');
+  remainingRows+=`<div style="padding:6px 14px;border-top:1px solid #eee">
+   <span style="font-weight:bold;color:#dc3545">${label}. ${optText}</span><br>
+   <span style="color:#888;font-size:13px">${reason}</span>
+  </div>`;
+ });
+
+ const remainingBlock=remainingRows?`
+  <div style="background:#fff8f8;padding:6px 0">
+   <div style="padding:6px 14px;font-weight:bold;color:#dc3545;font-size:13px">Opsi lain yang salah:</div>
+   ${remainingRows}
+  </div>`:'';
+
+ const translationBlock=q.t?`
+  <div style="background:#fffde7;border-left:4px solid #f9a825;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#f57f17;margin-bottom:3px;font-size:12px">📝 ARTI / MAKSUD SOAL:</div>
+   <div style="color:#444;font-size:13px;font-style:italic">${q.t}</div>
+  </div>`:'';
+
+ detail[cur]=`
+ <div style="border:1px solid #ccc;border-radius:6px;overflow:hidden;margin-top:10px">
+  <div style="background:${isCorrect?'#d4edda':'#f8d7da'};padding:8px 14px;font-size:15px;font-weight:bold">
+   ${isCorrect?'✅ BENAR':'❌ SALAH'}
+  </div>
+  ${translationBlock}
+  ${chosenWrongBlock}
+  ${correctBlock}
+  ${remainingBlock}
+ </div>`;
+ draw();
+}
+
+function gotoQ(i){cur=i;draw();}
+function pageNext(){if(start+10<qs.length){start+=10;renderNav();updateTopStats();}}
+function pagePrev(){if(start-10>=0){start-=10;renderNav();updateTopStats();}}
+
+function prevQ(){if(cur>0){cur--;if(cur<start)start-=10;draw();}}
+function nextQ(){
+ if(cur<qs.length-1){cur++;if(cur>=start+10)start+=10;draw();}
+ else review();
+}
+
+function review(){
+ const total=qs.length;
+ const pct=Math.round(score/total*100);
+ const pass=pct>=70;
+ const keys=['A','B','C','D','E','F'];
+ let h=`<div class='review-box'>
+  <h2 style="color:#1a73e8;margin-bottom:16px">REVIEW ALL QUESTION</h2>`;
+
+ qs.forEach((q,i)=>{
+  const userAns=ans[i];
+  const correct=q.a;
+  const isCorrect=isCorrectAnswer(q, userAns);
+  const unanswered=(userAns===undefined);
+
+  let ansBlock='';
+  if(unanswered){
+   ansBlock=`<div style="color:#888;font-style:italic;margin-top:6px">Belum dijawab</div>
+   <div style="margin-top:6px;background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px">
+    <b style="color:#28a745">✅ Jawaban Benar: ${correctLabel(q)}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  } else if(isCorrect){
+   ansBlock=`<div style="background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px;margin-top:6px">
+    <b style="color:#28a745">✅ Jawaban Anda Benar: ${correctLabel(q)}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  } else {
+   const wrongReason=q.w&&q.w[userAns]?q.w[userAns]:'Bukan jawaban yang paling tepat.';
+   ansBlock=`
+   <div style="background:#fff0f0;border-left:3px solid #dc3545;padding:8px 12px;margin-top:6px">
+    <b style="color:#dc3545">❌ Jawaban Anda Salah: ${q.o[userAns]}</b><br>
+    <span style="font-size:13px;color:#666">${wrongReason}</span>
+   </div>
+   <div style="background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px;margin-top:6px">
+    <b style="color:#28a745">✅ Jawaban Benar: ${correctLabel(q)}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  }
+
+  const reviewTransBlock=q.t?`<div style="background:#fffde7;border-left:3px solid #f9a825;padding:6px 10px;margin:4px 0 6px;border-radius:3px"><span style="font-size:11px;font-weight:bold;color:#f57f17">📝 Arti soal: </span><span style="font-size:12px;color:#555;font-style:italic">${q.t}</span></div>`:'';
+  h+=`<div style="background:#fff;border:1px solid #ddd;border-radius:6px;padding:14px;margin-bottom:14px">
+   <div style="display:flex;align-items:flex-start;gap:10px">
+    <div style="background:${isCorrect?'#28a745':unanswered?'#aaa':'#dc3545'};color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:13px">${i+1}</div>
+    <div style="flex:1">
+     <div style="font-weight:bold;font-size:14px;margin-bottom:2px">SOAL: ${q.q}</div>
+     ${reviewTransBlock}
+     ${ansBlock}
+    </div>
+   </div>
+  </div>`;
+ });
+
+ h+=`<div style="text-align:center;padding:20px;background:${pass?'#d4edda':'#f8d7da'};border-radius:8px;margin-top:10px">
+  <div style="font-size:22px;font-weight:bold;color:${pass?'#155724':'#721c24'}">
+   NILAI AKHIR: ${score}/${total} &nbsp; (${pct}%)
+  </div>
+  <div style="font-size:16px;margin-top:8px;color:${pass?'#155724':'#721c24'}">
+   ${pass?'🎉 LULUS — Passing Grade 70% Tercapai!':'😞 TIDAK LULUS — Passing Grade 70% Belum Tercapai'}
+  </div>
+  <div style="font-size:13px;color:#555;margin-top:6px">Passing Grade: 70% (${Math.ceil(total*0.7)} dari ${total} soal harus benar)</div>
+ </div>
+</div>`;
+ document.getElementById("review").innerHTML=h;
+ document.getElementById("review").scrollIntoView({behavior:'smooth'});
+}
+draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,2084 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>QUESTION BANK CSWIP 3.1 - Part 14 (Soal 1301-1400)</title>
+<style>
+body{font-family:Arial;max-width:1100px;margin:auto;background:#f4f4f4;padding:20px}
+.box{background:#fff;padding:20px;border-radius:10px}
+h1{text-align:center;margin:5px}
+h2{text-align:center;margin:5px;color:green}
+.navrow{display:flex;justify-content:center;gap:6px;margin:10px 0}
+.num{width:38px;height:38px;border-radius:50%;border:none;font-weight:bold;cursor:pointer}
+.current{outline:3px solid blue}
+.unanswered{background:#ddd}
+.correct{background:#28a745;color:#fff}
+.wrong{background:#dc3545;color:#fff}
+.option{display:block;width:100%;padding:10px;margin:8px 0;text-align:left;cursor:pointer;border:1px solid #ccc;border-radius:4px;background:#fff;font-size:14px}
+.option:hover{background:#f0f0f0}
+.progress{height:10px;background:#ddd;border-radius:10px}
+.fill{height:100%;background:#28a745;border-radius:10px;transition:width 0.3s}
+.review-box{background:#eef;padding:20px;margin-top:20px;border-radius:8px}
+.q-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.q-num-badge{background:#1a73e8;color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:14px}
+.nav-prev-next{display:flex;justify-content:space-between;align-items:center;margin-top:15px}
+.btn-nav{padding:8px 18px;font-size:14px;cursor:pointer;border:1px solid #ccc;border-radius:4px;background:#fff}
+.btn-nav:hover{background:#e8e8e8}
+.counter-bar{text-align:center;font-weight:bold;color:#555;margin:6px 0 12px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>QUESTION BANK CSWIP 3.1</h1>
+<h3 style="text-align:center;color:#1a73e8;margin:2px">Part 14 &mdash; Soal 1301 s/d 1400</h3>
+<h2>INSYA ALLAH LULUS</h2>
+
+
+<div id="topExamBar" style="margin-bottom:12px">
+  <div style="display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap">
+    <button class="btn-nav" onclick="prevQ()">◀ Previous</button>
+    <div id="navTop"></div>
+    <button class="btn-nav" onclick="nextQ()">Next ▶</button>
+  </div>
+  <div style="margin-top:6px;font-size:14px;font-weight:bold;text-align:center">
+    <span style="color:green">✔ Correct: <span id="correctCnt">0</span></span> |
+    <span style="color:red">✘ False: <span id="falseCnt">0</span></span> |
+    <span>☐ Blank: <span id="blankCnt">0</span></span> |
+    <span>%: <span id="pctTop">0</span></span>
+  </div>
+</div>
+
+<div id="question"></div>
+<div id="options"></div>
+<div id="result"></div>
+
+<div class="nav-prev-next">
+  <button class="btn-nav" onclick="prevQ()">⬅ Previous</button>
+  <button class="btn-nav" onclick="nextQ()">Next ➡</button>
+</div>
+
+
+<div id="review"></div>
+</div>
+
+<script>
+const qs=[
+  {
+    "q": "Which steel type is most likely to develop porosity when welded autogenously?",
+    "t": "Jenis baja apa yang paling berisiko mengalami porositas saat dilas secara autogenous (tanpa filler metal)?",
+    "o": [
+      "A. Fully killed steel",
+      "B. Semi-killed steel",
+      "C. Rimming steel",
+      "D. Balanced steel"
+    ],
+    "a": 2,
+    "exp": "Rimming steel memiliki kandungan oksigen yang relatif tinggi. Saat dilas tanpa filler yang mengandung deoxidizer, gas yang terbentuk lebih mudah terperangkap dan menghasilkan porositas.",
+    "w": {
+      "0": "Baja ini telah mengalami proses deoksidasi yang baik sehingga risiko porositas relatif rendah.",
+      "1": "Memiliki tingkat deoksidasi yang lebih baik dibanding rimming steel sehingga risiko porositas lebih kecil.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Tidak dikenal sebagai jenis baja yang paling rentan terhadap porositas dibanding rimming steel."
+    }
+  },
+  {
+    "q": "Which alloying element has the greatest effect on creep strength?",
+    "t": "Unsur paduan apa yang memiliki pengaruh terbesar terhadap peningkatan creep strength?",
+    "o": [
+      "A. Tungsten",
+      "B. Manganese",
+      "C. Carbon",
+      "D. Molybdenum"
+    ],
+    "a": 3,
+    "exp": "Molybdenum sangat efektif meningkatkan ketahanan material terhadap deformasi jangka panjang pada temperatur tinggi sehingga banyak digunakan pada baja tahan panas dan pressure vessel.",
+    "w": {
+      "0": "juga meningkatkan sifat temperatur tinggi, tetapi dalam konteks baja teknik dan material pressure vessel, molybdenum lebih umum dianggap unsur utama peningkat creep strength.",
+      "1": "Fungsi utamanya lebih berkaitan dengan kekuatan, hardenability, dan deoksidasi, bukan creep resistance.",
+      "2": "Karbon meningkatkan kekuatan dan kekerasan, tetapi bukan unsur utama yang digunakan untuk meningkatkan creep strength.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "The HAZ associated with a fusion weld:",
+    "t": "Pernyataan mana yang benar mengenai Heat Affected Zone (HAZ) pada fusion welding?",
+    "o": [
+      "A. Cannot be avoided",
+      "B. Usually has the highest tensile strength",
+      "C. Is usually martensitic",
+      "D. Both (A) and (B)",
+      "E. All of the above"
+    ],
+    "a": 0,
+    "exp": "Selama proses fusion welding terjadi pemanasan pada logam induk di sekitar sambungan. Akibatnya HAZ akan selalu terbentuk dan tidak dapat dihindari.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Kekuatan tarik tertinggi tidak selalu berada pada HAZ. Sifat mekanik HAZ sangat bergantung pada jenis material dan siklus termal yang dialami.",
+      "2": "HAZ tidak selalu mengandung martensit. Struktur mikro HAZ bergantung pada komposisi material dan laju pendinginan.",
+      "3": "Karena pernyataan B tidak selalu benar, kombinasi ini menjadi salah.",
+      "4": "Pernyataan B dan C tidak berlaku secara umum sehingga pilihan ini salah."
+    }
+  },
+  {
+    "q": "Four criteria necessary for hydrogen-induced cold cracking are:",
+    "t": "Empat kondisi utama apa yang diperlukan agar hydrogen-induced cold cracking dapat terjadi?",
+    "o": [
+      "A. Hydrogen, moisture, martensite and heat",
+      "B. Hydrogen, poor profile, temperature above 200°C and slow cooling",
+      "C. Hydrogen, susceptible grain structure, stress and temperature below 200°C",
+      "D. Hydrogen, existing defects, stress and susceptible grain structure"
+    ],
+    "a": 2,
+    "exp": "Hydrogen cracking memerlukan adanya hidrogen difusibel, struktur mikro yang rentan (umumnya martensitik), tegangan tarik, dan temperatur yang relatif rendah setelah pengelasan.",
+    "w": {
+      "0": "Kehadiran panas bukan salah satu syarat utama terjadinya cold cracking. Retak ini justru muncul setelah pendinginan.",
+      "1": "Cold cracking biasanya terjadi pada temperatur rendah, bukan di atas 200°C.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Adanya cacat sebelumnya bukan syarat wajib terjadinya hydrogen-induced cracking."
+    }
+  },
+  {
+    "q": "A carbon equivalent of 0.5%:",
+    "t": "Apa arti nilai carbon equivalent (CE) sebesar 0,5% pada baja karbon-mangan?",
+    "o": [
+      "A. Is high for C-Mn steel and may require preheat above 100°C",
+      "B. Is not significant for C-Mn steel",
+      "C. May require preheat above 300°C",
+      "D. Is calculated from heat input"
+    ],
+    "a": 0,
+    "exp": "Nilai CE sebesar 0,5% dianggap cukup tinggi untuk baja karbon-mangan. Material dengan CE seperti ini memiliki hardenability yang lebih besar sehingga sering memerlukan preheat untuk mengurangi risiko hydrogen cracking.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Nilai 0,5% justru dianggap penting karena dapat mempengaruhi weldability dan kebutuhan preheat.",
+      "2": "Temperatur preheat setinggi ini biasanya tidak diperlukan hanya karena CE sebesar 0,5%, kecuali terdapat kondisi khusus lainnya.",
+      "3": "Carbon equivalent dihitung dari komposisi kimia material, bukan dari heat input pengelasan."
+    }
+  },
+  {
+    "q": "In a martensitic grain structure, which property increases?",
+    "t": "Pada struktur mikro martensit, sifat material apa yang mengalami peningkatan?",
+    "o": [
+      "A. Ductility",
+      "B. Hardness",
+      "C. Toughness",
+      "D. All of the above"
+    ],
+    "a": 1,
+    "exp": "Martensit merupakan struktur mikro yang sangat keras dan getas yang terbentuk akibat pendinginan cepat dari daerah austenit. Semakin banyak martensit yang terbentuk, maka nilai kekerasan material akan meningkat secara signifikan.",
+    "w": {
+      "0": "Martensit justru menyebabkan material menjadi kurang ulet. Kemampuan material untuk mengalami deformasi plastis sebelum patah akan menurun dibandingkan struktur ferrite atau pearlite.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Martensit umumnya memiliki toughness yang lebih rendah karena sifatnya yang keras dan getas sehingga lebih mudah mengalami retak.",
+      "3": "Tidak semua sifat tersebut meningkat. Yang meningkat secara nyata adalah kekerasan, sedangkan ductility dan toughness justru cenderung menurun."
+    }
+  },
+  {
+    "q": "Which test uses a ductile-to-brittle transition curve?",
+    "t": "Pengujian apa yang menggunakan kurva transisi dari perilaku ulet (ductile) ke getas (brittle)?",
+    "o": [
+      "A. Tensile test",
+      "B. Charpy impact test",
+      "C. Fusion zone test",
+      "D. All of the above"
+    ],
+    "a": 1,
+    "exp": "Charpy impact test dilakukan pada berbagai temperatur untuk menentukan temperatur transisi dari perilaku ulet menjadi getas. Hasilnya biasanya ditampilkan dalam bentuk ductile-to-brittle transition curve.",
+    "w": {
+      "0": "Uji tarik digunakan untuk menentukan sifat mekanik seperti tensile strength, yield strength, dan elongation, bukan untuk menentukan temperatur transisi getas.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Bukan metode pengujian standar yang menghasilkan kurva ductile-to-brittle transition.",
+      "3": "Hanya Charpy impact test yang secara khusus menggunakan kurva transisi tersebut."
+    }
+  },
+  {
+    "q": "Which heat treatment cools in air from the austenitic region?",
+    "t": "Perlakuan panas manakah yang dilakukan dengan memanaskan material ke daerah austenit kemudian mendinginkannya di udara?",
+    "o": [
+      "A. Normalising",
+      "B. Annealing",
+      "C. Tempering",
+      "D. Stress relieving"
+    ],
+    "a": 0,
+    "exp": "Pada proses normalising, material dipanaskan hingga mencapai daerah austenit lalu didinginkan di udara bebas. Proses ini menghasilkan struktur yang lebih halus dan sifat mekanik yang lebih seragam.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "biasanya melibatkan pendinginan yang sangat lambat di dalam tungku untuk menghasilkan struktur yang lunak.",
+      "2": "dilakukan setelah quenching dan tidak memerlukan pemanasan ke daerah austenit.",
+      "3": "dilakukan pada temperatur yang lebih rendah dan tidak mencapai daerah austenit."
+    }
+  },
+  {
+    "q": "What is the purpose of microscopic examination of a weld?",
+    "t": "Apa tujuan pemeriksaan mikroskopik terhadap sambungan las?",
+    "o": [
+      "A. Determine number/type of defects",
+      "B. Determine grain size",
+      "C. Determine weld strength",
+      "D. Both (a) and (b)",
+      "E. All of the above"
+    ],
+    "a": 3,
+    "exp": "Pemeriksaan mikroskopik digunakan untuk mempelajari struktur mikro, ukuran butir, bentuk fasa, serta mendeteksi cacat-cacat kecil yang tidak dapat diamati secara makroskopik.",
+    "w": {
+      "0": "Benar, tetapi belum mencakup tujuan penting lainnya yaitu evaluasi ukuran butir dan struktur mikro.",
+      "1": "Benar, tetapi bukan satu-satunya tujuan pemeriksaan mikroskopik.",
+      "2": "Kekuatan las tidak ditentukan secara langsung melalui pemeriksaan mikroskopik. Untuk itu diperlukan pengujian mekanik seperti tensile test.",
+      "3": "Jawaban ini benar sesuai pembahasan.",
+      "4": "Salah karena microscopic examination tidak secara langsung mengukur atau menentukan weld strength."
+    }
+  },
+  {
+    "q": "Which units are used for tensile test results?",
+    "t": "Satuan apa yang digunakan untuk menyatakan hasil uji tarik?",
+    "o": [
+      "A. Pounds per square inch (psi)",
+      "B. Newton per square unit area",
+      "C. Joule",
+      "D. Both (a) and (b)"
+    ],
+    "a": 3,
+    "exp": "Hasil uji tarik dinyatakan sebagai tegangan yaitu gaya per satuan luas. Satuan yang umum digunakan adalah psi, MPa, atau N/mm².",
+    "w": {
+      "0": "Benar tetapi hanya mewakili sistem satuan imperial.",
+      "1": "Benar dan mewakili sistem metrik.",
+      "2": "merupakan satuan energi yang digunakan pada impact test, bukan untuk hasil tensile test.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Assuming all other variables are equal, which joint would normally require the highest preheat temperature?",
+    "t": "Dengan asumsi semua faktor lainnya sama, jenis sambungan mana yang biasanya memerlukan temperatur preheat tertinggi?",
+    "o": [
+      "A. Edge joint",
+      "B. Lap joint",
+      "C. Single V butt joint",
+      "D. Tee joint (fillet welded)"
+    ],
+    "a": 3,
+    "exp": "Tee joint dengan fillet weld memiliki restraint yang tinggi dan menyebabkan pendinginan lebih cepat pada area las. Kondisi ini meningkatkan risiko hydrogen cracking sehingga sering membutuhkan preheat yang lebih tinggi.",
+    "w": {
+      "0": "Memiliki restraint yang relatif rendah sehingga kebutuhan preheat biasanya lebih kecil.",
+      "1": "Dapat memerlukan preheat, tetapi umumnya tidak setinggi sambungan dengan restraint yang lebih besar.",
+      "2": "Meskipun sering digunakan pada material tebal, tingkat restraint biasanya lebih rendah dibanding tee joint yang dilas fillet.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Austenitic stainless steels are more susceptible to distortion because of:",
+    "t": "Mengapa stainless steel austenitik lebih rentan mengalami distorsi selama pengelasan?",
+    "o": [
+      "A. High coefficient of expansion and low thermal conductivity",
+      "B. High coefficient of expansion and high thermal conductivity",
+      "C. Low coefficient of expansion and high thermal conductivity",
+      "D. Low coefficient of expansion and low thermal conductivity"
+    ],
+    "a": 0,
+    "exp": "Material ini mengalami pemuaian yang besar ketika dipanaskan dan menghantarkan panas lebih lambat dibanding baja karbon. Kombinasi kedua sifat tersebut menyebabkan distorsi lebih mudah terjadi.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Stainless steel austenitik tidak memiliki thermal conductivity yang tinggi.",
+      "2": "Kedua karakteristik ini tidak sesuai dengan sifat stainless steel austenitik.",
+      "3": "Koefisien muainya justru tinggi, bukan rendah."
+    }
+  },
+  {
+    "q": "Which factor would most likely require an increase in preheat temperature?",
+    "t": "Faktor manakah yang paling mungkin menyebabkan kebutuhan temperatur preheat menjadi lebih tinggi?",
+    "o": [
+      "A. Increased travel speed",
+      "B. Reduced material thickness",
+      "C. Increased electrode diameter",
+      "D. None of the above"
+    ],
+    "a": 0,
+    "exp": "Travel speed yang lebih tinggi dapat menurunkan heat input sehingga laju pendinginan meningkat. Untuk mengimbangi pendinginan yang lebih cepat tersebut, preheat mungkin perlu dinaikkan.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Material yang lebih tipis umumnya membutuhkan preheat yang lebih rendah dibanding material tebal.",
+      "2": "Diameter elektroda yang lebih besar tidak secara langsung menentukan kebutuhan preheat.",
+      "3": "Salah karena peningkatan travel speed dapat menjadi alasan untuk meningkatkan preheat."
+    }
+  },
+  {
+    "q": "Which property may apply to a carbon steel weld (CE 0.48) welded without preheat?",
+    "t": "Karakteristik apa yang mungkin terjadi pada baja karbon dengan Carbon Equivalent 0.48 yang dilas tanpa preheat?",
+    "o": [
+      "A. Narrow HAZ and hardness above 400 HV",
+      "B. Broad HAZ and hardness above 400 HV",
+      "C. Tough and narrow HAZ",
+      "D. Narrow HAZ and low hardness values"
+    ],
+    "a": 0,
+    "exp": "Carbon equivalent yang cukup tinggi meningkatkan hardenability. Tanpa preheat, pendinginan menjadi sangat cepat sehingga HAZ cenderung sempit namun memiliki kekerasan tinggi dan berpotensi membentuk martensit.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "HAZ yang lebar biasanya berkaitan dengan heat input tinggi dan pendinginan yang lebih lambat.",
+      "2": "Pendinginan cepat pada CE tinggi justru mengurangi toughness dan meningkatkan kekerasan.",
+      "3": "Tanpa preheat pada CE 0.48, nilai kekerasan yang rendah tidak mungkin menjadi karakteristik utama."
+    }
+  },
+  {
+    "q": "Which of the following materials is considered to be the easiest to weld?",
+    "t": "Material manakah yang umumnya dianggap paling mudah untuk dilas?",
+    "o": [
+      "A. Mild steel",
+      "B. Medium carbon steel",
+      "C. Martensitic stainless steel",
+      "D. Forging steel"
+    ],
+    "a": 0,
+    "exp": "Mild steel memiliki kandungan karbon rendah, risiko retak yang kecil, kemampuan las yang sangat baik, serta tidak memerlukan prosedur pengelasan yang terlalu rumit dibanding material lainnya.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Kandungan karbon yang lebih tinggi meningkatkan risiko pengerasan HAZ dan hydrogen cracking sehingga pengelasannya lebih sulit.",
+      "2": "Material ini memiliki hardenability tinggi dan sering memerlukan preheat serta PWHT untuk menghindari retak.",
+      "3": "Baja tempa dapat memiliki komposisi dan sifat mekanik yang bervariasi sehingga pengelasannya umumnya lebih menantang dibanding mild steel."
+    }
+  },
+  {
+    "q": "Which of the following test pieces taken from a Charpy test on a carbon manganese steel weld, welded with a high heat input, is most likely to have the lowest toughness?",
+    "t": "Pada pengujian Charpy terhadap sambungan las baja karbon-mangan yang dilas dengan heat input tinggi, bagian manakah yang kemungkinan memiliki nilai toughness paling rendah?",
+    "o": [
+      "A. Test piece taken from parent metal",
+      "B. Test piece taken from weld metal",
+      "C. Test piece taken from HAZ (highest toughness)",
+      "D. All of the above values will be the same"
+    ],
+    "a": 2,
+    "exp": "Heat input yang tinggi dapat menyebabkan pertumbuhan butir yang berlebihan pada daerah HAZ (Heat Affected Zone). Struktur butir yang kasar umumnya memiliki toughness yang lebih rendah dibandingkan weld metal maupun parent metal.",
+    "w": {
+      "0": "Parent metal biasanya tidak mengalami perubahan struktur mikro sebesar HAZ sehingga umumnya memiliki toughness yang lebih baik.",
+      "1": "Weld metal dapat mengalami perubahan sifat mekanik, tetapi pada kondisi heat input tinggi daerah HAZ biasanya lebih kritis terhadap penurunan toughness.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Nilai toughness pada parent metal, weld metal, dan HAZ hampir tidak pernah identik karena masing-masing mengalami kondisi termal yang berbeda selama proses pengelasan."
+    }
+  },
+  {
+    "q": "Which of the following butt weld preparations would normally be considered for a mechanized welding process?",
+    "t": "Jenis persiapan sambungan butt weld manakah yang paling umum digunakan untuk proses pengelasan mekanis atau mechanized welding?",
+    "o": [
+      "A. Single V butt, root gap 2.5 mm (welded from one side only)",
+      "B. Double V butt, welded both sides, root gap 2.0 mm",
+      "C. Single U butt with backing",
+      "D. None of the above can be used for mechanized welding"
+    ],
+    "a": 2,
+    "exp": "Proses mekanis biasanya memerlukan persiapan sambungan yang konsisten, volume logam las yang lebih kecil, dan kontrol penetrasi yang baik. Single U butt dengan backing sangat sesuai untuk tujuan tersebut.",
+    "w": {
+      "0": "Dapat digunakan pada beberapa aplikasi, tetapi bukan pilihan yang paling umum untuk meningkatkan efisiensi pengelasan mekanis pada pelat tebal.",
+      "1": "Meskipun dapat dilas secara mekanis, persiapannya lebih rumit dan membutuhkan pengelasan dari dua sisi.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Salah karena beberapa jenis persiapan sambungan memang dapat digunakan untuk proses mekanis."
+    }
+  },
+  {
+    "q": "Which is the correct heat input for the following parameters, amps 350, volts 32 and travel speed 310 mm/minute (MMA welding process)?",
+    "t": "Hitung heat input berdasarkan parameter pengelasan yang diberikan.",
+    "o": [
+      "A. 2.16 kJ/mm",
+      "B. 0.036 kJ/mm",
+      "C. 2160 kJ/mm",
+      "D. 3.6 kJ/mm"
+    ],
+    "a": 0,
+    "exp": "Heat Input = (V × I × 60) / (1000 × Travel Speed) = (32 × 350 × 60) / (1000 × 310) = 2.17 kJ/mm Dibulatkan menjadi sekitar 2.16 kJ/mm.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Nilai ini terlalu kecil dan menunjukkan kesalahan perhitungan atau penggunaan satuan.",
+      "2": "Nilai ini sangat besar dan tidak realistis untuk parameter pengelasan tersebut.",
+      "3": "Hasil ini tidak sesuai dengan perhitungan menggunakan rumus heat input standar."
+    }
+  },
+  {
+    "q": "Assuming that the applicable specification makes no mention of arc strike, what would you expect to do as a welding inspector if arc strike were found on a component made of a high tensile strength material?",
+    "t": "Jika ditemukan arc strike pada material high tensile strength dan spesifikasi tidak memberikan petunjuk khusus, tindakan apa yang paling tepat dilakukan inspector?",
+    "o": [
+      "A. Have the welder re-qualified",
+      "B. Ignore them",
+      "C. Have the area checked for possible cracking",
+      "D. Cut out the entire weld where the arc strike exists"
+    ],
+    "a": 2,
+    "exp": "Material berkekuatan tinggi lebih rentan mengalami pengerasan lokal dan retak akibat arc strike. Oleh karena itu area tersebut perlu diperiksa untuk memastikan tidak terjadi cracking.",
+    "w": {
+      "0": "Arc strike tidak secara otomatis menunjukkan bahwa welder kehilangan kualifikasinya.",
+      "1": "Mengabaikan arc strike pada material berkekuatan tinggi dapat menyebabkan retak tidak terdeteksi dan berpotensi menimbulkan kegagalan saat servis.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Tindakan ini terlalu ekstrem sebelum dilakukan pemeriksaan dan evaluasi lebih lanjut."
+    }
+  },
+  {
+    "q": "A multi-pass MMA butt weld made on carbon steel consists of 5 passes deposited using a 6 mm diameter electrode. A 12-pass weld made on the same joint deposited using 4 mm diameter electrodes on the same material will have:",
+    "t": "Apa pengaruh penggunaan lebih banyak pass dengan elektroda yang lebih kecil pada sambungan yang sama?",
+    "o": [
+      "A. A lower heat input and a higher degree of grain refinement",
+      "B. A lower heat input and a coarse grain structure",
+      "C. A lower amount of distortion and a higher degree of grain refinement",
+      "D. A higher amount of distortion and a lower degree of grain refinement"
+    ],
+    "a": 0,
+    "exp": "Jumlah pass yang lebih banyak dengan elektroda berdiameter lebih kecil akan menghasilkan efek reheating berulang yang memperbaiki struktur mikro dan meningkatkan grain refinement.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Grain structure justru cenderung lebih halus akibat efek tempering dan reheating antar pass.",
+      "2": "Distorsi tidak selalu lebih rendah karena jumlah pass yang lebih banyak dapat meningkatkan akumulasi panas.",
+      "3": "Grain refinement justru meningkat sehingga pernyataan ini tidak benar."
+    }
+  },
+  {
+    "q": "What is the purpose of a transverse tensile test?",
+    "t": "Apa tujuan dilakukannya pengujian transverse tensile pada sambungan las?",
+    "o": [
+      "A. To measure ultimate tensile strength",
+      "B. To measure the elongation of a material",
+      "C. To measure the yield strength of a material",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Dari hasil tensile test dapat diperoleh nilai ultimate tensile strength, yield strength, serta elongation material sehingga seluruh pilihan benar.",
+    "w": {
+      "0": "Benar tetapi bukan satu-satunya data yang diperoleh.",
+      "1": "Benar namun tidak lengkap.",
+      "2": "Benar tetapi masih ada parameter lain yang juga diperoleh dari pengujian tersebut.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which of the following mechanical tests can be used to give a quantitative measurement of weld zone ductility?",
+    "t": "Pengujian mekanik manakah yang dapat memberikan pengukuran kuantitatif terhadap keuletan (ductility) daerah las?",
+    "o": [
+      "A. Tensile test",
+      "B. Bend test",
+      "C. Charpy V-notch test",
+      "D. All of the above"
+    ],
+    "a": 0,
+    "exp": "Tensile test memberikan nilai elongation yang dapat diukur secara numerik sehingga menjadi ukuran kuantitatif ductility.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "lebih bersifat kualitatif, yaitu lulus atau gagal berdasarkan munculnya cacat setelah pembengkokan.",
+      "2": "Mengukur toughness atau energi impak, bukan ductility secara langsung.",
+      "3": "Tidak semua pengujian tersebut memberikan nilai kuantitatif ductility."
+    }
+  },
+  {
+    "q": "Which of the following are reasons for applying preheat?",
+    "t": "Apa tujuan utama pemberian preheat sebelum pengelasan?",
+    "o": [
+      "A. The removal of residual stress",
+      "B. To aid slow cooling and reduce the carbon content",
+      "C. To reduce the chance of a brittle grain structure and to reduce the chance of hydrogen entrapment",
+      "D. Increase the ultimate tensile strength values and increase overall weldability"
+    ],
+    "a": 2,
+    "exp": "Preheat memperlambat laju pendinginan sehingga mengurangi pembentukan struktur keras dan getas serta membantu difusi hidrogen keluar dari sambungan.",
+    "w": {
+      "0": "Residual stress biasanya dikurangi melalui PWHT, bukan preheat.",
+      "1": "Preheat tidak mengurangi kandungan karbon material.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Tujuan utama preheat bukan meningkatkan tensile strength."
+    }
+  },
+  {
+    "q": "Which of the following are true with regard to a Charpy test?",
+    "t": "Pernyataan manakah yang benar mengenai Charpy impact test?",
+    "o": [
+      "A. It is a static test used to determine a material's notch toughness in the weld region",
+      "B. It is a dynamic test used to determine a material's notch toughness in the weld region",
+      "C. It is a destructive test to give a measurement of through-thickness ductility",
+      "D. None of the above"
+    ],
+    "a": 1,
+    "exp": "Charpy merupakan pengujian impak dinamis yang mengukur energi yang diserap material saat mengalami pembebanan kejut.",
+    "w": {
+      "0": "Charpy bukan pengujian statis melainkan pengujian dinamis.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Pengujian ductility through-thickness biasanya menggunakan metode lain, bukan Charpy.",
+      "3": "Salah karena pilihan B benar."
+    }
+  },
+  {
+    "q": "Which one of the following bend tests would be best suited for detection of lack of inter-run fusion on a 25 mm thick carbon steel butt weld?",
+    "t": "Jenis bend test apa yang paling efektif untuk mendeteksi lack of inter-run fusion pada butt weld baja karbon setebal 25 mm?",
+    "o": [
+      "A. Side bend (min thickness 12 mm)",
+      "B. Face bend",
+      "C. Root bend",
+      "D. Longitudinal bend"
+    ],
+    "a": 0,
+    "exp": "Untuk material tebal, side bend memungkinkan seluruh ketebalan las diperiksa dalam satu spesimen sehingga sangat efektif mendeteksi cacat internal seperti lack of inter-run fusion.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Lebih efektif untuk mendeteksi cacat di dekat permukaan face weld.",
+      "2": "Lebih efektif untuk mendeteksi cacat yang berada pada daerah root.",
+      "3": "Tidak seefektif side bend untuk pemeriksaan keseluruhan ketebalan sambungan las tebal."
+    }
+  },
+  {
+    "q": "Which of the following persons needs access to the welding procedure (WPS)?",
+    "t": "Siapa saja yang perlu memiliki akses terhadap Welding Procedure Specification (WPS) selama pelaksanaan pekerjaan pengelasan?",
+    "o": [
+      "A. Welders",
+      "B. Inspectors",
+      "C. NDT technicians",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "WPS merupakan dokumen yang berisi parameter dan persyaratan pengelasan yang harus diikuti selama pekerjaan berlangsung. Welder memerlukannya untuk melaksanakan pengelasan sesuai prosedur, inspector memerlukannya untuk melakukan verifikasi kesesuaian pekerjaan, dan NDT technician sering memerlukan informasi terkait proses pengelasan untuk mendukung kegiatan pemeriksaan dan evaluasi hasil las.",
+    "w": {
+      "0": "Welder memang merupakan pengguna utama WPS karena harus mengikuti seluruh parameter yang tercantum. Namun WPS tidak hanya diperlukan oleh welder saja karena personel lain juga membutuhkannya dalam menjalankan tugas masing-masing.",
+      "1": "Inspector membutuhkan WPS untuk memastikan pekerjaan dilakukan sesuai prosedur yang disetujui. Akan tetapi welder dan NDT technician juga memerlukan akses terhadap dokumen tersebut.",
+      "2": "NDT technician dapat menggunakan informasi dalam WPS untuk memahami detail sambungan yang diperiksa. Namun mereka bukan satu-satunya pihak yang membutuhkan dokumen tersebut.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Macro specimens should be inspected:",
+    "t": "Kapan spesimen makro sebaiknya diperiksa selama proses pengujian makro?",
+    "o": [
+      "A. After etching",
+      "B. After cutting and before etching",
+      "C. Only through 10× magnification",
+      "D. Both (A) and (B)",
+      "E. All of the above"
+    ],
+    "a": 3,
+    "exp": "Pemeriksaan spesimen makro biasanya dilakukan setelah pemotongan dan persiapan permukaan untuk melihat kondisi umum spesimen. Setelah proses etching, pemeriksaan dilakukan kembali untuk mengungkap struktur makro, garis fusi, penetrasi, dan kemungkinan cacat internal yang tidak terlihat sebelumnya.",
+    "w": {
+      "0": "Pemeriksaan setelah etching memang penting karena struktur makro menjadi terlihat jelas. Namun pemeriksaan sebelum etching juga merupakan bagian dari evaluasi yang baik.",
+      "1": "Pemeriksaan awal setelah pemotongan dapat mengungkap beberapa indikasi cacat atau kesalahan persiapan spesimen, tetapi pemeriksaan ini saja tidak cukup tanpa evaluasi setelah etching.",
+      "2": "Penggunaan pembesaran tertentu dapat membantu pemeriksaan, tetapi tidak menjadi syarat mutlak. Pemeriksaan makro tidak terbatas hanya pada pembesaran 10×.",
+      "3": "Jawaban ini benar sesuai pembahasan.",
+      "4": "Salah karena pernyataan \"Only through 10× magnification\" tidak benar."
+    }
+  },
+  {
+    "q": "EN 287 (BS EN ISO 9606) standard refers to what?",
+    "t": "Standar EN 287 yang sekarang dikenal sebagai BS EN ISO 9606 mengatur tentang apa?",
+    "o": [
+      "A. Welder approval",
+      "B. Welding procedure approval (EN 288 / EN ISO 15614)",
+      "C. Visual inspection of fusion welds",
+      "D. Welding inspection personnel"
+    ],
+    "a": 0,
+    "exp": "EN 287 dan penggantinya BS EN ISO 9606 digunakan untuk kualifikasi dan pengesahan kemampuan welder melalui welder qualification test sehingga dapat dibuktikan bahwa welder mampu menghasilkan sambungan sesuai persyaratan.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Persetujuan prosedur pengelasan diatur oleh standar prosedur seperti EN 288 atau BS EN ISO 15614, bukan EN 287.",
+      "2": "Pemeriksaan visual diatur oleh standar lain yang secara khusus membahas metode inspeksi visual.",
+      "3": "Persyaratan personel inspeksi las diatur oleh standar yang berbeda dan tidak termasuk dalam cakupan EN 287."
+    }
+  },
+  {
+    "q": "EN 499 (BS EN ISO 2560) standard refers to which of the following?",
+    "t": "Standar EN 499 yang sekarang dikenal sebagai BS EN ISO 2560 berkaitan dengan apa?",
+    "o": [
+      "A. Welding terms and symbols (BS EN 22553 / AWS A2.4)",
+      "B. Covered electrodes for MMA",
+      "C. Filler wires",
+      "D. SAW flux"
+    ],
+    "a": 1,
+    "exp": "EN 499 digunakan untuk klasifikasi elektroda berlapis (covered electrodes) yang digunakan pada proses Manual Metal Arc (MMA) welding.",
+    "w": {
+      "0": "Simbol dan istilah pengelasan diatur dalam standar tersendiri dan bukan dalam EN 499.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Kawat las untuk proses MIG, MAG, TIG, atau proses lainnya memiliki standar klasifikasi yang berbeda.",
+      "3": "Flux untuk proses Submerged Arc Welding memiliki standar tersendiri dan tidak termasuk ruang lingkup EN 499."
+    }
+  },
+  {
+    "q": "Which of the following documents provides instruction to the welder?",
+    "t": "Dokumen manakah yang digunakan sebagai instruksi kerja langsung bagi welder saat melakukan pengelasan?",
+    "o": [
+      "A. pWPS",
+      "B. WPS",
+      "C. WPAR / WPQR",
+      "D. All of the above"
+    ],
+    "a": 1,
+    "exp": "Welding Procedure Specification (WPS) merupakan dokumen resmi yang berisi parameter pengelasan, material, posisi pengelasan, arus, tegangan, preheat, dan informasi lain yang harus diikuti oleh welder saat bekerja.",
+    "w": {
+      "0": "Preliminary WPS digunakan sebagai dasar untuk pelaksanaan procedure qualification test dan belum tentu menjadi dokumen kerja yang telah disetujui untuk produksi.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "WPAR atau WPQR merupakan catatan hasil pengujian dan kualifikasi prosedur pengelasan. Dokumen ini digunakan sebagai bukti bahwa prosedur telah memenuhi persyaratan, bukan sebagai instruksi kerja langsung bagi welder.",
+      "3": "Tidak semua dokumen tersebut digunakan untuk memberikan instruksi langsung kepada welder. Dokumen yang memang dirancang sebagai panduan kerja adalah WPS yang telah disetujui."
+    }
+  },
+  {
+    "q": "The main reason for qualifying a welding procedure is:",
+    "t": "Apa tujuan utama dilakukannya kualifikasi prosedur pengelasan (Welding Procedure Qualification)?",
+    "o": [
+      "A. Determine the welder’s ability",
+      "B. Check whether the acceptance criteria specific to the project can be met",
+      "C. To show that the fabricator has good welding control",
+      "D. To show the welded joints meet the requirements of the specification",
+      "E. All of the above"
+    ],
+    "a": 3,
+    "exp": "Tujuan utama WPQR/PQR adalah membuktikan bahwa prosedur pengelasan yang digunakan mampu menghasilkan sambungan las yang memenuhi persyaratan mekanik, metalurgi, dan kualitas yang ditentukan dalam spesifikasi atau kode yang berlaku.",
+    "w": {
+      "0": "Kemampuan welder dievaluasi melalui Welder Qualification Test (WQT), bukan melalui qualification of welding procedure. Prosedur dan welder adalah dua hal yang berbeda.",
+      "1": "Ini dapat menjadi bagian dari proses verifikasi, namun bukan tujuan utama dari qualification procedure menurut standar.",
+      "2": "Pengendalian pengelasan yang baik memang penting, tetapi tujuan utama prosedur qualification adalah membuktikan kualitas sambungan las, bukan menilai sistem manajemen perusahaan.",
+      "3": "Jawaban ini benar sesuai pembahasan.",
+      "4": "Karena pilihan A dan C bukan tujuan utama qualification procedure, maka pilihan ini tidak tepat."
+    }
+  },
+  {
+    "q": "If welding travel speed is doubled but amps and volts remain the same, the heat input value will:",
+    "t": "Jika kecepatan pengelasan menjadi dua kali lipat sementara arus dan tegangan tetap, bagaimana perubahan heat input?",
+    "o": [
+      "A. Be reduced by 50%",
+      "B. Be increased by a factor of two",
+      "C. Remain about the same",
+      "D. Be reduced by about 25%"
+    ],
+    "a": 0,
+    "exp": "Heat Input = (Volts × Amps × 60) ÷ Travel Speed. Jika travel speed menjadi dua kali lebih besar sedangkan parameter lainnya tetap, maka heat input menjadi setengah dari nilai semula.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Kebalikannya yang terjadi. Meningkatkan travel speed justru mengurangi heat input per satuan panjang.",
+      "2": "Heat input sangat dipengaruhi oleh travel speed sehingga nilainya tidak akan tetap.",
+      "3": "Secara matematis pengurangan yang terjadi adalah sekitar 50%, bukan 25%."
+    }
+  },
+  {
+    "q": "When two different materials are to be welded, the joint is often referred to as:",
+    "t": "Jika dua material yang berbeda akan disambung dengan pengelasan, istilah apa yang umum digunakan untuk sambungan tersebut?",
+    "o": [
+      "A. A composite joint",
+      "B. A transition joint",
+      "C. A compound joint",
+      "D. All of the above"
+    ],
+    "a": 1,
+    "exp": "Sambungan antara dua material yang berbeda biasanya disebut transition joint atau dissimilar metal joint karena terdapat transisi sifat material dari satu jenis ke jenis lainnya.",
+    "w": {
+      "0": "Istilah ini lebih sering digunakan dalam konteks material komposit dan bukan istilah standar untuk sambungan dua logam berbeda.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Bukan istilah teknis yang umum digunakan dalam standar pengelasan untuk kondisi ini.",
+      "3": "Hanya transition joint yang merupakan istilah yang tepat dan umum digunakan."
+    }
+  },
+  {
+    "q": "Which of the following best describes a MIG/MAG welding plant?",
+    "t": "Manakah yang paling tepat menggambarkan karakteristik mesin MIG/MAG welding?",
+    "o": [
+      "A. Transformer/Rectifier (constant voltage)",
+      "B. Transformer flat characteristic",
+      "C. Transformer/Rectifier/Inverter (constant current)",
+      "D. All of the above"
+    ],
+    "a": 0,
+    "exp": "Mesin MIG/MAG umumnya menggunakan karakteristik constant voltage (CV) sehingga perubahan panjang busur dapat dikompensasi secara otomatis melalui perubahan arus.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Walaupun mesin CV memiliki karakteristik yang relatif datar, jawaban ini tidak menjelaskan jenis sumber tenaga secara lengkap.",
+      "2": "Constant current lebih umum digunakan pada MMA dan TIG, bukan MIG/MAG.",
+      "3": "Karena pilihan C tidak benar, maka pilihan ini juga salah."
+    }
+  },
+  {
+    "q": "Degreasing components are essential for quality welding. When welded, some agents may:",
+    "t": "Mengapa bahan pembersih atau degreasing agent harus diperhatikan sebelum pengelasan?",
+    "o": [
+      "A. Cause corrosion problems",
+      "B. Leave residues",
+      "C. Give off toxic gases",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Beberapa bahan pembersih dapat meninggalkan residu, menyebabkan masalah korosi, atau menghasilkan gas beracun ketika terkena panas pengelasan.",
+    "w": {
+      "0": "Ini memang dapat terjadi, tetapi bukan satu-satunya risiko yang mungkin timbul.",
+      "1": "Residu dapat menyebabkan cacat las, namun masih ada bahaya lain yang perlu diperhatikan.",
+      "2": "Beberapa bahan seperti chlorinated solvents dapat menghasilkan gas berbahaya saat dipanaskan, tetapi ini bukan satu-satunya masalah.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Cellulosic electrodes are often used for the deposition of a root pass on pipes welded in the field. This is because:",
+    "t": "Mengapa elektroda selulosa sering digunakan untuk root pass pada pengelasan pipa di lapangan?",
+    "o": [
+      "A. Hydrogen control is required",
+      "B. The high deposition rate due to iron powder content",
+      "C. The hydrogen gas produced in the flux increases the arc voltage",
+      "D. All of the above"
+    ],
+    "a": 2,
+    "exp": "Flux selulosa menghasilkan volume gas yang besar, terutama hidrogen, yang membantu menghasilkan arc force tinggi dan penetrasi dalam sehingga sangat cocok untuk root pass pipa.",
+    "w": {
+      "0": "Cellulosic electrode justru menghasilkan hidrogen tinggi sehingga bukan digunakan untuk hydrogen control.",
+      "1": "Elektroda selulosa tidak dikenal karena kandungan iron powder yang tinggi seperti beberapa elektroda rutile atau iron powder electrode.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Karena pilihan A dan B tidak benar, maka jawaban ini juga tidak tepat."
+    }
+  },
+  {
+    "q": "In the welding of austenitic stainless steel, the electrode and plate materials are often specified to be low carbon content. The reason for this is:",
+    "t": "Mengapa material dan elektroda untuk austenitic stainless steel sering disyaratkan memiliki kandungan karbon rendah?",
+    "o": [
+      "A. To prevent the formation of cracks in the HAZ",
+      "B. To prevent the formation of chromium carbides (weld decay)",
+      "C. To prevent cracking in the weld",
+      "D. Minimize distortion"
+    ],
+    "a": 1,
+    "exp": "Kandungan karbon yang rendah membantu mencegah terbentuknya chromium carbide pada batas butir yang dapat menyebabkan sensitization dan menurunkan ketahanan korosi.",
+    "w": {
+      "0": "Kandungan karbon rendah memang dapat membantu beberapa aspek metalurgi, tetapi alasan utamanya adalah mencegah weld decay.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Retak dapat dipengaruhi banyak faktor lain dan bukan alasan utama penggunaan grade low carbon.",
+      "3": "Distorsi lebih dipengaruhi heat input, restraint, dan desain sambungan."
+    }
+  },
+  {
+    "q": "With regards to a welding procedure, an essential variable may:",
+    "t": "Apa pengaruh perubahan essential variable pada welding procedure?",
+    "o": [
+      "A. Change the property of the weld",
+      "B. Influence the visual acceptance",
+      "C. Require re-approval of a weld procedure",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Perubahan essential variable dapat mempengaruhi sifat mekanik sambungan, kualitas visual hasil las, dan dalam banyak standar mengharuskan prosedur tersebut dikualifikasi ulang.",
+    "w": {
+      "0": "Benar, tetapi bukan satu-satunya konsekuensi yang mungkin terjadi.",
+      "1": "Benar, namun belum mencakup seluruh dampak perubahan essential variable.",
+      "2": "Benar, tetapi masih merupakan bagian dari konsekuensi yang lebih luas.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which of the following NDT methods can only detect surface-breaking defects?",
+    "t": "Metode NDT manakah yang hanya mampu mendeteksi cacat yang terbuka ke permukaan?",
+    "o": [
+      "A. MPI (surface and subsurface)",
+      "B. DPI / PT",
+      "C. UT",
+      "D. RT",
+      "E. Both (A) and (B)"
+    ],
+    "a": 1,
+    "exp": "Dye Penetrant Inspection (PT/DPI) bekerja dengan prinsip cairan penetran masuk ke cacat yang terbuka ke permukaan sehingga hanya dapat mendeteksi surface-breaking defects.",
+    "w": {
+      "0": "MPI dapat mendeteksi cacat permukaan dan dekat permukaan (subsurface), sehingga tidak terbatas pada surface-breaking defect saja.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Ultrasonic Testing mampu mendeteksi cacat internal maupun permukaan.",
+      "3": "Radiography dapat mendeteksi cacat internal yang berada di dalam volume las.",
+      "4": "Salah karena hanya PT yang secara eksklusif mendeteksi cacat yang terbuka ke permukaan."
+    }
+  },
+  {
+    "q": "Which of the following defects would show up as light indications on radiography?",
+    "t": "Cacat manakah yang akan muncul sebagai indikasi terang (light indication) pada film radiografi?",
+    "o": [
+      "A. Slag inclusion and copper inclusion",
+      "B. Tungsten inclusion and excessive root penetration",
+      "C. Cap undercut and root piping",
+      "D. Excessive cap height and incomplete root penetration"
+    ],
+    "a": 1,
+    "exp": "Material dengan densitas lebih tinggi daripada baja, seperti tungsten, menyerap lebih banyak radiasi sehingga menghasilkan area yang lebih terang pada film radiografi. Excessive root penetration juga menghasilkan peningkatan ketebalan lokal yang dapat memberikan indikasi terang.",
+    "w": {
+      "0": "Slag inclusion biasanya menghasilkan indikasi gelap karena densitasnya lebih rendah dibanding logam las. Oleh karena itu pasangan ini tidak seluruhnya menghasilkan indikasi terang.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Kedua kondisi tersebut merupakan area kekurangan material yang cenderung menghasilkan indikasi lebih gelap pada radiografi.",
+      "3": "Excessive cap height dapat memberikan indikasi terang, tetapi incomplete root penetration merupakan kekurangan logam yang biasanya menghasilkan indikasi gelap sehingga pasangan ini tidak tepat."
+    }
+  },
+  {
+    "q": "Which of the following additions may be added to an electrode flux to act as a stabilizer?",
+    "t": "Bahan apa yang dapat ditambahkan ke lapisan flux elektroda untuk membantu menstabilkan busur las?",
+    "o": [
+      "A. Sodium silicate",
+      "B. Silicon",
+      "C. Manganese",
+      "D. Titanium dioxide"
+    ],
+    "a": 3,
+    "exp": "Titanium dioxide (rutile) banyak digunakan dalam coating elektroda karena membantu menghasilkan busur yang stabil, penyalaan yang mudah, dan manik las yang halus.",
+    "w": {
+      "0": "umumnya berfungsi sebagai bahan pengikat (binder) dalam lapisan elektroda, bukan sebagai bahan utama penstabil busur.",
+      "1": "Silikon lebih dikenal sebagai deoxidizer yang membantu mengurangi oksigen dalam logam las, bukan sebagai stabilizer utama busur.",
+      "2": "berfungsi meningkatkan sifat mekanik dan membantu proses deoksidasi, tetapi bukan bahan utama untuk stabilisasi busur.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Lamellar tearing is best prevented by:",
+    "t": "Bagaimana cara terbaik untuk mencegah terjadinya lamellar tearing?",
+    "o": [
+      "A. The use of plate materials containing low levels of impurities",
+      "B. The use of buttering runs",
+      "C. Post weld stress relief",
+      "D. Both (A) and (B)"
+    ],
+    "a": 3,
+    "exp": "Lamellar tearing dapat dikurangi dengan menggunakan pelat berkualitas baik yang memiliki kandungan inklusi non-logam rendah serta dengan menerapkan buttering runs untuk mengurangi tegangan yang bekerja melalui ketebalan pelat.",
+    "w": {
+      "0": "Cara ini memang efektif, tetapi biasanya masih dikombinasikan dengan metode lain seperti buttering untuk memperoleh hasil yang lebih baik.",
+      "1": "Buttering sangat membantu mengurangi risiko lamellar tearing, tetapi kualitas material tetap menjadi faktor yang sangat penting.",
+      "2": "PWHT dapat mengurangi tegangan sisa, namun bukan metode utama untuk mencegah lamellar tearing yang umumnya berkaitan dengan kualitas material dan arah tegangan selama pengelasan.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "When considering radiography using X-rays, which of the following techniques is most likely to be used for a pipe-to-pipe weld (circumferential seam), 610 mm diameter with no internal access?",
+    "t": "Teknik radiografi mana yang paling mungkin digunakan untuk memeriksa sambungan keliling pipa diameter 610 mm tanpa akses ke bagian dalam pipa?",
+    "o": [
+      "A. SWSI",
+      "B. DWSI",
+      "C. DWDI",
+      "D. SWSI – Panoramic"
+    ],
+    "a": 1,
+    "exp": "Karena tidak ada akses internal, sumber radiasi harus ditempatkan di luar pipa. Untuk pipa berdiameter besar seperti 610 mm, teknik Double Wall Single Image (DWSI) merupakan metode yang paling umum digunakan.",
+    "w": {
+      "0": "Teknik ini umumnya membutuhkan akses yang memungkinkan sumber radiasi ditempatkan di dalam komponen sehingga kurang sesuai untuk kondisi tanpa akses internal.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Teknik ini lebih sering digunakan pada pipa berdiameter kecil di mana dua dinding pipa direkam sekaligus pada citra yang sama.",
+      "3": "Teknik panoramic memerlukan akses internal untuk menempatkan sumber radiasi di tengah pipa."
+    }
+  },
+  {
+    "q": "A balanced welding technique, for example back-step welding, is most often used for:",
+    "t": "Untuk tujuan apa teknik pengelasan seimbang seperti back-step welding paling sering digunakan?",
+    "o": [
+      "A. Controlling lamellar tearing",
+      "B. Increasing weld toughness",
+      "C. Reducing weld zone hardness",
+      "D. Reducing distortion"
+    ],
+    "a": 3,
+    "exp": "Back-step welding membantu menyeimbangkan distribusi panas dan penyusutan selama pengelasan sehingga deformasi atau distorsi dapat diminimalkan.",
+    "w": {
+      "0": "Lamellar tearing lebih dipengaruhi oleh kualitas material dan arah tegangan melalui ketebalan pelat.",
+      "1": "Toughness lebih dipengaruhi oleh material, heat input, dan perlakuan panas dibanding teknik back-step.",
+      "2": "Kekerasan lebih dipengaruhi oleh komposisi material dan laju pendinginan daripada pola urutan pengelasan.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "On a radiograph, the most likely appearance of lack of root fusion on a single V butt weld is:",
+    "t": "Bagaimana tampilan yang paling mungkin dari cacat lack of root fusion pada radiograf sambungan single V butt weld?",
+    "o": [
+      "A. A dark straight line with a light root",
+      "B. A dark root with straight edges",
+      "C. A dark uneven line following the edge of the root",
+      "D. None of the above; lack of root fusion cannot be seen on a radiograph"
+    ],
+    "a": 0,
+    "exp": "Pada radiografi, lack of root fusion pada single V butt weld umumnya tampak sebagai garis gelap lurus yang berada di sepanjang daerah akar sambungan. Karena akar sambungan sendiri masih terlihat sebagai area yang lebih terang, indikasi radiografi sering digambarkan sebagai \"a dark straight line with a light root\". Tampilan ini merupakan karakteristik yang sering digunakan dalam soal-soal CSWIP untuk mengidentifikasi lack of root fusion.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Tampilan ini lebih sering dikaitkan dengan incomplete root penetration, di mana terdapat celah pada akar sambungan yang menghasilkan indikasi gelap yang lebih terpusat pada root.",
+      "2": "Indikasi yang tidak beraturan dan mengikuti garis fusi lebih sering dikaitkan dengan lack of side wall fusion atau bentuk lack of fusion lainnya. Untuk lack of root fusion pada single V butt weld, tampilan yang umum diharapkan pada soal CSWIP adalah garis gelap lurus dengan akar yang masih tampak terang.",
+      "3": "Lack of root fusion dapat terdeteksi dengan radiografi apabila orientasi bidang cacat memungkinkan sinar-X atau gamma menghasilkan perbedaan densitas yang cukup pada film radiografi. Oleh karena itu pernyataan ini tidak benar."
+    }
+  },
+  {
+    "q": "Which of the following applies to the heat treatment process tempering?",
+    "t": "Pernyataan mana yang benar mengenai proses perlakuan panas tempering?",
+    "o": [
+      "A. It is always carried out at a temperature above the upper critical limit",
+      "B. It is carried out to increase the strength and toughness of weldments",
+      "C. Tempering is generally carried out before quench hardening",
+      "D. None of the above"
+    ],
+    "a": 1,
+    "exp": "Tempering dilakukan setelah proses pengerasan untuk mengurangi kerapuhan serta meningkatkan kombinasi kekuatan dan ketangguhan material.",
+    "w": {
+      "0": "Tempering dilakukan di bawah temperatur kritis, bukan di atasnya.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Urutan yang benar adalah quench hardening terlebih dahulu kemudian tempering.",
+      "3": "Salah karena pilihan B merupakan pernyataan yang paling tepat."
+    }
+  },
+  {
+    "q": "Which of the following is applicable to a plate lamination?",
+    "t": "Pernyataan mana yang benar mengenai laminasi pada pelat baja?",
+    "o": [
+      "A. They are best detected by radiography",
+      "B. They are mainly caused by hydrogen entrapment",
+      "C. They originate in the parent material",
+      "D. They are caused when welding stresses act parallel with the rolled direction of the parent plate"
+    ],
+    "a": 2,
+    "exp": "Laminasi merupakan cacat yang sudah ada di dalam material induk akibat proses pembuatan baja atau proses rolling.",
+    "w": {
+      "0": "Laminasi umumnya lebih efektif dideteksi menggunakan ultrasonic testing dibanding radiografi.",
+      "1": "Laminasi tidak disebabkan oleh hidrogen hasil pengelasan, melainkan berasal dari proses manufaktur material.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Kondisi ini lebih berkaitan dengan lamellar tearing, bukan plate lamination."
+    }
+  },
+  {
+    "q": "Which of the following NDT methods would be the least effective on an austenitic stainless steel butt weld?",
+    "t": "Metode NDT mana yang paling tidak efektif digunakan pada butt weld austenitic stainless steel?",
+    "o": [
+      "A. UT",
+      "B. RT",
+      "C. DPI / PT",
+      "D. MPI"
+    ],
+    "a": 3,
+    "exp": "Austenitic stainless steel pada umumnya bersifat non-magnetic sehingga Magnetic Particle Inspection tidak dapat digunakan secara efektif.",
+    "w": {
+      "0": "Walaupun terdapat beberapa kesulitan karena struktur butir kasar, UT masih dapat digunakan dengan teknik yang sesuai.",
+      "1": "Radiografi sangat umum digunakan untuk memeriksa cacat volumetrik pada stainless steel.",
+      "2": "Penetrant testing sangat efektif untuk mendeteksi cacat yang terbuka ke permukaan pada material non-magnetik.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "The hardest part of a multi-pass welded joint, assuming no PWHT has taken place, is:",
+    "t": "Pada sambungan multi-pass tanpa PWHT, bagian mana yang biasanya memiliki kekerasan tertinggi?",
+    "o": [
+      "A. The HAZ of the cap",
+      "B. The HAZ of the root",
+      "C. The root",
+      "D. The cap"
+    ],
+    "a": 1,
+    "exp": "HAZ pada root mengalami siklus termal pertama yang paling cepat pendinginannya. Pada banyak kasus bagian ini tidak mengalami tempering ulang secara efektif sehingga dapat menjadi area dengan kekerasan tertinggi.",
+    "w": {
+      "0": "HAZ pada lapisan atas biasanya mengalami laju pendinginan yang tidak secepat root dan sifatnya berbeda.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Logam las root belum tentu menjadi bagian yang paling keras karena kekerasan tertinggi sering ditemukan pada HAZ.",
+      "3": "Cap weld biasanya mengalami pendinginan yang lebih lambat dibanding area root sehingga jarang menjadi bagian yang paling keras."
+    }
+  },
+  {
+    "q": "Is it permissible to allow a multi-pass butt weld to cool down between weld passes?",
+    "t": "Apakah sambungan multi-pass butt weld boleh dibiarkan dingin di antara pass pengelasan?",
+    "o": [
+      "A. It should be up to the welding inspector",
+      "B. No, the weld must be kept hot at all times",
+      "C. It depends on the welder",
+      "D. It depends on the specification requirements"
+    ],
+    "a": 3,
+    "exp": "Persyaratan mengenai interpass temperature dan waktu antar pass ditentukan oleh WPS, kode, atau spesifikasi proyek. Oleh karena itu keputusan boleh atau tidaknya pendinginan harus mengacu pada dokumen tersebut.",
+    "w": {
+      "0": "Inspector harus mengacu pada spesifikasi dan prosedur yang berlaku, bukan membuat keputusan berdasarkan pertimbangan pribadi.",
+      "1": "Banyak prosedur pengelasan yang mengizinkan pendinginan selama masih berada dalam batas yang ditentukan.",
+      "2": "Keputusan ini tidak ditentukan oleh welder, tetapi oleh WPS dan persyaratan teknis yang berlaku.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "The usual method of assessing the sensitivity and density of a radiograph is by means of:",
+    "t": "Peralatan apa yang biasanya digunakan untuk menilai sensitivitas dan densitas suatu radiograf?",
+    "o": [
+      "A. Densitometer and dosimeter",
+      "B. Penetrameter and densitometer",
+      "C. IQI and dosimeter",
+      "D. IQI and flux meter"
+    ],
+    "a": 1,
+    "exp": "Sensitivitas radiografi biasanya dinilai menggunakan IQI (Image Quality Indicator) atau penetrameter, sedangkan densitas film diukur menggunakan densitometer. Kombinasi keduanya digunakan untuk memastikan kualitas radiograf memenuhi persyaratan pemeriksaan.",
+    "w": {
+      "0": "Densitometer memang digunakan untuk mengukur densitas film, tetapi dosimeter digunakan untuk mengukur paparan radiasi terhadap personel dan bukan untuk menilai sensitivitas radiograf.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "IQI digunakan untuk menilai sensitivitas gambar, tetapi dosimeter tidak digunakan untuk mengukur densitas film radiografi.",
+      "3": "Flux meter tidak memiliki fungsi dalam evaluasi kualitas radiograf."
+    }
+  },
+  {
+    "q": "In the submerged arc welding process, the use of excessively high voltage would result in:",
+    "t": "Apa akibat penggunaan tegangan yang terlalu tinggi pada proses SAW?",
+    "o": [
+      "A. Insufficient flux melting",
+      "B. Excessive flux melting",
+      "C. Slag removal difficulties",
+      "D. Excessive spatter"
+    ],
+    "a": 1,
+    "exp": "Tegangan yang terlalu tinggi akan memperlebar busur dan meningkatkan jumlah flux yang meleleh. Hal ini dapat menyebabkan konsumsi flux berlebihan dan mempengaruhi bentuk manik las.",
+    "w": {
+      "0": "Tegangan tinggi justru meningkatkan jumlah flux yang meleleh, bukan menguranginya.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Kesulitan pembersihan slag dapat terjadi karena faktor lain, tetapi bukan efek utama yang paling langsung dari tegangan yang terlalu tinggi.",
+      "3": "SAW merupakan proses yang secara normal menghasilkan spatter sangat sedikit karena busur tertutup flux."
+    }
+  },
+  {
+    "q": "Welding a steel plate with a CE of 0.45 would require preheating to:",
+    "t": "Mengapa pelat baja dengan Carbon Equivalent (CE) sebesar 0.45 biasanya memerlukan preheat sebelum pengelasan?",
+    "o": [
+      "A. Prevent the formation of sulphides",
+      "B. Prevent hardening in the HAZ",
+      "C. Prevent the formation of carbides",
+      "D. To reduce the amount of current required"
+    ],
+    "a": 1,
+    "exp": "Nilai CE sebesar 0.45 menunjukkan kecenderungan material mengalami pengerasan di daerah HAZ. Preheat digunakan untuk memperlambat laju pendinginan sehingga pembentukan martensit dan risiko hydrogen cracking dapat dikurangi.",
+    "w": {
+      "0": "Pembentukan sulphide tidak dikendalikan melalui preheat dan tidak menjadi alasan utama pemberian preheat.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Karbida terbentuk karena komposisi material dan siklus panas tertentu, bukan tujuan utama preheat pada baja karbon.",
+      "3": "Kebutuhan arus ditentukan oleh prosedur pengelasan dan tidak berhubungan langsung dengan tujuan preheat."
+    }
+  },
+  {
+    "q": "Cellulosic electrodes have which of the following properties?",
+    "t": "Karakteristik apa yang dimiliki oleh elektroda cellulosic?",
+    "o": [
+      "A. Viscous slag, large volumes of shielding gas and UTS values above 90,000 psi",
+      "B. Large volumes of shielding gas, high spatter contents and hydrogen levels <15 ml/100 g deposited weld metal",
+      "C. Large volumes of shielding gas, hydrogen contents >15 ml/100 g deposited weld metal and should never be baked",
+      "D. High spatter contents, high deposition and large volumes of gas shield"
+    ],
+    "a": 2,
+    "exp": "Elektroda cellulosic menghasilkan volume gas pelindung yang besar dari dekomposisi selulosa. Elektroda ini memiliki kandungan hidrogen relatif tinggi dan tidak boleh dipanggang seperti elektroda low hydrogen karena akan merusak lapisan flux-nya.",
+    "w": {
+      "0": "Elektroda cellulosic menghasilkan slag tipis dan mudah terlepas, bukan slag yang sangat kental.",
+      "1": "Kandungan hidrogen cellulosic justru lebih tinggi dari angka tersebut.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Walaupun dapat menghasilkan spatter relatif tinggi, karakteristik utama yang diuji dalam soal adalah kandungan hidrogen tinggi dan larangan baking."
+    }
+  },
+  {
+    "q": "From the following electrode coding in BS EN 499, E50 3 1Ni B 2 1 H5, what does the \"3\" represent?",
+    "t": "Dalam klasifikasi elektroda BS EN 499 E50 3 1Ni B 2 1 H5, apa arti angka \"3\"?",
+    "o": [
+      "A. A minimum Charpy value of 30 joules",
+      "B. A minimum impact value of 47 joules",
+      "C. A minimum impact temperature of −30°C at a given joule value",
+      "D. None of the above"
+    ],
+    "a": 2,
+    "exp": "Pada sistem klasifikasi BS EN 499, angka tersebut menunjukkan temperatur pengujian impact minimum yang harus dipenuhi oleh logam las pada nilai energi tertentu.",
+    "w": {
+      "0": "Angka 3 tidak menunjukkan nilai energi 30 joule.",
+      "1": "Nilai energi memang terkait dengan pengujian impact, tetapi angka 3 tidak secara langsung menunjukkan besarnya energi tersebut.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Salah karena pilihan C menjelaskan arti kode tersebut dengan benar."
+    }
+  },
+  {
+    "q": "Which of the following is applicable to electrode efficiency?",
+    "t": "Pernyataan mana yang benar mengenai efisiensi elektroda?",
+    "o": [
+      "A. The mass of metal deposited as a percentage of the mass of core wire melted",
+      "B. Iron powder electrodes have efficiencies above 100%",
+      "C. High-efficiency electrodes tend to produce smooth flat weld profiles",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Efisiensi elektroda dinyatakan sebagai perbandingan logam las yang terdeposit terhadap massa inti elektroda yang meleleh. Elektroda iron powder dapat memiliki efisiensi lebih dari 100% karena adanya tambahan serbuk besi pada flux, dan elektroda efisiensi tinggi umumnya menghasilkan profil las yang lebih rata.",
+    "w": {
+      "0": "Pernyataan ini benar tetapi belum mencakup keseluruhan informasi yang diberikan dalam pilihan lain.",
+      "1": "Pernyataan ini benar namun hanya sebagian dari jawaban lengkap.",
+      "2": "Pernyataan ini juga benar tetapi tidak mencakup seluruh aspek electrode efficiency.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "A fatigue crack fracture surface is:",
+    "t": "Bagaimana karakteristik permukaan patahan akibat fatigue crack?",
+    "o": [
+      "A. Rough randomly torn",
+      "B. Smooth",
+      "C. Step-like appearance",
+      "D. Bright crystalline"
+    ],
+    "a": 1,
+    "exp": "Retak fatigue berkembang secara perlahan akibat pembebanan berulang sehingga menghasilkan permukaan patahan yang relatif halus dan menunjukkan pola pertumbuhan retak bertahap.",
+    "w": {
+      "0": "Permukaan kasar dan sobekan acak lebih sering ditemukan pada patahan akibat overload ductile failure.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Dapat ditemukan pada kondisi tertentu tetapi bukan karakteristik utama fracture surface akibat fatigue.",
+      "3": "Lebih sering dikaitkan dengan patahan getas (brittle fracture)."
+    }
+  },
+  {
+    "q": "E6013 electrodes would most probably be used for welding:",
+    "t": "Elektroda E6013 paling umum digunakan untuk pekerjaan pengelasan seperti apa?",
+    "o": [
+      "A. Low pressure pipework",
+      "B. High pressure pipework",
+      "C. Vertical down welding on storage tanks",
+      "D. Situations where low hydrogen welds are specified"
+    ],
+    "a": 0,
+    "exp": "E6013 merupakan elektroda rutile serbaguna yang mudah digunakan dan umum dipakai untuk pekerjaan fabrikasi ringan serta pipa bertekanan rendah.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Pekerjaan pipa bertekanan tinggi biasanya memerlukan elektroda low hydrogen seperti E7018.",
+      "2": "Vertical down umumnya lebih identik dengan penggunaan elektroda cellulosic.",
+      "3": "E6013 bukan elektroda low hydrogen."
+    }
+  },
+  {
+    "q": "Which of the following welding processes are commonly used for the welding of aluminium?",
+    "t": "Proses pengelasan apa yang paling umum digunakan untuk aluminium?",
+    "o": [
+      "A. MIG and TIG",
+      "B. MAG and TIG",
+      "C. MMA and TIG",
+      "D. MMA and MIG",
+      "E. Both (a) and (b)"
+    ],
+    "a": 0,
+    "exp": "MIG dan TIG merupakan proses yang paling banyak digunakan untuk aluminium karena menggunakan gas inert yang mampu melindungi logam cair dari oksidasi.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "MAG menggunakan gas aktif dan tidak umum digunakan untuk aluminium.",
+      "2": "MMA dapat digunakan dalam kondisi tertentu, tetapi bukan proses yang paling umum untuk aluminium.",
+      "3": "MMA bukan pilihan utama untuk pengelasan aluminium.",
+      "4": "Salah karena MAG bukan proses yang umum digunakan untuk aluminium."
+    }
+  },
+  {
+    "q": "Which of the following materials would be the most difficult material to carry out UT?",
+    "t": "Material manakah yang paling sulit diperiksa menggunakan Ultrasonic Testing (UT)?",
+    "o": [
+      "A. Fine grained materials such as micro alloyed",
+      "B. A large coarse grained casting",
+      "C. Duplex stainless steel, 45% maximum ferrite content",
+      "D. Pipe grade material such as API 5L X65",
+      "E. Both B and C"
+    ],
+    "a": 4,
+    "exp": "Material berbutir kasar dan duplex stainless steel dapat menyebabkan hamburan, pelemahan, serta distorsi gelombang ultrasonik sehingga interpretasi sinyal menjadi lebih sulit dibandingkan material berbutir halus.",
+    "w": {
+      "0": "Struktur butir halus justru memberikan transmisi gelombang ultrasonik yang lebih baik.",
+      "1": "Memang sulit diperiksa dengan UT, tetapi duplex stainless steel juga memiliki tingkat kesulitan yang tinggi.",
+      "2": "Sulit diperiksa karena struktur dua fasa menyebabkan hamburan gelombang, namun bukan satu-satunya material yang sulit.",
+      "3": "Material ini relatif mudah diperiksa menggunakan UT karena struktur mikronya cukup seragam dibanding pilihan lainnya.",
+      "4": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Lamellar tearing is most likely to occur in which of the following conditions?",
+    "t": "Pada kondisi sambungan seperti apa cacat lamellar tearing paling mungkin terjadi?",
+    "o": [
+      "A. Single V butt weld made in tubular steel with low through thickness ductility",
+      "B. Full penetration fabricated Tee butt joint in steel with low through thickness ductility",
+      "C. Full penetration fabricated cruciform “Z” classified material",
+      "D. All SAW welded joints are susceptible",
+      "E. Both B and C"
+    ],
+    "a": 4,
+    "exp": "Lamellar tearing umumnya terjadi pada sambungan yang menghasilkan tegangan tarik melalui ketebalan pelat (through-thickness stress), terutama pada tee joint dan cruciform joint. Risiko semakin tinggi apabila material memiliki through-thickness ductility yang rendah. Material dengan klasifikasi Z-quality dirancang untuk meningkatkan ketahanan terhadap lamellar tearing sehingga sering dibahas dalam konteks ini.",
+    "w": {
+      "0": "Butt weld biasa umumnya tidak menghasilkan tegangan through-thickness sebesar tee joint atau cruciform joint sehingga risiko lamellar tearing lebih rendah.",
+      "1": "Kondisi ini memang sangat rentan terhadap lamellar tearing, tetapi bukan satu-satunya jawaban yang benar.",
+      "2": "Konfigurasi cruciform merupakan salah satu sambungan yang paling sering dikaitkan dengan lamellar tearing karena distribusi tegangannya.",
+      "3": "Lamellar tearing tidak ditentukan oleh proses pengelasannya saja, tetapi lebih dipengaruhi oleh desain sambungan, arah tegangan, dan kualitas material.",
+      "4": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Radiography is most suited to detection of:",
+    "t": "Jenis cacat apa yang paling efektif dideteksi menggunakan radiografi?",
+    "o": [
+      "A. Volumetric flaws (non planar)",
+      "B. All planar flaws (unvolumetric flaws)",
+      "C. Both A and B",
+      "D. Laminations in rolled plate materials"
+    ],
+    "a": 0,
+    "exp": "Radiografi sangat baik untuk mendeteksi cacat volumetrik seperti porosity, slag inclusion, dan cavity karena cacat tersebut memiliki volume yang cukup untuk menghasilkan perbedaan densitas pada film radiografi.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Cacat planar seperti lack of fusion atau crack sering kali sulit dideteksi dengan radiografi apabila orientasinya tidak sejajar dengan arah sinar.",
+      "2": "Radiografi tidak sama efektifnya untuk semua cacat planar sehingga pilihan ini tidak tepat.",
+      "3": "Laminasi lebih efektif dideteksi menggunakan ultrasonic testing karena orientasi cacatnya."
+    }
+  },
+  {
+    "q": "A good example of volumetric flaw:",
+    "t": "Manakah yang termasuk contoh cacat volumetrik?",
+    "o": [
+      "A. Slag inclusions",
+      "B. Root piping",
+      "C. Blow holes",
+      "D. All of the above"
+    ],
+    "a": 3,
+    "exp": "Slag inclusion, root piping, dan blow holes semuanya memiliki volume atau ruang tiga dimensi yang nyata di dalam sambungan las sehingga diklasifikasikan sebagai cacat volumetrik.",
+    "w": {
+      "0": "Benar sebagai cacat volumetrik, tetapi bukan satu-satunya jawaban yang benar.",
+      "1": "Juga merupakan cacat volumetrik karena berbentuk rongga atau penyusutan pada root.",
+      "2": "Termasuk porositas berukuran besar yang juga merupakan cacat volumetrik.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which of the following isotopes may be used for a 25 mm thick steel pipe-to-pipe weld DWSI (in accordance with EN 1435)?",
+    "t": "Isotop manakah yang sesuai digunakan untuk radiografi sambungan pipa baja tebal 25 mm dengan teknik DWSI?",
+    "o": [
+      "A. Ir 192 – 500 KeV",
+      "B. Co 60 (>50 mm) – 1.2 MeV",
+      "C. Se 75",
+      "D. Yb 169",
+      "E. Both A and C"
+    ],
+    "a": 4,
+    "exp": "Untuk ketebalan sekitar 25 mm, isotop Iridium-192 dan Selenium-75 merupakan sumber radiasi yang umum digunakan karena memiliki energi yang sesuai untuk menghasilkan kualitas radiografi yang baik.",
+    "w": {
+      "0": "Memang dapat digunakan, tetapi bukan satu-satunya pilihan yang sesuai.",
+      "1": "Biasanya digunakan untuk ketebalan material yang jauh lebih besar karena energinya sangat tinggi.",
+      "2": "Juga dapat digunakan untuk ketebalan tersebut, tetapi bukan satu-satunya jawaban yang benar.",
+      "3": "Lebih cocok untuk material yang lebih tipis karena energinya relatif rendah.",
+      "4": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which of the following can be used to reduce the chances of solidification cracking?",
+    "t": "Tindakan apa yang dapat membantu mengurangi risiko terjadinya solidification cracking?",
+    "o": [
+      "A. The use of a non-fluxed welding process and better quality materials",
+      "B. The use of better quality materials and the highest heat input process",
+      "C. The use of a low dilution process and wider joint preparation",
+      "D. The addition over 1.8% Mn and a low hydrogen welding process",
+      "E. All of the above"
+    ],
+    "a": 2,
+    "exp": "Solidification cracking dipengaruhi oleh komposisi logam las dan kondisi pembekuan. Penggunaan proses dengan dilusi rendah serta persiapan sambungan yang lebih lebar dapat membantu mengurangi pembentukan retak selama pembekuan.",
+    "w": {
+      "0": "Faktor ini dapat membantu kualitas las secara umum, tetapi tidak secara langsung menjadi metode utama untuk mengendalikan solidification cracking.",
+      "1": "Heat input yang terlalu tinggi justru dapat memperbesar risiko beberapa bentuk retak pembekuan.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Low hydrogen lebih berkaitan dengan pencegahan hydrogen cracking daripada solidification cracking.",
+      "4": "Tidak semua metode yang disebutkan secara langsung efektif untuk mengurangi solidification cracking."
+    }
+  },
+  {
+    "q": "Which phase transforms to martensite upon rapid cooling?",
+    "t": "Fasa manakah yang akan berubah menjadi martensit apabila mengalami pendinginan cepat?",
+    "o": [
+      "A. Ferrite",
+      "B. Austenite",
+      "C. Pearlite",
+      "D. Cementite"
+    ],
+    "a": 1,
+    "exp": "Martensit terbentuk ketika austenit mengalami pendinginan sangat cepat sehingga transformasi difusi normal tidak sempat terjadi.",
+    "w": {
+      "0": "bukan fasa yang berubah menjadi martensit saat pendinginan cepat.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "merupakan hasil transformasi austenit pada laju pendinginan yang lebih lambat.",
+      "3": "adalah senyawa karbida besi dan bukan fasa yang berubah menjadi martensit."
+    }
+  },
+  {
+    "q": "Which of the following is the most likely to be considered an essential variable for a welding qualification test?",
+    "t": "Perubahan manakah yang paling mungkin dianggap sebagai essential variable dalam qualification test?",
+    "o": [
+      "A. A change from an electrode classified to BS EN 499 as an E46 3 to an electrode classified to AWS A5.1 as an E7018",
+      "B. A change of pipe wall thickness by at least 15 mm",
+      "C. A change in preheat temperature from 50°C to 100°C",
+      "D. A change from PC welding position to PA welding position",
+      "E. All of the above"
+    ],
+    "a": 4,
+    "exp": "Jenis elektroda, ketebalan material, temperatur preheat, dan posisi pengelasan merupakan parameter yang dapat mempengaruhi hasil pengelasan secara signifikan dan sering dikategorikan sebagai essential variables.",
+    "w": {
+      "0": "Perubahan klasifikasi elektroda dapat mempengaruhi sifat mekanik dan karakteristik pengelasan.",
+      "1": "Perubahan ketebalan dapat mempengaruhi heat input, penetrasi, dan pendinginan.",
+      "2": "Perubahan preheat dapat mempengaruhi risiko retak dan struktur mikro.",
+      "3": "Perubahan posisi pengelasan dapat mempengaruhi teknik dan kualitas hasil las.",
+      "4": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Which mechanical test can be used to measure the toughness of weld metal, HAZ and parent material?",
+    "t": "Pengujian mekanik apa yang digunakan untuk mengukur toughness pada weld metal, HAZ, dan parent metal?",
+    "o": [
+      "A. Macro",
+      "B. Nick break",
+      "C. Hardness",
+      "D. Charpy impact"
+    ],
+    "a": 3,
+    "exp": "Charpy impact test mengukur energi yang diserap material saat menerima beban kejut sehingga digunakan untuk menentukan toughness.",
+    "w": {
+      "0": "Hanya digunakan untuk melihat struktur makro dan geometri las.",
+      "1": "Digunakan untuk mengungkap cacat internal, bukan mengukur toughness.",
+      "2": "Mengukur kekerasan, bukan toughness.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "A fabrication procedure calls for the toes of all welds to be blended in by grinding. The reason for doing this is to:",
+    "t": "Mengapa toe weld digerinda hingga halus sesuai prosedur fabrikasi?",
+    "o": [
+      "A. Make the welds suitable for liquid (dye) penetrant inspection",
+      "B. Improve the fatigue life",
+      "C. Reduce residual stresses",
+      "D. Improve the general appearance of the weld"
+    ],
+    "a": 1,
+    "exp": "Grinding pada weld toe mengurangi konsentrasi tegangan sehingga meningkatkan ketahanan terhadap fatigue failure.",
+    "w": {
+      "0": "DPI dapat dilakukan tanpa harus melakukan toe blending pada semua kasus.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Grinding tidak secara signifikan menghilangkan residual stress.",
+      "3": "Penampilan mungkin menjadi lebih baik, tetapi bukan alasan utama dalam aplikasi teknik."
+    }
+  },
+  {
+    "q": "For full penetration single sided butt joints, root bead penetration and profile are mainly influenced by:",
+    "t": "Faktor apa yang paling mempengaruhi penetrasi dan bentuk root bead pada single sided full penetration butt joint?",
+    "o": [
+      "A. Root face",
+      "B. Bevel angle",
+      "C. Root gap",
+      "D. Included angle"
+    ],
+    "a": 2,
+    "exp": "Root gap secara langsung menentukan ruang yang tersedia bagi logam las untuk menembus dan membentuk root bead.",
+    "w": {
+      "0": "Berpengaruh terhadap penetrasi, tetapi tidak sekuat pengaruh root gap.",
+      "1": "Lebih mempengaruhi akses pengelasan dan volume pengisian.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Mempengaruhi jumlah logam las yang diperlukan tetapi bukan faktor utama pembentukan root bead."
+    }
+  },
+  {
+    "q": "Which of the following would be cause for rejection by most fabrication standards when inspecting fillet welds with undercut?",
+    "t": "Saat melakukan inspeksi fillet weld yang memiliki cacat undercut, parameter apa yang paling sering menjadi alasan penolakan menurut sebagian besar standar fabrikasi?",
+    "o": [
+      "A. Depth",
+      "B. Length",
+      "C. Width",
+      "D. Sharpness"
+    ],
+    "a": 3,
+    "exp": "Undercut yang tajam (sharp undercut) dapat bertindak sebagai stress concentrator yang sangat efektif dan meningkatkan risiko terjadinya fatigue cracking maupun crack initiation selama komponen beroperasi. Oleh karena itu banyak standar fabrikasi memberikan perhatian khusus terhadap ketajaman undercut karena berpengaruh langsung terhadap integritas sambungan, terutama pada konstruksi yang menerima beban dinamis atau siklik.",
+    "w": {
+      "0": "Kedalaman undercut memang sering diukur dan memiliki batas penerimaan tertentu dalam berbagai standar. Namun pada soal ini yang ditanyakan adalah faktor yang paling sering menjadi penyebab penolakan menurut referensi CSWIP, yaitu ketajaman undercut yang berhubungan langsung dengan konsentrasi tegangan.",
+      "1": "Panjang undercut dapat dipertimbangkan dalam evaluasi cacat, tetapi biasanya bukan faktor utama yang menentukan tingkat keparahan apabila dibandingkan dengan bentuk atau ketajamannya.",
+      "2": "Lebar undercut umumnya tidak digunakan sebagai acceptance criteria utama dalam sebagian besar standar fabrikasi. Parameter ini juga tidak memiliki pengaruh sebesar ketajaman undercut terhadap konsentrasi tegangan.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "When visually inspecting the root bead of a single V butt weld it should be checked for:",
+    "t": "Saat melakukan inspeksi visual pada root bead (manik akar) dari sambungan single V butt weld, cacat apa yang menjadi fokus utama pemeriksaan?",
+    "o": [
+      "A. Lack of root penetration",
+      "B. HAZ hardness",
+      "C. Tungsten inclusion",
+      "D. Slag"
+    ],
+    "a": 0,
+    "exp": "Root bead merupakan bagian pertama yang terbentuk pada akar sambungan. Tujuan utama pemeriksaan visual pada area ini adalah memastikan penetrasi telah mencapai akar sambungan secara penuh dan merata. Apabila terjadi lack of root penetration, maka sambungan tidak menyatu secara sempurna pada bagian akar sehingga kekuatan sambungan berkurang dan dapat menjadi titik awal kegagalan saat menerima beban.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Kekerasan pada Heat Affected Zone (HAZ) tidak dapat ditentukan melalui inspeksi visual. Untuk mengetahui nilai kekerasan diperlukan pengujian hardness test menggunakan alat khusus seperti Vickers, Brinell, atau Rockwell. Inspector tidak dapat menilai hardness hanya dengan melihat permukaan las.",
+      "2": "biasanya ditemukan pada proses TIG apabila elektroda tungsten menyentuh weld pool. Selain itu cacat ini umumnya berada di dalam logam las dan sulit diidentifikasi hanya melalui pemeriksaan visual root bead.",
+      "3": "dapat terlihat jika muncul ke permukaan, namun pada pemeriksaan root bead fokus utama adalah memastikan penetrasi akar tercapai. Slag bukan cacat utama yang secara khusus diperiksa pada root bead single V butt weld."
+    }
+  },
+  {
+    "q": "The strength of a fillet weld is determined by:",
+    "t": "Dimensi apa yang paling menentukan kekuatan fillet weld dalam menahan beban?",
+    "o": [
+      "A. Leg length",
+      "B. Weld profile",
+      "C. Weld width",
+      "D. Throat thickness"
+    ],
+    "a": 3,
+    "exp": "Throat thickness adalah jarak terpendek dari akar fillet weld ke permukaan muka las. Bagian inilah yang menjadi area efektif penahan beban. Dalam perhitungan desain sambungan fillet weld, kekuatan sambungan dihitung berdasarkan luas throat thickness sehingga merupakan faktor paling penting dalam menentukan kekuatan las.",
+    "w": {
+      "0": "memang digunakan untuk mengukur ukuran fillet weld, tetapi kekuatan sebenarnya ditentukan oleh throat thickness. Dua fillet weld dapat memiliki leg length yang sama tetapi throat thickness yang berbeda karena bentuk profil las yang berbeda.",
+      "1": "Profil las dapat mempengaruhi distribusi tegangan dan ketahanan fatigue, namun bukan parameter utama dalam perhitungan kekuatan statis fillet weld.",
+      "2": "Lebar las tidak digunakan sebagai dasar utama dalam menentukan kapasitas beban fillet weld. Yang dihitung adalah area throat efektif.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "The European standard for NDE of fusion welds by visual examination is:",
+    "t": "Standar Eropa apa yang digunakan untuk pemeriksaan visual (Visual Testing/VT) pada fusion welds?",
+    "o": [
+      "A. EN 15614",
+      "B. EN 2560",
+      "C. EN 287",
+      "D. EN 17637"
+    ],
+    "a": 3,
+    "exp": "EN 17637 merupakan standar yang secara khusus mengatur metode pemeriksaan visual pada sambungan las fusi. Standar ini menjelaskan persyaratan personel, kondisi pencahayaan, metode pemeriksaan, dan aspek yang harus diperiksa selama visual inspection.",
+    "w": {
+      "0": "Standar ini membahas qualification of welding procedures atau pengesahan prosedur pengelasan, bukan metode visual inspection.",
+      "1": "Standar ini berkaitan dengan klasifikasi elektroda berlapis untuk proses MMA welding.",
+      "2": "Standar ini membahas qualification atau approval test untuk welder, bukan metode inspeksi visual.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Visual inspection of a fabricated item for high integrity application should cover inspection activities:",
+    "t": "Untuk komponen dengan tingkat keselamatan dan integritas tinggi, kapan inspeksi visual harus dilakukan?",
+    "o": [
+      "A. Before, during and after welding",
+      "B. Before welding only",
+      "C. After welding only",
+      "D. During and after welding only"
+    ],
+    "a": 0,
+    "exp": "Inspeksi visual yang efektif harus dilakukan pada seluruh tahapan pekerjaan. Sebelum pengelasan dilakukan pemeriksaan persiapan sambungan, fit-up, material, dan kebersihan. Selama pengelasan dilakukan pemeriksaan parameter, teknik pengelasan, serta urutan pengelasan. Setelah pengelasan dilakukan pemeriksaan hasil akhir sambungan dan kemungkinan adanya cacat permukaan.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Pemeriksaan sebelum pengelasan memang penting, tetapi tidak dapat menjamin kualitas proses dan hasil akhir apabila tidak ada pemeriksaan selama dan setelah pengelasan.",
+      "2": "Banyak kesalahan yang terjadi selama persiapan dan proses pengelasan tidak dapat diperbaiki dengan mudah apabila baru diketahui setelah pekerjaan selesai.",
+      "3": "Persiapan sambungan sebelum pengelasan sangat berpengaruh terhadap kualitas hasil las sehingga tahap ini tidak boleh diabaikan."
+    }
+  },
+  {
+    "q": "Incomplete root penetration in a single V butt joint may be caused by:",
+    "t": "Faktor apa yang dapat menyebabkan incomplete root penetration pada sambungan single V butt joint?",
+    "o": [
+      "A. Excessive root face",
+      "B. Excessive root gap",
+      "C. The current setting being too low",
+      "D. Both A and C"
+    ],
+    "a": 3,
+    "exp": "Root face yang terlalu tebal akan menghambat penetrasi hingga ke akar sambungan. Selain itu arus yang terlalu rendah menyebabkan panas yang dihasilkan tidak cukup untuk melelehkan seluruh ketebalan root face sehingga penetrasi penuh tidak tercapai.",
+    "w": {
+      "0": "Benar tetapi belum lengkap karena arus rendah juga dapat menyebabkan cacat yang sama.",
+      "1": "Root gap yang terlalu besar biasanya menyebabkan burn through atau excessive penetration, bukan incomplete penetration.",
+      "2": "Benar tetapi bukan satu-satunya penyebab yang disebutkan dalam pilihan jawaban.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Incomplete root fusion in a single V butt weld may be caused by:",
+    "t": "Apa penyebab yang paling mungkin menimbulkan incomplete root fusion pada single V butt weld?",
+    "o": [
+      "A. Linear misalignment",
+      "B. Root gap being too large",
+      "C. Root face being too small",
+      "D. Welding current too high"
+    ],
+    "a": 0,
+    "exp": "Linear misalignment menyebabkan kedua sisi material tidak sejajar sehingga busur las tidak dapat melelehkan kedua sisi akar sambungan secara merata. Kondisi ini dapat mengakibatkan lack of fusion pada bagian root.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Root gap yang besar cenderung meningkatkan penetrasi dan lebih sering menyebabkan burn through.",
+      "2": "Root face kecil justru membantu penetrasi dan peleburan mencapai akar sambungan.",
+      "3": "Arus tinggi biasanya meningkatkan peleburan sehingga kecil kemungkinan menjadi penyebab lack of root fusion."
+    }
+  },
+  {
+    "q": "A burn through may occur if the:",
+    "t": "Kondisi apa yang paling sering menyebabkan burn through pada sambungan las?",
+    "o": [
+      "A. Current is too low",
+      "B. Root face is too large",
+      "C. Root gap is too large",
+      "D. Arc voltage is too high"
+    ],
+    "a": 2,
+    "exp": "Apabila root gap terlalu besar, logam cair pada akar sambungan tidak memiliki cukup penyangga sehingga dapat jatuh menembus sambungan dan menghasilkan burn through.",
+    "w": {
+      "0": "Arus rendah biasanya menyebabkan kurang penetrasi, bukan burn through.",
+      "1": "Root face besar menghambat penetrasi dan justru cenderung menyebabkan incomplete penetration.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Tegangan yang tinggi dapat mempengaruhi bentuk busur, namun penyebab utama burn through pada soal ini adalah root gap yang terlalu besar."
+    }
+  },
+  {
+    "q": "A code of practice is a:",
+    "t": "Apa yang dimaksud dengan code of practice dalam kegiatan fabrikasi dan pengelasan?",
+    "o": [
+      "A. Standard of workmanship quality only",
+      "B. Set of rules for manufacturing a specific product",
+      "C. Specification for the finished product",
+      "D. Code for the qualification of welding procedures and welders qualifications"
+    ],
+    "a": 1,
+    "exp": "Code of practice adalah kumpulan aturan, persyaratan, rekomendasi, dan pedoman yang harus diikuti selama proses desain, fabrikasi, inspeksi, pengujian, dan penerimaan suatu produk tertentu. Code ini bertujuan memastikan produk dibuat dengan metode yang aman, konsisten, dan sesuai standar yang berlaku.",
+    "w": {
+      "0": "Code of practice tidak hanya mengatur kualitas pengerjaan (workmanship). Di dalamnya juga dapat mencakup material, prosedur pengelasan, inspeksi, pengujian, dokumentasi, hingga persyaratan keselamatan kerja. Oleh karena itu ruang lingkupnya jauh lebih luas dibanding sekadar standar kualitas pengerjaan.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Spesifikasi produk menjelaskan persyaratan yang harus dipenuhi oleh produk akhir, sedangkan code of practice menjelaskan bagaimana produk tersebut harus dibuat dan dikendalikan selama proses fabrikasi.",
+      "3": "Kualifikasi WPS dan welder memang dapat menjadi bagian dari persyaratan suatu code, tetapi bukan definisi utama dari code of practice itu sendiri."
+    }
+  },
+  {
+    "q": "A solid inclusion in a weld may be:",
+    "t": "Cacat manakah yang termasuk kategori solid inclusion pada sambungan las?",
+    "o": [
+      "A. Entrapped slag",
+      "B. Entrapped gas",
+      "C. Lack of inter run fusion",
+      "D. None of the above"
+    ],
+    "a": 0,
+    "exp": "Solid inclusion adalah material padat non-logam yang terperangkap di dalam logam las. Slag inclusion merupakan contoh paling umum dari solid inclusion karena berasal dari sisa flux atau terak yang gagal dibersihkan dan kemudian terjebak di dalam logam las saat pengelasan berikutnya dilakukan.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Gas yang terjebak di dalam logam las akan membentuk porosity atau gas pores. Cacat ini termasuk kategori gas inclusion atau porosity, bukan solid inclusion karena yang terperangkap adalah gas, bukan benda padat.",
+      "2": "Lack of fusion merupakan cacat planar yang terjadi akibat kegagalan peleburan antara lapisan las atau antara logam las dan logam induk. Cacat ini tidak melibatkan benda asing yang terperangkap sehingga tidak termasuk solid inclusion.",
+      "3": "Salah karena slag inclusion merupakan contoh yang sangat jelas dari solid inclusion."
+    }
+  },
+  {
+    "q": "For fillet welds it is normal practice in the UK and USA to measure:",
+    "t": "Dalam praktik inspeksi fillet weld di Inggris dan Amerika Serikat, dimensi apa yang biasanya diukur secara langsung?",
+    "o": [
+      "A. Throat thickness",
+      "B. Leg lengths",
+      "C. Penetration depths",
+      "D. Both A and C"
+    ],
+    "a": 1,
+    "exp": "Pada praktik inspeksi fillet weld di UK dan USA, ukuran fillet weld umumnya ditentukan berdasarkan panjang kaki las (leg length). Pengukuran dilakukan menggunakan fillet weld gauge untuk memastikan ukuran las sesuai dengan gambar atau spesifikasi yang ditentukan.",
+    "w": {
+      "0": "Walaupun throat thickness menentukan kekuatan fillet weld, nilai ini biasanya dihitung berdasarkan ukuran fillet weld dan tidak selalu diukur secara langsung saat inspeksi visual rutin.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Kedalaman penetrasi bukan parameter yang umumnya diukur secara langsung pada pemeriksaan visual fillet weld karena sulit ditentukan tanpa metode pengujian tambahan.",
+      "3": "Throat thickness dan penetration depth bukan ukuran yang secara normal diukur langsung dalam praktik inspeksi visual fillet weld di UK dan USA."
+    }
+  },
+  {
+    "q": "In a bend test, when the face of the specimen is in tension and root is in compression, the test is called a:",
+    "t": "Pada bend test, apabila permukaan weld face berada pada sisi tarik (tension) dan bagian root berada pada sisi tekan (compression), jenis pengujian apakah itu?",
+    "o": [
+      "A. Root bend",
+      "B. Side bend",
+      "C. Face bend",
+      "D. Longitudinal bend"
+    ],
+    "a": 2,
+    "exp": "Face bend test dilakukan dengan menempatkan weld face pada sisi luar lengkungan sehingga weld face mengalami tegangan tarik maksimum selama pembengkokan. Pengujian ini bertujuan mendeteksi cacat yang berada di dekat permukaan face weld.",
+    "w": {
+      "0": "Pada root bend, justru bagian root berada pada sisi tarik dan face berada pada sisi tekan. Kondisinya berlawanan dengan yang dijelaskan dalam soal.",
+      "1": "digunakan terutama pada material yang lebih tebal dan tidak berfokus pada face atau root secara khusus karena sisi samping spesimen yang menerima tegangan tarik.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Istilah ini tidak menggambarkan kondisi pembebanan yang dijelaskan dalam soal dan bukan jawaban yang sesuai untuk identifikasi jenis bend test tersebut."
+    }
+  },
+  {
+    "q": "Heavy porosity on the surface of some MMA welds made on a construction site is most likely to be caused by:",
+    "t": "Apa penyebab yang paling mungkin apabila ditemukan porositas yang sangat banyak pada permukaan hasil las MMA di lokasi konstruksi?",
+    "o": [
+      "A. Use of the wrong class of electrodes",
+      "B. Use of excessive current",
+      "C. Moisture pick up in the electrode covering",
+      "D. A bad batch of electrodes"
+    ],
+    "a": 2,
+    "exp": "Lapisan flux elektroda MMA dapat menyerap kelembapan apabila penyimpanan tidak dilakukan dengan benar. Saat elektroda digunakan, kelembapan tersebut akan terurai menjadi gas yang kemudian terperangkap di dalam logam las dan menghasilkan porositas.",
+    "w": {
+      "0": "Pemilihan elektroda yang salah dapat menyebabkan berbagai masalah kualitas, namun porositas berat yang terjadi secara luas lebih sering disebabkan oleh kelembapan pada flux elektroda.",
+      "1": "Arus yang terlalu tinggi dapat mempengaruhi bentuk manik las dan meningkatkan spatter, tetapi bukan penyebab utama terjadinya porositas berat pada MMA welding.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Walaupun memungkinkan terjadi, kasus seperti ini relatif jarang dibanding masalah kelembapan akibat penyimpanan elektroda yang tidak sesuai prosedur."
+    }
+  },
+  {
+    "q": "Slag inclusions may be present in:",
+    "t": "Pada proses pengelasan mana slag inclusion dapat ditemukan?",
+    "o": [
+      "A. Manual metal arc",
+      "B. Metal inert gas welds",
+      "C. Metal active gas welds",
+      "D. All welds"
+    ],
+    "a": 0,
+    "exp": "Slag inclusion terjadi ketika terak hasil pembakaran flux tidak dibersihkan dengan sempurna dan terjebak di dalam logam las. Karena MMA menggunakan elektroda berlapis flux yang menghasilkan slag, cacat ini sangat umum dikaitkan dengan proses tersebut.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Proses MIG menggunakan kawat polos dan gas pelindung tanpa menghasilkan slag sehingga slag inclusion pada kondisi normal tidak terjadi.",
+      "2": "MAG dengan kawat solid juga tidak menghasilkan lapisan slag seperti MMA sehingga slag inclusion bukan cacat yang umum ditemukan.",
+      "3": "Tidak semua proses pengelasan menghasilkan slag. Oleh karena itu tidak semua jenis weld dapat mengalami slag inclusion."
+    }
+  },
+  {
+    "q": "The main cause of undercut is:",
+    "t": "Apa penyebab utama terjadinya cacat undercut pada sambungan las?",
+    "o": [
+      "A. Excessive amps",
+      "B. Excessive OCV",
+      "C. Excessive travel speed",
+      "D. Current too low"
+    ],
+    "a": 0,
+    "exp": "Undercut terjadi ketika logam induk pada tepi sambungan meleleh tetapi tidak terisi kembali oleh logam las. Penyebab yang paling umum adalah arus pengelasan yang terlalu tinggi sehingga peleburan pada sisi sambungan menjadi berlebihan dan membentuk alur atau cekungan di sepanjang weld toe.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Open Circuit Voltage mempengaruhi kemudahan penyalaan dan kestabilan busur, tetapi bukan penyebab utama terbentuknya undercut.",
+      "2": "Travel speed yang terlalu tinggi memang dapat berkontribusi terhadap undercut karena logam las tidak sempat mengisi sisi sambungan dengan baik. Namun dalam materi CSWIP, penyebab utama yang paling sering dikaitkan dengan undercut adalah arus yang terlalu tinggi.",
+      "3": "Arus rendah biasanya menyebabkan lack of fusion, poor penetration, atau cold lap, bukan undercut yang disebabkan oleh peleburan berlebihan pada tepi sambungan."
+    }
+  },
+  {
+    "q": "Which group of welders is most likely to require continuous monitoring by a welding inspector?",
+    "t": "Kelompok welder manakah yang paling memerlukan pengawasan terus-menerus dari welding inspector selama pekerjaan berlangsung?",
+    "o": [
+      "A. Concrete shuttering welders",
+      "B. Overland pipeline welders",
+      "C. Tack welders",
+      "D. Maintenance welders"
+    ],
+    "a": 1,
+    "exp": "Pengelasan pipa transmisi atau overland pipeline biasanya termasuk pekerjaan kritis dengan persyaratan kualitas yang sangat ketat. Kegagalan sambungan dapat menyebabkan kebocoran produk, kerusakan lingkungan, kerugian ekonomi yang besar, dan risiko keselamatan. Oleh karena itu pekerjaan ini memerlukan pemantauan yang ketat terhadap parameter pengelasan, teknik pengelasan, kondisi lingkungan, dan kepatuhan terhadap WPS.",
+    "w": {
+      "0": "Pengelasan untuk shuttering atau cetakan beton umumnya tidak termasuk kategori sambungan berintegritas tinggi yang memerlukan pengawasan kontinu seperti pengelasan pipa transmisi.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Tack weld memang penting karena menjadi bagian dari sambungan akhir, namun tingkat pengawasan biasanya tidak seketat pekerjaan pipeline yang memiliki konsekuensi kegagalan sangat besar.",
+      "3": "Pekerjaan maintenance sangat bervariasi tergantung aplikasi. Meskipun beberapa pekerjaan maintenance dapat bersifat kritis, secara umum tidak memerlukan pengawasan berkelanjutan seperti pekerjaan pipeline."
+    }
+  },
+  {
+    "q": "Which of the following fillet welds is the strongest assuming they are all made using the same material and welded using the same WPS?",
+    "t": "Dengan asumsi material dan WPS yang digunakan sama, fillet weld manakah yang memiliki kekuatan terbesar?",
+    "o": [
+      "A. 8 mm throat of a mitre fillet",
+      "B. 7 mm leg + 2 mm excess weld metal",
+      "C. Mitre fillet with 10 mm leg",
+      "D. Concave fillet with 11 mm leg"
+    ],
+    "a": 0,
+    "exp": "Kekuatan fillet weld ditentukan oleh throat thickness efektif. Pada pilihan ini nilai throat telah diketahui sebesar 8 mm. Karena kekuatan sambungan berbanding lurus dengan luas throat efektif, maka pilihan dengan throat terbesar yang diketahui secara langsung merupakan yang terkuat.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Excess weld metal tidak secara signifikan menambah throat efektif. Tambahan logam las di atas ukuran teoritis sering kali hanya meningkatkan reinforcement dan bukan kekuatan utama sambungan.",
+      "2": "Throat teoritis fillet mitre sekitar 0,707 × leg length. Dengan leg 10 mm diperoleh throat sekitar 7,1 mm yang masih lebih kecil dari throat 8 mm pada pilihan A.",
+      "3": "Profil concave menghasilkan throat yang lebih kecil dibanding fillet mitre dengan leg yang sama sehingga belum tentu melebihi throat efektif 8 mm."
+    }
+  },
+  {
+    "q": "A typical included angle for MMA welding a full penetration pipe butt joint is:",
+    "t": "Berapa sudut bevel total (included angle) yang umumnya digunakan untuk sambungan pipa full penetration dengan proses MMA?",
+    "o": [
+      "A. 35°",
+      "B. 70°",
+      "C. 90°",
+      "D. Dependent on the pipe diameter"
+    ],
+    "a": 1,
+    "exp": "Pada praktik umum MMA welding untuk butt joint pipa, sudut bevel sekitar 30–35° per sisi sehingga menghasilkan included angle sekitar 60–70°. Nilai 70° merupakan angka yang paling umum digunakan dalam soal-soal CSWIP.",
+    "w": {
+      "0": "Nilai ini biasanya merupakan bevel angle per sisi, bukan included angle total sambungan.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Sudut ini terlalu besar untuk sebagian besar sambungan butt weld pipa dan akan meningkatkan volume logam las yang diperlukan.",
+      "3": "Diameter pipa memang dapat mempengaruhi desain sambungan tertentu, tetapi included angle tipikal tetap berada pada kisaran standar tertentu."
+    }
+  },
+  {
+    "q": "A fillet weld has an actual throat thickness of 8 mm and leg length of 7 mm, what is the excess weld metal?",
+    "t": "Sebuah fillet weld memiliki actual throat thickness 8 mm dan leg length 7 mm. Berapa besar excess weld metal yang dimiliki weld tersebut?",
+    "o": [
+      "A. 2.1 mm",
+      "B. 1.8 mm",
+      "C. 3.1 mm",
+      "D. 1.4 mm"
+    ],
+    "a": 2,
+    "exp": "Theoretical throat = 0,707 × 7 = 4,95 mm Excess weld metal = Actual throat − Theoretical throat = 8 − 4,95 = 3,05 mm ≈ 3,1 mm",
+    "w": {
+      "0": "Nilai ini tidak sesuai dengan hasil perhitungan berdasarkan throat aktual dan throat teoritis.",
+      "1": "Terlalu kecil dibanding selisih sebenarnya antara actual throat dan theoretical throat.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Tidak sesuai dengan rumus dasar perhitungan excess weld metal pada fillet weld."
+    }
+  },
+  {
+    "q": "The fusion boundary of a fillet weld is the:",
+    "t": "Apa yang dimaksud dengan fusion boundary pada fillet weld?",
+    "o": [
+      "A. Boundary between the weld metal and HAZ",
+      "B. Boundary between individual weld runs",
+      "C. Depth of root penetration",
+      "D. Boundary between the HAZ and parent material"
+    ],
+    "a": 0,
+    "exp": "Fusion boundary adalah garis batas tempat logam las yang meleleh bertemu dengan daerah yang mengalami pengaruh panas (HAZ). Area ini merupakan lokasi penting karena sering menjadi titik evaluasi pada pemeriksaan makro.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Batas antar lapisan las disebut inter-run boundary atau weld run boundary, bukan fusion boundary.",
+      "2": "Root penetration adalah ukuran kedalaman penetrasi dan bukan suatu batas metalurgi.",
+      "3": "Batas ini disebut HAZ boundary dan berbeda dengan fusion boundary."
+    }
+  },
+  {
+    "q": "If a welding inspector detects a type of imperfection not allowed by the application standard he must:",
+    "t": "Apa tindakan yang harus dilakukan inspector apabila menemukan cacat yang tidak diizinkan oleh application standard?",
+    "o": [
+      "A. Request further NDE",
+      "B. Reject the weld",
+      "C. Prepare a concession request",
+      "D. Reject the weld if he considers it to be harmful"
+    ],
+    "a": 1,
+    "exp": "Inspector harus bekerja berdasarkan acceptance criteria yang tercantum dalam kode atau standar. Jika suatu cacat tidak diperbolehkan oleh standar yang berlaku, maka sambungan harus ditolak tanpa mempertimbangkan pendapat pribadi mengenai tingkat bahayanya.",
+    "w": {
+      "0": "Pemeriksaan tambahan mungkin diperlukan dalam situasi tertentu, tetapi jika cacat sudah jelas melebihi acceptance criteria maka weld tetap harus ditolak.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Concession hanya dapat diproses oleh pihak yang berwenang dan bukan tindakan utama seorang inspector ketika menemukan cacat yang tidak memenuhi standar.",
+      "3": "Keputusan tidak didasarkan pada opini pribadi inspector tetapi pada persyaratan yang tercantum dalam standar."
+    }
+  },
+  {
+    "q": "The majority of welder qualification tests are carried out using unbacked joints, because:",
+    "t": "Mengapa sebagian besar welder qualification test menggunakan sambungan tanpa backing (unbacked joint)?",
+    "o": [
+      "A. It is quicker and cheaper if back gouging is not required",
+      "B. If the welding process is not TIG back purge is not required",
+      "C. All welder qualification tests are done on small diameter pipe",
+      "D. It requires more skill and increases the welder’s qualification range"
+    ],
+    "a": 3,
+    "exp": "Pengelasan tanpa backing lebih sulit dilakukan karena welder harus mampu menghasilkan root yang baik tanpa bantuan penyangga. Karena tingkat kesulitannya lebih tinggi, hasil kualifikasi biasanya memberikan rentang kualifikasi yang lebih luas.",
+    "w": {
+      "0": "Tujuan utama qualification test bukan penghematan biaya tetapi pembuktian kemampuan welder.",
+      "1": "Pernyataan ini tidak berkaitan dengan alasan penggunaan unbacked joint dalam qualification test.",
+      "2": "Banyak qualification test dilakukan pada plate maupun pipa dengan berbagai ukuran.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "Deflection of the arc by magnetic forces that can make welding difficult to control is commonly known as:",
+    "t": "Apa istilah untuk penyimpangan busur las akibat pengaruh medan magnet?",
+    "o": [
+      "A. Arc initiation",
+      "B. Arc misalignment",
+      "C. Arc blow",
+      "D. Arc constriction"
+    ],
+    "a": 2,
+    "exp": "Arc blow terjadi ketika medan magnet menyebabkan busur menyimpang dari jalur yang diinginkan sehingga pengelasan menjadi sulit dikendalikan dan dapat menimbulkan cacat.",
+    "w": {
+      "0": "Mengacu pada proses penyalaan busur, bukan penyimpangan akibat medan magnet.",
+      "1": "Bukan istilah teknis yang umum digunakan untuk fenomena ini.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Mengacu pada penyempitan kolom busur dan bukan penyimpangan arah busur."
+    }
+  },
+  {
+    "q": "Which of the following electrode types is classified to EN ISO 2560?",
+    "t": "Klasifikasi elektroda manakah yang menggunakan sistem EN ISO 2560?",
+    "o": [
+      "A. E 38 3 R",
+      "B. E 6013",
+      "C. E 7018 – G",
+      "D. E 51 33 B"
+    ],
+    "a": 3,
+    "exp": "Format klasifikasi EN ISO 2560 menggunakan kombinasi huruf dan angka seperti E 51 33 B yang menunjukkan sifat mekanik, ketangguhan, dan jenis pelapisan elektroda.",
+    "w": {
+      "0": "Mengacu pada sistem klasifikasi EN lama dan bukan format EN ISO 2560 yang biasa digunakan dalam soal CSWIP terbaru.",
+      "1": "Merupakan klasifikasi menurut sistem AWS.",
+      "2": "Juga merupakan klasifikasi AWS untuk elektroda SMAW.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "You notice that MMA electrodes with the flux covering removed are being used as filler rods for TIG welding. This should not be allowed because:",
+    "t": "Mengapa elektroda MMA yang flux-nya dilepas tidak boleh digunakan sebagai filler rod untuk TIG welding?",
+    "o": [
+      "A. It is wasteful",
+      "B. The rod diameter may be too large",
+      "C. The weld metal composition may be wrong",
+      "D. The rod is too short"
+    ],
+    "a": 2,
+    "exp": "Komposisi kimia logam las pada elektroda MMA tidak hanya berasal dari core wire tetapi juga dari unsur-unsur yang terdapat dalam flux coating. Setelah flux dihilangkan, komposisi logam las yang dihasilkan tidak lagi sesuai dengan yang dirancang oleh pabrikan.",
+    "w": {
+      "0": "Masalah utamanya bukan pemborosan tetapi ketidaksesuaian metalurgi.",
+      "1": "Diameter dapat dipotong atau dipilih sesuai kebutuhan dan bukan alasan utama larangan tersebut.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Panjang filler rod bukan faktor utama yang mempengaruhi kualitas logam las."
+    }
+  },
+  {
+    "q": "In TIG welding a current slope out device reduces:",
+    "t": "Apa fungsi utama current slope out pada TIG welding?",
+    "o": [
+      "A. Tungsten spatter",
+      "B. Risk of crater cracking",
+      "C. Risk of arc strike",
+      "D. Interpass temperature"
+    ],
+    "a": 1,
+    "exp": "Slope out menurunkan arus secara bertahap di akhir pengelasan sehingga kawah las dapat terisi dengan baik dan risiko terbentuknya crater crack dapat dikurangi secara signifikan.",
+    "w": {
+      "0": "TIG tidak menghasilkan spatter seperti proses MIG atau MMA.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Arc strike berkaitan dengan teknik penyalaan dan penghentian busur, bukan fungsi utama slope out.",
+      "3": "dikontrol melalui prosedur pengelasan dan waktu pendinginan, bukan oleh slope out."
+    }
+  },
+  {
+    "q": "Which type of power source characteristic is normally used for manual welding?",
+    "t": "Jenis karakteristik sumber tenaga las apa yang umumnya digunakan pada proses pengelasan manual seperti MMA welding?",
+    "o": [
+      "A. Constant voltage (flat characteristic) MIG, MAG, SAW, FCAW",
+      "B. Flat characteristic",
+      "C. Constant current (drooping characteristic)",
+      "D. A motor generator"
+    ],
+    "a": 2,
+    "exp": "Pada pengelasan manual, panjang busur selalu berubah-ubah karena dikendalikan oleh welder. Oleh karena itu digunakan power source dengan karakteristik constant current (drooping characteristic) agar perubahan panjang busur tidak menyebabkan perubahan arus yang besar. Dengan demikian busur tetap stabil dan kualitas pengelasan lebih mudah dikontrol.",
+    "w": {
+      "0": "Karakteristik constant voltage umumnya digunakan pada proses semi otomatis atau otomatis yang menggunakan wire feed kontinu seperti MIG, MAG, FCAW, dan sebagian SAW. Sistem ini dirancang agar perubahan panjang busur menghasilkan perubahan arus yang cepat untuk menstabilkan busur secara otomatis.",
+      "1": "merupakan istilah lain untuk constant voltage dan bukan karakteristik yang lazim digunakan pada pengelasan manual MMA.",
+      "2": "Jawaban ini benar sesuai pembahasan.",
+      "3": "Motor generator adalah jenis mesin las, bukan karakteristik output sumber tenaga las. Sebuah motor generator dapat memiliki karakteristik output yang berbeda tergantung desainnya."
+    }
+  },
+  {
+    "q": "In MMA welding penetration is principally controlled by:",
+    "t": "Pada proses MMA welding, faktor utama yang mengendalikan kedalaman penetrasi adalah apa?",
+    "o": [
+      "A. Arc voltage",
+      "B. Welding speed",
+      "C. Ferro silicon in the electrode coating",
+      "D. Current"
+    ],
+    "a": 3,
+    "exp": "Arus pengelasan merupakan faktor yang paling berpengaruh terhadap penetrasi. Semakin tinggi arus, semakin besar energi panas yang masuk ke sambungan sehingga penetrasi menjadi lebih dalam. Oleh karena itu pengaturan arus merupakan cara utama untuk mengontrol kedalaman penetrasi pada MMA welding.",
+    "w": {
+      "0": "Tegangan busur terutama mempengaruhi panjang busur dan lebar manik las. Pengaruhnya terhadap penetrasi tidak sebesar arus pengelasan.",
+      "1": "Kecepatan pengelasan memang mempengaruhi heat input dan bentuk manik las, tetapi faktor utama yang menentukan penetrasi tetaplah arus pengelasan.",
+      "2": "Ferro silicon berfungsi sebagai deoxidizer dan membantu kualitas logam las, bukan sebagai pengontrol utama penetrasi.",
+      "3": "Jawaban ini benar sesuai pembahasan."
+    }
+  },
+  {
+    "q": "The chemical composition of weld metal deposited by a C-Mn steel MMA electrode is usually controlled by:",
+    "t": "Komposisi kimia logam las yang dihasilkan oleh elektroda MMA baja karbon-mangan biasanya dikendalikan oleh apa?",
+    "o": [
+      "A. Core wire composition",
+      "B. Additions in the flux coating",
+      "C. Iron powder in the flux coating",
+      "D. Dilution from the base material"
+    ],
+    "a": 1,
+    "exp": "Pada elektroda MMA, komposisi akhir logam las banyak dipengaruhi oleh unsur paduan yang ditambahkan ke dalam flux coating. Selama proses pengelasan, unsur-unsur tersebut akan masuk ke weld pool dan membantu menghasilkan sifat mekanik serta komposisi kimia yang diinginkan.",
+    "w": {
+      "0": "Core wire memang memberikan kontribusi terhadap komposisi logam las, tetapi pada elektroda MMA baja C-Mn, pengendalian utama komposisi biasanya dilakukan melalui penambahan unsur dalam flux coating.",
+      "1": "Jawaban ini benar sesuai pembahasan.",
+      "2": "Iron powder ditambahkan terutama untuk meningkatkan deposition rate dan efisiensi pengelasan, bukan untuk mengontrol komposisi kimia utama logam las.",
+      "3": "Dilution mempengaruhi komposisi akhir sampai batas tertentu, namun bukan metode utama yang digunakan produsen elektroda untuk mengontrol komposisi logam las."
+    }
+  },
+  {
+    "q": "Silicon is added to steel and covering of MMA electrodes to:",
+    "t": "Mengapa unsur silikon ditambahkan ke dalam baja dan pelapis elektroda MMA?",
+    "o": [
+      "A. Provide deoxidation",
+      "B. Improve strength (carbon)",
+      "C. Improve toughness (manganese)",
+      "D. Provide more resistance to hydrogen cracking"
+    ],
+    "a": 0,
+    "exp": "Silikon merupakan unsur deoxidizer yang sangat efektif. Selama proses pengelasan, silikon bereaksi dengan oksigen yang terdapat di dalam weld pool sehingga membantu mengurangi pembentukan oksida dan porositas. Dengan berkurangnya kandungan oksigen, kualitas logam las menjadi lebih baik dan sifat mekaniknya dapat dipertahankan.",
+    "w": {
+      "0": "Jawaban ini benar sesuai pembahasan.",
+      "1": "Karbon adalah unsur utama yang meningkatkan kekuatan dan kekerasan baja. Fungsi utama silikon bukan untuk menggantikan peran karbon dalam meningkatkan kekuatan.",
+      "2": "Manganese lebih dikenal sebagai unsur yang membantu meningkatkan toughness serta mengurangi pengaruh sulfur. Fungsi utama silikon bukanlah meningkatkan toughness.",
+      "3": "Ketahanan terhadap hydrogen cracking lebih dipengaruhi oleh kontrol hidrogen, preheat, carbon equivalent, dan struktur mikro. Silikon bukan unsur utama yang ditambahkan untuk tujuan tersebut."
+    }
+  }
+];
+let cur=0,start=0,score=0,ans={},detail={};
+
+
+function updateTopStats(){
+ let correct=0,falsev=0,blank=0;
+ for(let i=0;i<qs.length;i++){
+   if(ans[i]===undefined) blank++;
+   else if(ans[i]===qs[i].a) correct++;
+   else falsev++;
+ }
+ const pct=Math.round((correct/qs.length)*100)||0;
+ const c=document.getElementById('correctCnt'); if(c) c.innerText=correct;
+ const f=document.getElementById('falseCnt'); if(f) f.innerText=falsev;
+ const b=document.getElementById('blankCnt'); if(b) b.innerText=blank;
+ const p=document.getElementById('pctTop'); if(p) p.innerText=pct;
+
+ let h='';
+ let pageStart=Math.floor(cur/10)*10;
+ for(let i=pageStart;i<Math.min(pageStart+10,qs.length);i++){
+   let cls='num ';
+   if(ans[i]==undefined) cls+='unanswered';
+   else cls+=(ans[i]==qs[i].a?'correct':'wrong');
+   if(i==cur) cls+=' current';
+   h+=`<button class="${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
+ }
+ const nav=document.getElementById('navTop');
+ if(nav) nav.innerHTML=h;
+}
+
+function renderNav(){
+ let h="";
+ for(let i=start;i<Math.min(start+10,qs.length);i++){
+   let cls="num ";
+   if(ans[i]==undefined) cls+="unanswered";
+   else cls+=(ans[i]==qs[i].a?"correct":"wrong");
+   if(i==cur) cls+=" current";
+   h+=`<button class="${cls}" onclick="gotoQ(${i})">${i+1}</button>`;
+ }
+ const navEl=document.getElementById("nav"); if(navEl) navEl.innerHTML=h;
+}
+
+function draw(){
+ const total=qs.length;
+ const imgBlock=qs[cur].img?`<div style="text-align:center;margin:10px 0"><img src="${qs[cur].img}" style="max-width:100%;max-height:380px;border:1px solid #ccc;border-radius:6px;padding:6px;background:#fff"></div>`:"";
+ document.getElementById("question").innerHTML=`<div class="q-header"><div class="q-num-badge">${cur+1}</div><h3 style="margin:0;font-size:16px;line-height:1.5">${qs[cur].q}</h3></div>${imgBlock}`;
+ document.getElementById("options").innerHTML=qs[cur].o.map((x,i)=>`<button class='option' onclick='pick(${i})'>${x}</button>`).join("");
+ document.getElementById("result").innerHTML=detail[cur]||"";
+ renderNav();updateTopStats();
+}
+
+function pick(i){
+ if(ans[cur]==undefined){ans[cur]=i;if(i==qs[cur].a)score++;}
+ const q=qs[cur];
+ const keys=['A','B','C','D','E','F'];
+ const isCorrect=(i==q.a);
+
+ // Build chosen wrong answer block (only if wrong)
+ let chosenWrongBlock='';
+ if(!isCorrect){
+  const chosenText=q.o[i].replace(/^[A-F]\.\s*/,'');
+  const chosenReason=q.w&&q.w[i]?q.w[i]:'Bukan jawaban yang paling tepat untuk konteks ini.';
+  chosenWrongBlock=`
+  <div style="background:#fff0f0;border-left:4px solid #dc3545;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#dc3545;margin-bottom:4px">❌ Jawaban Anda Salah: ${keys[i]}. ${chosenText}</div>
+   <div style="color:#666;font-size:13px">${chosenReason}</div>
+  </div>`;
+ }
+
+ // Correct answer block
+ const correctBlock=`
+  <div style="background:#f0fff4;border-left:4px solid #28a745;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#28a745;margin-bottom:4px">✅ Jawaban Benar: ${q.o[q.a]}</div>
+   <div style="color:#333;font-size:13px">${q.exp}</div>
+  </div>`;
+
+ // Remaining wrong options (excluding chosen and correct)
+ let remainingRows='';
+ q.o.forEach((opt,idx)=>{
+  if(idx===q.a) return;
+  if(!isCorrect && idx===i) return; // already shown above
+  const label=keys[idx];
+  const reason=q.w&&q.w[idx]?q.w[idx]:'Bukan jawaban yang paling tepat untuk konteks ini.';
+  const optText=opt.replace(/^[A-F]\.\s*/,'');
+  remainingRows+=`<div style="padding:6px 14px;border-top:1px solid #eee">
+   <span style="font-weight:bold;color:#dc3545">${label}. ${optText}</span><br>
+   <span style="color:#888;font-size:13px">${reason}</span>
+  </div>`;
+ });
+
+ const remainingBlock=remainingRows?`
+  <div style="background:#fff8f8;padding:6px 0">
+   <div style="padding:6px 14px;font-weight:bold;color:#dc3545;font-size:13px">Opsi lain yang salah:</div>
+   ${remainingRows}
+  </div>`:'';
+
+ const translationBlock=q.t?`
+  <div style="background:#fffde7;border-left:4px solid #f9a825;padding:10px 14px;margin-bottom:0">
+   <div style="font-weight:bold;color:#f57f17;margin-bottom:3px;font-size:12px">📝 ARTI / MAKSUD SOAL:</div>
+   <div style="color:#444;font-size:13px;font-style:italic">${q.t}</div>
+  </div>`:'';
+
+ detail[cur]=`
+ <div style="border:1px solid #ccc;border-radius:6px;overflow:hidden;margin-top:10px">
+  <div style="background:${isCorrect?'#d4edda':'#f8d7da'};padding:8px 14px;font-size:15px;font-weight:bold">
+   ${isCorrect?'✅ BENAR':'❌ SALAH'}
+  </div>
+  ${translationBlock}
+  ${chosenWrongBlock}
+  ${correctBlock}
+  ${remainingBlock}
+ </div>`;
+ draw();
+}
+
+function gotoQ(i){cur=i;draw();}
+function pageNext(){if(start+10<qs.length){start+=10;renderNav();updateTopStats();}}
+function pagePrev(){if(start-10>=0){start-=10;renderNav();updateTopStats();}}
+
+function prevQ(){if(cur>0){cur--;if(cur<start)start-=10;draw();}}
+function nextQ(){
+ if(cur<qs.length-1){cur++;if(cur>=start+10)start+=10;draw();}
+ else review();
+}
+
+function review(){
+ const total=qs.length;
+ const pct=Math.round(score/total*100);
+ const pass=pct>=70;
+ const keys=['A','B','C','D','E','F'];
+ let h=`<div class='review-box'>
+  <h2 style="color:#1a73e8;margin-bottom:16px">REVIEW ALL QUESTION</h2>`;
+
+ qs.forEach((q,i)=>{
+  const userAns=ans[i];
+  const correct=q.a;
+  const isCorrect=(userAns===correct);
+  const unanswered=(userAns===undefined);
+
+  let ansBlock='';
+  if(unanswered){
+   ansBlock=`<div style="color:#888;font-style:italic;margin-top:6px">Belum dijawab</div>
+   <div style="margin-top:6px;background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px">
+    <b style="color:#28a745">✅ Jawaban Benar: ${q.o[correct]}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  } else if(isCorrect){
+   ansBlock=`<div style="background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px;margin-top:6px">
+    <b style="color:#28a745">✅ Jawaban Anda Benar: ${q.o[correct]}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  } else {
+   const wrongReason=q.w&&q.w[userAns]?q.w[userAns]:'Bukan jawaban yang paling tepat.';
+   ansBlock=`
+   <div style="background:#fff0f0;border-left:3px solid #dc3545;padding:8px 12px;margin-top:6px">
+    <b style="color:#dc3545">❌ Jawaban Anda Salah: ${q.o[userAns]}</b><br>
+    <span style="font-size:13px;color:#666">${wrongReason}</span>
+   </div>
+   <div style="background:#f0fff4;border-left:3px solid #28a745;padding:8px 12px;margin-top:6px">
+    <b style="color:#28a745">✅ Jawaban Benar: ${q.o[correct]}</b><br>
+    <span style="font-size:13px;color:#333">${q.exp}</span>
+   </div>`;
+  }
+
+  const reviewTransBlock=q.t?`<div style="background:#fffde7;border-left:3px solid #f9a825;padding:6px 10px;margin:4px 0 6px;border-radius:3px"><span style="font-size:11px;font-weight:bold;color:#f57f17">📝 Arti soal: </span><span style="font-size:12px;color:#555;font-style:italic">${q.t}</span></div>`:'';
+  const reviewImgBlock=q.img?`<div style="text-align:center;margin:6px 0"><img src="${q.img}" style="max-width:100%;max-height:280px;border:1px solid #ccc;border-radius:6px;padding:4px;background:#fff"></div>`:'';
+  h+=`<div style="background:#fff;border:1px solid #ddd;border-radius:6px;padding:14px;margin-bottom:14px">
+   <div style="display:flex;align-items:flex-start;gap:10px">
+    <div style="background:${isCorrect?'#28a745':unanswered?'#aaa':'#dc3545'};color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0;font-size:13px">${i+1}</div>
+    <div style="flex:1">
+     <div style="font-weight:bold;font-size:14px;margin-bottom:2px">SOAL: ${q.q}</div>
+     ${reviewTransBlock}
+     ${reviewImgBlock}
+     ${ansBlock}
+    </div>
+   </div>
+  </div>`;
+ });
+
+ h+=`<div style="text-align:center;padding:20px;background:${pass?'#d4edda':'#f8d7da'};border-radius:8px;margin-top:10px">
+  <div style="font-size:22px;font-weight:bold;color:${pass?'#155724':'#721c24'}">
+   NILAI AKHIR: ${score}/${total} &nbsp; (${pct}%)
+  </div>
+  <div style="font-size:16px;margin-top:8px;color:${pass?'#155724':'#721c24'}">
+   ${pass?'🎉 LULUS — Passing Grade 70% Tercapai!':'😞 TIDAK LULUS — Passing Grade 70% Belum Tercapai'}
+  </div>
+  <div style="font-size:13px;color:#555;margin-top:6px">Passing Grade: 70% (${Math.ceil(total*0.7)} dari ${total} soal harus benar)</div>
+ </div>
+</div>`;
+ document.getElementById("review").innerHTML=h;
+ document.getElementById("review").scrollIntoView({behavior:'smooth'});
+}
+draw();
+</script>
+</body>
+</html>
